@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d111871f-b4ca-41b0-857b-829cd037bf7d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment0/CS8395 Assignment 0.docx" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment0/CS8395 Assignment 0.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/homework/assignment0/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment0/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/data/test/125.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/data/validation/120.jpg" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,10 +20,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/homework/assignment0/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="153" column="58" selection-start-line="153" selection-start-column="58" selection-end-line="153" selection-end-column="58" />
+            <state relative-caret-position="275">
+              <caret line="184" column="76" selection-start-line="184" selection-start-column="76" selection-end-line="184" selection-end-column="76" />
               <folding>
-                <element signature="e#0#37#0" expanded="true" />
+                <element signature="e#22#59#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -80,6 +84,19 @@
               <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
               <item name="homework" type="462c0819:PsiDirectoryNode" />
               <item name="assignment0" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
+              <item name="homework" type="462c0819:PsiDirectoryNode" />
+              <item name="assignment1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
+              <item name="homework" type="462c0819:PsiDirectoryNode" />
+              <item name="assignment1" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -169,9 +186,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2494043" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2494043" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -193,10 +209,10 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/homework/assignment0/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="153" column="58" selection-start-line="153" selection-start-column="58" selection-end-line="153" selection-end-column="58" />
+        <state relative-caret-position="275">
+          <caret line="184" column="76" selection-start-line="184" selection-start-column="76" selection-end-line="184" selection-end-column="76" />
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#22#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
