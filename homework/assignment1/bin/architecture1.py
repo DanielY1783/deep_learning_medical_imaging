@@ -188,7 +188,7 @@ def main():
     parser.add_argument('--log-interval', type=int, default=10, metavar='N',
                         help='how many batches to wait before logging training status')
 
-    parser.add_argument('--save-model', action='store_true', default=False,
+    parser.add_argument('--save-model', action='store_true', default=True,
                         help='For Saving the current Model')
     args = parser.parse_args()
     # Command to use gpu depending on command line arguments and if there is a cuda device
@@ -223,7 +223,7 @@ def main():
 
     # Save model if specified by the command line argument
     if args.save_model:
-        torch.save(model.state_dict(), "mnist_cnn.pt")
+        torch.save(model.state_dict(), "architecture1.pt")
 
 
 if __name__ == '__main__':
