@@ -1,0 +1,5 @@
+https://pytorch.org/tutorials/beginner/data_loading_tutorial.html
+-Loading in data
+
+https://towardsdatascience.com/facial-keypoint-detection-detect-relevant-features-of-face-in-a-go-using-cnn-your-own-dataset-e09cf359c2bc
+-keypoint detection tricks
