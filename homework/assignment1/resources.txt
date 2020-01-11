@@ -3,3 +3,7 @@ https://pytorch.org/tutorials/beginner/data_loading_tutorial.html
 
 https://towardsdatascience.com/facial-keypoint-detection-detect-relevant-features-of-face-in-a-go-using-cnn-your-own-dataset-e09cf359c2bc
 -keypoint detection tricks
+
+https://stackoverflow.com/questions/15991968/interactive-plotting-with-python-via-command-line
+https://stackoverflow.com/questions/53623472/how-do-i-display-a-single-image-in-pytorch
+-Image display
