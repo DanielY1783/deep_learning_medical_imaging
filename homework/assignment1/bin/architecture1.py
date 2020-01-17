@@ -1,8 +1,10 @@
 # Imports for Pytorch
 from __future__ import print_function
 import argparse
+from matplotlib import pyplot as plt
 import numpy as np
 import pandas as pd
+from PIL import Image
 import os
 import torch
 from torch.utils.data import Dataset, DataLoader
@@ -12,6 +14,9 @@ import torch.optim as optim
 from torchvision import datasets, transforms
 from torch.optim.lr_scheduler import StepLR
 from skimage import io, transform
+
+# Constants
+MODEL_NAME = "architecture1.pt"
 
 # Class for the dataset
 class DetectionImages(Dataset):
@@ -52,13 +57,15 @@ class ToTensor(object):
 
     def __call__(self, sample):
         image, label = sample['image'], sample['label']
-
+        in_transform = transforms.Compose([transforms.Normalize([146.5899, 142.5595, 139.0785], [34.5019, 34.8481, 37.1137])])
         # swap color axis because
         # numpy image: H x W x C
         # torch image: C X H X W
         image = image.transpose((2, 0, 1))
+        image = torch.from_numpy(image).float()
+        image = in_transform(image)
         label = label.reshape(-1)
-        return {'image': torch.from_numpy(image),
+        return {'image': image,
                 'label': torch.from_numpy(label)}
 
 # Define the neural network
@@ -72,11 +79,16 @@ class Net(nn.Module):
         # Second convolutional layer has 30 input channels, 30 output channels,
         # a 3x3 square kernel, and a stride of 1.
         self.conv2 = nn.Conv2d(15, 30, 3, 1)
+        # self.conv3 = nn.Conv2d(15, 30, 3, 1)
+        # self.conv4 = nn.Conv2d(15, 30, 3, 1)
         # Dropout is performed twice in the network,
         # with the first time set to 0.25 and the
         # second time set to 0.5.
-        self.dropout1 = nn.Dropout2d(0.25)
-        self.dropout2 = nn.Dropout2d(0.5)
+        self.dropout1 = nn.Dropout2d(0.1)
+        self.dropout2 = nn.Dropout2d(0.2)
+        # self.dropout3 = nn.Dropout2d(0.3)
+        # self.dropout4 = nn.Dropout2d(0.4)
+        # self.dropout5 = nn.Dropout2d(0.5)
         # Two fully connected layers. Input is 2347380 because 243x161x60
         # as shown in the forward part.
         self.fc1 = nn.Linear(290400, 128)
@@ -112,9 +124,11 @@ class Net(nn.Module):
         return output
 
 
-def train(args, model, device, train_loader, optimizer, epoch):
+def train(args, model, device, train_loader, optimizer, epoch, train_losses):
     # Specify that we are in training phase
     model.train()
+    # Total Train Loss
+    total_loss = 0
     # Iterate through all minibatches.
     for batch_idx, batch_sample in enumerate(train_loader):
         # Send training data and the training labels to GPU/CPU
@@ -125,18 +139,21 @@ def train(args, model, device, train_loader, optimizer, epoch):
         output = model(data)
         # Compute the mean squared error for loss
         loss = F.mse_loss(output, target)
+        total_loss += loss.item()
         # Perform backward propagation to compute the negative gradient, and
         # update the gradients with optimizer.step()
         loss.backward()
         optimizer.step()
-        # Send output to log if logging is needed
-        if batch_idx % args.log_interval == 0:
-            print('Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}'.format(
-                epoch, batch_idx * len(data), len(train_loader.dataset),
-                100. * batch_idx / len(train_loader), loss.item()))
+    # Update training error and add to accumulation of training loss over time.
+    train_error = total_loss / len(train_loader.dataset)
+    train_losses.append(train_error)
+    # Print output if epoch is finished
+    print('Train Epoch: {} \tAverage Loss: {:.6f}'.format(epoch, train_error))
+    # Return accumulated losses
+    return train_losses
 
 
-def test(args, model, device, test_loader):
+def test(args, model, device, test_loader, test_losses):
     # Specify that we are in evaluation phase
     model.eval()
     # Set the loss initially to 0.
@@ -155,12 +172,16 @@ def test(args, model, device, test_loader):
             output = model(data)
             test_loss += F.mse_loss(output, target).item()
 
-    # Average the loss by dividing by the total number of testing instances.
-    test_loss /= len(test_loader.dataset)
+    # Average the loss by dividing by the total number of testing instances and add to accumulation of losses.
+    test_error = test_loss / len(test_loader.dataset)
+    test_losses.append(test_error)
 
     # Print out the statistics for the testing set.
-    print('\nTest set: Average loss: {:.4f}\n'.format(
-        test_loss))
+    print('\nTest set: Average loss: {:.6f}\n'.format(
+        test_error))
+
+    # Return accumulated test losses over epochs
+    return test_losses
 
 
 def main():
@@ -171,23 +192,20 @@ def main():
     # random seed, how often to log, and
     # whether we should save the model.
     parser = argparse.ArgumentParser(description='PyTorch Object Detection')
-    parser.add_argument('--batch-size', type=int, default=8, metavar='N',
-                        help='input batch size for training (default: 8)')
+    parser.add_argument('--batch-size', type=int, default=16, metavar='N',
+                        help='input batch size for training (default: 32)')
     parser.add_argument('--test-batch-size', type=int, default=1000, metavar='N',
                         help='input batch size for testing (default: 1000)')
     parser.add_argument('--epochs', type=int, default=14, metavar='N',
                         help='number of epochs to train (default: 14)')
-    parser.add_argument('--lr', type=float, default=1.0, metavar='LR',
-                        help='learning rate (default: 1.0)')
-    parser.add_argument('--gamma', type=float, default=0.7, metavar='M',
-                        help='Learning rate step gamma (default: 0.7)')
+    parser.add_argument('--lr', type=float, default=0.001, metavar='LR',
+                        help='learning rate (default: 0.001)')
+    parser.add_argument('--gamma', type=float, default=0.9, metavar='M',
+                        help='Learning rate step gamma (default: 0.9)')
     parser.add_argument('--no-cuda', action='store_true', default=False,
                         help='disables CUDA training')
     parser.add_argument('--seed', type=int, default=1, metavar='S',
                         help='random seed (default: 1)')
-    parser.add_argument('--log-interval', type=int, default=10, metavar='N',
-                        help='how many batches to wait before logging training status')
-
     parser.add_argument('--save-model', action='store_true', default=True,
                         help='For Saving the current Model')
     args = parser.parse_args()
@@ -206,24 +224,36 @@ def main():
     train_data = DetectionImages(csv_file="../data/labels/train_labels.txt", root_dir="../data/train", transform=ToTensor())
     train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=0)
     test_data = DetectionImages(csv_file="../data/labels/validation_labels.txt", root_dir="../data/validation", transform=ToTensor())
-    test_loader = DataLoader(test_data, batch_size=args.test_batch_size, shuffle=True, num_workers=0)
+    test_loader = DataLoader(test_data, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
 
     # Run model on GPU if available
     model = Net().to(device)
     # Specify Adadelta optimizer
-    optimizer = optim.Adadelta(model.parameters(), lr=args.lr)
+    optimizer = optim.Adam(model.parameters(), lr=args.lr)
 
+    # Store the training and testing losses over time
+    train_losses = []
+    test_losses = []
     # Run for the set number of epochs. For each epoch, run the training
     # and the testing steps. Scheduler is used to specify the learning rate.
     scheduler = StepLR(optimizer, step_size=1, gamma=args.gamma)
     for epoch in range(1, args.epochs + 1):
-        train(args, model, device, train_loader, optimizer, epoch)
-        test(args, model, device, test_loader)
+        train_losses = train(args, model, device, train_loader, optimizer, epoch, train_losses)
+        test_losses = test(args, model, device, test_loader, test_losses)
         scheduler.step()
 
     # Save model if specified by the command line argument
     if args.save_model:
-        torch.save(model.state_dict(), "architecture1.pt")
+        torch.save(model.state_dict(), MODEL_NAME)
+
+    # Display the learning curve
+    figure, axes = plt.subplots()
+    axes.set(xlabel="Epoch", ylabel="Loss", title="Learning Curve")
+    axes.plot(np.array(train_losses), label="train_loss", c="b")
+    axes.plot(np.array(test_losses), label="validation_loss", c="r")
+    plt.legend()
+    plt.show()
+    plt.close()
 
 
 if __name__ == '__main__':
