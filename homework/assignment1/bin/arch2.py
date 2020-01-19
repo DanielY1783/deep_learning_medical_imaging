@@ -4,7 +4,6 @@ import argparse
 from matplotlib import pyplot as plt
 import numpy as np
 import pandas as pd
-from PIL import Image
 import os
 import torch
 from torch.utils.data import Dataset, DataLoader

@@ -15,7 +15,7 @@ from torch.optim.lr_scheduler import StepLR
 from skimage import io, transform
 
 # Constants
-MODEL_NAME = "network1.pt"
+MODEL_NAME = "network4.pt"
 
 # Class for the dataset
 class DetectionImages(Dataset):
@@ -56,7 +56,8 @@ class ToTensor(object):
 
     def __call__(self, sample):
         image, label = sample['image'], sample['label']
-        in_transform = transforms.Compose([transforms.Normalize([146.5899, 142.5595, 139.0785], [34.5019, 34.8481, 37.1137])])
+        in_transform = transforms.Compose([transforms.Normalize([146.5899, 142.5595, 139.0785], [34.5019, 34.8481, 37.1137]),
+                                           ],)
         # swap color axis because
         # numpy image: H x W x C
         # torch image: C X H X W
@@ -91,93 +92,70 @@ class Net(nn.Module):
         self.conv6 = nn.Conv2d(60, 60, 3, 1)
         self.conv6_bn = nn.BatchNorm2d(60)
 
-        # Two more convolutional layers before maxpooling
-        self.conv7 = nn.Conv2d(60, 120, 3, 1)
-        self.conv7_bn = nn.BatchNorm2d(120)
-        self.conv8 = nn.Conv2d(120, 120, 3, 1)
-        self.conv8_bn = nn.BatchNorm2d(120)
-
         # Dropout values for convolutional and fully connected layers
-        self.dropout1 = nn.Dropout2d(0.01)
-        self.dropout2 = nn.Dropout2d(0.01)
+        self.dropout1 = nn.Dropout2d(0)
+        self.dropout2 = nn.Dropout2d(0.2)
 
         # Two fully connected layers. Input is 2347380 because 243x161x60
         # as shown in the forward part.
-        self.fc1 = nn.Linear(55080, 128)
+        self.fc1 = nn.Linear(132240, 128)
         self.fc1_bn = nn.BatchNorm1d(128)
         self.fc2 = nn.Linear(128, 2)
 
     # Define the structure for forward propagation.
     def forward(self, x):
         # Input dimensions: 490x326x3
-        # Output dimensions: 488x324x30
+        # Output dimensions: 488x324x15
         x = self.conv1(x)
         x = self.conv1_bn(x)
         x = F.relu(x)
         x = self.dropout1(x)
-        # Input dimensions: 488x324x30
-        # Output dimensions: 486x322x30
+        # Input dimensions: 488x324x15
+        # Output dimensions: 486x322x15
         x = self.conv2(x)
         x = self.conv2_bn(x)
         x = F.relu(x)
         x = self.dropout1(x)
-        # Input dimensions: 486x322x30
-        # Output dimensions: 243x161x30
+        # Input dimensions: 486x322x15
+        # Output dimensions: 243x161x15
         x = F.max_pool2d(x, 2)
 
-        # Input dimensions: 243x161x30
-        # Output dimensions: 241x159x60
+        # Input dimensions: 243x161x15
+        # Output dimensions: 241x159x30
         x = self.conv3(x)
         x = self.conv3_bn(x)
         x = F.relu(x)
         x = self.dropout1(x)
-        # Input dimensions: 241x159x60
-        # Output dimensions: 239x157x60
+        # Input dimensions: 241x159x30
+        # Output dimensions: 239x157x30
         x = self.conv4(x)
         x = self.conv4_bn(x)
         x = F.relu(x)
         x = self.dropout1(x)
-        # Input dimensions: 239x157x60
-        # Output dimensions: 120x79x60
+        # Input dimensions: 239x157x30
+        # Output dimensions: 120x79x30
         x = F.max_pool2d(x, 2, ceil_mode=True)
 
-        # Input dimensions: 120x79x60
-        # Output dimensions: 118x77x120
+        # Input dimensions: 120x79x30
+        # Output dimensions: 118x77x60
         x = self.conv5(x)
         x = self.conv5_bn(x)
         x = F.relu(x)
         x = self.dropout1(x)
-        # Input dimensions: 118x77x120
-        # Output dimensions: 116x75x120
+        # Input dimensions: 118x77x60
+        # Output dimensions: 116x75x60
         x = self.conv6(x)
         x = self.conv6_bn(x)
         x = F.relu(x)
         x = self.dropout1(x)
-        # Input dimensions: 116x75x120
-        # Output dimensions: 58x38x120
+        # Input dimensions: 116x75x60
+        # Output dimensions: 58x38x60
         x = F.max_pool2d(x, 2, ceil_mode=True)
 
-        # Input dimensions: 58x38x120
-        # Output dimensions: 56x36x240
-        x = self.conv7(x)
-        x = self.conv7_bn(x)
-        x = F.relu(x)
-        x = self.dropout1(x)
-        # Input dimensions: 56x36x240
-        # Output dimensions: 54x34x240
-        x = self.conv8(x)
-        x = self.conv8_bn(x)
-        x = F.relu(x)
-        x = self.dropout1(x)
-        # Input dimensions: 54x34x240
-        # Output dimensions: 27x17x240
-        x = F.max_pool2d(x, 2, ceil_mode=True)
-
-
-        # Input dimensions: 27x17x240
-        # Output dimensions: 110160x1
+        # Input dimensions: 58x38x60
+        # Output dimensions: 132240x1
         x = torch.flatten(x, 1)
-        # Input dimensions: 110160x1
+        # Input dimensions: 132240x1
         # Output dimensions: 128x1
         x = self.fc1(x)
         x = self.fc1_bn(x)

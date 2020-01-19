@@ -4,7 +4,6 @@ import argparse
 from matplotlib import pyplot as plt
 import numpy as np
 import pandas as pd
-from PIL import Image
 import os
 import torch
 from torch.utils.data import Dataset, DataLoader
@@ -288,7 +287,7 @@ def main():
                         help='number of epochs to train (default: 14)')
     parser.add_argument('--lr', type=float, default=0.05, metavar='LR',
                         help='learning rate (default: 0.001)')
-    parser.add_argument('--gamma', type=float, default=0.9, metavar='M',
+    parser.add_argument('--gamma', type=float, default=0.8, metavar='M',
                         help='Learning rate step gamma (default: 0.9)')
     parser.add_argument('--no-cuda', action='store_true', default=False,
                         help='disables CUDA training')

@@ -1,3 +1,7 @@
-arch1: Standard VGG-Like
+arch1: Standard VGG-Like (0.0014)
 arch2: Leaky Relu
 arch3: Extra 2 convolutional layers from arch1
+arch4: 2 fewer convolutional layers from arch1
+arch5: maxpool after each convolutional layer
+arch6: 1 more layer than arch5 (0.0011)
+arch7: 1 more layer than arch6 (0.001508)
