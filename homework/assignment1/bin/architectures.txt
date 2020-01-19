@@ -1,0 +1,3 @@
+arch1: Standard VGG-Like
+arch2: Leaky Relu
+arch3: Extra 2 convolutional layers from arch1
