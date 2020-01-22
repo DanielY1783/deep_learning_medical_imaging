@@ -15,7 +15,7 @@ from torch.optim.lr_scheduler import StepLR
 from skimage import io, transform
 
 # Constants
-MODEL_NAME = "network1.pt"
+MODEL_NAME = "box1.pt"
 
 # Class for the dataset
 class DetectionImages(Dataset):
@@ -98,14 +98,14 @@ class Net(nn.Module):
         self.conv8_bn = nn.BatchNorm2d(120)
 
         # Dropout values for convolutional and fully connected layers
-        self.dropout1 = nn.Dropout2d(0.01)
-        self.dropout2 = nn.Dropout2d(0.01)
+        self.dropout1 = nn.Dropout2d(0.1)
+        self.dropout2 = nn.Dropout2d(0.1)
 
         # Two fully connected layers. Input is 2347380 because 243x161x60
         # as shown in the forward part.
         self.fc1 = nn.Linear(55080, 128)
         self.fc1_bn = nn.BatchNorm1d(128)
-        self.fc2 = nn.Linear(128, 2)
+        self.fc2 = nn.Linear(128, 4)
 
     # Define the structure for forward propagation.
     def forward(self, x):
@@ -285,9 +285,9 @@ def main():
     # GPU keywords.
     kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
     # Load in the training and testing datasets. Convert to pytorch tensor.
-    train_data = DetectionImages(csv_file="../data/labels/train_labels.txt", root_dir="../data/train", transform=ToTensor())
+    train_data = DetectionImages(csv_file="../data/labels/box_train_labels.txt", root_dir="../data/train", transform=ToTensor())
     train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=0)
-    test_data = DetectionImages(csv_file="../data/labels/validation_labels.txt", root_dir="../data/validation", transform=ToTensor())
+    test_data = DetectionImages(csv_file="../data/labels/box_validation_labels.txt", root_dir="../data/validation", transform=ToTensor())
     test_loader = DataLoader(test_data, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
 
     # Run model on GPU if available

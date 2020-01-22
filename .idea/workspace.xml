@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d111871f-b4ca-41b0-857b-829cd037bf7d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/homework/assignment1/bin/arch4.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework/assignment1/bin/arch5.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework/assignment1/bin/arch6.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/arch1.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/arch1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/arch2.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/arch2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/arch3.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/arch3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/architectures.txt" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/architectures.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/split_labels.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/split_labels.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reading/01_deep_learning.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reading/02_deep_residual_learning.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reading/03_object_detection.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reading/04_medical_segmentation.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reading_assignments/03_rpn.docx" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,52 +21,34 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch5.py">
+        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="83" column="73" selection-start-line="83" selection-start-column="73" selection-end-line="83" selection-end-column="73" />
+            <state relative-caret-position="-1547">
+              <caret line="101" column="39" selection-start-line="101" selection-start-column="39" selection-end-line="101" selection-end-column="39" />
               <folding>
                 <element signature="e#22#59#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch6.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1258">
-              <caret line="87" column="40" selection-start-line="87" selection-start-column="40" selection-end-line="87" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch7.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="70" selection-start-line="70" selection-end-line="162" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/test7.py">
+        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_search.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+            <state relative-caret-position="125">
+              <caret line="102" column="41" selection-start-line="102" selection-start-column="41" selection-end-line="102" selection-end-column="41" />
+              <folding>
+                <element signature="e#22#59#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch2.py">
+        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="99" selection-start-line="99" selection-end-line="101" selection-end-column="42" />
-              <folding>
-                <element signature="e#22#59#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="343">
+              <caret line="171" column="14" selection-start-line="171" selection-start-column="14" selection-end-line="171" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -104,11 +86,14 @@
         <option value="$PROJECT_DIR$/homework/assignment1/bin/arch4.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/arch3.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/arch2.py" />
-        <option value="$PROJECT_DIR$/homework/assignment1/bin/arch1.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/arch5.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/arch6.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/arch7.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/test7.py" />
+        <option value="$PROJECT_DIR$/homework/assignment1/bin/arch1.py" />
+        <option value="$PROJECT_DIR$/homework/assignment1/bin/box1.py" />
+        <option value="$PROJECT_DIR$/homework/assignment1/bin/box_test.py" />
+        <option value="$PROJECT_DIR$/homework/assignment1/bin/box_search.py" />
       </list>
     </option>
   </component>
@@ -118,12 +103,12 @@
     <option name="width" value="1890" />
     <option name="height" value="930" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -159,6 +144,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -265,21 +251,8 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/visualize_labels.ipynb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-816" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/architecture1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3026">
-          <caret line="192" column="4" selection-start-line="192" selection-start-column="4" selection-end-line="192" selection-end-column="30" />
-          <folding>
-            <element signature="e#22#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/visualize_labels.ipynb" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/architecture1.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/visualize_prediction.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -318,26 +291,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="99" selection-start-line="99" selection-end-line="101" selection-end-column="42" />
-          <folding>
-            <element signature="e#22#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch5.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
+        <state relative-caret-position="1190">
           <caret line="83" column="73" selection-start-line="83" selection-start-column="73" selection-end-line="83" selection-end-column="73" />
           <folding>
             <element signature="e#22#59#0" expanded="true" />
@@ -354,8 +310,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch7.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="70" selection-start-line="70" selection-end-line="162" selection-end-column="21" />
+        <state relative-caret-position="1156">
+          <caret line="81" column="37" selection-start-line="81" selection-start-column="37" selection-end-line="81" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="289" column="57" selection-end-line="323" selection-end-column="10" />
+          <folding>
+            <element signature="e#22#59#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -363,6 +329,43 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="99" selection-start-line="99" selection-end-line="101" selection-end-column="42" />
+          <folding>
+            <element signature="e#22#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="171" column="14" selection-start-line="171" selection-start-column="14" selection-end-line="171" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1547">
+          <caret line="101" column="39" selection-start-line="101" selection-start-column="39" selection-end-line="101" selection-end-column="39" />
+          <folding>
+            <element signature="e#22#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_search.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="102" column="41" selection-start-line="102" selection-start-column="41" selection-end-line="102" selection-end-column="41" />
+          <folding>
+            <element signature="e#22#59#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
