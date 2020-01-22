@@ -99,8 +99,8 @@ class Net(nn.Module):
         self.conv8_bn = nn.BatchNorm2d(120)
 
         # Dropout values for convolutional and fully connected layers
-        self.dropout1 = nn.Dropout2d(0.25)
-        self.dropout2 = nn.Dropout2d(0.25)
+        self.dropout1 = nn.Dropout2d(0.3)
+        self.dropout2 = nn.Dropout2d(0.3)
 
         # Two fully connected layers. Input is 2347380 because 243x161x60
         # as shown in the forward part.
@@ -261,7 +261,7 @@ def main():
                         help='input batch size for training (default: 32)')
     parser.add_argument('--test-batch-size', type=int, default=1000, metavar='N',
                         help='input batch size for testing (default: 1000)')
-    parser.add_argument('--epochs', type=int, default=25, metavar='N',
+    parser.add_argument('--epochs', type=int, default=250, metavar='N',
                         help='number of epochs to train (default: 14)')
     parser.add_argument('--lr', type=float, default=0.05, metavar='LR',
                         help='learning rate (default: 0.001)')
@@ -298,6 +298,10 @@ def main():
         lr = random.uniform(0.0001, 0.002)
         # Get random gamma
         gamma = random.uniform(0.5, 1)
+        print("##################################################")
+        print("Learning Rate: ", lr)
+        print("Gamma: ", gamma)
+        print("##################################################")
 
         # Specify Adam optimizer
         optimizer = optim.Adam(model.parameters(), lr=lr)

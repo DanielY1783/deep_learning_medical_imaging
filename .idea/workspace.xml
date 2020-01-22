@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d111871f-b4ca-41b0-857b-829cd037bf7d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/arch1.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/arch1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/split_labels.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/split_labels.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reading/01_deep_learning.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reading/02_deep_residual_learning.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reading/03_object_detection.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reading/04_medical_segmentation.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reading_assignments/03_rpn.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/box_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/box_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/box_search.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/box_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/box_test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,20 +29,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_search.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="102" column="41" selection-start-line="102" selection-start-column="41" selection-end-line="102" selection-end-column="41" />
+            <state relative-caret-position="482">
+              <caret line="271" column="30" selection-start-line="271" selection-start-column="30" selection-end-line="271" selection-end-column="30" />
               <folding>
                 <element signature="e#22#59#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="171" column="14" selection-start-line="171" selection-start-column="14" selection-end-line="171" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -342,13 +327,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="171" column="14" selection-start-line="171" selection-start-column="14" selection-end-line="171" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1547">
@@ -359,10 +337,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-663">
+          <caret line="33" column="43" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_search.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="102" column="41" selection-start-line="102" selection-start-column="41" selection-end-line="102" selection-end-column="41" />
+        <state relative-caret-position="482">
+          <caret line="271" column="30" selection-start-line="271" selection-start-column="30" selection-end-line="271" selection-end-column="30" />
           <folding>
             <element signature="e#22#59#0" expanded="true" />
           </folding>

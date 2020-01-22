@@ -8,7 +8,7 @@ import torch.nn.functional as F
 from torchvision import datasets, transforms
 
 # Constants
-MODEL_NAME = "network1.pt"
+MODEL_NAME = "box_search.pt"
 
 # Define the neural network
 class Net(nn.Module):
