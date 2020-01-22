@@ -16,7 +16,7 @@ from torch.optim.lr_scheduler import StepLR
 from skimage import io, transform
 
 # Constants
-MODEL_NAME = "box_search.pt"
+MODEL_NAME = "multi_search.pt"
 
 # Class for the dataset
 class DetectionImages(Dataset):
@@ -106,7 +106,7 @@ class Net(nn.Module):
         # as shown in the forward part.
         self.fc1 = nn.Linear(55080, 128)
         self.fc1_bn = nn.BatchNorm1d(128)
-        self.fc2 = nn.Linear(128, 4)
+        self.fc2 = nn.Linear(128, 42)
 
     # Define the structure for forward propagation.
     def forward(self, x):
@@ -261,7 +261,7 @@ def main():
                         help='input batch size for training (default: 32)')
     parser.add_argument('--test-batch-size', type=int, default=1000, metavar='N',
                         help='input batch size for testing (default: 1000)')
-    parser.add_argument('--epochs', type=int, default=250, metavar='N',
+    parser.add_argument('--epochs', type=int, default=100, metavar='N',
                         help='number of epochs to train (default: 14)')
     parser.add_argument('--lr', type=float, default=0.05, metavar='LR',
                         help='learning rate (default: 0.001)')
@@ -290,13 +290,12 @@ def main():
     # Run model on GPU if available
     model = Net().to(device)
 
-    # Store the lowest test loss found with random search
+    # Store the lowest test loss from random search
     lowest_loss = 1000
     # Store the learning curve from lowest test loss
     lowest_test_list = []
     lowest_train_list = []
 
-    # Randomly search over 100 different learning rate and gamma values
     for i in range(100):
         # Get random learning rate
         lr = random.uniform(0.0001, 0.002)
@@ -321,21 +320,21 @@ def main():
             scheduler.step()
 
             # If lowest test loss so far, save model and the training curve
-            if lowest_loss > test_losses[epoch - 1]:
-                print("New Lowest Loss: ", test_losses[epoch - 1])
+            if lowest_loss > test_losses[epoch-1]:
+                print("New Lowest Loss: ", test_losses[epoch-1])
                 torch.save(model.state_dict(), MODEL_NAME)
-                lowest_loss = test_losses[epoch - 1]
+                lowest_loss = test_losses[epoch-1]
                 lowest_test_list = test_losses
                 lowest_train_list = train_losses
 
-        # Display the learning curve for the best result from random search
-        figure, axes = plt.subplots()
-        axes.set(xlabel="Epoch", ylabel="Loss", title="Learning Curve")
-        axes.plot(np.array(lowest_train_list), label="train_loss", c="b")
-        axes.plot(np.array(lowest_test_list), label="validation_loss", c="r")
-        plt.legend()
-        plt.show()
-        plt.close()
+    # Display the learning curve for the best result from random search
+    figure, axes = plt.subplots()
+    axes.set(xlabel="Epoch", ylabel="Loss", title="Learning Curve")
+    axes.plot(np.array(lowest_train_list), label="train_loss", c="b")
+    axes.plot(np.array(lowest_test_list), label="validation_loss", c="r")
+    plt.legend()
+    plt.show()
+    plt.close()
 
 
 if __name__ == '__main__':
