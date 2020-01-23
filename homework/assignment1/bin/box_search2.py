@@ -16,7 +16,7 @@ from torch.optim.lr_scheduler import StepLR
 from skimage import io, transform
 
 # Constants
-MODEL_NAME = "box1.pt"
+MODEL_NAME = "box_search2.pt"
 
 # Class for the dataset
 class DetectionImages(Dataset):
@@ -71,7 +71,7 @@ class ToTensor(object):
 # Define the neural network
 class Net(nn.Module):
     # Define the dimensions for each layer.
-    def __init__(self):
+    def __init__(self, dropout1, dropout2):
         super(Net, self).__init__()
         # First two convolutional layers
         self.conv1 = nn.Conv2d(3, 15, 3, 1)
@@ -99,8 +99,8 @@ class Net(nn.Module):
         self.conv8_bn = nn.BatchNorm2d(120)
 
         # Dropout values for convolutional and fully connected layers
-        self.dropout1 = nn.Dropout2d(0.6)
-        self.dropout2 = nn.Dropout2d(0.6)
+        self.dropout1 = nn.Dropout2d(dropout1)
+        self.dropout2 = nn.Dropout2d(dropout2)
 
         # Two fully connected layers. Input is 2347380 because 243x161x60
         # as shown in the forward part.
@@ -257,16 +257,14 @@ def main():
     # random seed, how often to log, and
     # whether we should save the model.
     parser = argparse.ArgumentParser(description='PyTorch Object Detection')
-    parser.add_argument('--batch-size', type=int, default=16, metavar='N',
+    parser.add_argument('--batch-size', type=int, default=8, metavar='N',
                         help='input batch size for training (default: 32)')
     parser.add_argument('--test-batch-size', type=int, default=1000, metavar='N',
                         help='input batch size for testing (default: 1000)')
     parser.add_argument('--epochs', type=int, default=250, metavar='N',
-                        help='number of epochs to train (default: 250)')
-    parser.add_argument('--lr', type=float, default=0.00138, metavar='LR',
+                        help='number of epochs to train (default: 14)')
+    parser.add_argument('--lr', type=float, default=0.05, metavar='LR',
                         help='learning rate (default: 0.001)')
-    parser.add_argument('--gamma', type=float, default=0.99, metavar='M',
-                        help='Learning rate step gamma (default: 0.7)')
     parser.add_argument('--no-cuda', action='store_true', default=False,
                         help='disables CUDA training')
     parser.add_argument('--seed', type=int, default=1, metavar='S',
@@ -289,32 +287,50 @@ def main():
     test_data = DetectionImages(csv_file="../data/labels/box_validation_labels.txt", root_dir="../data/validation", transform=ToTensor())
     test_loader = DataLoader(test_data, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
 
-    # Run model on GPU if available
-    model = Net().to(device)
-
-    # Store the lowest loss for early stopping
+    # Store the lowest test loss found with random search
     lowest_loss = 1000
+    # Store the learning curve from lowest test loss
+    lowest_test_list = []
+    lowest_train_list = []
 
-    # Specify Adam optimizer
-    optimizer = optim.Adam(model.parameters(), lr=args.lr)
-    # Store the training and testing losses over time
-    train_losses = []
-    test_losses = []
-    # Run for the set number of epochs. For each epoch, run the training
-    # and the testing steps. Scheduler is used to specify the learning rate.
-    scheduler = StepLR(optimizer, step_size=1, gamma=args.gamma)
-    for epoch in range(1, args.epochs + 1):
-        train_losses = train(args, model, device, train_loader, optimizer, epoch, train_losses)
-        test_losses = test(args, model, device, test_loader, test_losses)
-        scheduler.step()
+    # Randomly search over 100 different learning rate and gamma values
+    for i in range(2):
+        # Get random learning rate
+        lr = random.uniform(0.0005, 0.002)
+        # Get random gamma
+        gamma = random.uniform(0.5, 1)
+        # Get random dropout values
+        dropout1 = random.uniform(0.3, 0.7)
+        dropout2 = random.uniform(0.3, 0.7)
+        print("##################################################")
+        print("Learning Rate: ", lr)
+        print("Gamma: ", gamma)
+        print("Dropout Values: ", str(dropout1), ", ", str(dropout2))
+        print("##################################################")
 
-        # If lowest test loss so far, save model and the training curve
-        if lowest_loss > test_losses[epoch - 1]:
-            print("New Lowest Loss: ", test_losses[epoch - 1])
-            torch.save(model.state_dict(), MODEL_NAME)
-            lowest_loss = test_losses[epoch - 1]
-            lowest_test_list = test_losses
-            lowest_train_list = train_losses
+        # Run model on GPU if available
+        model = Net(dropout1, dropout2).to(device)
+
+        # Specify Adam optimizer
+        optimizer = optim.Adam(model.parameters(), lr=lr)
+        # Store the training and testing losses over time
+        train_losses = []
+        test_losses = []
+        # Run for the set number of epochs. For each epoch, run the training
+        # and the testing steps. Scheduler is used to specify the learning rate.
+        scheduler = StepLR(optimizer, step_size=1, gamma=gamma)
+        for epoch in range(1, args.epochs + 1):
+            train_losses = train(args, model, device, train_loader, optimizer, epoch, train_losses)
+            test_losses = test(args, model, device, test_loader, test_losses)
+            scheduler.step()
+
+            # If lowest test loss so far, save model and the training curve
+            if lowest_loss > test_losses[epoch - 1]:
+                print("New Lowest Loss: ", test_losses[epoch - 1])
+                torch.save(model.state_dict(), MODEL_NAME)
+                lowest_loss = test_losses[epoch - 1]
+                lowest_test_list = test_losses
+                lowest_train_list = train_losses
 
     # Display the learning curve for the best result from random search
     figure, axes = plt.subplots()

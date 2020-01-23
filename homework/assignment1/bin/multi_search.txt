@@ -1,0 +1,53 @@
+##################################################
+Learning Rate:  0.0007874104820924676
+Gamma:  0.7168819063787419
+##################################################
+Train Epoch: 1 	Average Loss: 0.030606
+
+Test set: Average loss: 0.018095
+
+New Lowest Loss:  0.01809477210044861
+Train Epoch: 2 	Average Loss: 0.020511
+
+Test set: Average loss: 0.010071
+
+New Lowest Loss:  0.010071421414613724
+Train Epoch: 3 	Average Loss: 0.015872
+
+Test set: Average loss: 0.007547
+
+New Lowest Loss:  0.007546722143888474
+Train Epoch: 4 	Average Loss: 0.013707
+
+Test set: Average loss: 0.005970
+
+New Lowest Loss:  0.005970410257577896
+Train Epoch: 5 	Average Loss: 0.012948
+
+Test set: Average loss: 0.005422
+
+New Lowest Loss:  0.005422450602054596
+##################################################
+Learning Rate:  0.001079709795615173
+Gamma:  0.9601758431672061
+##################################################
+Train Epoch: 1 	Average Loss: 0.012614
+
+Test set: Average loss: 0.013981
+
+Train Epoch: 2 	Average Loss: 0.010194
+
+Test set: Average loss: 0.017676
+
+Train Epoch: 3 	Average Loss: 0.009715
+
+Test set: Average loss: 0.012298
+
+Train Epoch: 4 	Average Loss: 0.008631
+
+Test set: Average loss: 0.010765
+
+Train Epoch: 5 	Average Loss: 0.008834
+
+Test set: Average loss: 0.011007
+

@@ -4,7 +4,6 @@ import argparse
 from matplotlib import pyplot as plt
 import numpy as np
 import pandas as pd
-import random
 import os
 import torch
 from torch.utils.data import Dataset, DataLoader
@@ -99,8 +98,8 @@ class Net(nn.Module):
         self.conv8_bn = nn.BatchNorm2d(120)
 
         # Dropout values for convolutional and fully connected layers
-        self.dropout1 = nn.Dropout2d(0.6)
-        self.dropout2 = nn.Dropout2d(0.6)
+        self.dropout1 = nn.Dropout2d(0.1)
+        self.dropout2 = nn.Dropout2d(0.1)
 
         # Two fully connected layers. Input is 2347380 because 243x161x60
         # as shown in the forward part.
@@ -261,16 +260,18 @@ def main():
                         help='input batch size for training (default: 32)')
     parser.add_argument('--test-batch-size', type=int, default=1000, metavar='N',
                         help='input batch size for testing (default: 1000)')
-    parser.add_argument('--epochs', type=int, default=250, metavar='N',
-                        help='number of epochs to train (default: 250)')
-    parser.add_argument('--lr', type=float, default=0.00138, metavar='LR',
+    parser.add_argument('--epochs', type=int, default=25, metavar='N',
+                        help='number of epochs to train (default: 14)')
+    parser.add_argument('--lr', type=float, default=0.05, metavar='LR',
                         help='learning rate (default: 0.001)')
-    parser.add_argument('--gamma', type=float, default=0.99, metavar='M',
-                        help='Learning rate step gamma (default: 0.7)')
+    parser.add_argument('--gamma', type=float, default=0.8, metavar='M',
+                        help='Learning rate step gamma (default: 0.9)')
     parser.add_argument('--no-cuda', action='store_true', default=False,
                         help='disables CUDA training')
     parser.add_argument('--seed', type=int, default=1, metavar='S',
                         help='random seed (default: 1)')
+    parser.add_argument('--save-model', action='store_true', default=True,
+                        help='For Saving the current Model')
     args = parser.parse_args()
     # Command to use gpu depending on command line arguments and if there is a cuda device
     use_cuda = not args.no_cuda and torch.cuda.is_available()
@@ -285,18 +286,15 @@ def main():
     kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
     # Load in the training and testing datasets. Convert to pytorch tensor.
     train_data = DetectionImages(csv_file="../data/labels/box_train_labels.txt", root_dir="../data/train", transform=ToTensor())
-    train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=0, drop_last=True)
+    train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=0)
     test_data = DetectionImages(csv_file="../data/labels/box_validation_labels.txt", root_dir="../data/validation", transform=ToTensor())
     test_loader = DataLoader(test_data, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
 
     # Run model on GPU if available
     model = Net().to(device)
 
-    # Store the lowest loss for early stopping
-    lowest_loss = 1000
-
     # Specify Adam optimizer
-    optimizer = optim.Adam(model.parameters(), lr=args.lr)
+    optimizer = optim.Adam(model.parameters(), lr=0.001)
     # Store the training and testing losses over time
     train_losses = []
     test_losses = []
@@ -308,19 +306,15 @@ def main():
         test_losses = test(args, model, device, test_loader, test_losses)
         scheduler.step()
 
-        # If lowest test loss so far, save model and the training curve
-        if lowest_loss > test_losses[epoch - 1]:
-            print("New Lowest Loss: ", test_losses[epoch - 1])
-            torch.save(model.state_dict(), MODEL_NAME)
-            lowest_loss = test_losses[epoch - 1]
-            lowest_test_list = test_losses
-            lowest_train_list = train_losses
+    # Save model if specified by the command line argument
+    if args.save_model:
+        torch.save(model.state_dict(), MODEL_NAME)
 
-    # Display the learning curve for the best result from random search
+    # Display the learning curve
     figure, axes = plt.subplots()
     axes.set(xlabel="Epoch", ylabel="Loss", title="Learning Curve")
-    axes.plot(np.array(lowest_train_list), label="train_loss", c="b")
-    axes.plot(np.array(lowest_test_list), label="validation_loss", c="r")
+    axes.plot(np.array(train_losses), label="train_loss", c="b")
+    axes.plot(np.array(test_losses), label="validation_loss", c="r")
     plt.legend()
     plt.show()
     plt.close()

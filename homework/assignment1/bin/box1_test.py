@@ -8,7 +8,7 @@ import torch.nn.functional as F
 from torchvision import datasets, transforms
 
 # Constants
-MODEL_NAME = "box_search.pt"
+MODEL_NAME = "box1.pt"
 
 # Define the neural network
 class Net(nn.Module):
@@ -41,8 +41,8 @@ class Net(nn.Module):
         self.conv8_bn = nn.BatchNorm2d(120)
 
         # Dropout values for convolutional and fully connected layers
-        self.dropout1 = nn.Dropout2d(0.01)
-        self.dropout2 = nn.Dropout2d(0.01)
+        self.dropout1 = nn.Dropout2d(0.3)
+        self.dropout2 = nn.Dropout2d(0.3)
 
         # Two fully connected layers. Input is 2347380 because 243x161x60
         # as shown in the forward part.
@@ -132,6 +132,7 @@ class Net(nn.Module):
         return output
 
 
+
 def main():
     # Command line arguments for the image path and x and y coordinates
     parser = argparse.ArgumentParser(description='Visualize a Single Prediction Location')
@@ -167,9 +168,9 @@ def main():
     # No gradient calculation because we are in testing phase.
     with torch.no_grad():
         output = model(image)
-        # # Print output with prettier formatting
-        print(round(output[:, 0].item(), 4), round(output[:, 1].item(), 4),
-              round(output[:, 2].item(), 4), round(output[:, 3].item(), 4))
+        # Print output with prettier formatting
+        print(round((output[:, 0].item()+ output[:, 1].item()) / 2, 4),
+              round((output[:, 2].item()+ output[:, 3].item()) / 2, 4))
 
 
 if __name__ == '__main__':

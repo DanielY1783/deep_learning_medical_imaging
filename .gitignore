@@ -133,3 +133,6 @@ dmypy.json
 
 # Pytorch models
 *.pt
+
+# Large data file
+assignment2.zip

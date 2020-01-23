@@ -99,14 +99,14 @@ class Net(nn.Module):
         self.conv8_bn = nn.BatchNorm2d(120)
 
         # Dropout values for convolutional and fully connected layers
-        self.dropout1 = nn.Dropout2d(0.3)
-        self.dropout2 = nn.Dropout2d(0.3)
+        self.dropout1 = nn.Dropout2d(0.35)
+        self.dropout2 = nn.Dropout2d(0.35)
 
         # Two fully connected layers. Input is 2347380 because 243x161x60
         # as shown in the forward part.
         self.fc1 = nn.Linear(55080, 128)
         self.fc1_bn = nn.BatchNorm1d(128)
-        self.fc2 = nn.Linear(128, 42)
+        self.fc2 = nn.Linear(128, 40)
 
     # Define the structure for forward propagation.
     def forward(self, x):
@@ -258,13 +258,11 @@ def main():
     # whether we should save the model.
     parser = argparse.ArgumentParser(description='PyTorch Object Detection')
     parser.add_argument('--batch-size', type=int, default=16, metavar='N',
-                        help='input batch size for training (default: 32)')
+                        help='input batch size for training (default: 16)')
     parser.add_argument('--test-batch-size', type=int, default=1000, metavar='N',
                         help='input batch size for testing (default: 1000)')
-    parser.add_argument('--epochs', type=int, default=100, metavar='N',
-                        help='number of epochs to train (default: 14)')
-    parser.add_argument('--lr', type=float, default=0.05, metavar='LR',
-                        help='learning rate (default: 0.001)')
+    parser.add_argument('--epochs', type=int, default=5, metavar='N',
+                        help='number of epochs to train (default: 250)')
     parser.add_argument('--no-cuda', action='store_true', default=False,
                         help='disables CUDA training')
     parser.add_argument('--seed', type=int, default=1, metavar='S',
@@ -282,9 +280,9 @@ def main():
     # GPU keywords.
     kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
     # Load in the training and testing datasets. Convert to pytorch tensor.
-    train_data = DetectionImages(csv_file="../data/labels/box_train_labels.txt", root_dir="../data/train", transform=ToTensor())
+    train_data = DetectionImages(csv_file="../data/labels/multi_train_labels.txt", root_dir="../data/train", transform=ToTensor())
     train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=0)
-    test_data = DetectionImages(csv_file="../data/labels/box_validation_labels.txt", root_dir="../data/validation", transform=ToTensor())
+    test_data = DetectionImages(csv_file="../data/labels/multi_validation_labels.txt", root_dir="../data/validation", transform=ToTensor())
     test_loader = DataLoader(test_data, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
 
     # Run model on GPU if available
@@ -296,9 +294,10 @@ def main():
     lowest_test_list = []
     lowest_train_list = []
 
-    for i in range(100):
+    # Use random search for 100 combinations of learning rate and gamma
+    for i in range(2):
         # Get random learning rate
-        lr = random.uniform(0.0001, 0.002)
+        lr = random.uniform(0.0007, 0.002)
         # Get random gamma
         gamma = random.uniform(0.5, 1)
         print("##################################################")
@@ -319,17 +318,21 @@ def main():
             test_losses = test(args, model, device, test_loader, test_losses)
             scheduler.step()
 
-            # If lowest test loss so far, save model and the training curve
+            # If lowest test loss so far, save model and the training and testing losses over epochs
             if lowest_loss > test_losses[epoch-1]:
                 print("New Lowest Loss: ", test_losses[epoch-1])
                 torch.save(model.state_dict(), MODEL_NAME)
                 lowest_loss = test_losses[epoch-1]
                 lowest_test_list = test_losses
                 lowest_train_list = train_losses
+                print(lowest_test_list)
+                print(lowest_train_list)
 
     # Display the learning curve for the best result from random search
     figure, axes = plt.subplots()
     axes.set(xlabel="Epoch", ylabel="Loss", title="Learning Curve")
+    print(lowest_test_list)
+    print(lowest_train_list)
     axes.plot(np.array(lowest_train_list), label="train_loss", c="b")
     axes.plot(np.array(lowest_test_list), label="validation_loss", c="r")
     plt.legend()
