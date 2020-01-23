@@ -16,7 +16,7 @@ from torch.optim.lr_scheduler import StepLR
 from skimage import io, transform
 
 # Constants
-MODEL_NAME = "box_search2.pt"
+MODEL_NAME = "search.pt"
 
 # Class for the dataset
 class DetectionImages(Dataset):
@@ -71,7 +71,7 @@ class ToTensor(object):
 # Define the neural network
 class Net(nn.Module):
     # Define the dimensions for each layer.
-    def __init__(self, dropout1, dropout2):
+    def __init__(self):
         super(Net, self).__init__()
         # First two convolutional layers
         self.conv1 = nn.Conv2d(3, 15, 3, 1)
@@ -99,14 +99,14 @@ class Net(nn.Module):
         self.conv8_bn = nn.BatchNorm2d(120)
 
         # Dropout values for convolutional and fully connected layers
-        self.dropout1 = nn.Dropout2d(dropout1)
-        self.dropout2 = nn.Dropout2d(dropout2)
+        self.dropout1 = nn.Dropout2d(0.35)
+        self.dropout2 = nn.Dropout2d(0.35)
 
         # Two fully connected layers. Input is 2347380 because 243x161x60
         # as shown in the forward part.
         self.fc1 = nn.Linear(55080, 128)
         self.fc1_bn = nn.BatchNorm1d(128)
-        self.fc2 = nn.Linear(128, 4)
+        self.fc2 = nn.Linear(128, 2)
 
     # Define the structure for forward propagation.
     def forward(self, x):
@@ -263,8 +263,6 @@ def main():
                         help='input batch size for testing (default: 1000)')
     parser.add_argument('--epochs', type=int, default=100, metavar='N',
                         help='number of epochs to train (default: 14)')
-    parser.add_argument('--lr', type=float, default=0.05, metavar='LR',
-                        help='learning rate (default: 0.001)')
     parser.add_argument('--no-cuda', action='store_true', default=False,
                         help='disables CUDA training')
     parser.add_argument('--seed', type=int, default=1, metavar='S',
@@ -282,9 +280,9 @@ def main():
     # GPU keywords.
     kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
     # Load in the training and testing datasets. Convert to pytorch tensor.
-    train_data = DetectionImages(csv_file="../data/labels/box_train_labels.txt", root_dir="../data/train", transform=ToTensor())
+    train_data = DetectionImages(csv_file="../data/labels/train_labels.txt", root_dir="../data/train", transform=ToTensor())
     train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=0, drop_last=True)
-    test_data = DetectionImages(csv_file="../data/labels/box_validation_labels.txt", root_dir="../data/validation", transform=ToTensor())
+    test_data = DetectionImages(csv_file="../data/labels/validation_labels.txt", root_dir="../data/validation", transform=ToTensor())
     test_loader = DataLoader(test_data, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
 
     # Store the lowest test loss found with random search
@@ -294,22 +292,19 @@ def main():
     lowest_train_list = []
 
     # Randomly search over 100 different learning rate and gamma values
-    for i in range(2):
+    for i in range(5):
         # Get random learning rate
         lr = random.uniform(0.0005, 0.002)
         # Get random gamma
         gamma = random.uniform(0.5, 1)
-        # Get random dropout values
-        dropout1 = random.uniform(0.2, 0.4)
-        dropout2 = random.uniform(0.2, 0.4)
+
         print("##################################################")
         print("Learning Rate: ", lr)
         print("Gamma: ", gamma)
-        print("Dropout Values: ", str(dropout1), ", ", str(dropout2))
         print("##################################################")
 
         # Run model on GPU if available
-        model = Net(dropout1, dropout2).to(device)
+        model = Net().to(device)
 
         # Specify Adam optimizer
         optimizer = optim.Adam(model.parameters(), lr=lr)
@@ -342,7 +337,7 @@ def main():
     axes.plot(np.array(lowest_train_list), label="train_loss", c="b")
     axes.plot(np.array(lowest_test_list), label="validation_loss", c="r")
     plt.legend()
-    plt.savefig('box_search2_curve.png')
+    plt.savefig('search_curve.png')
     plt.show()
     plt.close()
 
