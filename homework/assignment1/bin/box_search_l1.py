@@ -300,6 +300,8 @@ def main():
 
     # Randomly search over 100 different learning rate and gamma values
     for i in range(100):
+        # Boolean value for if this model is the best so far
+        best_model = False
         # Get random learning rate
         lr = random.uniform(0.0001, 0.002)
         # Get random gamma
@@ -318,6 +320,7 @@ def main():
         # and the testing steps. Scheduler is used to specify the learning rate.
         scheduler = StepLR(optimizer, step_size=1, gamma=gamma)
         for epoch in range(1, args.epochs + 1):
+            # Train and validate for this epoch
             train_losses = train(args, model, device, train_loader, optimizer, epoch, train_losses)
             test_losses, output = test(args, model, device, test_loader, test_losses)
             scheduler.step()
@@ -330,6 +333,19 @@ def main():
                 lowest_loss = test_losses[epoch - 1]
                 lowest_test_list = test_losses
                 lowest_train_list = train_losses
+                # Set that this is best model
+                best_model = True
+
+        # Save the learning curve if this is best model
+        if best_model:
+            # Save the learning curve for the best result from random search
+            figure, axes = plt.subplots()
+            axes.set(xlabel="Epoch", ylabel="Loss", title="Learning Curve")
+            axes.plot(np.array(lowest_train_list), label="train_loss", c="b")
+            axes.plot(np.array(lowest_test_list), label="validation_loss", c="r")
+            plt.legend()
+            plt.savefig('box_search_l1_curve.png')
+            plt.close()
 
     # Display the learning curve for the best result from random search
     figure, axes = plt.subplots()
@@ -337,7 +353,6 @@ def main():
     axes.plot(np.array(lowest_train_list), label="train_loss", c="b")
     axes.plot(np.array(lowest_test_list), label="validation_loss", c="r")
     plt.legend()
-    plt.savefig('box_search_l1_curve.png')
     plt.show()
     plt.close()
 
