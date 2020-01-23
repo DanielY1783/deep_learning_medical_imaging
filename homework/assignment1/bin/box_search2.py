@@ -243,10 +243,10 @@ def test(args, model, device, test_loader, test_losses):
 
     # Print out the statistics for the testing set.
     print('\nTest set: Average loss: {:.6f}\n'.format(
-        test_error))
+        test_loss))
 
     # Return accumulated test losses over epochs
-    return test_losses
+    return test_losses, output
 
 
 def main():
@@ -261,7 +261,7 @@ def main():
                         help='input batch size for training (default: 32)')
     parser.add_argument('--test-batch-size', type=int, default=1000, metavar='N',
                         help='input batch size for testing (default: 1000)')
-    parser.add_argument('--epochs', type=int, default=250, metavar='N',
+    parser.add_argument('--epochs', type=int, default=100, metavar='N',
                         help='number of epochs to train (default: 14)')
     parser.add_argument('--lr', type=float, default=0.05, metavar='LR',
                         help='learning rate (default: 0.001)')
@@ -321,13 +321,17 @@ def main():
         scheduler = StepLR(optimizer, step_size=1, gamma=gamma)
         for epoch in range(1, args.epochs + 1):
             train_losses = train(args, model, device, train_loader, optimizer, epoch, train_losses)
-            test_losses = test(args, model, device, test_loader, test_losses)
+            test_losses, output = test(args, model, device, test_loader, test_losses)
             scheduler.step()
 
             # If lowest test loss so far, save model and the training curve
-            if lowest_loss > test_losses[epoch - 1]:
+            if lowest_loss > test_losses[epoch - 1] + train_losses[epoch - 1]:
+                # Print out the current result
                 print("New Lowest Loss: ", test_losses[epoch - 1])
+                print(output)
+                # Save model
                 torch.save(model.state_dict(), MODEL_NAME)
+                # Update the lowest loss and the list of losses for the learning curve
                 lowest_loss = test_losses[epoch - 1]
                 lowest_test_list = test_losses
                 lowest_train_list = train_losses
@@ -338,6 +342,7 @@ def main():
     axes.plot(np.array(lowest_train_list), label="train_loss", c="b")
     axes.plot(np.array(lowest_test_list), label="validation_loss", c="r")
     plt.legend()
+    plt.savefig('box_search2_curve.png')
     plt.show()
     plt.close()
 

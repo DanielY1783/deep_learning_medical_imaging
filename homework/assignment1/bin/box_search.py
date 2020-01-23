@@ -246,7 +246,7 @@ def test(args, model, device, test_loader, test_losses):
         test_error))
 
     # Return accumulated test losses over epochs
-    return test_losses
+    return test_losses, output
 
 
 def main():
@@ -317,25 +317,27 @@ def main():
         scheduler = StepLR(optimizer, step_size=1, gamma=gamma)
         for epoch in range(1, args.epochs + 1):
             train_losses = train(args, model, device, train_loader, optimizer, epoch, train_losses)
-            test_losses = test(args, model, device, test_loader, test_losses)
+            test_losses, output = test(args, model, device, test_loader, test_losses)
             scheduler.step()
 
             # If lowest test loss so far, save model and the training curve
             if lowest_loss > test_losses[epoch - 1]:
                 print("New Lowest Loss: ", test_losses[epoch - 1])
+                print(output)
                 torch.save(model.state_dict(), MODEL_NAME)
                 lowest_loss = test_losses[epoch - 1]
                 lowest_test_list = test_losses
                 lowest_train_list = train_losses
 
-        # Display the learning curve for the best result from random search
-        figure, axes = plt.subplots()
-        axes.set(xlabel="Epoch", ylabel="Loss", title="Learning Curve")
-        axes.plot(np.array(lowest_train_list), label="train_loss", c="b")
-        axes.plot(np.array(lowest_test_list), label="validation_loss", c="r")
-        plt.legend()
-        plt.show()
-        plt.close()
+    # Display the learning curve for the best result from random search
+    figure, axes = plt.subplots()
+    axes.set(xlabel="Epoch", ylabel="Loss", title="Learning Curve")
+    axes.plot(np.array(lowest_train_list), label="train_loss", c="b")
+    axes.plot(np.array(lowest_test_list), label="validation_loss", c="r")
+    plt.legend()
+    plt.savefig('box_search_curve.png')
+    plt.show()
+    plt.close()
 
 
 if __name__ == '__main__':

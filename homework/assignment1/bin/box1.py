@@ -99,8 +99,8 @@ class Net(nn.Module):
         self.conv8_bn = nn.BatchNorm2d(120)
 
         # Dropout values for convolutional and fully connected layers
-        self.dropout1 = nn.Dropout2d(0.6)
-        self.dropout2 = nn.Dropout2d(0.6)
+        self.dropout1 = nn.Dropout2d(0.3)
+        self.dropout2 = nn.Dropout2d(0.3)
 
         # Two fully connected layers. Input is 2347380 because 243x161x60
         # as shown in the forward part.
@@ -263,9 +263,9 @@ def main():
                         help='input batch size for testing (default: 1000)')
     parser.add_argument('--epochs', type=int, default=250, metavar='N',
                         help='number of epochs to train (default: 250)')
-    parser.add_argument('--lr', type=float, default=0.00138, metavar='LR',
+    parser.add_argument('--lr', type=float, default=0.0012210349694825962, metavar='LR',
                         help='learning rate (default: 0.001)')
-    parser.add_argument('--gamma', type=float, default=0.99, metavar='M',
+    parser.add_argument('--gamma', type=float, default=0.8891041301728813, metavar='M',
                         help='Learning rate step gamma (default: 0.7)')
     parser.add_argument('--no-cuda', action='store_true', default=False,
                         help='disables CUDA training')
