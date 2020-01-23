@@ -203,7 +203,7 @@ def train(args, model, device, train_loader, optimizer, epoch, train_losses):
         # Obtain the predictions from forward propagation
         output = model(data)
         # Compute the mean squared error for loss
-        l1 = nn.L1Loss()
+        l1 = nn.L1Loss(reduction="sum")
         loss = l1(output, target)
         total_loss += loss.item()
         # Perform backward propagation to compute the negative gradient, and
@@ -234,9 +234,9 @@ def test(args, model, device, test_loader, test_losses):
         for batch_idx, batch_sample in enumerate(test_loader):
             # Send training data and the training labels to GPU/CPU
             data, target = batch_sample["image"].to(device, dtype=torch.float32), batch_sample["label"].to(device,
-                                                                                                           dtype=torch.float32)
+                                                                                          dtype=torch.float32)
             output = model(data)
-            l1 = nn.L1Loss()
+            l1 = nn.L1Loss(reduction="sum")
             test_loss += l1(output, target).item()
 
     # Average the loss by dividing by the total number of testing instances and add to accumulation of losses.
@@ -328,7 +328,6 @@ def main():
             # If lowest test loss so far, save model and the training curve
             if lowest_loss > test_losses[epoch - 1]:
                 print("New Lowest Loss: ", test_losses[epoch - 1])
-                print(output)
                 torch.save(model.state_dict(), MODEL_NAME)
                 lowest_loss = test_losses[epoch - 1]
                 lowest_test_list = test_losses

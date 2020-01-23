@@ -71,7 +71,7 @@ class ToTensor(object):
 # Define the neural network
 class Net(nn.Module):
     # Define the dimensions for each layer.
-    def __init__(self, dropout1, dropout2):
+    def __init__(self):
         super(Net, self).__init__()
         # First two convolutional layers
         self.conv1 = nn.Conv2d(3, 15, 3, 1)
@@ -99,8 +99,8 @@ class Net(nn.Module):
         self.conv8_bn = nn.BatchNorm2d(120)
 
         # Dropout values for convolutional and fully connected layers
-        self.dropout1 = nn.Dropout2d(dropout1)
-        self.dropout2 = nn.Dropout2d(dropout2)
+        self.dropout1 = nn.Dropout2d(0.35)
+        self.dropout2 = nn.Dropout2d(0.35)
 
         # Two fully connected layers. Input is 2347380 because 243x161x60
         # as shown in the forward part.
@@ -203,7 +203,8 @@ def train(args, model, device, train_loader, optimizer, epoch, train_losses):
         # Obtain the predictions from forward propagation
         output = model(data)
         # Compute the mean squared error for loss
-        loss = F.mse_loss(output, target)
+        mse_loss = nn.MSELoss(reduction="sum")
+        loss = mse_loss(output, target)
         total_loss += loss.item()
         # Perform backward propagation to compute the negative gradient, and
         # update the gradients with optimizer.step()
@@ -233,9 +234,10 @@ def test(args, model, device, test_loader, test_losses):
         for batch_idx, batch_sample in enumerate(test_loader):
             # Send training data and the training labels to GPU/CPU
             data, target = batch_sample["image"].to(device, dtype=torch.float32), batch_sample["label"].to(device,
-                                                                                                           dtype=torch.float32)
+                                                                                          dtype=torch.float32)
             output = model(data)
-            test_loss += F.mse_loss(output, target).item()
+            mse_loss = nn.MSELoss(reduction="sum")
+            test_loss += mse_loss(output, target).item()
 
     # Average the loss by dividing by the total number of testing instances and add to accumulation of losses.
     test_error = test_loss / len(test_loader.dataset)
@@ -243,7 +245,7 @@ def test(args, model, device, test_loader, test_losses):
 
     # Print out the statistics for the testing set.
     print('\nTest set: Average loss: {:.6f}\n'.format(
-        test_loss))
+        test_error))
 
     # Return accumulated test losses over epochs
     return test_losses, output
@@ -257,11 +259,11 @@ def main():
     # random seed, how often to log, and
     # whether we should save the model.
     parser = argparse.ArgumentParser(description='PyTorch Object Detection')
-    parser.add_argument('--batch-size', type=int, default=8, metavar='N',
+    parser.add_argument('--batch-size', type=int, default=16, metavar='N',
                         help='input batch size for training (default: 32)')
     parser.add_argument('--test-batch-size', type=int, default=1000, metavar='N',
                         help='input batch size for testing (default: 1000)')
-    parser.add_argument('--epochs', type=int, default=100, metavar='N',
+    parser.add_argument('--epochs', type=int, default=250, metavar='N',
                         help='number of epochs to train (default: 14)')
     parser.add_argument('--lr', type=float, default=0.05, metavar='LR',
                         help='learning rate (default: 0.001)')
@@ -283,9 +285,12 @@ def main():
     kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
     # Load in the training and testing datasets. Convert to pytorch tensor.
     train_data = DetectionImages(csv_file="../data/labels/box_train_labels.txt", root_dir="../data/train", transform=ToTensor())
-    train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=0, drop_last=True)
+    train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=0)
     test_data = DetectionImages(csv_file="../data/labels/box_validation_labels.txt", root_dir="../data/validation", transform=ToTensor())
     test_loader = DataLoader(test_data, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
+
+    # Run model on GPU if available
+    model = Net().to(device)
 
     # Store the lowest test loss found with random search
     lowest_loss = 1000
@@ -294,22 +299,17 @@ def main():
     lowest_train_list = []
 
     # Randomly search over 100 different learning rate and gamma values
-    for i in range(2):
+    for i in range(100):
+        # Boolean value for if this model is the best so far
+        best_model = False
         # Get random learning rate
-        lr = random.uniform(0.0005, 0.002)
+        lr = random.uniform(0.0001, 0.002)
         # Get random gamma
         gamma = random.uniform(0.5, 1)
-        # Get random dropout values
-        dropout1 = random.uniform(0.2, 0.4)
-        dropout2 = random.uniform(0.2, 0.4)
         print("##################################################")
         print("Learning Rate: ", lr)
         print("Gamma: ", gamma)
-        print("Dropout Values: ", str(dropout1), ", ", str(dropout2))
         print("##################################################")
-
-        # Run model on GPU if available
-        model = Net(dropout1, dropout2).to(device)
 
         # Specify Adam optimizer
         optimizer = optim.Adam(model.parameters(), lr=lr)
@@ -320,29 +320,41 @@ def main():
         # and the testing steps. Scheduler is used to specify the learning rate.
         scheduler = StepLR(optimizer, step_size=1, gamma=gamma)
         for epoch in range(1, args.epochs + 1):
+            # Train and validate for this epoch
             train_losses = train(args, model, device, train_loader, optimizer, epoch, train_losses)
             test_losses, output = test(args, model, device, test_loader, test_losses)
             scheduler.step()
 
             # If lowest test loss so far, save model and the training curve
-            if lowest_loss > test_losses[epoch - 1] + train_losses[epoch - 1]:
-                # Print out the current result
+            if lowest_loss > test_losses[epoch - 1]:
+                # Print the current loss value and save the model
                 print("New Lowest Loss: ", test_losses[epoch - 1])
-                print(output)
-                # Save model
                 torch.save(model.state_dict(), MODEL_NAME)
-                # Update the lowest loss and the list of losses for the learning curve
+                # Get the values for new lowest loss and the learning curve for the current model.
                 lowest_loss = test_losses[epoch - 1]
                 lowest_test_list = test_losses
                 lowest_train_list = train_losses
+                # Set that this is best model so far.
+                best_model = True
+
+        # Save the learning curve if this is best model
+        if best_model:
+            # Save the learning curve for the best result from random search
+            figure, axes = plt.subplots()
+            axes.set(xlabel="Epoch", ylabel="Loss", title="Learning Curve")
+            axes.plot(np.array(lowest_train_list), label="train_loss", c="b")
+            axes.plot(np.array(lowest_test_list), label="validation_loss", c="r")
+            plt.legend()
+            plt.savefig('box_search2_curve.png')
+            plt.close()
 
     # Display the learning curve for the best result from random search
+    # after finishing random search
     figure, axes = plt.subplots()
     axes.set(xlabel="Epoch", ylabel="Loss", title="Learning Curve")
     axes.plot(np.array(lowest_train_list), label="train_loss", c="b")
     axes.plot(np.array(lowest_test_list), label="validation_loss", c="r")
     plt.legend()
-    plt.savefig('box_search2_curve.png')
     plt.show()
     plt.close()
 

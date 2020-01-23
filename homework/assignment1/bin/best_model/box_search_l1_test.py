@@ -8,7 +8,7 @@ import torch.nn.functional as F
 from torchvision import datasets, transforms
 
 # Constants
-MODEL_NAME = "box_search.pt"
+MODEL_NAME = "box_search_l1.pt"
 
 # Define the neural network
 class Net(nn.Module):
@@ -41,8 +41,8 @@ class Net(nn.Module):
         self.conv8_bn = nn.BatchNorm2d(120)
 
         # Dropout values for convolutional and fully connected layers
-        self.dropout1 = nn.Dropout2d(0.01)
-        self.dropout2 = nn.Dropout2d(0.01)
+        self.dropout1 = nn.Dropout2d(0.35)
+        self.dropout2 = nn.Dropout2d(0.35)
 
         # Two fully connected layers. Input is 2347380 because 243x161x60
         # as shown in the forward part.
