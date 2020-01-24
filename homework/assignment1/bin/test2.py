@@ -8,129 +8,77 @@ import torch.nn.functional as F
 from torchvision import datasets, transforms
 
 # Constants
-MODEL_NAME_X = "network_x.pt"
-MODEL_NAME_Y = "network_y.pt"
+MODEL_NAME_X = "network2_x.pt"
+MODEL_NAME_Y = "network2_y.pt"
 
 # Define the neural network
 class Net(nn.Module):
     # Define the dimensions for each layer.
     def __init__(self):
         super(Net, self).__init__()
-        # First two convolutional layers
-        self.conv1 = nn.Conv2d(3, 15, 3, 1)
-        self.conv1_bn = nn.BatchNorm2d(15)
-        self.conv2 = nn.Conv2d(15, 15, 3, 1)
-        self.conv2_bn = nn.BatchNorm2d(15)
-
-
-        # Two more convolutional layers before maxpooling
-        self.conv3 = nn.Conv2d(15, 30, 3, 1)
-        self.conv3_bn = nn.BatchNorm2d(30)
-        self.conv4 = nn.Conv2d(30, 30, 3, 1)
-        self.conv4_bn = nn.BatchNorm2d(30)
-
-        # Two more convolutional layers before maxpooling
-        self.conv5 = nn.Conv2d(30, 60, 3, 1)
-        self.conv5_bn = nn.BatchNorm2d(60)
-        self.conv6 = nn.Conv2d(60, 60, 3, 1)
-        self.conv6_bn = nn.BatchNorm2d(60)
-
-        # Two more convolutional layers before maxpooling
-        self.conv7 = nn.Conv2d(60, 120, 3, 1)
-        self.conv7_bn = nn.BatchNorm2d(120)
-        self.conv8 = nn.Conv2d(120, 120, 3, 1)
-        self.conv8_bn = nn.BatchNorm2d(120)
+        # Convolutional Layers with batch normalization
+        self.conv1 = nn.Conv2d(3, 10, 3, 1)
+        self.conv1_bn = nn.BatchNorm2d(10)
+        self.conv2 = nn.Conv2d(10, 20, 3, 1)
+        self.conv2_bn = nn.BatchNorm2d(20)
+        self.conv3 = nn.Conv2d(20, 40, 3, 1)
+        self.conv3_bn = nn.BatchNorm2d(40)
 
         # Dropout values for convolutional and fully connected layers
-        self.dropout1 = nn.Dropout2d(0.35)
-        self.dropout2 = nn.Dropout2d(0.35)
+        self.dropout1 = nn.Dropout2d(0.5)
+        self.dropout2 = nn.Dropout2d(0.5)
 
         # Two fully connected layers. Input is 2347380 because 243x161x60
         # as shown in the forward part.
-        self.fc1 = nn.Linear(55080, 256)
-        self.fc1_bn = nn.BatchNorm1d(256)
-        self.fc2 = nn.Linear(256, 20)
+        self.fc1 = nn.Linear(5040, 128)
+        self.fc1_bn = nn.BatchNorm1d(128)
+        self.fc2 = nn.Linear(128, 20)
 
     # Define the structure for forward propagation.
     def forward(self, x):
         # Input dimensions: 490x326x3
-        # Output dimensions: 488x324x30
+        # Output dimensions: 488x324x10
         x = self.conv1(x)
         x = self.conv1_bn(x)
         x = F.relu(x)
         x = self.dropout1(x)
-        # Input dimensions: 488x324x30
-        # Output dimensions: 486x322x30
+        # Input dimensions: 488x324x10
+        # Output dimensions: 122x81x10
+        x = F.max_pool2d(x, 4)
+
+        # Input dimensions: 122x81x10
+        # Output dimensions: 120x79x20
         x = self.conv2(x)
         x = self.conv2_bn(x)
         x = F.relu(x)
         x = self.dropout1(x)
-        # Input dimensions: 486x322x30
-        # Output dimensions: 243x161x30
-        x = F.max_pool2d(x, 2)
+        # Input dimensions: 120x79x20
+        # Output dimensions: 30x20x20
+        x = F.max_pool2d(x, 4, ceil_mode=True)
 
-        # Input dimensions: 243x161x30
-        # Output dimensions: 241x159x60
+        # Input dimensions: 30x20x20
+        # Output dimensions: 28x18x40
         x = self.conv3(x)
         x = self.conv3_bn(x)
         x = F.relu(x)
         x = self.dropout1(x)
-        # Input dimensions: 241x159x60
-        # Output dimensions: 239x157x60
-        x = self.conv4(x)
-        x = self.conv4_bn(x)
-        x = F.relu(x)
-        x = self.dropout1(x)
-        # Input dimensions: 239x157x60
-        # Output dimensions: 120x79x60
+        # Input dimensions: 28x18x40
+        # Output dimensions: 14x9x40
         x = F.max_pool2d(x, 2, ceil_mode=True)
 
-        # Input dimensions: 120x79x60
-        # Output dimensions: 118x77x120
-        x = self.conv5(x)
-        x = self.conv5_bn(x)
-        x = F.relu(x)
-        x = self.dropout1(x)
-        # Input dimensions: 118x77x120
-        # Output dimensions: 116x75x120
-        x = self.conv6(x)
-        x = self.conv6_bn(x)
-        x = F.relu(x)
-        x = self.dropout1(x)
-        # Input dimensions: 116x75x120
-        # Output dimensions: 58x38x120
-        x = F.max_pool2d(x, 2, ceil_mode=True)
-
-        # Input dimensions: 58x38x120
-        # Output dimensions: 56x36x240
-        x = self.conv7(x)
-        x = self.conv7_bn(x)
-        x = F.relu(x)
-        x = self.dropout1(x)
-        # Input dimensions: 56x36x240
-        # Output dimensions: 54x34x240
-        x = self.conv8(x)
-        x = self.conv8_bn(x)
-        x = F.relu(x)
-        x = self.dropout1(x)
-        # Input dimensions: 54x34x240
-        # Output dimensions: 27x17x240
-        x = F.max_pool2d(x, 2, ceil_mode=True)
-
-
-        # Input dimensions: 27x17x240
-        # Output dimensions: 110160x1
+        # Input dimensions: 14x9x40
+        # Output dimensions: 5040x1
         x = torch.flatten(x, 1)
-        # Input dimensions: 110160x1
+        # Input dimensions: 5040x1
         # Output dimensions: 128x1
         x = self.fc1(x)
         x = self.fc1_bn(x)
         x = F.relu(x)
         x = self.dropout2(x)
         # Input dimensions: 128x1
-        # Output dimensions: 2x1
+        # Output dimensions: 20x1
         x = self.fc2(x)
-        output = F.log_softmax(x, dim=1)
+        output = torch.sigmoid(x)
         return output
 
 
@@ -186,6 +134,8 @@ def main():
         pred_y = (label_y * 0.05 + (label_y + 1) * 0.05) / 2
         # Calculate the center of the box for that label and print output
         print(round(pred_x.item(), 4), round(pred_y.item(), 4))
+        print(output_x)
+        print(output_y)
 
 
 if __name__ == '__main__':

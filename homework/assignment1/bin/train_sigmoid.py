@@ -16,8 +16,8 @@ from torch.optim.lr_scheduler import StepLR
 from skimage import io, transform
 
 # Constants
-MODEL_NAME_X = "network_x.pt"
-MODEL_NAME_Y = "network_y.pt"
+MODEL_NAME_X = "network_sigmoid_x.pt"
+MODEL_NAME_Y = "network_sigmoid_y.pt"
 
 # Class for the dataset
 class DetectionImages(Dataset):
@@ -184,9 +184,9 @@ class Net(nn.Module):
         x = F.relu(x)
         x = self.dropout2(x)
         # Input dimensions: 128x1
-        # Output dimensions: 2x1
+        # Output dimensions: 20x1
         x = self.fc2(x)
-        output = F.log_softmax(x, dim=1)
+        output = torch.sigmoid(x)
         return output
 
 def train(args, model, device, train_loader, optimizer, epoch, train_losses):
@@ -204,7 +204,7 @@ def train(args, model, device, train_loader, optimizer, epoch, train_losses):
         # Obtain the predictions from forward propagation
         output = model(data)
         # Compute the mean squared error for loss
-        loss = F.nll_loss(output, target)
+        loss = F.cross_entropy(output, target)
         total_loss += loss.item()
         # Perform backward propagation to compute the negative gradient, and
         # update the gradients with optimizer.step()
@@ -238,7 +238,7 @@ def test(args, model, device, test_loader, test_losses):
                                                                                           dtype=torch.long)
             target = target.squeeze_()
             output = model(data)
-            loss = F.nll_loss(output, target)
+            loss = F.cross_entropy(output, target)
             test_loss += loss.item()
             pred = output.argmax(dim=1, keepdim=True)
             correct += pred.eq(target.view_as(pred)).sum().item()
@@ -264,8 +264,8 @@ def main():
     # random seed, how often to log, and
     # whether we should save the model.
     parser = argparse.ArgumentParser(description='PyTorch Object Detection')
-    parser.add_argument('--batch-size', type=int, default=12, metavar='N',
-                        help='input batch size for training (default: 12)')
+    parser.add_argument('--batch-size', type=int, default=8, metavar='N',
+                        help='input batch size for training (default: 8)')
     parser.add_argument('--test-batch-size', type=int, default=1000, metavar='N',
                         help='input batch size for testing (default: 1000)')
     parser.add_argument('--epochs', type=int, default=250, metavar='N',
@@ -291,13 +291,13 @@ def main():
 
     # Load in the training and testing datasets for the x values. Convert to pytorch tensor.
     train_data_x = DetectionImages(csv_file="../data/labels/x_class_train_labels.txt", root_dir="../data/train", transform=ToTensor())
-    train_loader_x = DataLoader(train_data_x, batch_size=args.batch_size, shuffle=True, num_workers=0)
+    train_loader_x = DataLoader(train_data_x, batch_size=args.batch_size, shuffle=True, num_workers=0, drop_last=True)
     test_data_x = DetectionImages(csv_file="../data/labels/x_class_validation_labels.txt", root_dir="../data/validation", transform=ToTensor())
     test_loader_x = DataLoader(test_data_x, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
 
     # Load in the training and testing datasets for the y values. Convert to pytorch tensor.
     train_data_y = DetectionImages(csv_file="../data/labels/y_class_train_labels.txt", root_dir="../data/train", transform=ToTensor())
-    train_loader_y = DataLoader(train_data_y, batch_size=args.batch_size, shuffle=True, num_workers=0)
+    train_loader_y = DataLoader(train_data_y, batch_size=args.batch_size, shuffle=True, num_workers=0, drop_last=True)
     test_data_y = DetectionImages(csv_file="../data/labels/y_class_validation_labels.txt", root_dir="../data/validation", transform=ToTensor())
     test_loader_y = DataLoader(test_data_y, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
 
@@ -394,7 +394,7 @@ def main():
             axes.plot(np.array(lowest_train_list_x), label="train_loss", c="b")
             axes.plot(np.array(lowest_test_list_x), label="validation_loss", c="r")
             plt.legend()
-            plt.savefig('curve_x.png')
+            plt.savefig('curve_sigmoid_x.png')
             plt.close()
 
         if best_model_y:
@@ -404,7 +404,7 @@ def main():
             axes.plot(np.array(lowest_train_list_y), label="train_loss", c="b")
             axes.plot(np.array(lowest_test_list_y), label="validation_loss", c="r")
             plt.legend()
-            plt.savefig('curve_y.png')
+            plt.savefig('curve_sigmoid_y.png')
             plt.close()
 
 
