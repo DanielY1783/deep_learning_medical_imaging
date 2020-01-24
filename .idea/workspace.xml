@@ -2,16 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d111871f-b4ca-41b0-857b-829cd037bf7d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/box_search_l1_curve.png" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/best_model/box_search_l1_curve.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/box_search_l1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/box_search_l1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/box_search_l1_curve.png" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/box_search_l1_curve.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/create_multi_labels.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/multi_search.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/multi_search.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/multi_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/search.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/search_curve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/box_search_l1_curve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/box_search_l1_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/box1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/box1_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/box_search.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/box_search.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/box_search2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/box_search2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/box_search2_curve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/box_search2_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/box_search_l1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/box_search_l1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/box_search_l1_curve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/box_search_l1_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/classification_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/classification_x.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/classification_x.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/classification_y.png" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/classification_y.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/classification_y.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/classification_y.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/split_labels.ipynb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/data/labels/box_train_labels.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/data/labels/box_validation_labels.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/data/labels/class_train_labels.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/data/labels/class_validation_labels.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/data/labels/multi_train_labels.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/data/labels/multi_validation_labels.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,47 +38,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/classification_test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="184" column="54" lean-forward="true" selection-start-line="184" selection-start-column="54" selection-end-line="184" selection-end-column="54" />
-              <folding>
-                <element signature="e#10#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/classification_x.py">
+        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train_rotate_y.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-861">
-              <caret line="291" column="14" lean-forward="true" selection-start-line="291" selection-start-column="14" selection-end-line="291" selection-end-column="14" />
-              <folding>
-                <element signature="e#22#59#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/classification_y.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="302" column="26" selection-start-line="302" selection-start-column="26" selection-end-line="302" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/assignment0/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-561">
-              <caret line="111" column="12" selection-start-line="111" selection-start-column="12" selection-end-line="111" selection-end-column="53" />
-              <folding>
-                <element signature="e#22#59#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="210">
+              <caret line="419" column="37" selection-start-line="419" selection-start-column="37" selection-end-line="419" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -80,6 +61,8 @@
       <find>tensor</find>
       <find>BatchNorm1d</find>
       <find>leaky_relu</find>
+      <find>y</find>
+      <find>flip</find>
     </findStrings>
     <replaceStrings>
       <replace>BatchNorm2d</replace>
@@ -93,7 +76,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/homework/assignment0/main.py" />
-        <option value="$PROJECT_DIR$/homework/assignment1/bin/train.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/visualize_prediction.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/arch4.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/arch3.py" />
@@ -117,9 +99,11 @@
         <option value="$PROJECT_DIR$/homework/assignment1/bin/test.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/box_search.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/classification.py" />
-        <option value="$PROJECT_DIR$/homework/assignment1/bin/classification_y.py" />
-        <option value="$PROJECT_DIR$/homework/assignment1/bin/classification_test.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/classification_x.py" />
+        <option value="$PROJECT_DIR$/homework/assignment1/bin/classification_test.py" />
+        <option value="$PROJECT_DIR$/homework/assignment1/bin/classification_y.py" />
+        <option value="$PROJECT_DIR$/homework/assignment1/bin/train.py" />
+        <option value="$PROJECT_DIR$/homework/assignment1/bin/train_rotate_y.py" />
       </list>
     </option>
   </component>
@@ -274,9 +258,27 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2494043" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32978722" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/visualize_labels.ipynb" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/architecture1.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/visualize_prediction.py">
@@ -286,177 +288,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch4.py">
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch4.py" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch3.py" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch5.py" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch6.py" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch7.py" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch1.py" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/test7.py" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch2.py" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_search.txt" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/multi_test.py" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/multi_search.py" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_test.py" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/new.py" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box1_test.py" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_search_test.py" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_search2_test.py" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box1.py" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_search_l1_test.py" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_search2.py" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/search.py" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_search_l1.py" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_search.py" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/classification.py" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/classification_x.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch5.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="83" column="73" selection-start-line="83" selection-start-column="73" selection-end-line="83" selection-end-column="73" />
+        <state relative-caret-position="1717">
+          <caret line="101" column="40" selection-start-line="101" selection-start-column="40" selection-end-line="101" selection-end-column="40" />
           <folding>
             <element signature="e#22#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch6.py">
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/classification_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1258">
-          <caret line="87" column="40" selection-start-line="87" selection-start-column="40" selection-end-line="87" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch7.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="81" column="37" selection-start-line="81" selection-start-column="37" selection-end-line="81" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="289" column="57" selection-end-line="323" selection-end-column="10" />
+        <state relative-caret-position="-1799">
+          <caret line="28" column="44" lean-forward="true" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
           <folding>
-            <element signature="e#22#59#0" expanded="true" />
+            <element signature="e#10#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/test7.py">
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="99" selection-start-line="99" selection-end-line="101" selection-end-column="42" />
-          <folding>
-            <element signature="e#22#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_search.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/multi_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="734">
-          <caret line="169" column="47" selection-start-line="169" selection-start-column="47" selection-end-line="169" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/multi_search.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1043">
-          <caret line="336" column="73" lean-forward="true" selection-start-line="336" selection-start-column="73" selection-end-line="336" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2805">
-          <caret line="171" column="62" selection-start-line="171" selection-start-column="62" selection-end-line="171" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/new.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3400">
-          <caret line="214" column="35" selection-start-line="214" selection-start-column="35" selection-end-line="214" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box1_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="43" column="41" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_search_test.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_search2_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="157" column="24" selection-start-line="157" selection-start-column="24" selection-end-line="157" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2833">
-          <caret line="29" column="11" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
-          <folding>
-            <element signature="e#22#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_search_l1_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="44" column="41" selection-start-line="44" selection-start-column="41" selection-end-line="44" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_search2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-113">
-          <caret line="266" column="71" selection-start-line="266" selection-start-column="71" selection-end-line="266" selection-end-column="71" />
-          <folding>
-            <element signature="e#22#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/search.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-470">
-          <caret line="294" column="20" selection-start-line="294" selection-start-column="20" selection-end-line="294" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_search_l1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="190" lean-forward="true" selection-start-line="190" selection-end-line="190" />
-          <folding>
-            <element signature="e#22#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_search.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="59" column="20" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
-          <folding>
-            <element signature="e#22#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/classification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="290" column="60" selection-start-line="290" selection-start-column="60" selection-end-line="290" selection-end-column="60" />
+        <state relative-caret-position="162">
+          <caret line="63" column="42" selection-start-line="63" selection-start-column="42" selection-end-line="63" selection-end-column="42" />
           <folding>
             <element signature="e#22#59#0" expanded="true" />
           </folding>
@@ -465,17 +343,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="21" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-1785" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/classification_y.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4913">
+          <caret line="303" column="20" selection-start-line="303" selection-start-column="19" selection-end-line="303" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment0/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-561">
+        <state relative-caret-position="17">
           <caret line="111" column="12" selection-start-line="111" selection-start-column="12" selection-end-line="111" selection-end-column="53" />
           <folding>
             <element signature="e#22#59#0" expanded="true" />
@@ -483,30 +363,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/classification_y.py">
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train_rotate_y.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="302" column="26" selection-start-line="302" selection-start-column="26" selection-end-line="302" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/classification_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="184" column="54" lean-forward="true" selection-start-line="184" selection-start-column="54" selection-end-line="184" selection-end-column="54" />
-          <folding>
-            <element signature="e#10#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/classification_x.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-861">
-          <caret line="291" column="14" lean-forward="true" selection-start-line="291" selection-start-column="14" selection-end-line="291" selection-end-column="14" />
-          <folding>
-            <element signature="e#22#59#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="210">
+          <caret line="419" column="37" selection-start-line="419" selection-start-column="37" selection-end-line="419" selection-end-column="37" />
         </state>
       </provider>
     </entry>

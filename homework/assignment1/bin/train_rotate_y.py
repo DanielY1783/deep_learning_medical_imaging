@@ -16,7 +16,8 @@ from torch.optim.lr_scheduler import StepLR
 from skimage import io, transform
 
 # Constants
-MODEL_NAME = "classification_y.pt"
+MODEL_NAME_X = "network_rotate_x.pt"
+MODEL_NAME_Y = "network_rotate_y.pt"
 
 # Class for the dataset
 class DetectionImages(Dataset):
@@ -50,19 +51,34 @@ class DetectionImages(Dataset):
 
         return sample
 
-class ToTensor(object):
+class ToTensorX(object):
     """Convert ndarrays in sample to Tensors."""
 
     def __call__(self, sample):
         image, label = sample['image'], sample['label']
         in_transform = transforms.Compose([transforms.Normalize([146.5899, 142.5595, 139.0785], [34.5019, 34.8481, 37.1137])])
-        # swap color axis, but also swap x and y to rotate image for detector
-        image = image.transpose((2, 1, 0))
+        # swap color axis because
+        # numpy image: H x W x C
+        # torch image: C X H X W
+        image = image.transpose((2, 0, 1))
         image = torch.from_numpy(image).float()
         image = in_transform(image)
         return {'image': image,
                 'label': torch.from_numpy(np.array(label).astype(int))}
 
+
+class ToTensorY(object):
+    """Convert ndarrays in sample to Tensors."""
+
+    def __call__(self, sample):
+        image, label = sample['image'], sample['label']
+        in_transform = transforms.Compose([transforms.Normalize([146.5899, 142.5595, 139.0785], [34.5019, 34.8481, 37.1137])])
+        # swap color axis but also flip x and y for y classification
+        image = image.transpose((2, 1, 0))
+        image = torch.from_numpy(image).float()
+        image = in_transform(image)
+        return {'image': image,
+                'label': torch.from_numpy(np.array(label).astype(int))}
 
 # Define the neural network
 class Net(nn.Module):
@@ -261,13 +277,13 @@ def main():
     # random seed, how often to log, and
     # whether we should save the model.
     parser = argparse.ArgumentParser(description='PyTorch Object Detection')
-    parser.add_argument('--batch-size', type=int, default=16, metavar='N',
-                        help='input batch size for training (default: 32)')
+    parser.add_argument('--batch-size', type=int, default=12, metavar='N',
+                        help='input batch size for training (default: 12)')
     parser.add_argument('--test-batch-size', type=int, default=1000, metavar='N',
                         help='input batch size for testing (default: 1000)')
     parser.add_argument('--epochs', type=int, default=250, metavar='N',
-                        help='number of epochs to train (default: 14)')
-    parser.add_argument('--lr', type=float, default=0.05, metavar='LR',
+                        help='number of epochs to train (default: 250)')
+    parser.add_argument('--lr', type=float, default=0.001, metavar='LR',
                         help='learning rate (default: 0.001)')
     parser.add_argument('--no-cuda', action='store_true', default=False,
                         help='disables CUDA training')
@@ -285,79 +301,143 @@ def main():
 
     # GPU keywords.
     kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
-    # Load in the training and testing datasets. Convert to pytorch tensor.
-    train_data = DetectionImages(csv_file="../data/labels/y_class_train_labels.txt", root_dir="../data/train", transform=ToTensor())
-    train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=0)
-    test_data = DetectionImages(csv_file="../data/labels/y_class_validation_labels.txt", root_dir="../data/validation", transform=ToTensor())
-    test_loader = DataLoader(test_data, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
 
-    # Run model on GPU if available
-    model = Net().to(device)
+    # Load in the training and testing datasets for the x values. Convert to pytorch tensor.
+    train_data_x = DetectionImages(csv_file="../data/labels/x_class_train_labels.txt", root_dir="../data/train", transform=ToTensorX())
+    train_loader_x = DataLoader(train_data_x, batch_size=args.batch_size, shuffle=True, num_workers=0)
+    test_data_x = DetectionImages(csv_file="../data/labels/x_class_validation_labels.txt", root_dir="../data/validation", transform=ToTensorX())
+    test_loader_x = DataLoader(test_data_x, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
 
-    # Store the lowest test loss found with random search
-    lowest_loss = 1000
-    # Store the learning curve from lowest test loss
-    lowest_test_list = []
-    lowest_train_list = []
+    # Load in the training and testing datasets for the y values. Convert to pytorch tensor.
+    train_data_y = DetectionImages(csv_file="../data/labels/y_class_train_labels.txt", root_dir="../data/train", transform=ToTensorY())
+    train_loader_y = DataLoader(train_data_x, batch_size=args.batch_size, shuffle=True, num_workers=0)
+    test_data_y = DetectionImages(csv_file="../data/labels/y_class_validation_labels.txt", root_dir="../data/validation", transform=ToTensorY())
+    test_loader_y = DataLoader(test_data_y, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
 
-    # Randomly search over 100 different learning rate and gamma values
-    for i in range(3):
-        # Boolean value for if this model is the best so far
-        best_model = False
+    # Create model for x prediction
+    model_x = Net().to(device)
+    # Create model for y prediction
+    model_y = Net().to(device)
+
+    # Store the lowest test loss found with random search for both x and y models
+    lowest_loss_x = 1000
+    lowest_loss_y = 1000
+    # Store the learning curve from lowest test loss for x and y models
+    lowest_test_list_x = []
+    lowest_train_list_x = []
+    lowest_test_list_y = []
+    lowest_train_list_y = []
+
+    # Randomly search over 50 different learning rate and gamma value combinations
+    for i in range(50):
+        # Boolean value for if this model for either x or y is the best so far
+        best_model_x = False
+        best_model_y = False
         # Get random learning rate
-        lr = random.uniform(0.008, 0.002)
+        lr = random.uniform(0.0008, 0.002)
         # Get random gamma
         gamma = random.uniform(0.7, 1)
+        # Print out the current learning rate and gamma value
         print("##################################################")
         print("Learning Rate: ", lr)
         print("Gamma: ", gamma)
         print("##################################################")
 
-        # Specify Adam optimizer
-        optimizer = optim.Adam(model.parameters(), lr=lr)
+        # Specify Adam optimizer for x and y models
+        optimizer_x = optim.Adam(model_x.parameters(), lr=lr)
+        optimizer_y = optim.Adam(model_y.parameters(), lr=lr)
+
         # Store the training and testing losses over time
-        train_losses = []
-        test_losses = []
-        # Run for the set number of epochs. For each epoch, run the training
-        # and the testing steps. Scheduler is used to specify the learning rate.
-        scheduler = StepLR(optimizer, step_size=1, gamma=gamma)
+        train_losses_x = []
+        test_losses_x = []
+        train_losses_y = []
+        test_losses_y = []
+        # Create schedulers for x and y models.
+        scheduler_x = StepLR(optimizer_x, step_size=1, gamma=gamma)
+        scheduler_y = StepLR(optimizer_x, step_size=1, gamma=gamma)
+
+
+        # Train the x model for the set number of epochs
+        print("===========Training X Model================")
         for epoch in range(1, args.epochs + 1):
             # Train and validate for this epoch
-            train_losses = train(args, model, device, train_loader, optimizer, epoch, train_losses)
-            test_losses, output = test(args, model, device, test_loader, test_losses)
-            scheduler.step()
+            train_losses_x = train(args, model_x, device, train_loader_x, optimizer_x, epoch, train_losses_x)
+            test_losses_x, output_x = test(args, model_x, device, test_loader_x, test_losses_x)
+            scheduler_x.step()
 
-            # If lowest test loss so far, save model and the training curve
-            if lowest_loss > test_losses[epoch - 1]:
-                print("New Lowest Loss: ", test_losses[epoch - 1])
-                print(output)
-                torch.save(model.state_dict(), MODEL_NAME)
-                lowest_loss = test_losses[epoch - 1]
-                lowest_test_list = test_losses
-                lowest_train_list = train_losses
+            # If this is the lowest validation loss so far, save model and the training curve. This allows
+            # us to recover a model for early stopping
+            if lowest_loss_x > test_losses_x[epoch - 1]:
+                print("New Lowest Loss For X Model: ", test_losses_x[epoch - 1])
+                print("Validation Predictions: ")
+                print(output_x)
+                torch.save(model_x.state_dict(), MODEL_NAME_X)
+                lowest_loss_x = test_losses_x[epoch - 1]
+                lowest_test_list_x = test_losses_x
+                lowest_train_list_x = train_losses_x
                 # Set that this is best model
-                best_model = True
+                best_model_x = True
+
+        # Train the y model for the set number of epochs
+        print("===========Training Y Model================")
+        for epoch in range(1, args.epochs + 1):
+            # Train and validate for this epoch
+            train_losses_y = train(args, model_y, device, train_loader_y, optimizer_y, epoch, train_losses_y)
+            test_losses_y, output_y = test(args, model_y, device, test_loader_y, test_losses_y)
+            scheduler_y.step()
+
+            # If this is the lowest validation loss so far, save model and the training curve. This allows
+            # us to recover a model for early stopping
+            if lowest_loss_y > test_losses_y[epoch - 1]:
+                print("New Lowest Loss For Y Model: ", test_losses_y[epoch - 1])
+                print("Validation Predictions: ")
+                print(output_y)
+                torch.save(model_y.state_dict(), MODEL_NAME_Y)
+                lowest_loss_y = test_losses_y[epoch - 1]
+                lowest_test_list_y = test_losses_y
+                lowest_train_list_y = train_losses_y
+                # Set that this is best model
+                best_model_y = True
 
         # Save the learning curve if this is best model
-        if best_model:
+        if best_model_x:
             # Save the learning curve for the best result from random search
             figure, axes = plt.subplots()
-            axes.set(xlabel="Epoch", ylabel="Loss", title="Learning Curve")
-            axes.plot(np.array(lowest_train_list), label="train_loss", c="b")
-            axes.plot(np.array(lowest_test_list), label="validation_loss", c="r")
+            axes.set(xlabel="Epoch", ylabel="Loss For X Model", title="Learning Curve For X Model")
+            axes.plot(np.array(lowest_train_list_x), label="train_loss", c="b")
+            axes.plot(np.array(lowest_test_list_x), label="validation_loss", c="r")
             plt.legend()
-            plt.savefig('classification_y.png')
+            plt.savefig('curve_rotate_x.png')
             plt.close()
 
-    # Display the learning curve for the best result from random search
+        if best_model_y:
+            # Save the learning curve for the best result from random search
+            figure, axes = plt.subplots()
+            axes.set(xlabel="Epoch", ylabel="Loss For Y Model", title="Learning Curve For Y Model")
+            axes.plot(np.array(lowest_train_list_y), label="train_loss", c="b")
+            axes.plot(np.array(lowest_test_list_y), label="validation_loss", c="r")
+            plt.legend()
+            plt.savefig('curve_rotate_y.png')
+            plt.close()
+
+
+
+    # Display the learning curves for the best results from random search
     figure, axes = plt.subplots()
-    axes.set(xlabel="Epoch", ylabel="Loss", title="Learning Curve")
-    axes.plot(np.array(lowest_train_list), label="train_loss", c="b")
-    axes.plot(np.array(lowest_test_list), label="validation_loss", c="r")
+    axes.set(xlabel="Epoch", ylabel="Loss For X Model", title="Learning Curve For X Model")
+    axes.plot(np.array(lowest_train_list_x), label="train_loss", c="b")
+    axes.plot(np.array(lowest_test_list_x), label="validation_loss", c="r")
     plt.legend()
     plt.show()
     plt.close()
 
+    figure, axes = plt.subplots()
+    axes.set(xlabel="Epoch", ylabel="Loss For Y Model", title="Learning Curve For Y Model")
+    axes.plot(np.array(lowest_train_list_y), label="train_loss", c="b")
+    axes.plot(np.array(lowest_test_list_y), label="validation_loss", c="r")
+    plt.legend()
+    plt.show()
+    plt.close()
 
 if __name__ == '__main__':
     main()

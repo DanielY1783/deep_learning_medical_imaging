@@ -1,22 +1,192 @@
-from matplotlib import pyplot as plt
+# Imports
+import argparse
 import numpy as np
-import pandas as pd
-import random
-import os
+from PIL import Image
 import torch
-from torch.utils.data import Dataset, DataLoader
 import torch.nn as nn
 import torch.nn.functional as F
-import torch.optim as optim
 from torchvision import datasets, transforms
-from torch.optim.lr_scheduler import StepLR
-from skimage import io, transform
 
-loss = nn.CrossEntropyLoss()
-input = torch.randn(3, 5, requires_grad=True)
-target = torch.empty(3, dtype=torch.long).random_(5)
-output = loss(input, target)
-output.backward()
-print(input)
-print(target)
-print(output)
+# Constants
+MODEL_NAME_X = "network_x.pt"
+MODEL_NAME_Y = "network_y.pt"
+
+# Define the neural network
+class Net(nn.Module):
+    # Define the dimensions for each layer.
+    def __init__(self):
+        super(Net, self).__init__()
+        # First two convolutional layers
+        self.conv1 = nn.Conv2d(3, 15, 3, 1)
+        self.conv1_bn = nn.BatchNorm2d(15)
+        self.conv2 = nn.Conv2d(15, 15, 3, 1)
+        self.conv2_bn = nn.BatchNorm2d(15)
+
+
+        # Two more convolutional layers before maxpooling
+        self.conv3 = nn.Conv2d(15, 30, 3, 1)
+        self.conv3_bn = nn.BatchNorm2d(30)
+        self.conv4 = nn.Conv2d(30, 30, 3, 1)
+        self.conv4_bn = nn.BatchNorm2d(30)
+
+        # Two more convolutional layers before maxpooling
+        self.conv5 = nn.Conv2d(30, 60, 3, 1)
+        self.conv5_bn = nn.BatchNorm2d(60)
+        self.conv6 = nn.Conv2d(60, 60, 3, 1)
+        self.conv6_bn = nn.BatchNorm2d(60)
+
+        # Two more convolutional layers before maxpooling
+        self.conv7 = nn.Conv2d(60, 120, 3, 1)
+        self.conv7_bn = nn.BatchNorm2d(120)
+        self.conv8 = nn.Conv2d(120, 120, 3, 1)
+        self.conv8_bn = nn.BatchNorm2d(120)
+
+        # Dropout values for convolutional and fully connected layers
+        self.dropout1 = nn.Dropout2d(0.35)
+        self.dropout2 = nn.Dropout2d(0.35)
+
+        # Two fully connected layers. Input is 2347380 because 243x161x60
+        # as shown in the forward part.
+        self.fc1 = nn.Linear(55080, 256)
+        self.fc1_bn = nn.BatchNorm1d(256)
+        self.fc2 = nn.Linear(256, 100)
+
+    # Define the structure for forward propagation.
+    def forward(self, x):
+        # Input dimensions: 490x326x3
+        # Output dimensions: 488x324x30
+        x = self.conv1(x)
+        x = self.conv1_bn(x)
+        x = F.relu(x)
+        x = self.dropout1(x)
+        # Input dimensions: 488x324x30
+        # Output dimensions: 486x322x30
+        x = self.conv2(x)
+        x = self.conv2_bn(x)
+        x = F.relu(x)
+        x = self.dropout1(x)
+        # Input dimensions: 486x322x30
+        # Output dimensions: 243x161x30
+        x = F.max_pool2d(x, 2)
+
+        # Input dimensions: 243x161x30
+        # Output dimensions: 241x159x60
+        x = self.conv3(x)
+        x = self.conv3_bn(x)
+        x = F.relu(x)
+        x = self.dropout1(x)
+        # Input dimensions: 241x159x60
+        # Output dimensions: 239x157x60
+        x = self.conv4(x)
+        x = self.conv4_bn(x)
+        x = F.relu(x)
+        x = self.dropout1(x)
+        # Input dimensions: 239x157x60
+        # Output dimensions: 120x79x60
+        x = F.max_pool2d(x, 2, ceil_mode=True)
+
+        # Input dimensions: 120x79x60
+        # Output dimensions: 118x77x120
+        x = self.conv5(x)
+        x = self.conv5_bn(x)
+        x = F.relu(x)
+        x = self.dropout1(x)
+        # Input dimensions: 118x77x120
+        # Output dimensions: 116x75x120
+        x = self.conv6(x)
+        x = self.conv6_bn(x)
+        x = F.relu(x)
+        x = self.dropout1(x)
+        # Input dimensions: 116x75x120
+        # Output dimensions: 58x38x120
+        x = F.max_pool2d(x, 2, ceil_mode=True)
+
+        # Input dimensions: 58x38x120
+        # Output dimensions: 56x36x240
+        x = self.conv7(x)
+        x = self.conv7_bn(x)
+        x = F.relu(x)
+        x = self.dropout1(x)
+        # Input dimensions: 56x36x240
+        # Output dimensions: 54x34x240
+        x = self.conv8(x)
+        x = self.conv8_bn(x)
+        x = F.relu(x)
+        x = self.dropout1(x)
+        # Input dimensions: 54x34x240
+        # Output dimensions: 27x17x240
+        x = F.max_pool2d(x, 2, ceil_mode=True)
+
+
+        # Input dimensions: 27x17x240
+        # Output dimensions: 110160x1
+        x = torch.flatten(x, 1)
+        # Input dimensions: 110160x1
+        # Output dimensions: 128x1
+        x = self.fc1(x)
+        x = self.fc1_bn(x)
+        x = F.relu(x)
+        x = self.dropout2(x)
+        # Input dimensions: 128x1
+        # Output dimensions: 2x1
+        x = self.fc2(x)
+        output = F.log_softmax(x, dim=1)
+        return output
+
+
+
+def main():
+    # Command line arguments for the image path and x and y coordinates
+    parser = argparse.ArgumentParser(description='Visualize a Single Prediction Location')
+    parser.add_argument('image_path', help='path to the image to display')
+    args = parser.parse_args()
+
+    # Open the image passed by the command line argument
+    image = Image.open(args.image_path)
+    # Convert to numpy array and transpose to get right dimensions
+    image = np.array(image)
+    image = image.transpose((2, 0, 1))
+    # Convert to torch image
+    image = torch.from_numpy(image).float()
+    # Normalize image
+    in_transform = transforms.Compose(
+        [transforms.Normalize([146.5899, 142.5595, 139.0785], [34.5019, 34.8481, 37.1137])])
+    image = in_transform(image)
+    # unsqueeze to insert first dimension for number of images
+    image = torch.unsqueeze(image, 0)
+
+    # Specify cuda device
+    device = torch.device("cuda")
+
+
+    # Send image to cuda device
+    image = image.to(device, dtype=torch.float32)
+
+    # Load in pytorch model for x prediction
+    model_x = Net().to(device)
+    model_x.load_state_dict(torch.load(MODEL_NAME_X))
+    # Specify that we are in evaluation phase
+    model_x.eval()
+
+    # Load in pytorch model for y prediction
+    model_y = Net().to(device)
+    model_y.load_state_dict(torch.load(MODEL_NAME_Y))
+    # Specify that we are in evaluation phase
+    model_y.eval()
+    # No gradient calculation because we are in testing phase.
+    with torch.no_grad():
+        # Get the prediction label for x and y
+        output_x = model_x(image)
+        label_x = output_x.argmax(dim=1, keepdim=True)
+        # Convert to x value for center of that label
+        pred_x = (label_x * 0.05 + (label_x + 1) * 0.05) / 2
+
+        output_y = model_y(image)
+        label_y = output_y.argmax(dim=1, keepdim=True)
+        pred_y = (label_y * 0.05 + (label_y + 1) * 0.05) / 2
+        # Calculate the center of the box for that label and print output
+        print(round(pred_x.item(), 4), round(pred_y.item(), 4))
+
+
+if __name__ == '__main__':
+    main()
