@@ -8,8 +8,8 @@ import torch.nn.functional as F
 from torchvision import datasets, transforms
 
 # Constants
-MODEL_NAME_X = "network_x.pt"
-MODEL_NAME_Y = "network_y.pt"
+MODEL_NAME_X = "network_sigmoid_x.pt"
+MODEL_NAME_Y = "network_sigmoid_y.pt"
 
 # Define the neural network
 class Net(nn.Module):
@@ -42,8 +42,8 @@ class Net(nn.Module):
         self.conv8_bn = nn.BatchNorm2d(120)
 
         # Dropout values for convolutional and fully connected layers
-        self.dropout1 = nn.Dropout2d(0.5)
-        self.dropout2 = nn.Dropout2d(0.5)
+        self.dropout1 = nn.Dropout2d(0.35)
+        self.dropout2 = nn.Dropout2d(0.35)
 
         # Two fully connected layers. Input is 2347380 because 243x161x60
         # as shown in the forward part.
@@ -130,8 +130,9 @@ class Net(nn.Module):
         # Input dimensions: 128x1
         # Output dimensions: 2x1
         x = self.fc2(x)
-        output = F.softmax(x, dim=1)
+        output = torch.sigmoid(x)
         return output
+
 
 
 def main():

@@ -16,8 +16,8 @@ from torch.optim.lr_scheduler import StepLR
 from skimage import io, transform
 
 # Constants
-MODEL_NAME_X = "network_x.pt"
-MODEL_NAME_Y = "network_y.pt"
+MODEL_NAME_X = "network_buggy_x.pt"
+MODEL_NAME_Y = "network_buggy_y.pt"
 
 # Class for the dataset
 class DetectionImages(Dataset):
@@ -186,7 +186,7 @@ class Net(nn.Module):
         # Input dimensions: 128x1
         # Output dimensions: 2x1
         x = self.fc2(x)
-        output = F.softmax(x, dim=1)
+        output = F.log_softmax(x, dim=1)
         return output
 
 def train(args, model, device, train_loader, optimizer, epoch, train_losses):
@@ -204,7 +204,7 @@ def train(args, model, device, train_loader, optimizer, epoch, train_losses):
         # Obtain the predictions from forward propagation
         output = model(data)
         # Compute the mean squared error for loss
-        loss = F.cross_entropy(output, target)
+        loss = F.nll_loss(output, target)
         total_loss += loss.item()
         # Perform backward propagation to compute the negative gradient, and
         # update the gradients with optimizer.step()
@@ -238,7 +238,7 @@ def test(args, model, device, test_loader, test_losses):
                                                                                           dtype=torch.long)
             target = target.squeeze_()
             output = model(data)
-            loss = F.cross_entropy(output, target)
+            loss = F.nll_loss(output, target)
             test_loss += loss.item()
             pred = output.argmax(dim=1, keepdim=True)
             correct += pred.eq(target.view_as(pred)).sum().item()
@@ -394,7 +394,7 @@ def main():
             axes.plot(np.array(lowest_train_list_x), label="train_loss", c="b")
             axes.plot(np.array(lowest_test_list_x), label="validation_loss", c="r")
             plt.legend()
-            plt.savefig('curve_x.png')
+            plt.savefig('curve_buggy_x.png')
             plt.close()
 
         if best_model_y:
@@ -404,7 +404,7 @@ def main():
             axes.plot(np.array(lowest_train_list_y), label="train_loss", c="b")
             axes.plot(np.array(lowest_test_list_y), label="validation_loss", c="r")
             plt.legend()
-            plt.savefig('curve_y.png')
+            plt.savefig('curve_buggy_y.png')
             plt.close()
 
 

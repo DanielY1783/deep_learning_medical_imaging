@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d111871f-b4ca-41b0-857b-829cd037bf7d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/classification_x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/classification_x.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/classification_y.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/classification_y.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/curve2_x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/curve2_y.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/curve_x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/curve_y.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/train_rotate_y.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/train_rotate_y.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/train.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/train_sigmoid.txt" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/train_sigmoid.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,19 +20,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/test.py">
+        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train_buggy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-204">
-              <caret line="51" column="36" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train_sigmoid.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="293" column="117" selection-start-line="293" selection-start-column="117" selection-end-line="293" selection-end-column="117" />
+            <state relative-caret-position="6664">
+              <caret line="406" column="37" selection-start-line="406" selection-start-column="37" selection-end-line="406" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -40,29 +31,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="299" column="44" selection-start-line="299" selection-start-column="44" selection-end-line="299" selection-end-column="44" />
-              <folding>
-                <element signature="e#22#59#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/test2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1006">
-              <caret line="137" column="23" selection-start-line="137" selection-start-column="23" selection-end-line="137" selection-end-column="23" />
+            <state relative-caret-position="323">
+              <caret line="69" selection-start-line="69" selection-end-line="189" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train2.py">
+        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="247" column="44" selection-start-line="247" selection-start-column="44" selection-end-line="247" selection-end-column="44" />
+            <state relative-caret-position="224">
+              <caret line="133" column="21" selection-start-line="133" selection-start-column="21" selection-end-line="133" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -123,10 +102,13 @@
         <option value="$PROJECT_DIR$/homework/assignment1/bin/classification_y.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/train_rotate_y.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/test2.py" />
-        <option value="$PROJECT_DIR$/homework/assignment1/bin/test.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/train_sigmoid.py" />
-        <option value="$PROJECT_DIR$/homework/assignment1/bin/train.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/train2.py" />
+        <option value="$PROJECT_DIR$/homework/assignment1/bin/test_sigmoid.py" />
+        <option value="$PROJECT_DIR$/homework/assignment1/bin/train_cross_entropy.py" />
+        <option value="$PROJECT_DIR$/homework/assignment1/bin/train_buggy.py" />
+        <option value="$PROJECT_DIR$/homework/assignment1/bin/train.py" />
+        <option value="$PROJECT_DIR$/homework/assignment1/bin/test.py" />
       </list>
     </option>
   </component>
@@ -381,27 +363,17 @@
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train_2.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/test.py">
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-204">
-          <caret line="51" column="36" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
+        <state relative-caret-position="-1354">
+          <caret line="247" column="44" selection-start-line="247" selection-start-column="44" selection-end-line="247" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train_sigmoid.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="293" column="117" selection-start-line="293" selection-start-column="117" selection-end-line="293" selection-end-column="117" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="299" column="44" selection-start-line="299" selection-start-column="44" selection-end-line="299" selection-end-column="44" />
-          <folding>
-            <element signature="e#22#59#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-2686">
+          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -412,10 +384,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train2.py">
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train_cross_entropy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="247" column="44" selection-start-line="247" selection-start-column="44" selection-end-line="247" selection-end-column="44" />
+        <state relative-caret-position="68">
+          <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train_buggy.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/test_sigmoid.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="132" column="32" selection-start-line="132" selection-start-column="32" selection-end-line="132" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train_buggy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6664">
+          <caret line="406" column="37" selection-start-line="406" selection-start-column="37" selection-end-line="406" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="69" selection-start-line="69" selection-end-line="189" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="133" column="21" selection-start-line="133" selection-start-column="21" selection-end-line="133" selection-end-column="21" />
         </state>
       </provider>
     </entry>
