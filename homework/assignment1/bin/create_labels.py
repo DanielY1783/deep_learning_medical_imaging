@@ -24,5 +24,5 @@ labels_df = labels_df.drop(columns=["x", "y"])
 val_labels_df = labels_df[labels_df["file_name"].isin(VALIDATION_NAMES)]
 train_labels_df = labels_df[~labels_df["file_name"].isin(VALIDATION_NAMES)]
 # Store the label names separately
-val_labels_df.to_csv("../data/labels/multiclass_validation_labels.txt", sep=" ", index=False, header=False)
-train_labels_df.to_csv("../data/labels/multiclass_train_labels.txt", sep=" ", index=False, header=False)
+val_labels_df.to_csv("../data/labels/validation_labels.txt", sep=" ", index=False, header=False)
+train_labels_df.to_csv("../data/labels/train_labels.txt", sep=" ", index=False, header=False)

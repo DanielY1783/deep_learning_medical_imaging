@@ -16,8 +16,39 @@ from torch.optim.lr_scheduler import StepLR
 from skimage import io, transform
 
 # Constants for the name of the model to save to
-MODEL_NAME_X = "network_x.pt"
-MODEL_NAME_Y = "network_y.pt"
+MODEL_NAME = "network.pt"
+# Constant for names of validation files
+VALIDATION_NAMES = ["111.jpg", "112.jpg", "113.jpg", "114.jpg", "115.jpg",
+                    "116.jpg", "117.jpg", "118.jpg", "119.jpg", "125.jpg"]
+# Constant for number of x and y classes, which is the number of rectangular windows
+# we are dividing x and y coordinates into
+WINDOWS = 20
+
+def generate_labels():
+    """
+    Generate class labels corresponding to the floating point x and y
+    coordinates for the
+    :return: None
+    """
+    # Load in labels file and rename column names.
+    labels_df = pd.read_csv("../data/labels/labels.txt", sep=" ", header=None)
+    labels_df.columns = ["file_name", "x", "y"]
+
+    # Create new row with the class for the x coordinate. We have 20 classes representing a division of the
+    # x space into 20 equally wide regions.
+    labels_df["x_class"] = (np.floor(labels_df["x"] * WINDOWS)).astype(int)
+    # Create new row with the class for the x coordinate. We have 20 classes representing a division of the
+    # x space into 20 equally wide regions.
+    labels_df["y_class"] = (np.floor(labels_df["y"] * WINDOWS)).astype(int)
+    # Drop original labels
+    labels_df = labels_df.drop(columns=["x", "y"])
+
+    # Get the rows corresponding to training and validation sets.
+    val_labels_df = labels_df[labels_df["file_name"].isin(VALIDATION_NAMES)]
+    train_labels_df = labels_df[~labels_df["file_name"].isin(VALIDATION_NAMES)]
+    # Store the label names separately
+    val_labels_df.to_csv("../data/labels/validation_labels.txt", sep=" ", index=False, header=False)
+    train_labels_df.to_csv("../data/labels/train_labels.txt", sep=" ", index=False, header=False)
 
 # Class for the dataset
 class DetectionImages(Dataset):
@@ -105,11 +136,14 @@ class Net(nn.Module):
 
         # Two fully connected layers. Input is 55080 because the last maxpool layer before is
         # 27x17x120 as shown in the forward part.
-        self.fc1 = nn.Linear(55080, 256)
-        self.fc1_bn = nn.BatchNorm1d(256)
+        self.fc1x = nn.Linear(55080, 256)
+        self.fc1x_bn = nn.BatchNorm1d(256)
+        self.fc1y = nn.Linear(55080, 256)
+        self.fc1y_bn = nn.BatchNorm1d(256)
         # 20 different output nodes for each of the classes, because we divide both
-        # the x and y space into 20 spaces.
-        self.fc2 = nn.Linear(256, 20)
+        # the x and y space into 20 spaces. We need two for x and y labels
+        self.fc2x = nn.Linear(256, 20)
+        self.fc2y = nn.Linear(256, 20)
 
     # Define the structure for forward propagation.
     def forward(self, x):
@@ -181,20 +215,36 @@ class Net(nn.Module):
         # Input dimensions: 27x17x120
         # Output dimensions: 55080x1
         x = torch.flatten(x, 1)
-        # Input dimensions: 110160x1
+
+        # Fully connected layers for x label prediction
+        # Input dimensions: 55080x1
         # Output dimensions: 256x1
-        x = self.fc1(x)
-        x = self.fc1_bn(x)
-        x = F.relu(x)
-        x = self.dropout2(x)
+        x_label = self.fc1x(x)
+        x_label = self.fc1x_bn(x_label)
+        x_label = F.relu(x_label)
+        x_label = self.dropout2(x_label)
         # Input dimensions: 256x1
         # Output dimensions: 20x1
-        x = self.fc2(x)
+        x_label = self.fc2x(x_label)
+
+        # Fully connected layers for y label prediction
+        # Input dimensions: 55080x1
+        # Output dimensions: 256x1
+        y_label = self.fc1y(x)
+        y_label = self.fc1y_bn(y_label)
+        y_label = F.relu(y_label)
+        y_label = self.dropout2(y_label)
+        # Input dimensions: 256x1
+        # Output dimensions: 20x1
+        y_label = self.fc2y(y_label)
+
+
         # Use log softmax to get probabilities for each class. We
         # can then get the class prediction by simply taking the index
         # with the maximum value.
-        output = F.log_softmax(x, dim=1)
-        return output
+        output_x = F.log_softmax(x_label, dim=1)
+        output_y = F.log_softmax(y_label, dim=1)
+        return output_x, output_y
 
 def train(args, model, device, train_loader, optimizer, epoch, train_losses):
     # Specify that we are in training phase
@@ -207,11 +257,15 @@ def train(args, model, device, train_loader, optimizer, epoch, train_losses):
         data, target = batch_sample["image"].to(device, dtype=torch.float32), batch_sample["label"].to(device, dtype=torch.long)
         # Zero the gradients carried over from previous step
         optimizer.zero_grad()
-        target = target.squeeze_()
+        # Get the x and y labels separately
+        target_x = target[:, 0]
+        target_y = target[:, 1]
         # Obtain the predictions from forward propagation
-        output = model(data)
-        # Compute the cross entropy for the loss
-        loss = F.cross_entropy(output, target)
+        output_x, output_y = model(data)
+        # Compute the cross entropy for the loss. Total loss is sum of loss for both x and y
+        loss_x = F.cross_entropy(output_x, target_x)
+        loss_y = F.cross_entropy(output_y, target_y)
+        loss = loss_x + loss_y
         total_loss += loss.item()
         # Perform backward propagation to compute the negative gradient, and
         # update the gradients with optimizer.step()
@@ -231,7 +285,6 @@ def test(args, model, device, test_loader, test_losses):
     model.eval()
     # Set the loss and number of correct instances initially to 0.
     test_loss = 0
-    correct = 0
     # No gradient calculation because we are in testing phase.
     with torch.no_grad():
         # For each testing example, we run forward
@@ -243,18 +296,20 @@ def test(args, model, device, test_loader, test_losses):
             # Send training data and the training labels to GPU/CPU
             data, target = batch_sample["image"].to(device, dtype=torch.float32), batch_sample["label"].to(device,
                                                                                           dtype=torch.long)
-            # Remove a dimension to get the correct shape of the tensor for the label
-            target = target.squeeze_()
+            # Get the x and y labels separately
+            target_x = target[:, 0]
+            target_y = target[:, 1]
             # Obtain the output from the model
-            output = model(data)
-            # Calculate the loss using cross entropy
-            loss = F.cross_entropy(output, target)
+            output_x, output_y = model(data)
+            # Calculate the loss using cross entropy. Total loss is sum of x and y loss
+            loss_x = F.cross_entropy(output_x, target_x)
+            loss_y = F.cross_entropy(output_y, target_y)
+            loss = loss_x + loss_y
             # Increment the total test loss
             test_loss += loss.item()
             # Get the prediction by getting the index with the maximum probability
-            pred = output.argmax(dim=1, keepdim=True)
-            # Update total number of correct predictions.
-            correct += pred.eq(target.view_as(pred)).sum().item()
+            pred_x = output_x.argmax(dim=1, keepdim=True)
+            pred_y = output_y.argmax(dim=1, keepdim=True)
 
     # Average the loss by dividing by the total number of testing instances and add to accumulation of losses.
     test_error = test_loss / len(test_loader.dataset)
@@ -263,10 +318,9 @@ def test(args, model, device, test_loader, test_losses):
     # Print out the statistics for the testing set.
     print('\nTest set: Average loss: {:.6f}\n'.format(
         test_error))
-    print("Correct instances: ", correct)
 
     # Return accumulated test losses over epochs and the predictions
-    return test_losses, pred
+    return test_losses, pred_x, pred_y
 
 
 def main():
@@ -278,8 +332,6 @@ def main():
                         help='input batch size for testing (default: 1000)')
     parser.add_argument('--epochs', type=int, default=50, metavar='N',
                         help='number of epochs to train (default: 50)')
-    parser.add_argument('--lr', type=float, default=0.001, metavar='LR',
-                        help='learning rate (default: 0.001)')
     parser.add_argument('--no-cuda', action='store_true', default=False,
                         help='disables CUDA training')
     parser.add_argument('--seed', type=int, default=1, metavar='S',
@@ -297,37 +349,29 @@ def main():
     # GPU keywords.
     kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
 
-    # Load in the training and testing datasets for the x values. Convert to pytorch tensor.
-    train_data_x = DetectionImages(csv_file="../data/labels/x_class_train_labels.txt", root_dir="../data/train", transform=ToTensor())
-    train_loader_x = DataLoader(train_data_x, batch_size=args.batch_size, shuffle=True, num_workers=0)
-    test_data_x = DetectionImages(csv_file="../data/labels/x_class_validation_labels.txt", root_dir="../data/validation", transform=ToTensor())
-    test_loader_x = DataLoader(test_data_x, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
+    # Generate our labels for the training and testing data from the original labels
+    generate_labels()
 
-    # Load in the training and testing datasets for the y values. Convert to pytorch tensor.
-    train_data_y = DetectionImages(csv_file="../data/labels/y_class_train_labels.txt", root_dir="../data/train", transform=ToTensor())
-    train_loader_y = DataLoader(train_data_y, batch_size=args.batch_size, shuffle=True, num_workers=0)
-    test_data_y = DetectionImages(csv_file="../data/labels/y_class_validation_labels.txt", root_dir="../data/validation", transform=ToTensor())
-    test_loader_y = DataLoader(test_data_y, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
+    # Load in the training and testing datasets for the x values. Convert to pytorch tensor.
+    train_data = DetectionImages(csv_file="../data/labels/train_labels.txt", root_dir="../data/train", transform=ToTensor())
+    train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=0)
+    test_data_x = DetectionImages(csv_file="../data/labels/validation_labels.txt", root_dir="../data/validation", transform=ToTensor())
+    test_loader = DataLoader(test_data_x, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
+
 
     # Create model for x prediction
-    model_x = Net().to(device)
-    # Create model for y prediction
-    model_y = Net().to(device)
+    model = Net().to(device)
 
     # Store the lowest test loss found with random search for both x and y models
-    lowest_loss_x = 1000
-    lowest_loss_y = 1000
+    lowest_loss = 1000
     # Store the learning curve from lowest test loss for x and y models
-    lowest_test_list_x = []
-    lowest_train_list_x = []
-    lowest_test_list_y = []
-    lowest_train_list_y = []
+    lowest_test_list = []
+    lowest_train_list = []
 
-    # Randomly search over 20 different learning rate and gamma value combinations
-    for i in range(20):
-        # Boolean value for if this model for either x or y is the best so far
-        best_model_x = False
-        best_model_y = False
+    # Randomly search over 50 different learning rate and gamma value combinations
+    for i in range(50):
+        # Boolean value for if this model is has the lowest validation loss of any so far
+        best_model = False
         # Get random learning rate
         lr = random.uniform(0.0008, 0.002)
         # Get random gamma
@@ -338,111 +382,64 @@ def main():
         print("Gamma: ", gamma)
         print("##################################################")
 
-        # Specify Adam optimizer for x and y models
-        optimizer_x = optim.Adam(model_x.parameters(), lr=lr)
-        optimizer_y = optim.Adam(model_y.parameters(), lr=lr)
+        # Specify Adam optimizer
+        optimizer = optim.Adam(model.parameters(), lr=lr)
 
         # Store the training and testing losses over time
-        train_losses_x = []
-        test_losses_x = []
-        train_losses_y = []
-        test_losses_y = []
-        # Create schedulers for x and y models.
-        scheduler_x = StepLR(optimizer_x, step_size=1, gamma=gamma)
-        scheduler_y = StepLR(optimizer_x, step_size=1, gamma=gamma)
+        train_losses = []
+        test_losses = []
+        # Create scheduler.
+        scheduler_x = StepLR(optimizer, step_size=1, gamma=gamma)
 
 
-        # Train the x model for the set number of epochs
-        print("===========Training X Model================")
+        # Train the model for the set number of epochs
         for epoch in range(1, args.epochs + 1):
             # Train and validate for this epoch
-            train_losses_x = train(args, model_x, device, train_loader_x, optimizer_x, epoch, train_losses_x)
-            test_losses_x, output_x = test(args, model_x, device, test_loader_x, test_losses_x)
+            train_losses = train(args, model, device, train_loader, optimizer, epoch, train_losses)
+            test_losses, output_x, output_y = test(args, model, device, test_loader, test_losses)
             scheduler_x.step()
 
             # If this is the lowest validation loss so far, save model and the training curve. This allows
             # us to recover a model for early stopping
-            if lowest_loss_x > test_losses_x[epoch - 1]:
+            if lowest_loss > test_losses[epoch - 1]:
                 # Print out the current loss and the predictions
-                print("New Lowest Loss For X Model: ", test_losses_x[epoch - 1])
-                print("Validation Predictions: ")
+                print("New Lowest Loss: ", test_losses[epoch - 1])
+                print("Validation X Predictions: ")
                 print(output_x)
-                # Save the model
-                torch.save(model_x.state_dict(), MODEL_NAME_X)
-                # Update the lowest loss so far and the learning curve for lowest loss
-                lowest_loss_x = test_losses_x[epoch - 1]
-                lowest_test_list_x = test_losses_x
-                lowest_train_list_x = train_losses_x
-                # Set that this is best model
-                best_model_x = True
-
-        # Train the y model for the set number of epochs
-        print("===========Training Y Model================")
-        for epoch in range(1, args.epochs + 1):
-            # Train and validate for this epoch
-            train_losses_y = train(args, model_y, device, train_loader_y, optimizer_y, epoch, train_losses_y)
-            test_losses_y, output_y = test(args, model_y, device, test_loader_y, test_losses_y)
-            scheduler_y.step()
-
-            # If this is the lowest validation loss so far, save model and the training curve. This allows
-            # us to recover a model for early stopping
-            if lowest_loss_y > test_losses_y[epoch - 1]:
-                # Print out the current loss and predictions
-                print("New Lowest Loss For Y Model: ", test_losses_y[epoch - 1])
-                print("Validation Predictions: ")
+                print("Validation Y Predictions: ")
                 print(output_y)
                 # Save the model
-                torch.save(model_y.state_dict(), MODEL_NAME_Y)
-                lowest_loss_y = test_losses_y[epoch - 1]
-                lowest_test_list_y = test_losses_y
-                lowest_train_list_y = train_losses_y
+                torch.save(model.state_dict(), MODEL_NAME)
+                # Update the lowest loss so far and the learning curve for lowest loss
+                lowest_loss = test_losses[epoch - 1]
+                lowest_test_list = test_losses
+                lowest_train_list = train_losses
                 # Set that this is best model
-                best_model_y = True
+                best_model = True
+
 
         # Save the learning curve if this is best x model
-        if best_model_x:
+        if best_model:
             # Create plot
             figure, axes = plt.subplots()
             # Set axes labels and title
-            axes.set(xlabel="Epoch", ylabel="Loss For X Model", title="Learning Curve For X Model")
+            axes.set(xlabel="Epoch", ylabel="Loss", title="Learning Curve")
             # Plot the learning curves for training and validation loss
-            axes.plot(np.array(lowest_train_list_x), label="train_loss", c="b")
-            axes.plot(np.array(lowest_test_list_x), label="validation_loss", c="r")
+            axes.plot(np.array(lowest_train_list), label="train_loss", c="b")
+            axes.plot(np.array(lowest_test_list), label="validation_loss", c="r")
             plt.legend()
             # Save the figure
-            plt.savefig('curve_x.png')
+            plt.savefig('curve.png')
             plt.close()
 
-        # Save the learning curve if this is best y model
-        if best_model_y:
-            # Create plot
-            figure, axes = plt.subplots()
-            # Set axes labels and title
-            axes.set(xlabel="Epoch", ylabel="Loss For Y Model", title="Learning Curve For Y Model")
-            # Plot the learning curves for training and validation loss
-            axes.plot(np.array(lowest_train_list_y), label="train_loss", c="b")
-            axes.plot(np.array(lowest_test_list_y), label="validation_loss", c="r")
-            plt.legend()
-            # Save the figure
-            plt.savefig('curve_y.png')
-            plt.close()
 
 
     # After Random Search is finished:
     # Display the learning curves for the best x result from random search
     figure, axes = plt.subplots()
-    axes.set(xlabel="Epoch", ylabel="Loss For X Model", title="Learning Curve For X Model")
-    axes.plot(np.array(lowest_train_list_x), label="train_loss", c="b")
-    axes.plot(np.array(lowest_test_list_x), label="validation_loss", c="r")
-    plt.legend()
-    plt.show()
-    plt.close()
-
-    # Display the learning curves for the best y result from random search
-    figure, axes = plt.subplots()
-    axes.set(xlabel="Epoch", ylabel="Loss For Y Model", title="Learning Curve For Y Model")
-    axes.plot(np.array(lowest_train_list_y), label="train_loss", c="b")
-    axes.plot(np.array(lowest_test_list_y), label="validation_loss", c="r")
+    axes.set(xlabel="Epoch", ylabel="Loss", title="Learning Curve")
+    axes.plot(np.array(lowest_train_list), label="train_loss", c="b")
+    axes.plot(np.array(lowest_test_list), label="validation_loss", c="r")
     plt.legend()
     plt.show()
     plt.close()
