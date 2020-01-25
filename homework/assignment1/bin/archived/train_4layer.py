@@ -79,16 +79,16 @@ class Net(nn.Module):
         self.conv2_bn = nn.BatchNorm2d(20)
         self.conv3 = nn.Conv2d(20, 40, 3, 1)
         self.conv3_bn = nn.BatchNorm2d(40)
-        self.conv3 = nn.Conv2d(40, 80, 3, 1)
-        self.conv3_bn = nn.BatchNorm2d(80)
+        self.conv4 = nn.Conv2d(40, 80, 3, 1)
+        self.conv4_bn = nn.BatchNorm2d(80)
 
         # Dropout values for convolutional and fully connected layers
         self.dropout1 = nn.Dropout2d(0.4)
         self.dropout2 = nn.Dropout2d(0.4)
 
-        # Two fully connected layers. Input is 2347380 because 243x161x60
+        # Two fully connected layers. Input is 189600 because 120x79x20
         # as shown in the forward part.
-        self.fc1 = nn.Linear(171680, 128)
+        self.fc1 = nn.Linear(758400, 128)
         self.fc1_bn = nn.BatchNorm1d(128)
         self.fc2 = nn.Linear(128, 20)
 
@@ -100,44 +100,38 @@ class Net(nn.Module):
         x = self.conv1_bn(x)
         x = F.relu(x)
         x = self.dropout1(x)
-        # Input dimensions: 488x324x10
-        # Output dimensions: 244x162x10
-        x = F.max_pool2d(x, 2)
 
-        # Input dimensions: 244x162x10
-        # Output dimensions: 242x160x20
+        # Input dimensions: 488x324x10
+        # Output dimensions: 486x322x10
         x = self.conv2(x)
         x = self.conv2_bn(x)
         x = F.relu(x)
         x = self.dropout1(x)
-        # Input dimensions: 242x160x20
-        # Output dimensions: 121x80x20
-        x = F.max_pool2d(x, 2, ceil_mode=True)
+        # Input dimensions: 486x322x10
+        # Output dimensions: 243x161x10
+        x = F.max_pool2d(x, 2)
 
-        # Input dimensions: 121x80x20
-        # Output dimensions: 119x78x20
+        # Input dimensions: 243x161x20
+        # Output dimensions: 241x159x20
         x = self.conv3(x)
         x = self.conv3_bn(x)
         x = F.relu(x)
         x = self.dropout1(x)
-        # Input dimensions: 119x78x20
-        # Output dimensions: 60x39x40
-        x = F.max_pool2d(x, 2, ceil_mode=True)
 
-        # Input dimensions: 60x39x40
-        # Output dimensions: 58x37x80
+        # Input dimensions: 241x159x20
+        # Output dimensions: 239x157x20
         x = self.conv4(x)
         x = self.conv4_bn(x)
         x = F.relu(x)
         x = self.dropout1(x)
-        # Input dimensions: 58x37x80
-        # Output dimensions: 29x19x80
+        # Input dimensions: 239x157x20
+        # Output dimensions: 120x79x20
         x = F.max_pool2d(x, 2, ceil_mode=True)
 
-        # Input dimensions: 29x19x80
-        # Output dimensions: 171680x1
+        # Input dimensions: 120x79x20
+        # Output dimensions: 189600x1
         x = torch.flatten(x, 1)
-        # Input dimensions: 171680x1
+        # Input dimensions: 189600x1
         # Output dimensions: 128x1
         x = self.fc1(x)
         x = self.fc1_bn(x)
@@ -224,8 +218,8 @@ def main():
     # random seed, how often to log, and
     # whether we should save the model.
     parser = argparse.ArgumentParser(description='PyTorch Object Detection')
-    parser.add_argument('--batch-size', type=int, default=16, metavar='N',
-                        help='input batch size for training (default: 16)')
+    parser.add_argument('--batch-size', type=int, default=8, metavar='N',
+                        help='input batch size for training (default: 8)')
     parser.add_argument('--test-batch-size', type=int, default=1000, metavar='N',
                         help='input batch size for testing (default: 1000)')
     parser.add_argument('--epochs', type=int, default=50, metavar='N',
@@ -275,8 +269,8 @@ def main():
     lowest_test_list_y = []
     lowest_train_list_y = []
 
-    # Randomly search over 30 different learning rate and gamma value combinations
-    for i in range(30):
+    # Randomly search over 20 different learning rate and gamma value combinations
+    for i in range(20):
         # Boolean variable for if this model for either x or y is the best so far
         best_model_x = False
         best_model_y = False
