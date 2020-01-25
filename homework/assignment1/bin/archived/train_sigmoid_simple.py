@@ -16,8 +16,8 @@ from torch.optim.lr_scheduler import StepLR
 from skimage import io, transform
 
 # Constants
-MODEL_NAME_X = "network2_x.pt"
-MODEL_NAME_Y = "network2_y.pt"
+MODEL_NAME_X = "network_sigmoid_simple_x.pt"
+MODEL_NAME_Y = "network_sigmoid_simple_y.pt"
 
 # Class for the dataset
 class DetectionImages(Dataset):
@@ -342,7 +342,7 @@ def main():
             axes.plot(np.array(lowest_train_list_x), label="train_loss", c="b")
             axes.plot(np.array(lowest_test_list_x), label="validation_loss", c="r")
             plt.legend()
-            plt.savefig('curve2_x.png')
+            plt.savefig('curve_sigmoid_simple_x.png')
             plt.close()
 
         if best_model_y:
@@ -352,7 +352,7 @@ def main():
             axes.plot(np.array(lowest_train_list_y), label="train_loss", c="b")
             axes.plot(np.array(lowest_test_list_y), label="validation_loss", c="r")
             plt.legend()
-            plt.savefig('curve2_y.png')
+            plt.savefig('curve_sigmoid_simple_y.png')
             plt.close()
 
 

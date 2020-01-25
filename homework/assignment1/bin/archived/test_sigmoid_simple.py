@@ -8,8 +8,8 @@ import torch.nn.functional as F
 from torchvision import datasets, transforms
 
 # Constants
-MODEL_NAME_X = "network2_x.pt"
-MODEL_NAME_Y = "network2_y.pt"
+MODEL_NAME_X = "network_sigmoid_simple_x.pt"
+MODEL_NAME_Y = "network_sigmoid_simple_y.pt"
 
 # Define the neural network
 class Net(nn.Module):

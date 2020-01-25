@@ -15,9 +15,9 @@ from torchvision import datasets, transforms
 from torch.optim.lr_scheduler import StepLR
 from skimage import io, transform
 
-# Constants for the name of the model to save to
-MODEL_NAME_X = "network_x.pt"
-MODEL_NAME_Y = "network_y.pt"
+# Constants
+MODEL_NAME_X = "network_softmax_simple_x.pt"
+MODEL_NAME_Y = "network_softmax_simple_y.pt"
 
 # Class for the dataset
 class DetectionImages(Dataset):
@@ -56,8 +56,6 @@ class ToTensor(object):
 
     def __call__(self, sample):
         image, label = sample['image'], sample['label']
-        # Normalize images with mean and standard deviation from each channel found using some
-        # simple array calculations
         in_transform = transforms.Compose([transforms.Normalize([146.5899, 142.5595, 139.0785], [34.5019, 34.8481, 37.1137])])
         # swap color axis because
         # numpy image: H x W x C
@@ -74,126 +72,69 @@ class Net(nn.Module):
     # Define the dimensions for each layer.
     def __init__(self):
         super(Net, self).__init__()
-        # First two convolutional layers
-        self.conv1 = nn.Conv2d(3, 15, 3, 1)
-        self.conv1_bn = nn.BatchNorm2d(15)
-        self.conv2 = nn.Conv2d(15, 15, 3, 1)
-        self.conv2_bn = nn.BatchNorm2d(15)
-
-
-        # Two more convolutional layers before maxpooling
-        self.conv3 = nn.Conv2d(15, 30, 3, 1)
-        self.conv3_bn = nn.BatchNorm2d(30)
-        self.conv4 = nn.Conv2d(30, 30, 3, 1)
-        self.conv4_bn = nn.BatchNorm2d(30)
-
-        # Two more convolutional layers before maxpooling
-        self.conv5 = nn.Conv2d(30, 60, 3, 1)
-        self.conv5_bn = nn.BatchNorm2d(60)
-        self.conv6 = nn.Conv2d(60, 60, 3, 1)
-        self.conv6_bn = nn.BatchNorm2d(60)
-
-        # Two more convolutional layers before maxpooling
-        self.conv7 = nn.Conv2d(60, 120, 3, 1)
-        self.conv7_bn = nn.BatchNorm2d(120)
-        self.conv8 = nn.Conv2d(120, 120, 3, 1)
-        self.conv8_bn = nn.BatchNorm2d(120)
+        # Convolutional Layers with batch normalization
+        self.conv1 = nn.Conv2d(3, 10, 3, 1)
+        self.conv1_bn = nn.BatchNorm2d(10)
+        self.conv2 = nn.Conv2d(10, 20, 3, 1)
+        self.conv2_bn = nn.BatchNorm2d(20)
+        self.conv3 = nn.Conv2d(20, 40, 3, 1)
+        self.conv3_bn = nn.BatchNorm2d(40)
 
         # Dropout values for convolutional and fully connected layers
-        self.dropout1 = nn.Dropout2d(0.45)
-        self.dropout2 = nn.Dropout2d(0.45)
+        self.dropout1 = nn.Dropout2d(0.5)
+        self.dropout2 = nn.Dropout2d(0.5)
 
-        # Two fully connected layers. Input is 55080 because the last maxpool layer before is
-        # 27x17x120 as shown in the forward part.
-        self.fc1 = nn.Linear(55080, 256)
-        self.fc1_bn = nn.BatchNorm1d(256)
-        # 20 different output nodes for each of the classes, because we divide both
-        # the x and y space into 20 spaces.
-        self.fc2 = nn.Linear(256, 20)
+        # Two fully connected layers. Input is 2347380 because 243x161x60
+        # as shown in the forward part.
+        self.fc1 = nn.Linear(5040, 128)
+        self.fc1_bn = nn.BatchNorm1d(128)
+        self.fc2 = nn.Linear(128, 20)
 
     # Define the structure for forward propagation.
     def forward(self, x):
         # Input dimensions: 490x326x3
-        # Output dimensions: 488x324x15
+        # Output dimensions: 488x324x10
         x = self.conv1(x)
         x = self.conv1_bn(x)
         x = F.relu(x)
         x = self.dropout1(x)
-        # Input dimensions: 488x324x15
-        # Output dimensions: 486x322x15
+        # Input dimensions: 488x324x10
+        # Output dimensions: 122x81x10
+        x = F.max_pool2d(x, 4)
+
+        # Input dimensions: 122x81x10
+        # Output dimensions: 120x79x20
         x = self.conv2(x)
         x = self.conv2_bn(x)
         x = F.relu(x)
         x = self.dropout1(x)
-        # Input dimensions: 486x322x15
-        # Output dimensions: 243x161x15
-        x = F.max_pool2d(x, 2)
+        # Input dimensions: 120x79x20
+        # Output dimensions: 30x20x20
+        x = F.max_pool2d(x, 4, ceil_mode=True)
 
-        # Input dimensions: 243x161x15
-        # Output dimensions: 241x159x30
+        # Input dimensions: 30x20x20
+        # Output dimensions: 28x18x40
         x = self.conv3(x)
         x = self.conv3_bn(x)
         x = F.relu(x)
         x = self.dropout1(x)
-        # Input dimensions: 241x159x30
-        # Output dimensions: 239x157x30
-        x = self.conv4(x)
-        x = self.conv4_bn(x)
-        x = F.relu(x)
-        x = self.dropout1(x)
-        # Input dimensions: 239x157x30
-        # Output dimensions: 120x79x30
+        # Input dimensions: 28x18x40
+        # Output dimensions: 14x9x40
         x = F.max_pool2d(x, 2, ceil_mode=True)
 
-        # Input dimensions: 120x79x30
-        # Output dimensions: 118x77x60
-        x = self.conv5(x)
-        x = self.conv5_bn(x)
-        x = F.relu(x)
-        x = self.dropout1(x)
-        # Input dimensions: 118x77x60
-        # Output dimensions: 116x75x60
-        x = self.conv6(x)
-        x = self.conv6_bn(x)
-        x = F.relu(x)
-        x = self.dropout1(x)
-        # Input dimensions: 116x75x60
-        # Output dimensions: 58x38x60
-        x = F.max_pool2d(x, 2, ceil_mode=True)
-
-        # Input dimensions: 58x38x60
-        # Output dimensions: 56x36x120
-        x = self.conv7(x)
-        x = self.conv7_bn(x)
-        x = F.relu(x)
-        x = self.dropout1(x)
-        # Input dimensions: 56x36x120
-        # Output dimensions: 54x34x120
-        x = self.conv8(x)
-        x = self.conv8_bn(x)
-        x = F.relu(x)
-        x = self.dropout1(x)
-        # Input dimensions: 54x34x120
-        # Output dimensions: 27x17x120
-        x = F.max_pool2d(x, 2, ceil_mode=True)
-
-
-        # Input dimensions: 27x17x120
-        # Output dimensions: 55080x1
+        # Input dimensions: 14x9x40
+        # Output dimensions: 5040x1
         x = torch.flatten(x, 1)
-        # Input dimensions: 110160x1
-        # Output dimensions: 256x1
+        # Input dimensions: 5040x1
+        # Output dimensions: 128x1
         x = self.fc1(x)
         x = self.fc1_bn(x)
         x = F.relu(x)
         x = self.dropout2(x)
-        # Input dimensions: 256x1
+        # Input dimensions: 128x1
         # Output dimensions: 20x1
         x = self.fc2(x)
-        # Use log softmax to get probabilities for each class. We
-        # can then get the class prediction by simply taking the index
-        # with the maximum value.
-        output = F.log_softmax(x, dim=1)
+        output = torch.softmax(x, dim=1)
         return output
 
 def train(args, model, device, train_loader, optimizer, epoch, train_losses):
@@ -210,7 +151,7 @@ def train(args, model, device, train_loader, optimizer, epoch, train_losses):
         target = target.squeeze_()
         # Obtain the predictions from forward propagation
         output = model(data)
-        # Compute the cross entropy for the loss
+        # Compute the cross entropy for loss
         loss = F.cross_entropy(output, target)
         total_loss += loss.item()
         # Perform backward propagation to compute the negative gradient, and
@@ -229,7 +170,7 @@ def train(args, model, device, train_loader, optimizer, epoch, train_losses):
 def test(args, model, device, test_loader, test_losses):
     # Specify that we are in evaluation phase
     model.eval()
-    # Set the loss and number of correct instances initially to 0.
+    # Set the loss initially to 0.
     test_loss = 0
     correct = 0
     # No gradient calculation because we are in testing phase.
@@ -243,17 +184,11 @@ def test(args, model, device, test_loader, test_losses):
             # Send training data and the training labels to GPU/CPU
             data, target = batch_sample["image"].to(device, dtype=torch.float32), batch_sample["label"].to(device,
                                                                                           dtype=torch.long)
-            # Remove a dimension to get the correct shape of the tensor for the label
             target = target.squeeze_()
-            # Obtain the output from the model
             output = model(data)
-            # Calculate the loss using cross entropy
             loss = F.cross_entropy(output, target)
-            # Increment the total test loss
             test_loss += loss.item()
-            # Get the prediction by getting the index with the maximum probability
             pred = output.argmax(dim=1, keepdim=True)
-            # Update total number of correct predictions.
             correct += pred.eq(target.view_as(pred)).sum().item()
 
     # Average the loss by dividing by the total number of testing instances and add to accumulation of losses.
@@ -265,15 +200,20 @@ def test(args, model, device, test_loader, test_losses):
         test_error))
     print("Correct instances: ", correct)
 
-    # Return accumulated test losses over epochs and the predictions
+    # Return accumulated test losses over epochs
     return test_losses, pred
 
 
 def main():
-    # Command line arguments for hyperparameters of model/training.
+    # Command line arguments for hyperparameters of
+    # training and testing batch size, the number of
+    # epochs, the learning rate, gamma, and other
+    # settings such as whether to use a GPU device, the
+    # random seed, how often to log, and
+    # whether we should save the model.
     parser = argparse.ArgumentParser(description='PyTorch Object Detection')
-    parser.add_argument('--batch-size', type=int, default=12, metavar='N',
-                        help='input batch size for training (default: 12)')
+    parser.add_argument('--batch-size', type=int, default=16, metavar='N',
+                        help='input batch size for training (default: 16)')
     parser.add_argument('--test-batch-size', type=int, default=1000, metavar='N',
                         help='input batch size for testing (default: 1000)')
     parser.add_argument('--epochs', type=int, default=50, metavar='N',
@@ -325,13 +265,13 @@ def main():
 
     # Randomly search over 20 different learning rate and gamma value combinations
     for i in range(20):
-        # Boolean value for if this model for either x or y is the best so far
+        # Boolean variable for if this model for either x or y is the best so far
         best_model_x = False
         best_model_y = False
         # Get random learning rate
-        lr = random.uniform(0.0008, 0.002)
+        lr = random.uniform(0.0005, 0.002)
         # Get random gamma
-        gamma = random.uniform(0.7, 1)
+        gamma = random.uniform(0.5, 1)
         # Print out the current learning rate and gamma value
         print("##################################################")
         print("Learning Rate: ", lr)
@@ -363,13 +303,10 @@ def main():
             # If this is the lowest validation loss so far, save model and the training curve. This allows
             # us to recover a model for early stopping
             if lowest_loss_x > test_losses_x[epoch - 1]:
-                # Print out the current loss and the predictions
                 print("New Lowest Loss For X Model: ", test_losses_x[epoch - 1])
                 print("Validation Predictions: ")
                 print(output_x)
-                # Save the model
                 torch.save(model_x.state_dict(), MODEL_NAME_X)
-                # Update the lowest loss so far and the learning curve for lowest loss
                 lowest_loss_x = test_losses_x[epoch - 1]
                 lowest_test_list_x = test_losses_x
                 lowest_train_list_x = train_losses_x
@@ -387,11 +324,9 @@ def main():
             # If this is the lowest validation loss so far, save model and the training curve. This allows
             # us to recover a model for early stopping
             if lowest_loss_y > test_losses_y[epoch - 1]:
-                # Print out the current loss and predictions
                 print("New Lowest Loss For Y Model: ", test_losses_y[epoch - 1])
                 print("Validation Predictions: ")
                 print(output_y)
-                # Save the model
                 torch.save(model_y.state_dict(), MODEL_NAME_Y)
                 lowest_loss_y = test_losses_y[epoch - 1]
                 lowest_test_list_y = test_losses_y
@@ -399,37 +334,30 @@ def main():
                 # Set that this is best model
                 best_model_y = True
 
-        # Save the learning curve if this is best x model
+        # Save the learning curve if this is best model
         if best_model_x:
-            # Create plot
+            # Save the learning curve for the best result from random search
             figure, axes = plt.subplots()
-            # Set axes labels and title
             axes.set(xlabel="Epoch", ylabel="Loss For X Model", title="Learning Curve For X Model")
-            # Plot the learning curves for training and validation loss
             axes.plot(np.array(lowest_train_list_x), label="train_loss", c="b")
             axes.plot(np.array(lowest_test_list_x), label="validation_loss", c="r")
             plt.legend()
-            # Save the figure
-            plt.savefig('curve_x.png')
+            plt.savefig('curve_softmax_simple_x.png')
             plt.close()
 
-        # Save the learning curve if this is best y model
         if best_model_y:
-            # Create plot
+            # Save the learning curve for the best result from random search
             figure, axes = plt.subplots()
-            # Set axes labels and title
             axes.set(xlabel="Epoch", ylabel="Loss For Y Model", title="Learning Curve For Y Model")
-            # Plot the learning curves for training and validation loss
             axes.plot(np.array(lowest_train_list_y), label="train_loss", c="b")
             axes.plot(np.array(lowest_test_list_y), label="validation_loss", c="r")
             plt.legend()
-            # Save the figure
-            plt.savefig('curve_y.png')
+            plt.savefig('curve_softmax_simple_y.png')
             plt.close()
 
 
-    # After Random Search is finished:
-    # Display the learning curves for the best x result from random search
+
+    # Display the learning curves for the best results from random search
     figure, axes = plt.subplots()
     axes.set(xlabel="Epoch", ylabel="Loss For X Model", title="Learning Curve For X Model")
     axes.plot(np.array(lowest_train_list_x), label="train_loss", c="b")
@@ -438,7 +366,6 @@ def main():
     plt.show()
     plt.close()
 
-    # Display the learning curves for the best y result from random search
     figure, axes = plt.subplots()
     axes.set(xlabel="Epoch", ylabel="Loss For Y Model", title="Learning Curve For Y Model")
     axes.plot(np.array(lowest_train_list_y), label="train_loss", c="b")
