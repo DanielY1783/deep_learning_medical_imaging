@@ -8,8 +8,7 @@ import torch.nn.functional as F
 from torchvision import datasets, transforms
 
 # Constants
-MODEL_NAME_X = "network_x.pt"
-MODEL_NAME_Y = "network_y.pt"
+MODEL_NAME = "network.pt"
 
 # Define the neural network
 class Net(nn.Module):
@@ -45,94 +44,117 @@ class Net(nn.Module):
         self.dropout1 = nn.Dropout2d(0.45)
         self.dropout2 = nn.Dropout2d(0.45)
 
-        # Two fully connected layers. Input is 2347380 because 243x161x60
-        # as shown in the forward part.
-        self.fc1 = nn.Linear(55080, 256)
-        self.fc1_bn = nn.BatchNorm1d(256)
-        self.fc2 = nn.Linear(256, 20)
+        # Two fully connected layers. Input is 55080 because the last maxpool layer before is
+        # 27x17x120 as shown in the forward part.
+        self.fc1x = nn.Linear(55080, 256)
+        self.fc1x_bn = nn.BatchNorm1d(256)
+        self.fc1y = nn.Linear(55080, 256)
+        self.fc1y_bn = nn.BatchNorm1d(256)
+        # 20 different output nodes for each of the classes, because we divide both
+        # the x and y space into 20 spaces. We need two for x and y labels
+        self.fc2x = nn.Linear(256, 20)
+        self.fc2y = nn.Linear(256, 20)
 
     # Define the structure for forward propagation.
     def forward(self, x):
         # Input dimensions: 490x326x3
-        # Output dimensions: 488x324x30
+        # Output dimensions: 488x324x15
         x = self.conv1(x)
         x = self.conv1_bn(x)
         x = F.relu(x)
         x = self.dropout1(x)
-        # Input dimensions: 488x324x30
-        # Output dimensions: 486x322x30
+        # Input dimensions: 488x324x15
+        # Output dimensions: 486x322x15
         x = self.conv2(x)
         x = self.conv2_bn(x)
         x = F.relu(x)
         x = self.dropout1(x)
-        # Input dimensions: 486x322x30
-        # Output dimensions: 243x161x30
+        # Input dimensions: 486x322x15
+        # Output dimensions: 243x161x15
         x = F.max_pool2d(x, 2)
 
-        # Input dimensions: 243x161x30
-        # Output dimensions: 241x159x60
+        # Input dimensions: 243x161x15
+        # Output dimensions: 241x159x30
         x = self.conv3(x)
         x = self.conv3_bn(x)
         x = F.relu(x)
         x = self.dropout1(x)
-        # Input dimensions: 241x159x60
-        # Output dimensions: 239x157x60
+        # Input dimensions: 241x159x30
+        # Output dimensions: 239x157x30
         x = self.conv4(x)
         x = self.conv4_bn(x)
         x = F.relu(x)
         x = self.dropout1(x)
-        # Input dimensions: 239x157x60
-        # Output dimensions: 120x79x60
+        # Input dimensions: 239x157x30
+        # Output dimensions: 120x79x30
         x = F.max_pool2d(x, 2, ceil_mode=True)
 
-        # Input dimensions: 120x79x60
-        # Output dimensions: 118x77x120
+        # Input dimensions: 120x79x30
+        # Output dimensions: 118x77x60
         x = self.conv5(x)
         x = self.conv5_bn(x)
         x = F.relu(x)
         x = self.dropout1(x)
-        # Input dimensions: 118x77x120
-        # Output dimensions: 116x75x120
+        # Input dimensions: 118x77x60
+        # Output dimensions: 116x75x60
         x = self.conv6(x)
         x = self.conv6_bn(x)
         x = F.relu(x)
         x = self.dropout1(x)
-        # Input dimensions: 116x75x120
-        # Output dimensions: 58x38x120
+        # Input dimensions: 116x75x60
+        # Output dimensions: 58x38x60
         x = F.max_pool2d(x, 2, ceil_mode=True)
 
-        # Input dimensions: 58x38x120
-        # Output dimensions: 56x36x240
+        # Input dimensions: 58x38x60
+        # Output dimensions: 56x36x120
         x = self.conv7(x)
         x = self.conv7_bn(x)
         x = F.relu(x)
         x = self.dropout1(x)
-        # Input dimensions: 56x36x240
-        # Output dimensions: 54x34x240
+        # Input dimensions: 56x36x120
+        # Output dimensions: 54x34x120
         x = self.conv8(x)
         x = self.conv8_bn(x)
         x = F.relu(x)
         x = self.dropout1(x)
-        # Input dimensions: 54x34x240
-        # Output dimensions: 27x17x240
+        # Input dimensions: 54x34x120
+        # Output dimensions: 27x17x120
         x = F.max_pool2d(x, 2, ceil_mode=True)
 
 
-        # Input dimensions: 27x17x240
-        # Output dimensions: 110160x1
+        # Input dimensions: 27x17x120
+        # Output dimensions: 55080x1
         x = torch.flatten(x, 1)
-        # Input dimensions: 110160x1
-        # Output dimensions: 128x1
-        x = self.fc1(x)
-        x = self.fc1_bn(x)
-        x = F.relu(x)
-        x = self.dropout2(x)
-        # Input dimensions: 128x1
-        # Output dimensions: 2x1
-        x = self.fc2(x)
-        output = F.softmax(x, dim=1)
-        return output
 
+        # Fully connected layers for x label prediction
+        # Input dimensions: 55080x1
+        # Output dimensions: 256x1
+        x_label = self.fc1x(x)
+        x_label = self.fc1x_bn(x_label)
+        x_label = F.relu(x_label)
+        x_label = self.dropout2(x_label)
+        # Input dimensions: 256x1
+        # Output dimensions: 20x1
+        x_label = self.fc2x(x_label)
+
+        # Fully connected layers for y label prediction
+        # Input dimensions: 55080x1
+        # Output dimensions: 256x1
+        y_label = self.fc1y(x)
+        y_label = self.fc1y_bn(y_label)
+        y_label = F.relu(y_label)
+        y_label = self.dropout2(y_label)
+        # Input dimensions: 256x1
+        # Output dimensions: 20x1
+        y_label = self.fc2y(y_label)
+
+
+        # Use log softmax to get probabilities for each class. We
+        # can then get the class prediction by simply taking the index
+        # with the maximum value.
+        output_x = F.log_softmax(x_label, dim=1)
+        output_y = F.log_softmax(y_label, dim=1)
+        return output_x, output_y
 
 def main():
     # Command line arguments for the image path and x and y coordinates
@@ -161,27 +183,21 @@ def main():
     # Send image to cuda device
     image = image.to(device, dtype=torch.float32)
 
-    # Load in pytorch model for x prediction
-    model_x = Net().to(device)
-    model_x.load_state_dict(torch.load(MODEL_NAME_X))
+    # Load in pytorch model for prediction
+    model = Net().to(device)
+    model.load_state_dict(torch.load(MODEL_NAME))
     # Specify that we are in evaluation phase
-    model_x.eval()
+    model.eval()
 
-    # Load in pytorch model for y prediction
-    model_y = Net().to(device)
-    model_y.load_state_dict(torch.load(MODEL_NAME_Y))
-    # Specify that we are in evaluation phase
-    model_y.eval()
     # No gradient calculation because we are in testing phase.
     with torch.no_grad():
         # Get the prediction label for x and y
-        output_x = model_x(image)
+        output_x, output_y = model(image)
         label_x = output_x.argmax(dim=1, keepdim=True)
-        # Convert to x value for center of that label
-        pred_x = (label_x * 0.05 + (label_x + 1) * 0.05) / 2
-
-        output_y = model_y(image)
         label_y = output_y.argmax(dim=1, keepdim=True)
+
+        # Convert to x and y values for center of that label
+        pred_x = (label_x * 0.05 + (label_x + 1) * 0.05) / 2
         pred_y = (label_y * 0.05 + (label_y + 1) * 0.05) / 2
         # Calculate the center of the box for that label and print output
         print(round(pred_x.item(), 4), round(pred_y.item(), 4))

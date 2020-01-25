@@ -13,10 +13,12 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torchvision import datasets, transforms
 from torch.optim.lr_scheduler import StepLR
-from skimage import io, transform
+from skimage import io
 
 # Constants for the name of the model to save to
 MODEL_NAME = "network_simple.pt"
+# Constant for number of different models to try with random search
+RANDOM_SEARCH_MODELS = 30
 # Constant for names of validation files
 VALIDATION_NAMES = ["111.jpg", "112.jpg", "113.jpg", "114.jpg", "115.jpg",
                     "116.jpg", "117.jpg", "118.jpg", "119.jpg", "125.jpg"]
@@ -24,10 +26,12 @@ VALIDATION_NAMES = ["111.jpg", "112.jpg", "113.jpg", "114.jpg", "115.jpg",
 # we are dividing x and y coordinates into
 WINDOWS = 20
 
+
 def generate_labels():
     """
-    Generate class labels corresponding to the floating point x and y
-    coordinates for the
+    Generate class labels corresponding to windows for the x and y values to
+    turn this into classification problem. After predicting labels, we will use
+    the center of each window to predict an x and y coordinate for the object.
     :return: None
     """
     # Load in labels file and rename column names.
@@ -50,6 +54,53 @@ def generate_labels():
     val_labels_df.to_csv("../data/labels/validation_labels.txt", sep=" ", index=False, header=False)
     train_labels_df.to_csv("../data/labels/train_labels.txt", sep=" ", index=False, header=False)
 
+
+def print_euclidean_distance(pred_x, pred_y):
+    """
+    Calculate and print out the euclidean distance from predictions to the actual
+    floating point coordinates by converting labels to floating point predictions
+    corresponding to the center point of the window for both x and y, and then
+    use x and y floating point predictions to calculate euclidean distance from
+    original points.
+    After calculations, print out the distance for each validation image, as well
+    as the number of predictions within 0.05.
+
+    :param pred_x: Tensor for the label predictions for x values
+    :param pred_y: Tensor for the label predictions for y values
+    :return: None
+    """
+    ## Part 1: Load in the actual labels for euclidean coordinates for the validation set
+    # Load in labels file and rename column names.
+    cords_df = pd.read_csv("../data/labels/labels.txt", sep=" ", header=None)
+    cords_df.columns = ["file_name", "x", "y"]
+    # Get the rows corresponding to validation set.
+    val_cords_df = cords_df[cords_df["file_name"].isin(VALIDATION_NAMES)]
+    # Drop file names
+    val_cords_df = val_cords_df .drop(columns=["file_name"])
+    # Convert to numpy array
+    val_cords_np = np.array(val_cords_df)
+    # Get the x and y values in separately arrays
+    val_cords_x = val_cords_np[:, 0]
+    val_cords_y = val_cords_np[:, 1]
+
+    ## Part 2: Calculate the euclidean coordinates from the predictions by getting the
+    ## center for that corresponding box.
+    pred_x = (pred_x / float(WINDOWS) + (pred_x + 1) / float(WINDOWS)) / 2
+    pred_y = (pred_y / float(WINDOWS) + (pred_y + 1) / float(WINDOWS)) / 2
+    pred_x = pred_x.cpu().numpy()[:,0]
+    pred_y = pred_y.cpu().numpy()[:,0]
+
+    ## Part 3: Calculate the euclidean distance from prediction to actual floating point value
+    distance_squared = np.square(val_cords_x - pred_x) + np.square(val_cords_y - pred_y)
+    distance = np.sqrt(distance_squared)
+
+    ## Part 4: Calculate number of labels within 0.05
+    correct_np = np.where(distance <= 0.05, 1, 0)
+    correct = np.sum(correct_np)
+
+    # Print out the distance for each prediction and the number labels within 0.05
+    print("Distances for Validation Set: ", distance)
+    print("Number of Validation Predictions within 0.05: ", correct, "/", len(VALIDATION_NAMES))
 
 # Class for the dataset
 class DetectionImages(Dataset):
@@ -89,7 +140,7 @@ class ToTensor(object):
     def __call__(self, sample):
         image, label = sample['image'], sample['label']
         # Normalize images with mean and standard deviation from each channel found using some
-        # simple array calculations
+        # simple numpy array calculations
         in_transform = transforms.Compose([transforms.Normalize([146.5899, 142.5595, 139.0785], [34.5019, 34.8481, 37.1137])])
         # swap color axis because
         # numpy image: H x W x C
@@ -115,12 +166,8 @@ class Net(nn.Module):
         self.conv3_bn = nn.BatchNorm2d(40)
 
         # Dropout values for convolutional and fully connected layers
-        self.dropout1 = nn.Dropout2d(0.5)
-        self.dropout2 = nn.Dropout2d(0.5)
-
-        # Dropout values for convolutional and fully connected layers
-        self.dropout1 = nn.Dropout2d(0.3)
-        self.dropout2 = nn.Dropout2d(0.3)
+        self.dropout1 = nn.Dropout2d(0.1)
+        self.dropout2 = nn.Dropout2d(0.1)
 
         # Two fully connected layers. Input is 55080 because the last maxpool layer before is
         # 27x17x120 as shown in the forward part.
@@ -308,11 +355,11 @@ def main():
     # Generate our labels for the training and validation set from original labels
     generate_labels()
 
-    # Load in the training and testing datasets for the x values. Convert to pytorch tensor.
+    # Load in the training and testing datasets.
     train_data = DetectionImages(csv_file="../data/labels/train_labels.txt", root_dir="../data/train", transform=ToTensor())
     train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=0)
-    test_data_x = DetectionImages(csv_file="../data/labels/validation_labels.txt", root_dir="../data/validation", transform=ToTensor())
-    test_loader = DataLoader(test_data_x, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
+    test_data = DetectionImages(csv_file="../data/labels/validation_labels.txt", root_dir="../data/validation", transform=ToTensor())
+    test_loader = DataLoader(test_data, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
 
 
     # Create model for x prediction
@@ -324,8 +371,8 @@ def main():
     lowest_test_list = []
     lowest_train_list = []
 
-    # Randomly search over 20 different learning rate and gamma value combinations
-    for i in range(20):
+    # Randomly search over the specified number of models
+    for i in range(RANDOM_SEARCH_MODELS):
         # Boolean value for if this model for either x or y is the best so far
         best_model = False
         # Get random learning rate
@@ -344,16 +391,15 @@ def main():
         # Store the training and testing losses over time
         train_losses = []
         test_losses = []
-        # Create schedulers for x and y models.
-        scheduler_x = StepLR(optimizer, step_size=1, gamma=gamma)
-
+        # Create schedulers.
+        scheduler = StepLR(optimizer, step_size=1, gamma=gamma)
 
         # Train the x model for the set number of epochs
         for epoch in range(1, args.epochs + 1):
             # Train and validate for this epoch
             train_losses = train(args, model, device, train_loader, optimizer, epoch, train_losses)
             test_losses, output_x, output_y = test(args, model, device, test_loader, test_losses)
-            scheduler_x.step()
+            scheduler.step()
 
             # If this is the lowest validation loss so far, save model and the training curve. This allows
             # us to recover a model for early stopping
@@ -364,6 +410,9 @@ def main():
                 print(output_x)
                 print("Validation Y Predictions: ")
                 print(output_y)
+                # Print out the euclidean distances by converting labels to floating
+                # point values corresponding to the center of the window
+                print_euclidean_distance(output_x, output_y)
                 # Save the model
                 torch.save(model.state_dict(), MODEL_NAME)
                 # Update the lowest loss so far and the learning curve for lowest loss

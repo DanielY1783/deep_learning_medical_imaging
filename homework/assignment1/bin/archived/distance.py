@@ -1,14 +1,71 @@
 # Imports
-import argparse
 import numpy as np
+import os
+import pandas as pd
 from PIL import Image
+from skimage import io
 import torch
+from torch.utils.data import Dataset, DataLoader
 import torch.nn as nn
 import torch.nn.functional as F
 from torchvision import datasets, transforms
 
-# Constants
+# Constant for names of validation files
+VALIDATION_NAMES = ["111.jpg", "112.jpg", "113.jpg", "114.jpg", "115.jpg",
+                    "116.jpg", "117.jpg", "118.jpg", "119.jpg", "125.jpg"]
+# Network name to load
 MODEL_NAME = "network.pt"
+# Number of windows in both x and y coordinates, which is the number of labels
+WINDOWS = 20
+
+# Class for the dataset
+class DetectionImages(Dataset):
+    def __init__(self, csv_file, root_dir, transform=None):
+        """
+        Args:
+            csv_file (string): Path to the csv file with annotations.
+            root_dir (string): Directory with all the images.
+            transform (callable, optional): Optional transform to be applied
+                on a sample.
+        """
+        self.labels_df = pd.read_csv(csv_file, sep=" ", header=None)
+        self.root_dir = root_dir
+        self.transform = transform
+
+    def __len__(self):
+        return len(self.labels_df)
+
+    def __getitem__(self, idx):
+        if torch.is_tensor(idx):
+            idx = idx.tolist()
+
+        img_name = os.path.join(self.root_dir,
+                                self.labels_df.iloc[idx, 0])
+        image = io.imread(img_name)
+        label = self.labels_df.iloc[idx, 1:]
+        sample = {'image': image, 'label': label}
+
+        if self.transform:
+            sample = self.transform(sample)
+
+        return sample
+
+class ToTensor(object):
+    """Convert ndarrays in sample to Tensors."""
+
+    def __call__(self, sample):
+        image, label = sample['image'], sample['label']
+        # Normalize images with mean and standard deviation from each channel found using some
+        # simple array calculations
+        in_transform = transforms.Compose([transforms.Normalize([146.5899, 142.5595, 139.0785], [34.5019, 34.8481, 37.1137])])
+        # swap color axis because
+        # numpy image: H x W x C
+        # torch image: C X H X W
+        image = image.transpose((2, 0, 1))
+        image = torch.from_numpy(image).float()
+        image = in_transform(image)
+        return {'image': image,
+                'label': torch.from_numpy(np.array(label).astype(int))}
 
 # Define the neural network
 class Net(nn.Module):
@@ -157,31 +214,26 @@ class Net(nn.Module):
         return output_x, output_y
 
 def main():
-    # Command line arguments for the image path and x and y coordinates
-    parser = argparse.ArgumentParser(description='Visualize a Single Prediction Location')
-    parser.add_argument('image_path', help='path to the image to display')
-    args = parser.parse_args()
+    # Load in labels file and rename column names.
+    labels_df = pd.read_csv("../data/labels/labels.txt", sep=" ", header=None)
+    labels_df.columns = ["file_name", "x", "y"]
 
-    # Open the image passed by the command line argument
-    image = Image.open(args.image_path)
-    # Convert to numpy array and transpose to get right dimensions
-    image = np.array(image)
-    image = image.transpose((2, 0, 1))
-    # Convert to torch image
-    image = torch.from_numpy(image).float()
-    # Normalize image
-    in_transform = transforms.Compose(
-        [transforms.Normalize([146.5899, 142.5595, 139.0785], [34.5019, 34.8481, 37.1137])])
-    image = in_transform(image)
-    # unsqueeze to insert first dimension for number of images
-    image = torch.unsqueeze(image, 0)
+    # Get the rows corresponding to validation set.
+    val_labels_df = labels_df[labels_df["file_name"].isin(VALIDATION_NAMES)]
+    # Drop file names
+    val_labels_df = val_labels_df .drop(columns=["file_name"])
+    # Convert to numpy array
+    val_labels_np = np.array(val_labels_df)
+    # Get the x and y values in separately arrays
+    val_labels_x = val_labels_np[:, 0]
+    val_labels_y = val_labels_np[:, 1]
+
+    # Load in the images
+    test_data = DetectionImages(csv_file="../data/labels/validation_labels.txt", root_dir="../data/validation", transform=ToTensor())
+    test_loader = DataLoader(test_data, batch_size=len(VALIDATION_NAMES), shuffle=False, num_workers=0)
 
     # Specify cuda device
     device = torch.device("cuda")
-
-
-    # Send image to cuda device
-    image = image.to(device, dtype=torch.float32)
 
     # Load in pytorch model for prediction
     model = Net().to(device)
@@ -189,19 +241,31 @@ def main():
     # Specify that we are in evaluation phase
     model.eval()
 
-    # No gradient calculation because we are in testing phase.
     with torch.no_grad():
-        # Get the prediction label for x and y
-        output_x, output_y = model(image)
-        label_x = output_x.argmax(dim=1, keepdim=True)
-        label_y = output_y.argmax(dim=1, keepdim=True)
+        for batch_idx, batch_sample in enumerate(test_loader):
+            # Send training data and the training labels to GPU/CPU
+            data, target = batch_sample["image"].to(device, dtype=torch.float32), batch_sample["label"].to(device,
+                                                                                                           dtype=torch.long)
+            # Obtain the output from the model
+            output_x, output_y = model(data)
+            # Convert softmax output to label
+            output_x = output_x.argmax(dim=1, keepdim=True)
+            output_y = output_y.argmax(dim=1, keepdim=True)
+            # Convert outputs to numpy arrays. Slice to change to 1d numpy array
+            output_x_np, output_y_np = output_x.cpu().numpy()[:,0], output_y.cpu().numpy()[:,0]
 
-        # Convert to x and y values for center of that label
-        pred_x = (label_x * 0.05 + (label_x + 1) * 0.05) / 2
-        pred_y = (label_y * 0.05 + (label_y + 1) * 0.05) / 2
-        # Calculate the center of the box for that label and print output
-        print(round(pred_x.item(), 4), round(pred_y.item(), 4))
+            # Convert the predicted labels to floating point values corresponding to the middle of that
+            # "window"
+            pred_x = (output_x_np / WINDOWS + (output_x_np + 1) / WINDOWS) / 2
+            pred_y = (output_y_np / WINDOWS + (output_y_np + 1) / WINDOWS) / 2
 
+            # Calculate the euclidean distance from prediction to actual floating point value
+            distance_squared = np.square(val_labels_x-pred_x) + np.square(val_labels_y-pred_y)
+            distance = np.sqrt(distance_squared)
+
+            # Print the distance for each prediction and the average distance
+            print("Distance For Each Validation Set Prediction: ", distance)
+            print("Average Distance: ", np.mean(distance))
 
 if __name__ == '__main__':
     main()

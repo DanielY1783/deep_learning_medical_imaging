@@ -2,33 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d111871f-b4ca-41b0-857b-829cd037bf7d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/archived/data_load_prelim.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/archived/data_load_prelim.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/classification_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/create_labels.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/create_labels.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/curve_multilabel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/curve_softmax_simple_x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/curve_softmax_simple_y.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/curve_x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/curve_y.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/data_load_prelim.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/curve_multilabel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/curve_softmax_simple_x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/curve_softmax_simple_y.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/curve_x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/curve_y.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/best_model/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/test_softmax_simple.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/train_multilabel.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/train_softmax_simple.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/curve_simple.png" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/curve_simple.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/test_softmax_simple.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/train.txt" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/train.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/train_multilabel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/train_multilabel.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/train_softmax_simple.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/train_softmax_simple.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/data/labels/multiclass_train_labels.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/data/labels/multiclass_validation_labels.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/data/labels/train_labels.txt" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/data/labels/train_labels.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/data/labels/validation_labels.txt" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/data/labels/validation_labels.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/data/labels/x_class_train_labels.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/data/labels/x_class_validation_labels.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/data/labels/y_class_train_labels.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/data/labels/y_class_validation_labels.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reading_assignments/~$_multi_modal.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reading_assignments/~WRL0208.tmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/train_simple.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/train_simple.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,37 +25,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train.py">
+        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train15.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="333" column="71" selection-start-line="333" selection-start-column="71" selection-end-line="333" selection-end-column="71" />
-              <folding>
-                <element signature="e#22#59#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train_simple.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="286" column="57" selection-start-line="286" selection-start-column="57" selection-end-line="286" selection-end-column="57" />
-              <folding>
-                <element signature="e#22#59#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/create_labels.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" selection-start-line="9" selection-end-line="27" selection-end-column="93" />
-              <folding>
-                <element signature="e#10#28#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="323">
+              <caret line="420" column="20" selection-start-line="420" selection-start-column="20" selection-end-line="420" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -92,6 +51,7 @@
       <find>flip</find>
       <find>sigmoid</find>
       <find>x_label</find>
+      <find>_x</find>
     </findStrings>
     <replaceStrings>
       <replace>BatchNorm2d</replace>
@@ -145,10 +105,13 @@
         <option value="$PROJECT_DIR$/homework/assignment1/bin/train_multilabel.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/create_labels.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/test_multilabel.py" />
-        <option value="$PROJECT_DIR$/homework/assignment1/bin/test.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/train_multilabel_simple.py" />
-        <option value="$PROJECT_DIR$/homework/assignment1/bin/train_simple.py" />
+        <option value="$PROJECT_DIR$/homework/assignment1/bin/test.py" />
+        <option value="$PROJECT_DIR$/homework/assignment1/bin/distance.py" />
+        <option value="$PROJECT_DIR$/homework/assignment1/bin/distance_simple.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/train.py" />
+        <option value="$PROJECT_DIR$/homework/assignment1/bin/train_simple.py" />
+        <option value="$PROJECT_DIR$/homework/assignment1/bin/train15.py" />
       </list>
     </option>
   </component>
@@ -324,15 +287,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/visualize_labels.ipynb" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/architecture1.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/visualize_prediction.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="5" column="47" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch4.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch3.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch5.py" />
@@ -504,43 +458,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="e#10#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/create_labels.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="27" selection-end-column="93" />
+        <state relative-caret-position="323">
+          <caret line="19" column="22" lean-forward="true" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
           <folding>
             <element signature="e#10#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train_simple.py">
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="286" column="57" selection-start-line="286" selection-start-column="57" selection-end-line="286" selection-end-column="57" />
+        <state relative-caret-position="255">
+          <caret line="195" column="5" lean-forward="true" selection-start-line="195" selection-end-line="196" selection-end-column="54" />
+          <folding>
+            <element signature="e#10#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/distance.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2111">
+          <caret line="207" lean-forward="true" selection-start-line="207" selection-end-line="207" />
+          <folding>
+            <element signature="e#10#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/distance_simple.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="214" selection-start-line="214" selection-end-line="216" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5429">
+          <caret line="404" column="97" selection-start-line="404" selection-start-column="97" selection-end-line="404" selection-end-column="97" />
           <folding>
             <element signature="e#22#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train.py">
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train_simple.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="333" column="71" selection-start-line="333" selection-start-column="71" selection-end-line="333" selection-end-column="71" />
+        <state relative-caret-position="340">
+          <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
           <folding>
             <element signature="e#22#59#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train15.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="420" column="20" selection-start-line="420" selection-start-column="20" selection-end-line="420" selection-end-column="20" />
         </state>
       </provider>
     </entry>
