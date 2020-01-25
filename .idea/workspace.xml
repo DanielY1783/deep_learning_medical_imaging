@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d111871f-b4ca-41b0-857b-829cd037bf7d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/curve_multilabel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/curve_softmax_simple_x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/curve_softmax_simple_y.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/curve_x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/curve_y.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/best_model/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/test_softmax_simple.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/train_multilabel.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/train_softmax_simple.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/curve_simple.png" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/curve_simple.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/train_simple.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/train_simple.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/train_simple.txt" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/train_simple.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,12 +13,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train15.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="420" column="20" selection-start-line="420" selection-start-column="20" selection-end-line="420" selection-end-column="20" />
+            <state relative-caret-position="23">
+              <caret line="27" selection-start-line="27" selection-end-line="51" selection-end-column="99" />
+              <folding>
+                <element signature="e#22#59#0" expanded="true" />
+              </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/label_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+              <folding>
+                <element signature="e#22#59#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train25.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="51" column="56" selection-start-line="51" selection-start-column="56" selection-end-line="51" selection-end-column="56" />
+              <folding>
+                <element signature="e#22#59#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/archived/distance.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4040" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/archived/distance_simple.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3241" />
           </provider>
         </entry>
       </file>
@@ -112,6 +142,8 @@
         <option value="$PROJECT_DIR$/homework/assignment1/bin/train.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/train_simple.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/train15.py" />
+        <option value="$PROJECT_DIR$/homework/assignment1/bin/label_test.py" />
+        <option value="$PROJECT_DIR$/homework/assignment1/bin/train25.py" />
       </list>
     </option>
   </component>
@@ -287,10 +319,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch4.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch3.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch5.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch6.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch7.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/arch1.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/test7.py" />
@@ -515,10 +543,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/archived/distance.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4040" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/archived/distance_simple.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3241" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train15.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="420" column="20" selection-start-line="420" selection-start-column="20" selection-end-line="420" selection-end-column="20" />
+        <state relative-caret-position="23">
+          <caret line="27" selection-start-line="27" selection-end-line="51" selection-end-column="99" />
+          <folding>
+            <element signature="e#22#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/label_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+          <folding>
+            <element signature="e#22#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train25.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="51" column="56" selection-start-line="51" selection-start-column="56" selection-end-line="51" selection-end-column="56" />
+          <folding>
+            <element signature="e#22#59#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
