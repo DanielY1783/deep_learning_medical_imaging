@@ -3586,3 +3586,7207 @@ Test set: Average loss: 0.348030
 
 Correct instances:  2
 Train Epoch: 34 	Average Loss: 0.006296
+
+Test set: Average loss: 0.359172
+
+Correct instances:  2
+Train Epoch: 35 	Average Loss: 0.008233
+
+Test set: Average loss: 0.358135
+
+Correct instances:  2
+Train Epoch: 36 	Average Loss: 0.009484
+
+Test set: Average loss: 0.344956
+
+Correct instances:  3
+Train Epoch: 37 	Average Loss: 0.005122
+
+Test set: Average loss: 0.333589
+
+Correct instances:  2
+Train Epoch: 38 	Average Loss: 0.001884
+
+Test set: Average loss: 0.330120
+
+Correct instances:  3
+Train Epoch: 39 	Average Loss: 0.004102
+
+Test set: Average loss: 0.340480
+
+Correct instances:  3
+Train Epoch: 40 	Average Loss: 0.002418
+
+Test set: Average loss: 0.356364
+
+Correct instances:  3
+Train Epoch: 41 	Average Loss: 0.007933
+
+Test set: Average loss: 0.369733
+
+Correct instances:  3
+Train Epoch: 42 	Average Loss: 0.006926
+
+Test set: Average loss: 0.376919
+
+Correct instances:  3
+Train Epoch: 43 	Average Loss: 0.004035
+
+Test set: Average loss: 0.364458
+
+Correct instances:  3
+Train Epoch: 44 	Average Loss: 0.004545
+
+Test set: Average loss: 0.339908
+
+Correct instances:  3
+Train Epoch: 45 	Average Loss: 0.009000
+
+Test set: Average loss: 0.341979
+
+Correct instances:  3
+Train Epoch: 46 	Average Loss: 0.004233
+
+Test set: Average loss: 0.342413
+
+Correct instances:  2
+Train Epoch: 47 	Average Loss: 0.004123
+
+Test set: Average loss: 0.353008
+
+Correct instances:  3
+Train Epoch: 48 	Average Loss: 0.004816
+
+Test set: Average loss: 0.319438
+
+Correct instances:  3
+Train Epoch: 49 	Average Loss: 0.001311
+
+Test set: Average loss: 0.306720
+
+Correct instances:  2
+Train Epoch: 50 	Average Loss: 0.015909
+
+Test set: Average loss: 0.324045
+
+Correct instances:  3
+##################################################
+Learning Rate:  0.0013468584106645838
+Gamma:  0.7859619496022565
+##################################################
+===========Training X Model================
+Train Epoch: 1 	Average Loss: 0.012692
+
+Test set: Average loss: 0.192118
+
+Correct instances:  3
+Train Epoch: 2 	Average Loss: 0.006869
+
+Test set: Average loss: 0.197233
+
+Correct instances:  5
+Train Epoch: 3 	Average Loss: 0.014771
+
+Test set: Average loss: 0.181350
+
+Correct instances:  7
+Train Epoch: 4 	Average Loss: 0.011680
+
+Test set: Average loss: 0.141000
+
+Correct instances:  7
+Train Epoch: 5 	Average Loss: 0.008071
+
+Test set: Average loss: 0.135737
+
+Correct instances:  5
+Train Epoch: 6 	Average Loss: 0.012273
+
+Test set: Average loss: 0.135094
+
+Correct instances:  5
+Train Epoch: 7 	Average Loss: 0.007623
+
+Test set: Average loss: 0.131480
+
+Correct instances:  6
+Train Epoch: 8 	Average Loss: 0.016788
+
+Test set: Average loss: 0.140243
+
+Correct instances:  6
+Train Epoch: 9 	Average Loss: 0.008529
+
+Test set: Average loss: 0.131257
+
+Correct instances:  6
+Train Epoch: 10 	Average Loss: 0.010486
+
+Test set: Average loss: 0.126014
+
+Correct instances:  6
+Train Epoch: 11 	Average Loss: 0.017817
+
+Test set: Average loss: 0.145178
+
+Correct instances:  6
+Train Epoch: 12 	Average Loss: 0.008620
+
+Test set: Average loss: 0.133882
+
+Correct instances:  6
+Train Epoch: 13 	Average Loss: 0.004028
+
+Test set: Average loss: 0.137581
+
+Correct instances:  6
+Train Epoch: 14 	Average Loss: 0.010781
+
+Test set: Average loss: 0.133714
+
+Correct instances:  7
+Train Epoch: 15 	Average Loss: 0.010044
+
+Test set: Average loss: 0.137186
+
+Correct instances:  5
+Train Epoch: 16 	Average Loss: 0.004708
+
+Test set: Average loss: 0.137239
+
+Correct instances:  6
+Train Epoch: 17 	Average Loss: 0.016546
+
+Test set: Average loss: 0.142733
+
+Correct instances:  6
+Train Epoch: 18 	Average Loss: 0.010425
+
+Test set: Average loss: 0.137107
+
+Correct instances:  5
+Train Epoch: 19 	Average Loss: 0.012740
+
+Test set: Average loss: 0.146848
+
+Correct instances:  6
+Train Epoch: 20 	Average Loss: 0.009310
+
+Test set: Average loss: 0.137058
+
+Correct instances:  5
+Train Epoch: 21 	Average Loss: 0.008722
+
+Test set: Average loss: 0.138318
+
+Correct instances:  5
+Train Epoch: 22 	Average Loss: 0.008300
+
+Test set: Average loss: 0.139983
+
+Correct instances:  5
+Train Epoch: 23 	Average Loss: 0.008191
+
+Test set: Average loss: 0.128873
+
+Correct instances:  6
+Train Epoch: 24 	Average Loss: 0.008746
+
+Test set: Average loss: 0.133537
+
+Correct instances:  5
+Train Epoch: 25 	Average Loss: 0.009080
+
+Test set: Average loss: 0.130897
+
+Correct instances:  6
+Train Epoch: 26 	Average Loss: 0.010229
+
+Test set: Average loss: 0.131907
+
+Correct instances:  6
+Train Epoch: 27 	Average Loss: 0.010902
+
+Test set: Average loss: 0.133571
+
+Correct instances:  6
+Train Epoch: 28 	Average Loss: 0.002119
+
+Test set: Average loss: 0.131065
+
+Correct instances:  5
+Train Epoch: 29 	Average Loss: 0.008776
+
+Test set: Average loss: 0.131805
+
+Correct instances:  6
+Train Epoch: 30 	Average Loss: 0.007320
+
+Test set: Average loss: 0.129403
+
+Correct instances:  6
+Train Epoch: 31 	Average Loss: 0.004144
+
+Test set: Average loss: 0.126431
+
+Correct instances:  5
+Train Epoch: 32 	Average Loss: 0.007958
+
+Test set: Average loss: 0.129419
+
+Correct instances:  6
+Train Epoch: 33 	Average Loss: 0.012985
+
+Test set: Average loss: 0.139409
+
+Correct instances:  5
+Train Epoch: 34 	Average Loss: 0.006114
+
+Test set: Average loss: 0.129454
+
+Correct instances:  5
+Train Epoch: 35 	Average Loss: 0.009305
+
+Test set: Average loss: 0.132929
+
+Correct instances:  6
+Train Epoch: 36 	Average Loss: 0.007376
+
+Test set: Average loss: 0.136587
+
+Correct instances:  5
+Train Epoch: 37 	Average Loss: 0.006524
+
+Test set: Average loss: 0.140579
+
+Correct instances:  6
+Train Epoch: 38 	Average Loss: 0.002618
+
+Test set: Average loss: 0.138211
+
+Correct instances:  6
+Train Epoch: 39 	Average Loss: 0.007839
+
+Test set: Average loss: 0.133903
+
+Correct instances:  6
+Train Epoch: 40 	Average Loss: 0.004013
+
+Test set: Average loss: 0.130269
+
+Correct instances:  5
+Train Epoch: 41 	Average Loss: 0.010861
+
+Test set: Average loss: 0.137335
+
+Correct instances:  5
+Train Epoch: 42 	Average Loss: 0.004106
+
+Test set: Average loss: 0.127026
+
+Correct instances:  6
+Train Epoch: 43 	Average Loss: 0.012203
+
+Test set: Average loss: 0.124962
+
+Correct instances:  5
+Train Epoch: 44 	Average Loss: 0.008934
+
+Test set: Average loss: 0.137446
+
+Correct instances:  6
+Train Epoch: 45 	Average Loss: 0.010683
+
+Test set: Average loss: 0.138856
+
+Correct instances:  5
+Train Epoch: 46 	Average Loss: 0.013350
+
+Test set: Average loss: 0.144995
+
+Correct instances:  6
+Train Epoch: 47 	Average Loss: 0.005689
+
+Test set: Average loss: 0.139590
+
+Correct instances:  5
+Train Epoch: 48 	Average Loss: 0.005753
+
+Test set: Average loss: 0.133613
+
+Correct instances:  5
+Train Epoch: 49 	Average Loss: 0.004532
+
+Test set: Average loss: 0.143198
+
+Correct instances:  5
+Train Epoch: 50 	Average Loss: 0.008534
+
+Test set: Average loss: 0.140359
+
+Correct instances:  6
+===========Training Y Model================
+Train Epoch: 1 	Average Loss: 0.013189
+
+Test set: Average loss: 0.300890
+
+Correct instances:  2
+Train Epoch: 2 	Average Loss: 0.016010
+
+Test set: Average loss: 0.311298
+
+Correct instances:  2
+Train Epoch: 3 	Average Loss: 0.004832
+
+Test set: Average loss: 0.308188
+
+Correct instances:  2
+Train Epoch: 4 	Average Loss: 0.006672
+
+Test set: Average loss: 0.319319
+
+Correct instances:  2
+Train Epoch: 5 	Average Loss: 0.005138
+
+Test set: Average loss: 0.338006
+
+Correct instances:  2
+Train Epoch: 6 	Average Loss: 0.008931
+
+Test set: Average loss: 0.341773
+
+Correct instances:  2
+Train Epoch: 7 	Average Loss: 0.001441
+
+Test set: Average loss: 0.336719
+
+Correct instances:  2
+Train Epoch: 8 	Average Loss: 0.006921
+
+Test set: Average loss: 0.346698
+
+Correct instances:  2
+Train Epoch: 9 	Average Loss: 0.012558
+
+Test set: Average loss: 0.334383
+
+Correct instances:  2
+Train Epoch: 10 	Average Loss: 0.005765
+
+Test set: Average loss: 0.325024
+
+Correct instances:  2
+Train Epoch: 11 	Average Loss: 0.006375
+
+Test set: Average loss: 0.332938
+
+Correct instances:  2
+Train Epoch: 12 	Average Loss: 0.003972
+
+Test set: Average loss: 0.352351
+
+Correct instances:  2
+Train Epoch: 13 	Average Loss: 0.001364
+
+Test set: Average loss: 0.363033
+
+Correct instances:  2
+Train Epoch: 14 	Average Loss: 0.003560
+
+Test set: Average loss: 0.361857
+
+Correct instances:  2
+Train Epoch: 15 	Average Loss: 0.005480
+
+Test set: Average loss: 0.350188
+
+Correct instances:  2
+Train Epoch: 16 	Average Loss: 0.001576
+
+Test set: Average loss: 0.354099
+
+Correct instances:  2
+Train Epoch: 17 	Average Loss: 0.004507
+
+Test set: Average loss: 0.337205
+
+Correct instances:  2
+Train Epoch: 18 	Average Loss: 0.008465
+
+Test set: Average loss: 0.342434
+
+Correct instances:  2
+Train Epoch: 19 	Average Loss: 0.003527
+
+Test set: Average loss: 0.334363
+
+Correct instances:  2
+Train Epoch: 20 	Average Loss: 0.000758
+
+Test set: Average loss: 0.325386
+
+Correct instances:  2
+Train Epoch: 21 	Average Loss: 0.002214
+
+Test set: Average loss: 0.337177
+
+Correct instances:  2
+Train Epoch: 22 	Average Loss: 0.001344
+
+Test set: Average loss: 0.337260
+
+Correct instances:  2
+Train Epoch: 23 	Average Loss: 0.003642
+
+Test set: Average loss: 0.327925
+
+Correct instances:  3
+Train Epoch: 24 	Average Loss: 0.000554
+
+Test set: Average loss: 0.318012
+
+Correct instances:  2
+Train Epoch: 25 	Average Loss: 0.002507
+
+Test set: Average loss: 0.308612
+
+Correct instances:  3
+Train Epoch: 26 	Average Loss: 0.010246
+
+Test set: Average loss: 0.322623
+
+Correct instances:  3
+Train Epoch: 27 	Average Loss: 0.000226
+
+Test set: Average loss: 0.336216
+
+Correct instances:  3
+Train Epoch: 28 	Average Loss: 0.006661
+
+Test set: Average loss: 0.341075
+
+Correct instances:  2
+Train Epoch: 29 	Average Loss: 0.003721
+
+Test set: Average loss: 0.349323
+
+Correct instances:  2
+Train Epoch: 30 	Average Loss: 0.007236
+
+Test set: Average loss: 0.360671
+
+Correct instances:  2
+Train Epoch: 31 	Average Loss: 0.000600
+
+Test set: Average loss: 0.346313
+
+Correct instances:  2
+Train Epoch: 32 	Average Loss: 0.002566
+
+Test set: Average loss: 0.330821
+
+Correct instances:  2
+Train Epoch: 33 	Average Loss: 0.009625
+
+Test set: Average loss: 0.326160
+
+Correct instances:  2
+Train Epoch: 34 	Average Loss: 0.002964
+
+Test set: Average loss: 0.344950
+
+Correct instances:  2
+Train Epoch: 35 	Average Loss: 0.000134
+
+Test set: Average loss: 0.363513
+
+Correct instances:  2
+Train Epoch: 36 	Average Loss: 0.008830
+
+Test set: Average loss: 0.381503
+
+Correct instances:  2
+Train Epoch: 37 	Average Loss: 0.010820
+
+Test set: Average loss: 0.386273
+
+Correct instances:  2
+Train Epoch: 38 	Average Loss: 0.001238
+
+Test set: Average loss: 0.406020
+
+Correct instances:  2
+Train Epoch: 39 	Average Loss: 0.005847
+
+Test set: Average loss: 0.424256
+
+Correct instances:  2
+Train Epoch: 40 	Average Loss: 0.003127
+
+Test set: Average loss: 0.452253
+
+Correct instances:  2
+Train Epoch: 41 	Average Loss: 0.001582
+
+Test set: Average loss: 0.447262
+
+Correct instances:  2
+Train Epoch: 42 	Average Loss: 0.010731
+
+Test set: Average loss: 0.433228
+
+Correct instances:  1
+Train Epoch: 43 	Average Loss: 0.005320
+
+Test set: Average loss: 0.412210
+
+Correct instances:  2
+Train Epoch: 44 	Average Loss: 0.006682
+
+Test set: Average loss: 0.382666
+
+Correct instances:  2
+Train Epoch: 45 	Average Loss: 0.000955
+
+Test set: Average loss: 0.367860
+
+Correct instances:  3
+Train Epoch: 46 	Average Loss: 0.001238
+
+Test set: Average loss: 0.359613
+
+Correct instances:  2
+Train Epoch: 47 	Average Loss: 0.001967
+
+Test set: Average loss: 0.381782
+
+Correct instances:  2
+Train Epoch: 48 	Average Loss: 0.003638
+
+Test set: Average loss: 0.364899
+
+Correct instances:  3
+Train Epoch: 49 	Average Loss: 0.001186
+
+Test set: Average loss: 0.369315
+
+Correct instances:  3
+Train Epoch: 50 	Average Loss: 0.005488
+
+Test set: Average loss: 0.359391
+
+Correct instances:  3
+##################################################
+Learning Rate:  0.0011965661552188072
+Gamma:  0.9574983805870685
+##################################################
+===========Training X Model================
+Train Epoch: 1 	Average Loss: 0.007406
+
+Test set: Average loss: 0.176641
+
+Correct instances:  4
+Train Epoch: 2 	Average Loss: 0.013826
+
+Test set: Average loss: 0.186028
+
+Correct instances:  4
+Train Epoch: 3 	Average Loss: 0.015348
+
+Test set: Average loss: 0.162447
+
+Correct instances:  5
+Train Epoch: 4 	Average Loss: 0.004687
+
+Test set: Average loss: 0.153630
+
+Correct instances:  5
+Train Epoch: 5 	Average Loss: 0.010571
+
+Test set: Average loss: 0.147432
+
+Correct instances:  6
+Train Epoch: 6 	Average Loss: 0.008742
+
+Test set: Average loss: 0.143698
+
+Correct instances:  6
+Train Epoch: 7 	Average Loss: 0.015616
+
+Test set: Average loss: 0.146471
+
+Correct instances:  5
+Train Epoch: 8 	Average Loss: 0.008227
+
+Test set: Average loss: 0.171393
+
+Correct instances:  5
+Train Epoch: 9 	Average Loss: 0.006825
+
+Test set: Average loss: 0.200227
+
+Correct instances:  5
+Train Epoch: 10 	Average Loss: 0.010555
+
+Test set: Average loss: 0.188987
+
+Correct instances:  4
+Train Epoch: 11 	Average Loss: 0.025662
+
+Test set: Average loss: 0.184763
+
+Correct instances:  4
+Train Epoch: 12 	Average Loss: 0.004019
+
+Test set: Average loss: 0.159647
+
+Correct instances:  5
+Train Epoch: 13 	Average Loss: 0.004668
+
+Test set: Average loss: 0.157390
+
+Correct instances:  5
+Train Epoch: 14 	Average Loss: 0.010155
+
+Test set: Average loss: 0.161902
+
+Correct instances:  5
+Train Epoch: 15 	Average Loss: 0.006484
+
+Test set: Average loss: 0.153433
+
+Correct instances:  5
+Train Epoch: 16 	Average Loss: 0.009872
+
+Test set: Average loss: 0.151191
+
+Correct instances:  5
+Train Epoch: 17 	Average Loss: 0.003746
+
+Test set: Average loss: 0.152372
+
+Correct instances:  6
+Train Epoch: 18 	Average Loss: 0.012736
+
+Test set: Average loss: 0.149165
+
+Correct instances:  5
+Train Epoch: 19 	Average Loss: 0.002782
+
+Test set: Average loss: 0.154529
+
+Correct instances:  5
+Train Epoch: 20 	Average Loss: 0.004551
+
+Test set: Average loss: 0.157966
+
+Correct instances:  5
+Train Epoch: 21 	Average Loss: 0.006578
+
+Test set: Average loss: 0.151824
+
+Correct instances:  5
+Train Epoch: 22 	Average Loss: 0.006659
+
+Test set: Average loss: 0.168040
+
+Correct instances:  4
+Train Epoch: 23 	Average Loss: 0.009584
+
+Test set: Average loss: 0.163459
+
+Correct instances:  6
+Train Epoch: 24 	Average Loss: 0.007961
+
+Test set: Average loss: 0.142179
+
+Correct instances:  6
+Train Epoch: 25 	Average Loss: 0.014093
+
+Test set: Average loss: 0.136640
+
+Correct instances:  6
+Train Epoch: 26 	Average Loss: 0.003122
+
+Test set: Average loss: 0.128030
+
+Correct instances:  6
+Train Epoch: 27 	Average Loss: 0.010606
+
+Test set: Average loss: 0.129673
+
+Correct instances:  6
+Train Epoch: 28 	Average Loss: 0.010248
+
+Test set: Average loss: 0.126560
+
+Correct instances:  7
+Train Epoch: 29 	Average Loss: 0.002971
+
+Test set: Average loss: 0.139199
+
+Correct instances:  6
+Train Epoch: 30 	Average Loss: 0.006891
+
+Test set: Average loss: 0.138767
+
+Correct instances:  6
+Train Epoch: 31 	Average Loss: 0.010047
+
+Test set: Average loss: 0.130848
+
+Correct instances:  6
+Train Epoch: 32 	Average Loss: 0.005310
+
+Test set: Average loss: 0.140153
+
+Correct instances:  6
+Train Epoch: 33 	Average Loss: 0.003133
+
+Test set: Average loss: 0.133016
+
+Correct instances:  5
+Train Epoch: 34 	Average Loss: 0.005127
+
+Test set: Average loss: 0.129973
+
+Correct instances:  5
+Train Epoch: 35 	Average Loss: 0.004489
+
+Test set: Average loss: 0.136290
+
+Correct instances:  6
+Train Epoch: 36 	Average Loss: 0.011107
+
+Test set: Average loss: 0.143248
+
+Correct instances:  6
+Train Epoch: 37 	Average Loss: 0.006427
+
+Test set: Average loss: 0.141528
+
+Correct instances:  5
+Train Epoch: 38 	Average Loss: 0.003828
+
+Test set: Average loss: 0.141378
+
+Correct instances:  4
+Train Epoch: 39 	Average Loss: 0.001836
+
+Test set: Average loss: 0.132858
+
+Correct instances:  4
+Train Epoch: 40 	Average Loss: 0.004580
+
+Test set: Average loss: 0.137462
+
+Correct instances:  6
+Train Epoch: 41 	Average Loss: 0.002745
+
+Test set: Average loss: 0.132603
+
+Correct instances:  5
+Train Epoch: 42 	Average Loss: 0.006860
+
+Test set: Average loss: 0.139573
+
+Correct instances:  6
+Train Epoch: 43 	Average Loss: 0.004020
+
+Test set: Average loss: 0.131065
+
+Correct instances:  5
+Train Epoch: 44 	Average Loss: 0.002801
+
+Test set: Average loss: 0.130313
+
+Correct instances:  5
+Train Epoch: 45 	Average Loss: 0.001605
+
+Test set: Average loss: 0.135120
+
+Correct instances:  5
+Train Epoch: 46 	Average Loss: 0.003431
+
+Test set: Average loss: 0.135661
+
+Correct instances:  5
+Train Epoch: 47 	Average Loss: 0.004347
+
+Test set: Average loss: 0.137889
+
+Correct instances:  6
+Train Epoch: 48 	Average Loss: 0.002691
+
+Test set: Average loss: 0.135932
+
+Correct instances:  5
+Train Epoch: 49 	Average Loss: 0.002921
+
+Test set: Average loss: 0.135678
+
+Correct instances:  5
+Train Epoch: 50 	Average Loss: 0.005504
+
+Test set: Average loss: 0.130235
+
+Correct instances:  5
+===========Training Y Model================
+Train Epoch: 1 	Average Loss: 0.001121
+
+Test set: Average loss: 0.357394
+
+Correct instances:  2
+Train Epoch: 2 	Average Loss: 0.001591
+
+Test set: Average loss: 0.360012
+
+Correct instances:  2
+Train Epoch: 3 	Average Loss: 0.007510
+
+Test set: Average loss: 0.386657
+
+Correct instances:  2
+Train Epoch: 4 	Average Loss: 0.001336
+
+Test set: Average loss: 0.423453
+
+Correct instances:  3
+Train Epoch: 5 	Average Loss: 0.003714
+
+Test set: Average loss: 0.433081
+
+Correct instances:  2
+Train Epoch: 6 	Average Loss: 0.006042
+
+Test set: Average loss: 0.428387
+
+Correct instances:  2
+Train Epoch: 7 	Average Loss: 0.001436
+
+Test set: Average loss: 0.402055
+
+Correct instances:  3
+Train Epoch: 8 	Average Loss: 0.000940
+
+Test set: Average loss: 0.409970
+
+Correct instances:  2
+Train Epoch: 9 	Average Loss: 0.005119
+
+Test set: Average loss: 0.400857
+
+Correct instances:  3
+Train Epoch: 10 	Average Loss: 0.003027
+
+Test set: Average loss: 0.427758
+
+Correct instances:  3
+Train Epoch: 11 	Average Loss: 0.000794
+
+Test set: Average loss: 0.429283
+
+Correct instances:  3
+Train Epoch: 12 	Average Loss: 0.002481
+
+Test set: Average loss: 0.410565
+
+Correct instances:  3
+Train Epoch: 13 	Average Loss: 0.005055
+
+Test set: Average loss: 0.395632
+
+Correct instances:  3
+Train Epoch: 14 	Average Loss: 0.009836
+
+Test set: Average loss: 0.370747
+
+Correct instances:  3
+Train Epoch: 15 	Average Loss: 0.000861
+
+Test set: Average loss: 0.377804
+
+Correct instances:  2
+Train Epoch: 16 	Average Loss: 0.001009
+
+Test set: Average loss: 0.369717
+
+Correct instances:  2
+Train Epoch: 17 	Average Loss: 0.008158
+
+Test set: Average loss: 0.361867
+
+Correct instances:  3
+Train Epoch: 18 	Average Loss: 0.002958
+
+Test set: Average loss: 0.376611
+
+Correct instances:  3
+Train Epoch: 19 	Average Loss: 0.000195
+
+Test set: Average loss: 0.402516
+
+Correct instances:  3
+Train Epoch: 20 	Average Loss: 0.002328
+
+Test set: Average loss: 0.413090
+
+Correct instances:  3
+Train Epoch: 21 	Average Loss: 0.000310
+
+Test set: Average loss: 0.413871
+
+Correct instances:  3
+Train Epoch: 22 	Average Loss: 0.003405
+
+Test set: Average loss: 0.420439
+
+Correct instances:  3
+Train Epoch: 23 	Average Loss: 0.008274
+
+Test set: Average loss: 0.443842
+
+Correct instances:  4
+Train Epoch: 24 	Average Loss: 0.003647
+
+Test set: Average loss: 0.460384
+
+Correct instances:  3
+Train Epoch: 25 	Average Loss: 0.002466
+
+Test set: Average loss: 0.479176
+
+Correct instances:  3
+Train Epoch: 26 	Average Loss: 0.011868
+
+Test set: Average loss: 0.477987
+
+Correct instances:  3
+Train Epoch: 27 	Average Loss: 0.005009
+
+Test set: Average loss: 0.463268
+
+Correct instances:  3
+Train Epoch: 28 	Average Loss: 0.007558
+
+Test set: Average loss: 0.464112
+
+Correct instances:  3
+Train Epoch: 29 	Average Loss: 0.002305
+
+Test set: Average loss: 0.480906
+
+Correct instances:  2
+Train Epoch: 30 	Average Loss: 0.002951
+
+Test set: Average loss: 0.472381
+
+Correct instances:  3
+Train Epoch: 31 	Average Loss: 0.003803
+
+Test set: Average loss: 0.514288
+
+Correct instances:  1
+Train Epoch: 32 	Average Loss: 0.004866
+
+Test set: Average loss: 0.510823
+
+Correct instances:  1
+Train Epoch: 33 	Average Loss: 0.009620
+
+Test set: Average loss: 0.496731
+
+Correct instances:  2
+Train Epoch: 34 	Average Loss: 0.002122
+
+Test set: Average loss: 0.465538
+
+Correct instances:  2
+Train Epoch: 35 	Average Loss: 0.002854
+
+Test set: Average loss: 0.432115
+
+Correct instances:  1
+Train Epoch: 36 	Average Loss: 0.004497
+
+Test set: Average loss: 0.446475
+
+Correct instances:  1
+Train Epoch: 37 	Average Loss: 0.009113
+
+Test set: Average loss: 0.450289
+
+Correct instances:  1
+Train Epoch: 38 	Average Loss: 0.006192
+
+Test set: Average loss: 0.433975
+
+Correct instances:  1
+Train Epoch: 39 	Average Loss: 0.000974
+
+Test set: Average loss: 0.437270
+
+Correct instances:  1
+Train Epoch: 40 	Average Loss: 0.000366
+
+Test set: Average loss: 0.445964
+
+Correct instances:  2
+Train Epoch: 41 	Average Loss: 0.002430
+
+Test set: Average loss: 0.426368
+
+Correct instances:  2
+Train Epoch: 42 	Average Loss: 0.001371
+
+Test set: Average loss: 0.438965
+
+Correct instances:  2
+Train Epoch: 43 	Average Loss: 0.005303
+
+Test set: Average loss: 0.440095
+
+Correct instances:  2
+Train Epoch: 44 	Average Loss: 0.002340
+
+Test set: Average loss: 0.430281
+
+Correct instances:  2
+Train Epoch: 45 	Average Loss: 0.000850
+
+Test set: Average loss: 0.407403
+
+Correct instances:  2
+Train Epoch: 46 	Average Loss: 0.007692
+
+Test set: Average loss: 0.381675
+
+Correct instances:  2
+Train Epoch: 47 	Average Loss: 0.000337
+
+Test set: Average loss: 0.379663
+
+Correct instances:  2
+Train Epoch: 48 	Average Loss: 0.010302
+
+Test set: Average loss: 0.377226
+
+Correct instances:  2
+Train Epoch: 49 	Average Loss: 0.001527
+
+Test set: Average loss: 0.384195
+
+Correct instances:  2
+Train Epoch: 50 	Average Loss: 0.000813
+
+Test set: Average loss: 0.367900
+
+Correct instances:  2
+##################################################
+Learning Rate:  0.0010846994203816452
+Gamma:  0.891988530613085
+##################################################
+===========Training X Model================
+Train Epoch: 1 	Average Loss: 0.005266
+
+Test set: Average loss: 0.160634
+
+Correct instances:  5
+Train Epoch: 2 	Average Loss: 0.003035
+
+Test set: Average loss: 0.161139
+
+Correct instances:  6
+Train Epoch: 3 	Average Loss: 0.001937
+
+Test set: Average loss: 0.166111
+
+Correct instances:  4
+Train Epoch: 4 	Average Loss: 0.006068
+
+Test set: Average loss: 0.209037
+
+Correct instances:  2
+Train Epoch: 5 	Average Loss: 0.009457
+
+Test set: Average loss: 0.238293
+
+Correct instances:  2
+Train Epoch: 6 	Average Loss: 0.011706
+
+Test set: Average loss: 0.191823
+
+Correct instances:  4
+Train Epoch: 7 	Average Loss: 0.009251
+
+Test set: Average loss: 0.164781
+
+Correct instances:  5
+Train Epoch: 8 	Average Loss: 0.006002
+
+Test set: Average loss: 0.165303
+
+Correct instances:  5
+Train Epoch: 9 	Average Loss: 0.009420
+
+Test set: Average loss: 0.153554
+
+Correct instances:  5
+Train Epoch: 10 	Average Loss: 0.002728
+
+Test set: Average loss: 0.145621
+
+Correct instances:  5
+Train Epoch: 11 	Average Loss: 0.001647
+
+Test set: Average loss: 0.143176
+
+Correct instances:  6
+Train Epoch: 12 	Average Loss: 0.002543
+
+Test set: Average loss: 0.145671
+
+Correct instances:  6
+Train Epoch: 13 	Average Loss: 0.002816
+
+Test set: Average loss: 0.137777
+
+Correct instances:  6
+Train Epoch: 14 	Average Loss: 0.001775
+
+Test set: Average loss: 0.128536
+
+Correct instances:  6
+Train Epoch: 15 	Average Loss: 0.003516
+
+Test set: Average loss: 0.132525
+
+Correct instances:  6
+Train Epoch: 16 	Average Loss: 0.007676
+
+Test set: Average loss: 0.133730
+
+Correct instances:  6
+Train Epoch: 17 	Average Loss: 0.001972
+
+Test set: Average loss: 0.133172
+
+Correct instances:  6
+Train Epoch: 18 	Average Loss: 0.008445
+
+Test set: Average loss: 0.127735
+
+Correct instances:  6
+Train Epoch: 19 	Average Loss: 0.002214
+
+Test set: Average loss: 0.137426
+
+Correct instances:  6
+Train Epoch: 20 	Average Loss: 0.005249
+
+Test set: Average loss: 0.137591
+
+Correct instances:  6
+Train Epoch: 21 	Average Loss: 0.002843
+
+Test set: Average loss: 0.137620
+
+Correct instances:  6
+Train Epoch: 22 	Average Loss: 0.005862
+
+Test set: Average loss: 0.134541
+
+Correct instances:  6
+Train Epoch: 23 	Average Loss: 0.003094
+
+Test set: Average loss: 0.137299
+
+Correct instances:  6
+Train Epoch: 24 	Average Loss: 0.000749
+
+Test set: Average loss: 0.142575
+
+Correct instances:  6
+Train Epoch: 25 	Average Loss: 0.008502
+
+Test set: Average loss: 0.138392
+
+Correct instances:  6
+Train Epoch: 26 	Average Loss: 0.001397
+
+Test set: Average loss: 0.135361
+
+Correct instances:  6
+Train Epoch: 27 	Average Loss: 0.004613
+
+Test set: Average loss: 0.136743
+
+Correct instances:  6
+Train Epoch: 28 	Average Loss: 0.003772
+
+Test set: Average loss: 0.136618
+
+Correct instances:  6
+Train Epoch: 29 	Average Loss: 0.003502
+
+Test set: Average loss: 0.138355
+
+Correct instances:  6
+Train Epoch: 30 	Average Loss: 0.008113
+
+Test set: Average loss: 0.140752
+
+Correct instances:  6
+Train Epoch: 31 	Average Loss: 0.003103
+
+Test set: Average loss: 0.133964
+
+Correct instances:  6
+Train Epoch: 32 	Average Loss: 0.001201
+
+Test set: Average loss: 0.142127
+
+Correct instances:  6
+Train Epoch: 33 	Average Loss: 0.006383
+
+Test set: Average loss: 0.136436
+
+Correct instances:  6
+Train Epoch: 34 	Average Loss: 0.001366
+
+Test set: Average loss: 0.133755
+
+Correct instances:  6
+Train Epoch: 35 	Average Loss: 0.003181
+
+Test set: Average loss: 0.126820
+
+Correct instances:  6
+Train Epoch: 36 	Average Loss: 0.006260
+
+Test set: Average loss: 0.136017
+
+Correct instances:  6
+Train Epoch: 37 	Average Loss: 0.002265
+
+Test set: Average loss: 0.137642
+
+Correct instances:  6
+Train Epoch: 38 	Average Loss: 0.005690
+
+Test set: Average loss: 0.136409
+
+Correct instances:  6
+Train Epoch: 39 	Average Loss: 0.003476
+
+Test set: Average loss: 0.134175
+
+Correct instances:  6
+Train Epoch: 40 	Average Loss: 0.001322
+
+Test set: Average loss: 0.132155
+
+Correct instances:  6
+Train Epoch: 41 	Average Loss: 0.001781
+
+Test set: Average loss: 0.132526
+
+Correct instances:  6
+Train Epoch: 42 	Average Loss: 0.005792
+
+Test set: Average loss: 0.131792
+
+Correct instances:  6
+Train Epoch: 43 	Average Loss: 0.001841
+
+Test set: Average loss: 0.136110
+
+Correct instances:  6
+Train Epoch: 44 	Average Loss: 0.002116
+
+Test set: Average loss: 0.140463
+
+Correct instances:  6
+Train Epoch: 45 	Average Loss: 0.003530
+
+Test set: Average loss: 0.135121
+
+Correct instances:  6
+Train Epoch: 46 	Average Loss: 0.003055
+
+Test set: Average loss: 0.137197
+
+Correct instances:  6
+Train Epoch: 47 	Average Loss: 0.005402
+
+Test set: Average loss: 0.137905
+
+Correct instances:  6
+Train Epoch: 48 	Average Loss: 0.001430
+
+Test set: Average loss: 0.141541
+
+Correct instances:  6
+Train Epoch: 49 	Average Loss: 0.006950
+
+Test set: Average loss: 0.132739
+
+Correct instances:  6
+Train Epoch: 50 	Average Loss: 0.005390
+
+Test set: Average loss: 0.136315
+
+Correct instances:  6
+===========Training Y Model================
+Train Epoch: 1 	Average Loss: 0.002787
+
+Test set: Average loss: 0.378986
+
+Correct instances:  2
+Train Epoch: 2 	Average Loss: 0.001493
+
+Test set: Average loss: 0.400114
+
+Correct instances:  2
+Train Epoch: 3 	Average Loss: 0.000783
+
+Test set: Average loss: 0.418700
+
+Correct instances:  2
+Train Epoch: 4 	Average Loss: 0.004031
+
+Test set: Average loss: 0.444926
+
+Correct instances:  2
+Train Epoch: 5 	Average Loss: 0.010580
+
+Test set: Average loss: 0.449809
+
+Correct instances:  2
+Train Epoch: 6 	Average Loss: 0.000685
+
+Test set: Average loss: 0.448004
+
+Correct instances:  2
+Train Epoch: 7 	Average Loss: 0.001691
+
+Test set: Average loss: 0.424773
+
+Correct instances:  2
+Train Epoch: 8 	Average Loss: 0.008793
+
+Test set: Average loss: 0.409542
+
+Correct instances:  2
+Train Epoch: 9 	Average Loss: 0.000993
+
+Test set: Average loss: 0.408158
+
+Correct instances:  2
+Train Epoch: 10 	Average Loss: 0.003878
+
+Test set: Average loss: 0.410670
+
+Correct instances:  2
+Train Epoch: 11 	Average Loss: 0.007556
+
+Test set: Average loss: 0.414861
+
+Correct instances:  2
+Train Epoch: 12 	Average Loss: 0.007768
+
+Test set: Average loss: 0.427535
+
+Correct instances:  2
+Train Epoch: 13 	Average Loss: 0.001197
+
+Test set: Average loss: 0.412505
+
+Correct instances:  2
+Train Epoch: 14 	Average Loss: 0.001725
+
+Test set: Average loss: 0.424011
+
+Correct instances:  2
+Train Epoch: 15 	Average Loss: 0.001845
+
+Test set: Average loss: 0.401191
+
+Correct instances:  2
+Train Epoch: 16 	Average Loss: 0.000161
+
+Test set: Average loss: 0.400850
+
+Correct instances:  2
+Train Epoch: 17 	Average Loss: 0.000944
+
+Test set: Average loss: 0.395973
+
+Correct instances:  3
+Train Epoch: 18 	Average Loss: 0.002664
+
+Test set: Average loss: 0.395742
+
+Correct instances:  3
+Train Epoch: 19 	Average Loss: 0.006072
+
+Test set: Average loss: 0.396594
+
+Correct instances:  2
+Train Epoch: 20 	Average Loss: 0.002659
+
+Test set: Average loss: 0.390696
+
+Correct instances:  2
+Train Epoch: 21 	Average Loss: 0.004755
+
+Test set: Average loss: 0.400252
+
+Correct instances:  2
+Train Epoch: 22 	Average Loss: 0.008193
+
+Test set: Average loss: 0.426640
+
+Correct instances:  2
+Train Epoch: 23 	Average Loss: 0.001159
+
+Test set: Average loss: 0.435413
+
+Correct instances:  3
+Train Epoch: 24 	Average Loss: 0.003216
+
+Test set: Average loss: 0.423551
+
+Correct instances:  2
+Train Epoch: 25 	Average Loss: 0.001076
+
+Test set: Average loss: 0.421836
+
+Correct instances:  2
+Train Epoch: 26 	Average Loss: 0.003549
+
+Test set: Average loss: 0.422740
+
+Correct instances:  2
+Train Epoch: 27 	Average Loss: 0.000139
+
+Test set: Average loss: 0.445523
+
+Correct instances:  2
+Train Epoch: 28 	Average Loss: 0.006378
+
+Test set: Average loss: 0.424812
+
+Correct instances:  2
+Train Epoch: 29 	Average Loss: 0.003139
+
+Test set: Average loss: 0.414717
+
+Correct instances:  2
+Train Epoch: 30 	Average Loss: 0.006081
+
+Test set: Average loss: 0.398814
+
+Correct instances:  2
+Train Epoch: 31 	Average Loss: 0.002057
+
+Test set: Average loss: 0.384114
+
+Correct instances:  3
+Train Epoch: 32 	Average Loss: 0.003004
+
+Test set: Average loss: 0.359982
+
+Correct instances:  3
+Train Epoch: 33 	Average Loss: 0.002054
+
+Test set: Average loss: 0.356644
+
+Correct instances:  3
+Train Epoch: 34 	Average Loss: 0.002518
+
+Test set: Average loss: 0.355394
+
+Correct instances:  2
+Train Epoch: 35 	Average Loss: 0.000724
+
+Test set: Average loss: 0.360855
+
+Correct instances:  1
+Train Epoch: 36 	Average Loss: 0.000791
+
+Test set: Average loss: 0.374519
+
+Correct instances:  1
+Train Epoch: 37 	Average Loss: 0.001612
+
+Test set: Average loss: 0.388140
+
+Correct instances:  1
+Train Epoch: 38 	Average Loss: 0.000505
+
+Test set: Average loss: 0.391477
+
+Correct instances:  1
+Train Epoch: 39 	Average Loss: 0.006942
+
+Test set: Average loss: 0.391712
+
+Correct instances:  1
+Train Epoch: 40 	Average Loss: 0.004320
+
+Test set: Average loss: 0.391001
+
+Correct instances:  1
+Train Epoch: 41 	Average Loss: 0.000223
+
+Test set: Average loss: 0.380531
+
+Correct instances:  0
+Train Epoch: 42 	Average Loss: 0.000667
+
+Test set: Average loss: 0.351226
+
+Correct instances:  0
+Train Epoch: 43 	Average Loss: 0.005756
+
+Test set: Average loss: 0.336817
+
+Correct instances:  0
+Train Epoch: 44 	Average Loss: 0.000795
+
+Test set: Average loss: 0.347905
+
+Correct instances:  2
+Train Epoch: 45 	Average Loss: 0.002625
+
+Test set: Average loss: 0.363231
+
+Correct instances:  1
+Train Epoch: 46 	Average Loss: 0.001330
+
+Test set: Average loss: 0.395297
+
+Correct instances:  2
+Train Epoch: 47 	Average Loss: 0.000355
+
+Test set: Average loss: 0.411429
+
+Correct instances:  2
+Train Epoch: 48 	Average Loss: 0.003278
+
+Test set: Average loss: 0.396557
+
+Correct instances:  2
+Train Epoch: 49 	Average Loss: 0.002577
+
+Test set: Average loss: 0.424196
+
+Correct instances:  1
+Train Epoch: 50 	Average Loss: 0.000818
+
+Test set: Average loss: 0.415177
+
+Correct instances:  1
+##################################################
+Learning Rate:  0.0010254552580024644
+Gamma:  0.978372201761418
+##################################################
+===========Training X Model================
+Train Epoch: 1 	Average Loss: 0.003735
+
+Test set: Average loss: 0.130026
+
+Correct instances:  6
+Train Epoch: 2 	Average Loss: 0.001104
+
+Test set: Average loss: 0.149246
+
+Correct instances:  5
+Train Epoch: 3 	Average Loss: 0.008414
+
+Test set: Average loss: 0.147995
+
+Correct instances:  5
+Train Epoch: 4 	Average Loss: 0.004380
+
+Test set: Average loss: 0.192334
+
+Correct instances:  3
+Train Epoch: 5 	Average Loss: 0.004741
+
+Test set: Average loss: 0.225165
+
+Correct instances:  1
+Train Epoch: 6 	Average Loss: 0.004830
+
+Test set: Average loss: 0.253606
+
+Correct instances:  2
+Train Epoch: 7 	Average Loss: 0.006943
+
+Test set: Average loss: 0.203521
+
+Correct instances:  3
+Train Epoch: 8 	Average Loss: 0.007831
+
+Test set: Average loss: 0.164283
+
+Correct instances:  4
+Train Epoch: 9 	Average Loss: 0.003152
+
+Test set: Average loss: 0.166002
+
+Correct instances:  5
+Train Epoch: 10 	Average Loss: 0.002775
+
+Test set: Average loss: 0.151307
+
+Correct instances:  5
+Train Epoch: 11 	Average Loss: 0.010816
+
+Test set: Average loss: 0.158315
+
+Correct instances:  6
+Train Epoch: 12 	Average Loss: 0.004026
+
+Test set: Average loss: 0.183919
+
+Correct instances:  6
+Train Epoch: 13 	Average Loss: 0.008971
+
+Test set: Average loss: 0.177876
+
+Correct instances:  6
+Train Epoch: 14 	Average Loss: 0.005431
+
+Test set: Average loss: 0.167897
+
+Correct instances:  6
+Train Epoch: 15 	Average Loss: 0.011473
+
+Test set: Average loss: 0.141892
+
+Correct instances:  7
+Train Epoch: 16 	Average Loss: 0.008916
+
+Test set: Average loss: 0.139647
+
+Correct instances:  6
+Train Epoch: 17 	Average Loss: 0.005073
+
+Test set: Average loss: 0.140058
+
+Correct instances:  7
+Train Epoch: 18 	Average Loss: 0.007439
+
+Test set: Average loss: 0.146789
+
+Correct instances:  6
+Train Epoch: 19 	Average Loss: 0.001848
+
+Test set: Average loss: 0.157029
+
+Correct instances:  6
+Train Epoch: 20 	Average Loss: 0.002460
+
+Test set: Average loss: 0.168922
+
+Correct instances:  5
+Train Epoch: 21 	Average Loss: 0.009547
+
+Test set: Average loss: 0.174655
+
+Correct instances:  5
+Train Epoch: 22 	Average Loss: 0.002259
+
+Test set: Average loss: 0.162626
+
+Correct instances:  5
+Train Epoch: 23 	Average Loss: 0.002854
+
+Test set: Average loss: 0.150436
+
+Correct instances:  6
+Train Epoch: 24 	Average Loss: 0.010555
+
+Test set: Average loss: 0.141810
+
+Correct instances:  6
+Train Epoch: 25 	Average Loss: 0.005106
+
+Test set: Average loss: 0.144795
+
+Correct instances:  6
+Train Epoch: 26 	Average Loss: 0.004923
+
+Test set: Average loss: 0.140609
+
+Correct instances:  5
+Train Epoch: 27 	Average Loss: 0.008525
+
+Test set: Average loss: 0.143915
+
+Correct instances:  5
+Train Epoch: 28 	Average Loss: 0.004550
+
+Test set: Average loss: 0.154412
+
+Correct instances:  5
+Train Epoch: 29 	Average Loss: 0.009291
+
+Test set: Average loss: 0.168183
+
+Correct instances:  5
+Train Epoch: 30 	Average Loss: 0.004227
+
+Test set: Average loss: 0.181737
+
+Correct instances:  5
+Train Epoch: 31 	Average Loss: 0.003000
+
+Test set: Average loss: 0.179304
+
+Correct instances:  4
+Train Epoch: 32 	Average Loss: 0.010375
+
+Test set: Average loss: 0.157096
+
+Correct instances:  5
+Train Epoch: 33 	Average Loss: 0.002726
+
+Test set: Average loss: 0.149693
+
+Correct instances:  5
+Train Epoch: 34 	Average Loss: 0.003592
+
+Test set: Average loss: 0.140861
+
+Correct instances:  6
+Train Epoch: 35 	Average Loss: 0.002751
+
+Test set: Average loss: 0.145255
+
+Correct instances:  5
+Train Epoch: 36 	Average Loss: 0.001377
+
+Test set: Average loss: 0.143780
+
+Correct instances:  6
+Train Epoch: 37 	Average Loss: 0.006590
+
+Test set: Average loss: 0.144318
+
+Correct instances:  6
+Train Epoch: 38 	Average Loss: 0.008192
+
+Test set: Average loss: 0.149990
+
+Correct instances:  6
+Train Epoch: 39 	Average Loss: 0.001378
+
+Test set: Average loss: 0.148682
+
+Correct instances:  6
+Train Epoch: 40 	Average Loss: 0.011027
+
+Test set: Average loss: 0.153290
+
+Correct instances:  6
+Train Epoch: 41 	Average Loss: 0.001081
+
+Test set: Average loss: 0.159487
+
+Correct instances:  6
+Train Epoch: 42 	Average Loss: 0.001376
+
+Test set: Average loss: 0.167661
+
+Correct instances:  4
+Train Epoch: 43 	Average Loss: 0.004982
+
+Test set: Average loss: 0.163661
+
+Correct instances:  5
+Train Epoch: 44 	Average Loss: 0.003882
+
+Test set: Average loss: 0.155452
+
+Correct instances:  5
+Train Epoch: 45 	Average Loss: 0.001011
+
+Test set: Average loss: 0.152513
+
+Correct instances:  4
+Train Epoch: 46 	Average Loss: 0.003349
+
+Test set: Average loss: 0.144198
+
+Correct instances:  4
+Train Epoch: 47 	Average Loss: 0.001493
+
+Test set: Average loss: 0.132305
+
+Correct instances:  4
+Train Epoch: 48 	Average Loss: 0.012514
+
+Test set: Average loss: 0.137013
+
+Correct instances:  4
+Train Epoch: 49 	Average Loss: 0.000895
+
+Test set: Average loss: 0.134741
+
+Correct instances:  4
+Train Epoch: 50 	Average Loss: 0.003132
+
+Test set: Average loss: 0.142986
+
+Correct instances:  4
+===========Training Y Model================
+Train Epoch: 1 	Average Loss: 0.002833
+
+Test set: Average loss: 0.405241
+
+Correct instances:  1
+Train Epoch: 2 	Average Loss: 0.004546
+
+Test set: Average loss: 0.436235
+
+Correct instances:  2
+Train Epoch: 3 	Average Loss: 0.000119
+
+Test set: Average loss: 0.453062
+
+Correct instances:  2
+Train Epoch: 4 	Average Loss: 0.003947
+
+Test set: Average loss: 0.464227
+
+Correct instances:  2
+Train Epoch: 5 	Average Loss: 0.000705
+
+Test set: Average loss: 0.471826
+
+Correct instances:  2
+Train Epoch: 6 	Average Loss: 0.004780
+
+Test set: Average loss: 0.499583
+
+Correct instances:  2
+Train Epoch: 7 	Average Loss: 0.000222
+
+Test set: Average loss: 0.491957
+
+Correct instances:  2
+Train Epoch: 8 	Average Loss: 0.000405
+
+Test set: Average loss: 0.492267
+
+Correct instances:  2
+Train Epoch: 9 	Average Loss: 0.003335
+
+Test set: Average loss: 0.469198
+
+Correct instances:  2
+Train Epoch: 10 	Average Loss: 0.000548
+
+Test set: Average loss: 0.451555
+
+Correct instances:  2
+Train Epoch: 11 	Average Loss: 0.008062
+
+Test set: Average loss: 0.462791
+
+Correct instances:  2
+Train Epoch: 12 	Average Loss: 0.000789
+
+Test set: Average loss: 0.459160
+
+Correct instances:  2
+Train Epoch: 13 	Average Loss: 0.010204
+
+Test set: Average loss: 0.455284
+
+Correct instances:  2
+Train Epoch: 14 	Average Loss: 0.001087
+
+Test set: Average loss: 0.448448
+
+Correct instances:  1
+Train Epoch: 15 	Average Loss: 0.000203
+
+Test set: Average loss: 0.424305
+
+Correct instances:  1
+Train Epoch: 16 	Average Loss: 0.002533
+
+Test set: Average loss: 0.428842
+
+Correct instances:  1
+Train Epoch: 17 	Average Loss: 0.000812
+
+Test set: Average loss: 0.447932
+
+Correct instances:  1
+Train Epoch: 18 	Average Loss: 0.004248
+
+Test set: Average loss: 0.477931
+
+Correct instances:  2
+Train Epoch: 19 	Average Loss: 0.001446
+
+Test set: Average loss: 0.463797
+
+Correct instances:  2
+Train Epoch: 20 	Average Loss: 0.000298
+
+Test set: Average loss: 0.482555
+
+Correct instances:  2
+Train Epoch: 21 	Average Loss: 0.000252
+
+Test set: Average loss: 0.461280
+
+Correct instances:  2
+Train Epoch: 22 	Average Loss: 0.006796
+
+Test set: Average loss: 0.454163
+
+Correct instances:  3
+Train Epoch: 23 	Average Loss: 0.002283
+
+Test set: Average loss: 0.460554
+
+Correct instances:  2
+Train Epoch: 24 	Average Loss: 0.002598
+
+Test set: Average loss: 0.450481
+
+Correct instances:  3
+Train Epoch: 25 	Average Loss: 0.000677
+
+Test set: Average loss: 0.440646
+
+Correct instances:  2
+Train Epoch: 26 	Average Loss: 0.008403
+
+Test set: Average loss: 0.446553
+
+Correct instances:  2
+Train Epoch: 27 	Average Loss: 0.002494
+
+Test set: Average loss: 0.437838
+
+Correct instances:  3
+Train Epoch: 28 	Average Loss: 0.008218
+
+Test set: Average loss: 0.442714
+
+Correct instances:  3
+Train Epoch: 29 	Average Loss: 0.000310
+
+Test set: Average loss: 0.410327
+
+Correct instances:  3
+Train Epoch: 30 	Average Loss: 0.001269
+
+Test set: Average loss: 0.408588
+
+Correct instances:  3
+Train Epoch: 31 	Average Loss: 0.002276
+
+Test set: Average loss: 0.391385
+
+Correct instances:  3
+Train Epoch: 32 	Average Loss: 0.001072
+
+Test set: Average loss: 0.410288
+
+Correct instances:  2
+Train Epoch: 33 	Average Loss: 0.000587
+
+Test set: Average loss: 0.430253
+
+Correct instances:  2
+Train Epoch: 34 	Average Loss: 0.000351
+
+Test set: Average loss: 0.443304
+
+Correct instances:  2
+Train Epoch: 35 	Average Loss: 0.000464
+
+Test set: Average loss: 0.439388
+
+Correct instances:  2
+Train Epoch: 36 	Average Loss: 0.000064
+
+Test set: Average loss: 0.445071
+
+Correct instances:  2
+Train Epoch: 37 	Average Loss: 0.005971
+
+Test set: Average loss: 0.450673
+
+Correct instances:  2
+Train Epoch: 38 	Average Loss: 0.000037
+
+Test set: Average loss: 0.468868
+
+Correct instances:  2
+Train Epoch: 39 	Average Loss: 0.010870
+
+Test set: Average loss: 0.470403
+
+Correct instances:  2
+Train Epoch: 40 	Average Loss: 0.003066
+
+Test set: Average loss: 0.460000
+
+Correct instances:  1
+Train Epoch: 41 	Average Loss: 0.000364
+
+Test set: Average loss: 0.461634
+
+Correct instances:  1
+Train Epoch: 42 	Average Loss: 0.001004
+
+Test set: Average loss: 0.460265
+
+Correct instances:  3
+Train Epoch: 43 	Average Loss: 0.004031
+
+Test set: Average loss: 0.447712
+
+Correct instances:  3
+Train Epoch: 44 	Average Loss: 0.001767
+
+Test set: Average loss: 0.441486
+
+Correct instances:  3
+Train Epoch: 45 	Average Loss: 0.001167
+
+Test set: Average loss: 0.443288
+
+Correct instances:  3
+Train Epoch: 46 	Average Loss: 0.001609
+
+Test set: Average loss: 0.416617
+
+Correct instances:  2
+Train Epoch: 47 	Average Loss: 0.000189
+
+Test set: Average loss: 0.430399
+
+Correct instances:  2
+Train Epoch: 48 	Average Loss: 0.000383
+
+Test set: Average loss: 0.443753
+
+Correct instances:  2
+Train Epoch: 49 	Average Loss: 0.000311
+
+Test set: Average loss: 0.443128
+
+Correct instances:  2
+Train Epoch: 50 	Average Loss: 0.002020
+
+Test set: Average loss: 0.409606
+
+Correct instances:  2
+##################################################
+Learning Rate:  0.0017871463775280525
+Gamma:  0.9658967606284459
+##################################################
+===========Training X Model================
+Train Epoch: 1 	Average Loss: 0.002930
+
+Test set: Average loss: 0.229932
+
+Correct instances:  1
+Train Epoch: 2 	Average Loss: 0.019425
+
+Test set: Average loss: 0.197268
+
+Correct instances:  4
+Train Epoch: 3 	Average Loss: 0.010334
+
+Test set: Average loss: 0.128517
+
+Correct instances:  6
+Train Epoch: 4 	Average Loss: 0.027158
+
+Test set: Average loss: 0.130743
+
+Correct instances:  5
+Train Epoch: 5 	Average Loss: 0.015478
+
+Test set: Average loss: 0.140221
+
+Correct instances:  5
+Train Epoch: 6 	Average Loss: 0.004916
+
+Test set: Average loss: 0.161817
+
+Correct instances:  6
+Train Epoch: 7 	Average Loss: 0.019464
+
+Test set: Average loss: 0.182909
+
+Correct instances:  4
+Train Epoch: 8 	Average Loss: 0.009953
+
+Test set: Average loss: 0.171498
+
+Correct instances:  4
+Train Epoch: 9 	Average Loss: 0.009891
+
+Test set: Average loss: 0.180891
+
+Correct instances:  4
+Train Epoch: 10 	Average Loss: 0.005385
+
+Test set: Average loss: 0.171298
+
+Correct instances:  5
+Train Epoch: 11 	Average Loss: 0.010831
+
+Test set: Average loss: 0.154047
+
+Correct instances:  4
+Train Epoch: 12 	Average Loss: 0.005861
+
+Test set: Average loss: 0.141078
+
+Correct instances:  6
+Train Epoch: 13 	Average Loss: 0.004633
+
+Test set: Average loss: 0.136450
+
+Correct instances:  6
+Train Epoch: 14 	Average Loss: 0.003766
+
+Test set: Average loss: 0.133653
+
+Correct instances:  6
+Train Epoch: 15 	Average Loss: 0.003914
+
+Test set: Average loss: 0.131373
+
+Correct instances:  5
+Train Epoch: 16 	Average Loss: 0.002172
+
+Test set: Average loss: 0.131846
+
+Correct instances:  5
+Train Epoch: 17 	Average Loss: 0.006833
+
+Test set: Average loss: 0.137211
+
+Correct instances:  6
+Train Epoch: 18 	Average Loss: 0.004329
+
+Test set: Average loss: 0.142591
+
+Correct instances:  6
+Train Epoch: 19 	Average Loss: 0.001391
+
+Test set: Average loss: 0.152970
+
+Correct instances:  4
+Train Epoch: 20 	Average Loss: 0.005510
+
+Test set: Average loss: 0.169820
+
+Correct instances:  5
+Train Epoch: 21 	Average Loss: 0.003769
+
+Test set: Average loss: 0.164047
+
+Correct instances:  6
+Train Epoch: 22 	Average Loss: 0.009248
+
+Test set: Average loss: 0.163047
+
+Correct instances:  5
+Train Epoch: 23 	Average Loss: 0.002249
+
+Test set: Average loss: 0.163253
+
+Correct instances:  6
+Train Epoch: 24 	Average Loss: 0.007703
+
+Test set: Average loss: 0.162957
+
+Correct instances:  4
+Train Epoch: 25 	Average Loss: 0.008040
+
+Test set: Average loss: 0.165733
+
+Correct instances:  5
+Train Epoch: 26 	Average Loss: 0.008544
+
+Test set: Average loss: 0.170586
+
+Correct instances:  3
+Train Epoch: 27 	Average Loss: 0.004391
+
+Test set: Average loss: 0.165502
+
+Correct instances:  7
+Train Epoch: 28 	Average Loss: 0.006665
+
+Test set: Average loss: 0.156451
+
+Correct instances:  6
+Train Epoch: 29 	Average Loss: 0.003237
+
+Test set: Average loss: 0.136340
+
+Correct instances:  6
+Train Epoch: 30 	Average Loss: 0.007815
+
+Test set: Average loss: 0.142286
+
+Correct instances:  6
+Train Epoch: 31 	Average Loss: 0.003069
+
+Test set: Average loss: 0.144888
+
+Correct instances:  6
+Train Epoch: 32 	Average Loss: 0.005980
+
+Test set: Average loss: 0.138631
+
+Correct instances:  6
+Train Epoch: 33 	Average Loss: 0.003363
+
+Test set: Average loss: 0.135761
+
+Correct instances:  6
+Train Epoch: 34 	Average Loss: 0.011078
+
+Test set: Average loss: 0.131293
+
+Correct instances:  7
+Train Epoch: 35 	Average Loss: 0.006609
+
+Test set: Average loss: 0.132759
+
+Correct instances:  7
+Train Epoch: 36 	Average Loss: 0.002166
+
+Test set: Average loss: 0.128393
+
+Correct instances:  7
+Train Epoch: 37 	Average Loss: 0.001963
+
+Test set: Average loss: 0.128414
+
+Correct instances:  7
+Train Epoch: 38 	Average Loss: 0.001718
+
+Test set: Average loss: 0.139761
+
+Correct instances:  7
+Train Epoch: 39 	Average Loss: 0.001805
+
+Test set: Average loss: 0.144066
+
+Correct instances:  7
+Train Epoch: 40 	Average Loss: 0.004237
+
+Test set: Average loss: 0.137201
+
+Correct instances:  7
+Train Epoch: 41 	Average Loss: 0.001052
+
+Test set: Average loss: 0.140174
+
+Correct instances:  6
+Train Epoch: 42 	Average Loss: 0.004723
+
+Test set: Average loss: 0.136037
+
+Correct instances:  7
+Train Epoch: 43 	Average Loss: 0.002430
+
+Test set: Average loss: 0.139371
+
+Correct instances:  7
+Train Epoch: 44 	Average Loss: 0.000469
+
+Test set: Average loss: 0.139292
+
+Correct instances:  6
+Train Epoch: 45 	Average Loss: 0.003468
+
+Test set: Average loss: 0.135151
+
+Correct instances:  5
+Train Epoch: 46 	Average Loss: 0.001333
+
+Test set: Average loss: 0.137693
+
+Correct instances:  5
+Train Epoch: 47 	Average Loss: 0.005528
+
+Test set: Average loss: 0.139324
+
+Correct instances:  6
+Train Epoch: 48 	Average Loss: 0.002185
+
+Test set: Average loss: 0.142421
+
+Correct instances:  6
+Train Epoch: 49 	Average Loss: 0.002914
+
+Test set: Average loss: 0.142218
+
+Correct instances:  5
+Train Epoch: 50 	Average Loss: 0.005854
+
+Test set: Average loss: 0.139417
+
+Correct instances:  5
+===========Training Y Model================
+Train Epoch: 1 	Average Loss: 0.002554
+
+Test set: Average loss: 0.412279
+
+Correct instances:  3
+Train Epoch: 2 	Average Loss: 0.004384
+
+Test set: Average loss: 0.461477
+
+Correct instances:  3
+Train Epoch: 3 	Average Loss: 0.005024
+
+Test set: Average loss: 0.478197
+
+Correct instances:  3
+Train Epoch: 4 	Average Loss: 0.007635
+
+Test set: Average loss: 0.501489
+
+Correct instances:  3
+Train Epoch: 5 	Average Loss: 0.001465
+
+Test set: Average loss: 0.486217
+
+Correct instances:  2
+Train Epoch: 6 	Average Loss: 0.004293
+
+Test set: Average loss: 0.491656
+
+Correct instances:  2
+Train Epoch: 7 	Average Loss: 0.012246
+
+Test set: Average loss: 0.501208
+
+Correct instances:  3
+Train Epoch: 8 	Average Loss: 0.005212
+
+Test set: Average loss: 0.504900
+
+Correct instances:  3
+Train Epoch: 9 	Average Loss: 0.001229
+
+Test set: Average loss: 0.510777
+
+Correct instances:  2
+Train Epoch: 10 	Average Loss: 0.001355
+
+Test set: Average loss: 0.489071
+
+Correct instances:  3
+Train Epoch: 11 	Average Loss: 0.002726
+
+Test set: Average loss: 0.503309
+
+Correct instances:  3
+Train Epoch: 12 	Average Loss: 0.003538
+
+Test set: Average loss: 0.512565
+
+Correct instances:  3
+Train Epoch: 13 	Average Loss: 0.000301
+
+Test set: Average loss: 0.529815
+
+Correct instances:  4
+Train Epoch: 14 	Average Loss: 0.001064
+
+Test set: Average loss: 0.547610
+
+Correct instances:  3
+Train Epoch: 15 	Average Loss: 0.004815
+
+Test set: Average loss: 0.553865
+
+Correct instances:  2
+Train Epoch: 16 	Average Loss: 0.007290
+
+Test set: Average loss: 0.531217
+
+Correct instances:  2
+Train Epoch: 17 	Average Loss: 0.002347
+
+Test set: Average loss: 0.528569
+
+Correct instances:  3
+Train Epoch: 18 	Average Loss: 0.012319
+
+Test set: Average loss: 0.587102
+
+Correct instances:  2
+Train Epoch: 19 	Average Loss: 0.000688
+
+Test set: Average loss: 0.596161
+
+Correct instances:  2
+Train Epoch: 20 	Average Loss: 0.002850
+
+Test set: Average loss: 0.586343
+
+Correct instances:  2
+Train Epoch: 21 	Average Loss: 0.007262
+
+Test set: Average loss: 0.550835
+
+Correct instances:  2
+Train Epoch: 22 	Average Loss: 0.008428
+
+Test set: Average loss: 0.525432
+
+Correct instances:  2
+Train Epoch: 23 	Average Loss: 0.006276
+
+Test set: Average loss: 0.530107
+
+Correct instances:  2
+Train Epoch: 24 	Average Loss: 0.001050
+
+Test set: Average loss: 0.563519
+
+Correct instances:  2
+Train Epoch: 25 	Average Loss: 0.006667
+
+Test set: Average loss: 0.557983
+
+Correct instances:  2
+Train Epoch: 26 	Average Loss: 0.006785
+
+Test set: Average loss: 0.512302
+
+Correct instances:  2
+Train Epoch: 27 	Average Loss: 0.000499
+
+Test set: Average loss: 0.513599
+
+Correct instances:  2
+Train Epoch: 28 	Average Loss: 0.007427
+
+Test set: Average loss: 0.482962
+
+Correct instances:  2
+Train Epoch: 29 	Average Loss: 0.001837
+
+Test set: Average loss: 0.464513
+
+Correct instances:  2
+Train Epoch: 30 	Average Loss: 0.001762
+
+Test set: Average loss: 0.435609
+
+Correct instances:  2
+Train Epoch: 31 	Average Loss: 0.000144
+
+Test set: Average loss: 0.429137
+
+Correct instances:  3
+Train Epoch: 32 	Average Loss: 0.001540
+
+Test set: Average loss: 0.434443
+
+Correct instances:  2
+Train Epoch: 33 	Average Loss: 0.000867
+
+Test set: Average loss: 0.433431
+
+Correct instances:  2
+Train Epoch: 34 	Average Loss: 0.002266
+
+Test set: Average loss: 0.444141
+
+Correct instances:  2
+Train Epoch: 35 	Average Loss: 0.001242
+
+Test set: Average loss: 0.443858
+
+Correct instances:  2
+Train Epoch: 36 	Average Loss: 0.004829
+
+Test set: Average loss: 0.444949
+
+Correct instances:  2
+Train Epoch: 37 	Average Loss: 0.007348
+
+Test set: Average loss: 0.482404
+
+Correct instances:  2
+Train Epoch: 38 	Average Loss: 0.000724
+
+Test set: Average loss: 0.499352
+
+Correct instances:  2
+Train Epoch: 39 	Average Loss: 0.000752
+
+Test set: Average loss: 0.474707
+
+Correct instances:  2
+Train Epoch: 40 	Average Loss: 0.001515
+
+Test set: Average loss: 0.458832
+
+Correct instances:  2
+Train Epoch: 41 	Average Loss: 0.008140
+
+Test set: Average loss: 0.472349
+
+Correct instances:  2
+Train Epoch: 42 	Average Loss: 0.003123
+
+Test set: Average loss: 0.484301
+
+Correct instances:  2
+Train Epoch: 43 	Average Loss: 0.003338
+
+Test set: Average loss: 0.499883
+
+Correct instances:  2
+Train Epoch: 44 	Average Loss: 0.000403
+
+Test set: Average loss: 0.474026
+
+Correct instances:  2
+Train Epoch: 45 	Average Loss: 0.002565
+
+Test set: Average loss: 0.512075
+
+Correct instances:  2
+Train Epoch: 46 	Average Loss: 0.000243
+
+Test set: Average loss: 0.531155
+
+Correct instances:  2
+Train Epoch: 47 	Average Loss: 0.004619
+
+Test set: Average loss: 0.543097
+
+Correct instances:  2
+Train Epoch: 48 	Average Loss: 0.003226
+
+Test set: Average loss: 0.541301
+
+Correct instances:  2
+Train Epoch: 49 	Average Loss: 0.003513
+
+Test set: Average loss: 0.482269
+
+Correct instances:  2
+Train Epoch: 50 	Average Loss: 0.000848
+
+Test set: Average loss: 0.467507
+
+Correct instances:  2
+##################################################
+Learning Rate:  0.0012613089360525324
+Gamma:  0.8085341274914166
+##################################################
+===========Training X Model================
+Train Epoch: 1 	Average Loss: 0.009113
+
+Test set: Average loss: 0.185044
+
+Correct instances:  4
+Train Epoch: 2 	Average Loss: 0.011341
+
+Test set: Average loss: 0.180174
+
+Correct instances:  5
+Train Epoch: 3 	Average Loss: 0.005941
+
+Test set: Average loss: 0.192904
+
+Correct instances:  5
+Train Epoch: 4 	Average Loss: 0.003325
+
+Test set: Average loss: 0.179519
+
+Correct instances:  6
+Train Epoch: 5 	Average Loss: 0.004322
+
+Test set: Average loss: 0.176328
+
+Correct instances:  5
+Train Epoch: 6 	Average Loss: 0.004049
+
+Test set: Average loss: 0.177837
+
+Correct instances:  5
+Train Epoch: 7 	Average Loss: 0.001775
+
+Test set: Average loss: 0.180456
+
+Correct instances:  5
+Train Epoch: 8 	Average Loss: 0.000593
+
+Test set: Average loss: 0.181164
+
+Correct instances:  5
+Train Epoch: 9 	Average Loss: 0.004887
+
+Test set: Average loss: 0.186733
+
+Correct instances:  5
+Train Epoch: 10 	Average Loss: 0.007937
+
+Test set: Average loss: 0.183980
+
+Correct instances:  5
+Train Epoch: 11 	Average Loss: 0.001669
+
+Test set: Average loss: 0.183073
+
+Correct instances:  5
+Train Epoch: 12 	Average Loss: 0.006430
+
+Test set: Average loss: 0.181681
+
+Correct instances:  4
+Train Epoch: 13 	Average Loss: 0.007148
+
+Test set: Average loss: 0.169182
+
+Correct instances:  5
+Train Epoch: 14 	Average Loss: 0.007190
+
+Test set: Average loss: 0.170754
+
+Correct instances:  5
+Train Epoch: 15 	Average Loss: 0.002025
+
+Test set: Average loss: 0.168004
+
+Correct instances:  5
+Train Epoch: 16 	Average Loss: 0.008244
+
+Test set: Average loss: 0.174574
+
+Correct instances:  5
+Train Epoch: 17 	Average Loss: 0.003962
+
+Test set: Average loss: 0.172475
+
+Correct instances:  5
+Train Epoch: 18 	Average Loss: 0.003225
+
+Test set: Average loss: 0.166402
+
+Correct instances:  5
+Train Epoch: 19 	Average Loss: 0.001776
+
+Test set: Average loss: 0.177383
+
+Correct instances:  5
+Train Epoch: 20 	Average Loss: 0.002974
+
+Test set: Average loss: 0.166545
+
+Correct instances:  5
+Train Epoch: 21 	Average Loss: 0.003162
+
+Test set: Average loss: 0.176422
+
+Correct instances:  5
+Train Epoch: 22 	Average Loss: 0.002741
+
+Test set: Average loss: 0.172769
+
+Correct instances:  5
+Train Epoch: 23 	Average Loss: 0.007149
+
+Test set: Average loss: 0.169605
+
+Correct instances:  5
+Train Epoch: 24 	Average Loss: 0.002139
+
+Test set: Average loss: 0.174692
+
+Correct instances:  4
+Train Epoch: 25 	Average Loss: 0.003859
+
+Test set: Average loss: 0.180569
+
+Correct instances:  5
+Train Epoch: 26 	Average Loss: 0.007821
+
+Test set: Average loss: 0.170680
+
+Correct instances:  5
+Train Epoch: 27 	Average Loss: 0.004839
+
+Test set: Average loss: 0.176697
+
+Correct instances:  4
+Train Epoch: 28 	Average Loss: 0.004720
+
+Test set: Average loss: 0.166378
+
+Correct instances:  4
+Train Epoch: 29 	Average Loss: 0.004620
+
+Test set: Average loss: 0.163686
+
+Correct instances:  5
+Train Epoch: 30 	Average Loss: 0.000739
+
+Test set: Average loss: 0.165391
+
+Correct instances:  4
+Train Epoch: 31 	Average Loss: 0.002997
+
+Test set: Average loss: 0.177590
+
+Correct instances:  5
+Train Epoch: 32 	Average Loss: 0.011919
+
+Test set: Average loss: 0.171500
+
+Correct instances:  4
+Train Epoch: 33 	Average Loss: 0.001929
+
+Test set: Average loss: 0.173850
+
+Correct instances:  5
+Train Epoch: 34 	Average Loss: 0.010238
+
+Test set: Average loss: 0.179147
+
+Correct instances:  5
+Train Epoch: 35 	Average Loss: 0.001471
+
+Test set: Average loss: 0.180848
+
+Correct instances:  4
+Train Epoch: 36 	Average Loss: 0.002542
+
+Test set: Average loss: 0.164478
+
+Correct instances:  5
+Train Epoch: 37 	Average Loss: 0.007603
+
+Test set: Average loss: 0.162971
+
+Correct instances:  4
+Train Epoch: 38 	Average Loss: 0.002230
+
+Test set: Average loss: 0.167639
+
+Correct instances:  4
+Train Epoch: 39 	Average Loss: 0.004136
+
+Test set: Average loss: 0.160879
+
+Correct instances:  5
+Train Epoch: 40 	Average Loss: 0.006770
+
+Test set: Average loss: 0.169929
+
+Correct instances:  5
+Train Epoch: 41 	Average Loss: 0.001675
+
+Test set: Average loss: 0.174030
+
+Correct instances:  5
+Train Epoch: 42 	Average Loss: 0.001037
+
+Test set: Average loss: 0.167864
+
+Correct instances:  6
+Train Epoch: 43 	Average Loss: 0.003018
+
+Test set: Average loss: 0.164599
+
+Correct instances:  5
+Train Epoch: 44 	Average Loss: 0.000397
+
+Test set: Average loss: 0.161339
+
+Correct instances:  5
+Train Epoch: 45 	Average Loss: 0.000784
+
+Test set: Average loss: 0.165067
+
+Correct instances:  5
+Train Epoch: 46 	Average Loss: 0.001146
+
+Test set: Average loss: 0.162957
+
+Correct instances:  6
+Train Epoch: 47 	Average Loss: 0.002910
+
+Test set: Average loss: 0.161159
+
+Correct instances:  6
+Train Epoch: 48 	Average Loss: 0.003590
+
+Test set: Average loss: 0.165699
+
+Correct instances:  5
+Train Epoch: 49 	Average Loss: 0.002974
+
+Test set: Average loss: 0.159046
+
+Correct instances:  5
+Train Epoch: 50 	Average Loss: 0.006817
+
+Test set: Average loss: 0.170075
+
+Correct instances:  5
+===========Training Y Model================
+Train Epoch: 1 	Average Loss: 0.002547
+
+Test set: Average loss: 0.474520
+
+Correct instances:  2
+Train Epoch: 2 	Average Loss: 0.001091
+
+Test set: Average loss: 0.491638
+
+Correct instances:  2
+Train Epoch: 3 	Average Loss: 0.005035
+
+Test set: Average loss: 0.510385
+
+Correct instances:  2
+Train Epoch: 4 	Average Loss: 0.002393
+
+Test set: Average loss: 0.511975
+
+Correct instances:  2
+Train Epoch: 5 	Average Loss: 0.000929
+
+Test set: Average loss: 0.525777
+
+Correct instances:  2
+Train Epoch: 6 	Average Loss: 0.000225
+
+Test set: Average loss: 0.505647
+
+Correct instances:  2
+Train Epoch: 7 	Average Loss: 0.006711
+
+Test set: Average loss: 0.505630
+
+Correct instances:  2
+Train Epoch: 8 	Average Loss: 0.000495
+
+Test set: Average loss: 0.527569
+
+Correct instances:  2
+Train Epoch: 9 	Average Loss: 0.003489
+
+Test set: Average loss: 0.541693
+
+Correct instances:  3
+Train Epoch: 10 	Average Loss: 0.000508
+
+Test set: Average loss: 0.540932
+
+Correct instances:  3
+Train Epoch: 11 	Average Loss: 0.002616
+
+Test set: Average loss: 0.533517
+
+Correct instances:  3
+Train Epoch: 12 	Average Loss: 0.006952
+
+Test set: Average loss: 0.529415
+
+Correct instances:  3
+Train Epoch: 13 	Average Loss: 0.001212
+
+Test set: Average loss: 0.512913
+
+Correct instances:  3
+Train Epoch: 14 	Average Loss: 0.007471
+
+Test set: Average loss: 0.476790
+
+Correct instances:  3
+Train Epoch: 15 	Average Loss: 0.004669
+
+Test set: Average loss: 0.459334
+
+Correct instances:  3
+Train Epoch: 16 	Average Loss: 0.002145
+
+Test set: Average loss: 0.458791
+
+Correct instances:  3
+Train Epoch: 17 	Average Loss: 0.005077
+
+Test set: Average loss: 0.487142
+
+Correct instances:  3
+Train Epoch: 18 	Average Loss: 0.002794
+
+Test set: Average loss: 0.482780
+
+Correct instances:  3
+Train Epoch: 19 	Average Loss: 0.005998
+
+Test set: Average loss: 0.467652
+
+Correct instances:  3
+Train Epoch: 20 	Average Loss: 0.003165
+
+Test set: Average loss: 0.431341
+
+Correct instances:  3
+Train Epoch: 21 	Average Loss: 0.005529
+
+Test set: Average loss: 0.449075
+
+Correct instances:  3
+Train Epoch: 22 	Average Loss: 0.002505
+
+Test set: Average loss: 0.457476
+
+Correct instances:  3
+Train Epoch: 23 	Average Loss: 0.000215
+
+Test set: Average loss: 0.467896
+
+Correct instances:  2
+Train Epoch: 24 	Average Loss: 0.006486
+
+Test set: Average loss: 0.475416
+
+Correct instances:  2
+Train Epoch: 25 	Average Loss: 0.000429
+
+Test set: Average loss: 0.495407
+
+Correct instances:  2
+Train Epoch: 26 	Average Loss: 0.003156
+
+Test set: Average loss: 0.474390
+
+Correct instances:  3
+Train Epoch: 27 	Average Loss: 0.000210
+
+Test set: Average loss: 0.485187
+
+Correct instances:  3
+Train Epoch: 28 	Average Loss: 0.000936
+
+Test set: Average loss: 0.457865
+
+Correct instances:  3
+Train Epoch: 29 	Average Loss: 0.001326
+
+Test set: Average loss: 0.471852
+
+Correct instances:  2
+Train Epoch: 30 	Average Loss: 0.001148
+
+Test set: Average loss: 0.430672
+
+Correct instances:  3
+Train Epoch: 31 	Average Loss: 0.001342
+
+Test set: Average loss: 0.427743
+
+Correct instances:  2
+Train Epoch: 32 	Average Loss: 0.004735
+
+Test set: Average loss: 0.440792
+
+Correct instances:  3
+Train Epoch: 33 	Average Loss: 0.001165
+
+Test set: Average loss: 0.462865
+
+Correct instances:  3
+Train Epoch: 34 	Average Loss: 0.001928
+
+Test set: Average loss: 0.468532
+
+Correct instances:  3
+Train Epoch: 35 	Average Loss: 0.004456
+
+Test set: Average loss: 0.476498
+
+Correct instances:  3
+Train Epoch: 36 	Average Loss: 0.000487
+
+Test set: Average loss: 0.451968
+
+Correct instances:  3
+Train Epoch: 37 	Average Loss: 0.009765
+
+Test set: Average loss: 0.461728
+
+Correct instances:  2
+Train Epoch: 38 	Average Loss: 0.006876
+
+Test set: Average loss: 0.479870
+
+Correct instances:  2
+Train Epoch: 39 	Average Loss: 0.002011
+
+Test set: Average loss: 0.480714
+
+Correct instances:  2
+Train Epoch: 40 	Average Loss: 0.002337
+
+Test set: Average loss: 0.469402
+
+Correct instances:  2
+Train Epoch: 41 	Average Loss: 0.001280
+
+Test set: Average loss: 0.475184
+
+Correct instances:  2
+Train Epoch: 42 	Average Loss: 0.002547
+
+Test set: Average loss: 0.453248
+
+Correct instances:  2
+Train Epoch: 43 	Average Loss: 0.011584
+
+Test set: Average loss: 0.464971
+
+Correct instances:  2
+Train Epoch: 44 	Average Loss: 0.002307
+
+Test set: Average loss: 0.484338
+
+Correct instances:  2
+Train Epoch: 45 	Average Loss: 0.002181
+
+Test set: Average loss: 0.487023
+
+Correct instances:  2
+Train Epoch: 46 	Average Loss: 0.000682
+
+Test set: Average loss: 0.505161
+
+Correct instances:  2
+Train Epoch: 47 	Average Loss: 0.006126
+
+Test set: Average loss: 0.482100
+
+Correct instances:  2
+Train Epoch: 48 	Average Loss: 0.001149
+
+Test set: Average loss: 0.500438
+
+Correct instances:  2
+Train Epoch: 49 	Average Loss: 0.000167
+
+Test set: Average loss: 0.488070
+
+Correct instances:  2
+Train Epoch: 50 	Average Loss: 0.000546
+
+Test set: Average loss: 0.503758
+
+Correct instances:  2
+##################################################
+Learning Rate:  0.001038024618892596
+Gamma:  0.8052635624432067
+##################################################
+===========Training X Model================
+Train Epoch: 1 	Average Loss: 0.009277
+
+Test set: Average loss: 0.185435
+
+Correct instances:  5
+Train Epoch: 2 	Average Loss: 0.009689
+
+Test set: Average loss: 0.222867
+
+Correct instances:  5
+Train Epoch: 3 	Average Loss: 0.004171
+
+Test set: Average loss: 0.221638
+
+Correct instances:  5
+Train Epoch: 4 	Average Loss: 0.004294
+
+Test set: Average loss: 0.217401
+
+Correct instances:  5
+Train Epoch: 5 	Average Loss: 0.004473
+
+Test set: Average loss: 0.218635
+
+Correct instances:  4
+Train Epoch: 6 	Average Loss: 0.001546
+
+Test set: Average loss: 0.216662
+
+Correct instances:  5
+Train Epoch: 7 	Average Loss: 0.002347
+
+Test set: Average loss: 0.220007
+
+Correct instances:  5
+Train Epoch: 8 	Average Loss: 0.003898
+
+Test set: Average loss: 0.237295
+
+Correct instances:  5
+Train Epoch: 9 	Average Loss: 0.003577
+
+Test set: Average loss: 0.226653
+
+Correct instances:  5
+Train Epoch: 10 	Average Loss: 0.002957
+
+Test set: Average loss: 0.227830
+
+Correct instances:  5
+Train Epoch: 11 	Average Loss: 0.001528
+
+Test set: Average loss: 0.229786
+
+Correct instances:  5
+Train Epoch: 12 	Average Loss: 0.007924
+
+Test set: Average loss: 0.226682
+
+Correct instances:  5
+Train Epoch: 13 	Average Loss: 0.002532
+
+Test set: Average loss: 0.227764
+
+Correct instances:  5
+Train Epoch: 14 	Average Loss: 0.008351
+
+Test set: Average loss: 0.225115
+
+Correct instances:  5
+Train Epoch: 15 	Average Loss: 0.005727
+
+Test set: Average loss: 0.213139
+
+Correct instances:  5
+Train Epoch: 16 	Average Loss: 0.001130
+
+Test set: Average loss: 0.222676
+
+Correct instances:  5
+Train Epoch: 17 	Average Loss: 0.001365
+
+Test set: Average loss: 0.223968
+
+Correct instances:  5
+Train Epoch: 18 	Average Loss: 0.003054
+
+Test set: Average loss: 0.212225
+
+Correct instances:  5
+Train Epoch: 19 	Average Loss: 0.000339
+
+Test set: Average loss: 0.207105
+
+Correct instances:  6
+Train Epoch: 20 	Average Loss: 0.001952
+
+Test set: Average loss: 0.216671
+
+Correct instances:  5
+Train Epoch: 21 	Average Loss: 0.005003
+
+Test set: Average loss: 0.220895
+
+Correct instances:  5
+Train Epoch: 22 	Average Loss: 0.006047
+
+Test set: Average loss: 0.231903
+
+Correct instances:  5
+Train Epoch: 23 	Average Loss: 0.001908
+
+Test set: Average loss: 0.230233
+
+Correct instances:  5
+Train Epoch: 24 	Average Loss: 0.001783
+
+Test set: Average loss: 0.230544
+
+Correct instances:  6
+Train Epoch: 25 	Average Loss: 0.005460
+
+Test set: Average loss: 0.217053
+
+Correct instances:  5
+Train Epoch: 26 	Average Loss: 0.001558
+
+Test set: Average loss: 0.218482
+
+Correct instances:  5
+Train Epoch: 27 	Average Loss: 0.002723
+
+Test set: Average loss: 0.215882
+
+Correct instances:  5
+Train Epoch: 28 	Average Loss: 0.003299
+
+Test set: Average loss: 0.216498
+
+Correct instances:  5
+Train Epoch: 29 	Average Loss: 0.004550
+
+Test set: Average loss: 0.216690
+
+Correct instances:  5
+Train Epoch: 30 	Average Loss: 0.008105
+
+Test set: Average loss: 0.221599
+
+Correct instances:  5
+Train Epoch: 31 	Average Loss: 0.005855
+
+Test set: Average loss: 0.227079
+
+Correct instances:  5
+Train Epoch: 32 	Average Loss: 0.002797
+
+Test set: Average loss: 0.214433
+
+Correct instances:  5
+Train Epoch: 33 	Average Loss: 0.006377
+
+Test set: Average loss: 0.219431
+
+Correct instances:  5
+Train Epoch: 34 	Average Loss: 0.006227
+
+Test set: Average loss: 0.210302
+
+Correct instances:  5
+Train Epoch: 35 	Average Loss: 0.000808
+
+Test set: Average loss: 0.218904
+
+Correct instances:  5
+Train Epoch: 36 	Average Loss: 0.001267
+
+Test set: Average loss: 0.212454
+
+Correct instances:  5
+Train Epoch: 37 	Average Loss: 0.004549
+
+Test set: Average loss: 0.207610
+
+Correct instances:  5
+Train Epoch: 38 	Average Loss: 0.005220
+
+Test set: Average loss: 0.219388
+
+Correct instances:  5
+Train Epoch: 39 	Average Loss: 0.003922
+
+Test set: Average loss: 0.211627
+
+Correct instances:  5
+Train Epoch: 40 	Average Loss: 0.001094
+
+Test set: Average loss: 0.210571
+
+Correct instances:  5
+Train Epoch: 41 	Average Loss: 0.001256
+
+Test set: Average loss: 0.219157
+
+Correct instances:  5
+Train Epoch: 42 	Average Loss: 0.000874
+
+Test set: Average loss: 0.221358
+
+Correct instances:  5
+Train Epoch: 43 	Average Loss: 0.001538
+
+Test set: Average loss: 0.219309
+
+Correct instances:  6
+Train Epoch: 44 	Average Loss: 0.002989
+
+Test set: Average loss: 0.215863
+
+Correct instances:  5
+Train Epoch: 45 	Average Loss: 0.000508
+
+Test set: Average loss: 0.213933
+
+Correct instances:  5
+Train Epoch: 46 	Average Loss: 0.003231
+
+Test set: Average loss: 0.212892
+
+Correct instances:  5
+Train Epoch: 47 	Average Loss: 0.002279
+
+Test set: Average loss: 0.214238
+
+Correct instances:  5
+Train Epoch: 48 	Average Loss: 0.000968
+
+Test set: Average loss: 0.220301
+
+Correct instances:  5
+Train Epoch: 49 	Average Loss: 0.008089
+
+Test set: Average loss: 0.225627
+
+Correct instances:  5
+Train Epoch: 50 	Average Loss: 0.002742
+
+Test set: Average loss: 0.218837
+
+Correct instances:  5
+===========Training Y Model================
+Train Epoch: 1 	Average Loss: 0.007213
+
+Test set: Average loss: 0.498830
+
+Correct instances:  2
+Train Epoch: 2 	Average Loss: 0.003570
+
+Test set: Average loss: 0.484870
+
+Correct instances:  2
+Train Epoch: 3 	Average Loss: 0.001837
+
+Test set: Average loss: 0.495717
+
+Correct instances:  2
+Train Epoch: 4 	Average Loss: 0.002792
+
+Test set: Average loss: 0.499261
+
+Correct instances:  2
+Train Epoch: 5 	Average Loss: 0.000133
+
+Test set: Average loss: 0.485477
+
+Correct instances:  2
+Train Epoch: 6 	Average Loss: 0.009438
+
+Test set: Average loss: 0.482101
+
+Correct instances:  2
+Train Epoch: 7 	Average Loss: 0.003531
+
+Test set: Average loss: 0.477986
+
+Correct instances:  2
+Train Epoch: 8 	Average Loss: 0.000330
+
+Test set: Average loss: 0.469057
+
+Correct instances:  2
+Train Epoch: 9 	Average Loss: 0.001055
+
+Test set: Average loss: 0.471826
+
+Correct instances:  2
+Train Epoch: 10 	Average Loss: 0.004903
+
+Test set: Average loss: 0.458868
+
+Correct instances:  2
+Train Epoch: 11 	Average Loss: 0.001533
+
+Test set: Average loss: 0.441544
+
+Correct instances:  2
+Train Epoch: 12 	Average Loss: 0.001742
+
+Test set: Average loss: 0.471318
+
+Correct instances:  2
+Train Epoch: 13 	Average Loss: 0.002879
+
+Test set: Average loss: 0.459283
+
+Correct instances:  2
+Train Epoch: 14 	Average Loss: 0.008215
+
+Test set: Average loss: 0.455276
+
+Correct instances:  2
+Train Epoch: 15 	Average Loss: 0.000524
+
+Test set: Average loss: 0.480102
+
+Correct instances:  2
+Train Epoch: 16 	Average Loss: 0.000413
+
+Test set: Average loss: 0.477607
+
+Correct instances:  2
+Train Epoch: 17 	Average Loss: 0.000075
+
+Test set: Average loss: 0.496152
+
+Correct instances:  2
+Train Epoch: 18 	Average Loss: 0.000183
+
+Test set: Average loss: 0.486117
+
+Correct instances:  2
+Train Epoch: 19 	Average Loss: 0.000663
+
+Test set: Average loss: 0.487828
+
+Correct instances:  2
+Train Epoch: 20 	Average Loss: 0.000010
+
+Test set: Average loss: 0.490871
+
+Correct instances:  2
+Train Epoch: 21 	Average Loss: 0.002574
+
+Test set: Average loss: 0.486135
+
+Correct instances:  2
+Train Epoch: 22 	Average Loss: 0.000253
+
+Test set: Average loss: 0.502624
+
+Correct instances:  2
+Train Epoch: 23 	Average Loss: 0.001183
+
+Test set: Average loss: 0.504499
+
+Correct instances:  2
+Train Epoch: 24 	Average Loss: 0.000110
+
+Test set: Average loss: 0.487686
+
+Correct instances:  2
+Train Epoch: 25 	Average Loss: 0.000382
+
+Test set: Average loss: 0.496392
+
+Correct instances:  2
+Train Epoch: 26 	Average Loss: 0.000182
+
+Test set: Average loss: 0.476647
+
+Correct instances:  2
+Train Epoch: 27 	Average Loss: 0.002763
+
+Test set: Average loss: 0.462908
+
+Correct instances:  2
+Train Epoch: 28 	Average Loss: 0.000313
+
+Test set: Average loss: 0.458189
+
+Correct instances:  2
+Train Epoch: 29 	Average Loss: 0.000548
+
+Test set: Average loss: 0.480606
+
+Correct instances:  2
+Train Epoch: 30 	Average Loss: 0.001902
+
+Test set: Average loss: 0.495070
+
+Correct instances:  2
+Train Epoch: 31 	Average Loss: 0.002641
+
+Test set: Average loss: 0.503025
+
+Correct instances:  2
+Train Epoch: 32 	Average Loss: 0.001234
+
+Test set: Average loss: 0.499050
+
+Correct instances:  2
+Train Epoch: 33 	Average Loss: 0.001147
+
+Test set: Average loss: 0.509344
+
+Correct instances:  2
+Train Epoch: 34 	Average Loss: 0.000096
+
+Test set: Average loss: 0.536440
+
+Correct instances:  2
+Train Epoch: 35 	Average Loss: 0.000867
+
+Test set: Average loss: 0.565591
+
+Correct instances:  2
+Train Epoch: 36 	Average Loss: 0.001250
+
+Test set: Average loss: 0.559959
+
+Correct instances:  2
+Train Epoch: 37 	Average Loss: 0.000342
+
+Test set: Average loss: 0.550577
+
+Correct instances:  2
+Train Epoch: 38 	Average Loss: 0.000087
+
+Test set: Average loss: 0.554418
+
+Correct instances:  2
+Train Epoch: 39 	Average Loss: 0.002205
+
+Test set: Average loss: 0.556857
+
+Correct instances:  2
+Train Epoch: 40 	Average Loss: 0.005651
+
+Test set: Average loss: 0.565594
+
+Correct instances:  2
+Train Epoch: 41 	Average Loss: 0.000448
+
+Test set: Average loss: 0.550775
+
+Correct instances:  2
+Train Epoch: 42 	Average Loss: 0.001524
+
+Test set: Average loss: 0.593338
+
+Correct instances:  2
+Train Epoch: 43 	Average Loss: 0.002180
+
+Test set: Average loss: 0.619065
+
+Correct instances:  2
+Train Epoch: 44 	Average Loss: 0.002637
+
+Test set: Average loss: 0.615334
+
+Correct instances:  2
+Train Epoch: 45 	Average Loss: 0.000665
+
+Test set: Average loss: 0.593170
+
+Correct instances:  2
+Train Epoch: 46 	Average Loss: 0.000271
+
+Test set: Average loss: 0.587313
+
+Correct instances:  2
+Train Epoch: 47 	Average Loss: 0.000689
+
+Test set: Average loss: 0.600743
+
+Correct instances:  2
+Train Epoch: 48 	Average Loss: 0.004784
+
+Test set: Average loss: 0.606958
+
+Correct instances:  2
+Train Epoch: 49 	Average Loss: 0.001015
+
+Test set: Average loss: 0.588061
+
+Correct instances:  2
+Train Epoch: 50 	Average Loss: 0.000105
+
+Test set: Average loss: 0.603541
+
+Correct instances:  2
+##################################################
+Learning Rate:  0.0010768424328645254
+Gamma:  0.8889337141883936
+##################################################
+===========Training X Model================
+Train Epoch: 1 	Average Loss: 0.006479
+
+Test set: Average loss: 0.279126
+
+Correct instances:  4
+Train Epoch: 2 	Average Loss: 0.006684
+
+Test set: Average loss: 0.303684
+
+Correct instances:  3
+Train Epoch: 3 	Average Loss: 0.001224
+
+Test set: Average loss: 0.307207
+
+Correct instances:  3
+Train Epoch: 4 	Average Loss: 0.006504
+
+Test set: Average loss: 0.293932
+
+Correct instances:  4
+Train Epoch: 5 	Average Loss: 0.001852
+
+Test set: Average loss: 0.276087
+
+Correct instances:  4
+Train Epoch: 6 	Average Loss: 0.002463
+
+Test set: Average loss: 0.282152
+
+Correct instances:  3
+Train Epoch: 7 	Average Loss: 0.006069
+
+Test set: Average loss: 0.221386
+
+Correct instances:  3
+Train Epoch: 8 	Average Loss: 0.004864
+
+Test set: Average loss: 0.198808
+
+Correct instances:  3
+Train Epoch: 9 	Average Loss: 0.006786
+
+Test set: Average loss: 0.171368
+
+Correct instances:  3
+Train Epoch: 10 	Average Loss: 0.002737
+
+Test set: Average loss: 0.143139
+
+Correct instances:  4
+Train Epoch: 11 	Average Loss: 0.005264
+
+Test set: Average loss: 0.134140
+
+Correct instances:  4
+Train Epoch: 12 	Average Loss: 0.003058
+
+Test set: Average loss: 0.137343
+
+Correct instances:  4
+Train Epoch: 13 	Average Loss: 0.001068
+
+Test set: Average loss: 0.138980
+
+Correct instances:  4
+Train Epoch: 14 	Average Loss: 0.003935
+
+Test set: Average loss: 0.148925
+
+Correct instances:  3
+Train Epoch: 15 	Average Loss: 0.003389
+
+Test set: Average loss: 0.144713
+
+Correct instances:  3
+Train Epoch: 16 	Average Loss: 0.001472
+
+Test set: Average loss: 0.146456
+
+Correct instances:  3
+Train Epoch: 17 	Average Loss: 0.001741
+
+Test set: Average loss: 0.134828
+
+Correct instances:  4
+Train Epoch: 18 	Average Loss: 0.001744
+
+Test set: Average loss: 0.133253
+
+Correct instances:  4
+Train Epoch: 19 	Average Loss: 0.000960
+
+Test set: Average loss: 0.132068
+
+Correct instances:  4
+Train Epoch: 20 	Average Loss: 0.001933
+
+Test set: Average loss: 0.129237
+
+Correct instances:  5
+Train Epoch: 21 	Average Loss: 0.002497
+
+Test set: Average loss: 0.125193
+
+Correct instances:  6
+Train Epoch: 22 	Average Loss: 0.001143
+
+Test set: Average loss: 0.125239
+
+Correct instances:  6
+Train Epoch: 23 	Average Loss: 0.002700
+
+Test set: Average loss: 0.119706
+
+Correct instances:  5
+New Lowest Loss For X Model:  0.11970639228820801
+Validation Predictions: 
+tensor([[10],
+        [16],
+        [ 9],
+        [ 9],
+        [10],
+        [12],
+        [ 9],
+        [ 2],
+        [ 4],
+        [16]], device='cuda:0')
+Train Epoch: 24 	Average Loss: 0.003463
+
+Test set: Average loss: 0.122793
+
+Correct instances:  5
+Train Epoch: 25 	Average Loss: 0.006800
+
+Test set: Average loss: 0.126343
+
+Correct instances:  6
+Train Epoch: 26 	Average Loss: 0.000526
+
+Test set: Average loss: 0.135870
+
+Correct instances:  6
+Train Epoch: 27 	Average Loss: 0.000964
+
+Test set: Average loss: 0.124742
+
+Correct instances:  5
+Train Epoch: 28 	Average Loss: 0.006025
+
+Test set: Average loss: 0.126826
+
+Correct instances:  6
+Train Epoch: 29 	Average Loss: 0.004083
+
+Test set: Average loss: 0.114961
+
+Correct instances:  6
+New Lowest Loss For X Model:  0.11496146917343139
+Validation Predictions: 
+tensor([[10],
+        [16],
+        [ 9],
+        [ 9],
+        [10],
+        [12],
+        [ 9],
+        [16],
+        [ 3],
+        [16]], device='cuda:0')
+Train Epoch: 30 	Average Loss: 0.002624
+
+Test set: Average loss: 0.123528
+
+Correct instances:  6
+Train Epoch: 31 	Average Loss: 0.001947
+
+Test set: Average loss: 0.127439
+
+Correct instances:  6
+Train Epoch: 32 	Average Loss: 0.008416
+
+Test set: Average loss: 0.123922
+
+Correct instances:  5
+Train Epoch: 33 	Average Loss: 0.002910
+
+Test set: Average loss: 0.125102
+
+Correct instances:  6
+Train Epoch: 34 	Average Loss: 0.003423
+
+Test set: Average loss: 0.127003
+
+Correct instances:  5
+Train Epoch: 35 	Average Loss: 0.002013
+
+Test set: Average loss: 0.127823
+
+Correct instances:  5
+Train Epoch: 36 	Average Loss: 0.004402
+
+Test set: Average loss: 0.122454
+
+Correct instances:  6
+Train Epoch: 37 	Average Loss: 0.005157
+
+Test set: Average loss: 0.116468
+
+Correct instances:  5
+Train Epoch: 38 	Average Loss: 0.005334
+
+Test set: Average loss: 0.123274
+
+Correct instances:  5
+Train Epoch: 39 	Average Loss: 0.000943
+
+Test set: Average loss: 0.126570
+
+Correct instances:  5
+Train Epoch: 40 	Average Loss: 0.006951
+
+Test set: Average loss: 0.120114
+
+Correct instances:  5
+Train Epoch: 41 	Average Loss: 0.001995
+
+Test set: Average loss: 0.118196
+
+Correct instances:  6
+Train Epoch: 42 	Average Loss: 0.001812
+
+Test set: Average loss: 0.119896
+
+Correct instances:  6
+Train Epoch: 43 	Average Loss: 0.007467
+
+Test set: Average loss: 0.121406
+
+Correct instances:  6
+Train Epoch: 44 	Average Loss: 0.000947
+
+Test set: Average loss: 0.128486
+
+Correct instances:  5
+Train Epoch: 45 	Average Loss: 0.000856
+
+Test set: Average loss: 0.125081
+
+Correct instances:  5
+Train Epoch: 46 	Average Loss: 0.006496
+
+Test set: Average loss: 0.130332
+
+Correct instances:  5
+Train Epoch: 47 	Average Loss: 0.001212
+
+Test set: Average loss: 0.132410
+
+Correct instances:  5
+Train Epoch: 48 	Average Loss: 0.000542
+
+Test set: Average loss: 0.128145
+
+Correct instances:  6
+Train Epoch: 49 	Average Loss: 0.000952
+
+Test set: Average loss: 0.125458
+
+Correct instances:  6
+Train Epoch: 50 	Average Loss: 0.001144
+
+Test set: Average loss: 0.125770
+
+Correct instances:  6
+===========Training Y Model================
+Train Epoch: 1 	Average Loss: 0.002995
+
+Test set: Average loss: 0.594780
+
+Correct instances:  2
+Train Epoch: 2 	Average Loss: 0.001228
+
+Test set: Average loss: 0.614397
+
+Correct instances:  2
+Train Epoch: 3 	Average Loss: 0.004342
+
+Test set: Average loss: 0.625338
+
+Correct instances:  2
+Train Epoch: 4 	Average Loss: 0.000087
+
+Test set: Average loss: 0.610562
+
+Correct instances:  2
+Train Epoch: 5 	Average Loss: 0.000706
+
+Test set: Average loss: 0.568064
+
+Correct instances:  2
+Train Epoch: 6 	Average Loss: 0.000254
+
+Test set: Average loss: 0.559059
+
+Correct instances:  2
+Train Epoch: 7 	Average Loss: 0.005369
+
+Test set: Average loss: 0.551069
+
+Correct instances:  2
+Train Epoch: 8 	Average Loss: 0.004468
+
+Test set: Average loss: 0.551386
+
+Correct instances:  2
+Train Epoch: 9 	Average Loss: 0.001065
+
+Test set: Average loss: 0.558070
+
+Correct instances:  2
+Train Epoch: 10 	Average Loss: 0.000734
+
+Test set: Average loss: 0.595564
+
+Correct instances:  2
+Train Epoch: 11 	Average Loss: 0.002623
+
+Test set: Average loss: 0.621126
+
+Correct instances:  3
+Train Epoch: 12 	Average Loss: 0.000423
+
+Test set: Average loss: 0.665301
+
+Correct instances:  3
+Train Epoch: 13 	Average Loss: 0.017960
+
+Test set: Average loss: 0.645852
+
+Correct instances:  2
+Train Epoch: 14 	Average Loss: 0.000175
+
+Test set: Average loss: 0.643109
+
+Correct instances:  2
+Train Epoch: 15 	Average Loss: 0.000434
+
+Test set: Average loss: 0.637151
+
+Correct instances:  2
+Train Epoch: 16 	Average Loss: 0.000128
+
+Test set: Average loss: 0.671260
+
+Correct instances:  2
+Train Epoch: 17 	Average Loss: 0.004890
+
+Test set: Average loss: 0.675174
+
+Correct instances:  2
+Train Epoch: 18 	Average Loss: 0.006244
+
+Test set: Average loss: 0.679214
+
+Correct instances:  2
+Train Epoch: 19 	Average Loss: 0.000127
+
+Test set: Average loss: 0.643312
+
+Correct instances:  2
+Train Epoch: 20 	Average Loss: 0.000181
+
+Test set: Average loss: 0.600661
+
+Correct instances:  2
+Train Epoch: 21 	Average Loss: 0.001652
+
+Test set: Average loss: 0.600063
+
+Correct instances:  2
+Train Epoch: 22 	Average Loss: 0.000517
+
+Test set: Average loss: 0.582539
+
+Correct instances:  2
+Train Epoch: 23 	Average Loss: 0.002104
+
+Test set: Average loss: 0.541700
+
+Correct instances:  2
+Train Epoch: 24 	Average Loss: 0.002515
+
+Test set: Average loss: 0.524486
+
+Correct instances:  2
+Train Epoch: 25 	Average Loss: 0.001479
+
+Test set: Average loss: 0.545770
+
+Correct instances:  2
+Train Epoch: 26 	Average Loss: 0.005813
+
+Test set: Average loss: 0.520285
+
+Correct instances:  2
+Train Epoch: 27 	Average Loss: 0.000044
+
+Test set: Average loss: 0.490511
+
+Correct instances:  2
+Train Epoch: 28 	Average Loss: 0.005220
+
+Test set: Average loss: 0.506454
+
+Correct instances:  2
+Train Epoch: 29 	Average Loss: 0.002632
+
+Test set: Average loss: 0.508341
+
+Correct instances:  2
+Train Epoch: 30 	Average Loss: 0.002147
+
+Test set: Average loss: 0.510780
+
+Correct instances:  2
+Train Epoch: 31 	Average Loss: 0.000111
+
+Test set: Average loss: 0.486019
+
+Correct instances:  2
+Train Epoch: 32 	Average Loss: 0.001038
+
+Test set: Average loss: 0.515942
+
+Correct instances:  2
+Train Epoch: 33 	Average Loss: 0.000390
+
+Test set: Average loss: 0.490118
+
+Correct instances:  2
+Train Epoch: 34 	Average Loss: 0.004788
+
+Test set: Average loss: 0.500990
+
+Correct instances:  2
+Train Epoch: 35 	Average Loss: 0.000974
+
+Test set: Average loss: 0.534012
+
+Correct instances:  2
+Train Epoch: 36 	Average Loss: 0.002807
+
+Test set: Average loss: 0.519628
+
+Correct instances:  2
+Train Epoch: 37 	Average Loss: 0.000255
+
+Test set: Average loss: 0.522549
+
+Correct instances:  2
+Train Epoch: 38 	Average Loss: 0.000476
+
+Test set: Average loss: 0.517905
+
+Correct instances:  2
+Train Epoch: 39 	Average Loss: 0.000128
+
+Test set: Average loss: 0.536149
+
+Correct instances:  2
+Train Epoch: 40 	Average Loss: 0.000038
+
+Test set: Average loss: 0.565767
+
+Correct instances:  2
+Train Epoch: 41 	Average Loss: 0.002765
+
+Test set: Average loss: 0.542168
+
+Correct instances:  2
+Train Epoch: 42 	Average Loss: 0.000266
+
+Test set: Average loss: 0.523767
+
+Correct instances:  2
+Train Epoch: 43 	Average Loss: 0.000212
+
+Test set: Average loss: 0.570910
+
+Correct instances:  2
+Train Epoch: 44 	Average Loss: 0.000185
+
+Test set: Average loss: 0.588658
+
+Correct instances:  2
+Train Epoch: 45 	Average Loss: 0.002771
+
+Test set: Average loss: 0.559099
+
+Correct instances:  2
+Train Epoch: 46 	Average Loss: 0.000178
+
+Test set: Average loss: 0.582530
+
+Correct instances:  2
+Train Epoch: 47 	Average Loss: 0.003097
+
+Test set: Average loss: 0.576540
+
+Correct instances:  2
+Train Epoch: 48 	Average Loss: 0.000115
+
+Test set: Average loss: 0.551701
+
+Correct instances:  2
+Train Epoch: 49 	Average Loss: 0.000255
+
+Test set: Average loss: 0.545312
+
+Correct instances:  2
+Train Epoch: 50 	Average Loss: 0.000151
+
+Test set: Average loss: 0.546936
+
+Correct instances:  2
+##################################################
+Learning Rate:  0.0010381555825721108
+Gamma:  0.948843714617464
+##################################################
+===========Training X Model================
+Train Epoch: 1 	Average Loss: 0.002377
+
+Test set: Average loss: 0.140227
+
+Correct instances:  6
+Train Epoch: 2 	Average Loss: 0.005411
+
+Test set: Average loss: 0.172319
+
+Correct instances:  5
+Train Epoch: 3 	Average Loss: 0.000403
+
+Test set: Average loss: 0.197090
+
+Correct instances:  4
+Train Epoch: 4 	Average Loss: 0.011507
+
+Test set: Average loss: 0.187094
+
+Correct instances:  6
+Train Epoch: 5 	Average Loss: 0.007055
+
+Test set: Average loss: 0.182065
+
+Correct instances:  4
+Train Epoch: 6 	Average Loss: 0.004816
+
+Test set: Average loss: 0.174610
+
+Correct instances:  5
+Train Epoch: 7 	Average Loss: 0.005308
+
+Test set: Average loss: 0.159511
+
+Correct instances:  6
+Train Epoch: 8 	Average Loss: 0.001660
+
+Test set: Average loss: 0.149660
+
+Correct instances:  6
+Train Epoch: 9 	Average Loss: 0.002346
+
+Test set: Average loss: 0.139345
+
+Correct instances:  6
+Train Epoch: 10 	Average Loss: 0.007848
+
+Test set: Average loss: 0.122976
+
+Correct instances:  5
+Train Epoch: 11 	Average Loss: 0.004948
+
+Test set: Average loss: 0.116721
+
+Correct instances:  5
+Train Epoch: 12 	Average Loss: 0.006621
+
+Test set: Average loss: 0.111188
+
+Correct instances:  5
+New Lowest Loss For X Model:  0.11118847131729126
+Validation Predictions: 
+tensor([[10],
+        [16],
+        [ 9],
+        [ 9],
+        [10],
+        [12],
+        [ 9],
+        [ 3],
+        [ 4],
+        [16]], device='cuda:0')
+Train Epoch: 13 	Average Loss: 0.008012
+
+Test set: Average loss: 0.119252
+
+Correct instances:  5
+Train Epoch: 14 	Average Loss: 0.004041
+
+Test set: Average loss: 0.132769
+
+Correct instances:  5
+Train Epoch: 15 	Average Loss: 0.001295
+
+Test set: Average loss: 0.146213
+
+Correct instances:  5
+Train Epoch: 16 	Average Loss: 0.001752
+
+Test set: Average loss: 0.151391
+
+Correct instances:  5
+Train Epoch: 17 	Average Loss: 0.000786
+
+Test set: Average loss: 0.155067
+
+Correct instances:  5
+Train Epoch: 18 	Average Loss: 0.002814
+
+Test set: Average loss: 0.174856
+
+Correct instances:  5
+Train Epoch: 19 	Average Loss: 0.002040
+
+Test set: Average loss: 0.160979
+
+Correct instances:  5
+Train Epoch: 20 	Average Loss: 0.002301
+
+Test set: Average loss: 0.159065
+
+Correct instances:  5
+Train Epoch: 21 	Average Loss: 0.010729
+
+Test set: Average loss: 0.147490
+
+Correct instances:  5
+Train Epoch: 22 	Average Loss: 0.004149
+
+Test set: Average loss: 0.153198
+
+Correct instances:  6
+Train Epoch: 23 	Average Loss: 0.001601
+
+Test set: Average loss: 0.165989
+
+Correct instances:  6
+Train Epoch: 24 	Average Loss: 0.000356
+
+Test set: Average loss: 0.170231
+
+Correct instances:  6
+Train Epoch: 25 	Average Loss: 0.003647
+
+Test set: Average loss: 0.176425
+
+Correct instances:  5
+Train Epoch: 26 	Average Loss: 0.004849
+
+Test set: Average loss: 0.183619
+
+Correct instances:  5
+Train Epoch: 27 	Average Loss: 0.004291
+
+Test set: Average loss: 0.188512
+
+Correct instances:  5
+Train Epoch: 28 	Average Loss: 0.003691
+
+Test set: Average loss: 0.189511
+
+Correct instances:  5
+Train Epoch: 29 	Average Loss: 0.001394
+
+Test set: Average loss: 0.181975
+
+Correct instances:  5
+Train Epoch: 30 	Average Loss: 0.000306
+
+Test set: Average loss: 0.185400
+
+Correct instances:  5
+Train Epoch: 31 	Average Loss: 0.005336
+
+Test set: Average loss: 0.172340
+
+Correct instances:  5
+Train Epoch: 32 	Average Loss: 0.000928
+
+Test set: Average loss: 0.174844
+
+Correct instances:  5
+Train Epoch: 33 	Average Loss: 0.000176
+
+Test set: Average loss: 0.182000
+
+Correct instances:  5
+Train Epoch: 34 	Average Loss: 0.000458
+
+Test set: Average loss: 0.181236
+
+Correct instances:  5
+Train Epoch: 35 	Average Loss: 0.001823
+
+Test set: Average loss: 0.178660
+
+Correct instances:  5
+Train Epoch: 36 	Average Loss: 0.002850
+
+Test set: Average loss: 0.177371
+
+Correct instances:  5
+Train Epoch: 37 	Average Loss: 0.001121
+
+Test set: Average loss: 0.172828
+
+Correct instances:  5
+Train Epoch: 38 	Average Loss: 0.003908
+
+Test set: Average loss: 0.176043
+
+Correct instances:  5
+Train Epoch: 39 	Average Loss: 0.004254
+
+Test set: Average loss: 0.181714
+
+Correct instances:  6
+Train Epoch: 40 	Average Loss: 0.002002
+
+Test set: Average loss: 0.188983
+
+Correct instances:  6
+Train Epoch: 41 	Average Loss: 0.004070
+
+Test set: Average loss: 0.182898
+
+Correct instances:  5
+Train Epoch: 42 	Average Loss: 0.000353
+
+Test set: Average loss: 0.192163
+
+Correct instances:  4
+Train Epoch: 43 	Average Loss: 0.001621
+
+Test set: Average loss: 0.198621
+
+Correct instances:  4
+Train Epoch: 44 	Average Loss: 0.004463
+
+Test set: Average loss: 0.199879
+
+Correct instances:  4
+Train Epoch: 45 	Average Loss: 0.003006
+
+Test set: Average loss: 0.182686
+
+Correct instances:  4
+Train Epoch: 46 	Average Loss: 0.004409
+
+Test set: Average loss: 0.199077
+
+Correct instances:  4
+Train Epoch: 47 	Average Loss: 0.000979
+
+Test set: Average loss: 0.185388
+
+Correct instances:  5
+Train Epoch: 48 	Average Loss: 0.000817
+
+Test set: Average loss: 0.184929
+
+Correct instances:  5
+Train Epoch: 49 	Average Loss: 0.004886
+
+Test set: Average loss: 0.189699
+
+Correct instances:  5
+Train Epoch: 50 	Average Loss: 0.002787
+
+Test set: Average loss: 0.191061
+
+Correct instances:  5
+===========Training Y Model================
+Train Epoch: 1 	Average Loss: 0.001871
+
+Test set: Average loss: 0.561086
+
+Correct instances:  2
+Train Epoch: 2 	Average Loss: 0.000864
+
+Test set: Average loss: 0.596612
+
+Correct instances:  2
+Train Epoch: 3 	Average Loss: 0.000160
+
+Test set: Average loss: 0.573343
+
+Correct instances:  3
+Train Epoch: 4 	Average Loss: 0.000137
+
+Test set: Average loss: 0.599472
+
+Correct instances:  2
+Train Epoch: 5 	Average Loss: 0.001330
+
+Test set: Average loss: 0.587655
+
+Correct instances:  2
+Train Epoch: 6 	Average Loss: 0.003959
+
+Test set: Average loss: 0.550750
+
+Correct instances:  2
+Train Epoch: 7 	Average Loss: 0.000313
+
+Test set: Average loss: 0.572501
+
+Correct instances:  2
+Train Epoch: 8 	Average Loss: 0.000601
+
+Test set: Average loss: 0.564168
+
+Correct instances:  2
+Train Epoch: 9 	Average Loss: 0.003834
+
+Test set: Average loss: 0.530221
+
+Correct instances:  2
+Train Epoch: 10 	Average Loss: 0.005745
+
+Test set: Average loss: 0.572387
+
+Correct instances:  3
+Train Epoch: 11 	Average Loss: 0.002064
+
+Test set: Average loss: 0.589018
+
+Correct instances:  3
+Train Epoch: 12 	Average Loss: 0.000343
+
+Test set: Average loss: 0.558979
+
+Correct instances:  3
+Train Epoch: 13 	Average Loss: 0.001029
+
+Test set: Average loss: 0.562753
+
+Correct instances:  3
+Train Epoch: 14 	Average Loss: 0.000063
+
+Test set: Average loss: 0.549673
+
+Correct instances:  3
+Train Epoch: 15 	Average Loss: 0.000591
+
+Test set: Average loss: 0.534295
+
+Correct instances:  3
+Train Epoch: 16 	Average Loss: 0.005869
+
+Test set: Average loss: 0.500938
+
+Correct instances:  3
+Train Epoch: 17 	Average Loss: 0.000579
+
+Test set: Average loss: 0.493492
+
+Correct instances:  3
+Train Epoch: 18 	Average Loss: 0.000440
+
+Test set: Average loss: 0.508148
+
+Correct instances:  3
+Train Epoch: 19 	Average Loss: 0.000169
+
+Test set: Average loss: 0.507008
+
+Correct instances:  3
+Train Epoch: 20 	Average Loss: 0.000566
+
+Test set: Average loss: 0.508760
+
+Correct instances:  3
+Train Epoch: 21 	Average Loss: 0.001821
+
+Test set: Average loss: 0.512772
+
+Correct instances:  3
+Train Epoch: 22 	Average Loss: 0.001094
+
+Test set: Average loss: 0.509355
+
+Correct instances:  3
+Train Epoch: 23 	Average Loss: 0.000179
+
+Test set: Average loss: 0.563696
+
+Correct instances:  3
+Train Epoch: 24 	Average Loss: 0.002901
+
+Test set: Average loss: 0.586192
+
+Correct instances:  3
+Train Epoch: 25 	Average Loss: 0.000252
+
+Test set: Average loss: 0.567198
+
+Correct instances:  3
+Train Epoch: 26 	Average Loss: 0.000559
+
+Test set: Average loss: 0.534820
+
+Correct instances:  3
+Train Epoch: 27 	Average Loss: 0.000079
+
+Test set: Average loss: 0.561019
+
+Correct instances:  2
+Train Epoch: 28 	Average Loss: 0.009664
+
+Test set: Average loss: 0.560584
+
+Correct instances:  2
+Train Epoch: 29 	Average Loss: 0.000132
+
+Test set: Average loss: 0.578903
+
+Correct instances:  2
+Train Epoch: 30 	Average Loss: 0.000110
+
+Test set: Average loss: 0.566712
+
+Correct instances:  2
+Train Epoch: 31 	Average Loss: 0.000741
+
+Test set: Average loss: 0.540948
+
+Correct instances:  2
+Train Epoch: 32 	Average Loss: 0.011112
+
+Test set: Average loss: 0.545981
+
+Correct instances:  2
+Train Epoch: 33 	Average Loss: 0.003347
+
+Test set: Average loss: 0.563260
+
+Correct instances:  2
+Train Epoch: 34 	Average Loss: 0.000327
+
+Test set: Average loss: 0.555034
+
+Correct instances:  1
+Train Epoch: 35 	Average Loss: 0.000686
+
+Test set: Average loss: 0.583362
+
+Correct instances:  1
+Train Epoch: 36 	Average Loss: 0.000228
+
+Test set: Average loss: 0.588667
+
+Correct instances:  1
+Train Epoch: 37 	Average Loss: 0.007068
+
+Test set: Average loss: 0.602909
+
+Correct instances:  1
+Train Epoch: 38 	Average Loss: 0.006455
+
+Test set: Average loss: 0.598725
+
+Correct instances:  2
+Train Epoch: 39 	Average Loss: 0.000882
+
+Test set: Average loss: 0.580632
+
+Correct instances:  2
+Train Epoch: 40 	Average Loss: 0.000154
+
+Test set: Average loss: 0.574800
+
+Correct instances:  2
+Train Epoch: 41 	Average Loss: 0.003474
+
+Test set: Average loss: 0.568506
+
+Correct instances:  1
+Train Epoch: 42 	Average Loss: 0.005304
+
+Test set: Average loss: 0.560280
+
+Correct instances:  2
+Train Epoch: 43 	Average Loss: 0.000045
+
+Test set: Average loss: 0.569106
+
+Correct instances:  2
+Train Epoch: 44 	Average Loss: 0.000196
+
+Test set: Average loss: 0.571082
+
+Correct instances:  2
+Train Epoch: 45 	Average Loss: 0.002227
+
+Test set: Average loss: 0.593441
+
+Correct instances:  2
+Train Epoch: 46 	Average Loss: 0.000200
+
+Test set: Average loss: 0.625108
+
+Correct instances:  2
+Train Epoch: 47 	Average Loss: 0.000179
+
+Test set: Average loss: 0.608038
+
+Correct instances:  2
+Train Epoch: 48 	Average Loss: 0.000066
+
+Test set: Average loss: 0.583590
+
+Correct instances:  2
+Train Epoch: 49 	Average Loss: 0.002463
+
+Test set: Average loss: 0.599460
+
+Correct instances:  2
+Train Epoch: 50 	Average Loss: 0.000150
+
+Test set: Average loss: 0.590284
+
+Correct instances:  2
+##################################################
+Learning Rate:  0.001985680656752837
+Gamma:  0.8171488227769554
+##################################################
+===========Training X Model================
+Train Epoch: 1 	Average Loss: 0.004724
+
+Test set: Average loss: 0.250392
+
+Correct instances:  3
+Train Epoch: 2 	Average Loss: 0.005915
+
+Test set: Average loss: 0.282842
+
+Correct instances:  2
+Train Epoch: 3 	Average Loss: 0.010739
+
+Test set: Average loss: 0.274578
+
+Correct instances:  3
+Train Epoch: 4 	Average Loss: 0.011259
+
+Test set: Average loss: 0.259077
+
+Correct instances:  2
+Train Epoch: 5 	Average Loss: 0.002466
+
+Test set: Average loss: 0.237223
+
+Correct instances:  3
+Train Epoch: 6 	Average Loss: 0.011484
+
+Test set: Average loss: 0.195457
+
+Correct instances:  6
+Train Epoch: 7 	Average Loss: 0.004871
+
+Test set: Average loss: 0.199754
+
+Correct instances:  4
+Train Epoch: 8 	Average Loss: 0.008376
+
+Test set: Average loss: 0.204679
+
+Correct instances:  3
+Train Epoch: 9 	Average Loss: 0.004185
+
+Test set: Average loss: 0.203051
+
+Correct instances:  4
+Train Epoch: 10 	Average Loss: 0.009461
+
+Test set: Average loss: 0.208579
+
+Correct instances:  3
+Train Epoch: 11 	Average Loss: 0.016033
+
+Test set: Average loss: 0.192742
+
+Correct instances:  5
+Train Epoch: 12 	Average Loss: 0.007513
+
+Test set: Average loss: 0.190070
+
+Correct instances:  5
+Train Epoch: 13 	Average Loss: 0.004425
+
+Test set: Average loss: 0.178219
+
+Correct instances:  5
+Train Epoch: 14 	Average Loss: 0.001301
+
+Test set: Average loss: 0.177524
+
+Correct instances:  6
+Train Epoch: 15 	Average Loss: 0.003712
+
+Test set: Average loss: 0.176623
+
+Correct instances:  6
+Train Epoch: 16 	Average Loss: 0.006012
+
+Test set: Average loss: 0.171594
+
+Correct instances:  6
+Train Epoch: 17 	Average Loss: 0.002683
+
+Test set: Average loss: 0.172815
+
+Correct instances:  5
+Train Epoch: 18 	Average Loss: 0.005796
+
+Test set: Average loss: 0.175033
+
+Correct instances:  5
+Train Epoch: 19 	Average Loss: 0.003458
+
+Test set: Average loss: 0.178682
+
+Correct instances:  6
+Train Epoch: 20 	Average Loss: 0.006533
+
+Test set: Average loss: 0.177194
+
+Correct instances:  6
+Train Epoch: 21 	Average Loss: 0.000274
+
+Test set: Average loss: 0.180377
+
+Correct instances:  5
+Train Epoch: 22 	Average Loss: 0.001346
+
+Test set: Average loss: 0.170958
+
+Correct instances:  6
+Train Epoch: 23 	Average Loss: 0.004662
+
+Test set: Average loss: 0.169412
+
+Correct instances:  6
+Train Epoch: 24 	Average Loss: 0.004047
+
+Test set: Average loss: 0.177246
+
+Correct instances:  6
+Train Epoch: 25 	Average Loss: 0.004327
+
+Test set: Average loss: 0.176420
+
+Correct instances:  6
+Train Epoch: 26 	Average Loss: 0.002258
+
+Test set: Average loss: 0.170344
+
+Correct instances:  6
+Train Epoch: 27 	Average Loss: 0.007766
+
+Test set: Average loss: 0.169778
+
+Correct instances:  6
+Train Epoch: 28 	Average Loss: 0.004639
+
+Test set: Average loss: 0.177119
+
+Correct instances:  6
+Train Epoch: 29 	Average Loss: 0.003915
+
+Test set: Average loss: 0.168298
+
+Correct instances:  6
+Train Epoch: 30 	Average Loss: 0.008051
+
+Test set: Average loss: 0.173437
+
+Correct instances:  6
+Train Epoch: 31 	Average Loss: 0.005893
+
+Test set: Average loss: 0.176142
+
+Correct instances:  6
+Train Epoch: 32 	Average Loss: 0.004553
+
+Test set: Average loss: 0.165992
+
+Correct instances:  5
+Train Epoch: 33 	Average Loss: 0.008997
+
+Test set: Average loss: 0.178736
+
+Correct instances:  5
+Train Epoch: 34 	Average Loss: 0.003033
+
+Test set: Average loss: 0.173097
+
+Correct instances:  5
+Train Epoch: 35 	Average Loss: 0.002362
+
+Test set: Average loss: 0.184160
+
+Correct instances:  5
+Train Epoch: 36 	Average Loss: 0.002080
+
+Test set: Average loss: 0.174832
+
+Correct instances:  5
+Train Epoch: 37 	Average Loss: 0.001804
+
+Test set: Average loss: 0.168568
+
+Correct instances:  5
+Train Epoch: 38 	Average Loss: 0.009959
+
+Test set: Average loss: 0.171043
+
+Correct instances:  5
+Train Epoch: 39 	Average Loss: 0.010514
+
+Test set: Average loss: 0.176153
+
+Correct instances:  5
+Train Epoch: 40 	Average Loss: 0.001121
+
+Test set: Average loss: 0.183532
+
+Correct instances:  5
+Train Epoch: 41 	Average Loss: 0.002321
+
+Test set: Average loss: 0.179287
+
+Correct instances:  5
+Train Epoch: 42 	Average Loss: 0.001837
+
+Test set: Average loss: 0.174186
+
+Correct instances:  5
+Train Epoch: 43 	Average Loss: 0.004404
+
+Test set: Average loss: 0.169762
+
+Correct instances:  5
+Train Epoch: 44 	Average Loss: 0.002173
+
+Test set: Average loss: 0.179229
+
+Correct instances:  5
+Train Epoch: 45 	Average Loss: 0.002845
+
+Test set: Average loss: 0.173056
+
+Correct instances:  5
+Train Epoch: 46 	Average Loss: 0.002817
+
+Test set: Average loss: 0.180841
+
+Correct instances:  5
+Train Epoch: 47 	Average Loss: 0.002201
+
+Test set: Average loss: 0.183427
+
+Correct instances:  5
+Train Epoch: 48 	Average Loss: 0.007096
+
+Test set: Average loss: 0.168366
+
+Correct instances:  6
+Train Epoch: 49 	Average Loss: 0.007987
+
+Test set: Average loss: 0.172943
+
+Correct instances:  5
+Train Epoch: 50 	Average Loss: 0.001659
+
+Test set: Average loss: 0.175025
+
+Correct instances:  5
+===========Training Y Model================
+Train Epoch: 1 	Average Loss: 0.001597
+
+Test set: Average loss: 0.569641
+
+Correct instances:  2
+Train Epoch: 2 	Average Loss: 0.005120
+
+Test set: Average loss: 0.579183
+
+Correct instances:  3
+Train Epoch: 3 	Average Loss: 0.001542
+
+Test set: Average loss: 0.610380
+
+Correct instances:  3
+Train Epoch: 4 	Average Loss: 0.000067
+
+Test set: Average loss: 0.622744
+
+Correct instances:  3
+Train Epoch: 5 	Average Loss: 0.005642
+
+Test set: Average loss: 0.647675
+
+Correct instances:  2
+Train Epoch: 6 	Average Loss: 0.000110
+
+Test set: Average loss: 0.650492
+
+Correct instances:  2
+Train Epoch: 7 	Average Loss: 0.007927
+
+Test set: Average loss: 0.648337
+
+Correct instances:  2
+Train Epoch: 8 	Average Loss: 0.001991
+
+Test set: Average loss: 0.639870
+
+Correct instances:  2
+Train Epoch: 9 	Average Loss: 0.000665
+
+Test set: Average loss: 0.642026
+
+Correct instances:  2
+Train Epoch: 10 	Average Loss: 0.000306
+
+Test set: Average loss: 0.618583
+
+Correct instances:  2
+Train Epoch: 11 	Average Loss: 0.009263
+
+Test set: Average loss: 0.620164
+
+Correct instances:  2
+Train Epoch: 12 	Average Loss: 0.000113
+
+Test set: Average loss: 0.646789
+
+Correct instances:  2
+Train Epoch: 13 	Average Loss: 0.003374
+
+Test set: Average loss: 0.634307
+
+Correct instances:  2
+Train Epoch: 14 	Average Loss: 0.000731
+
+Test set: Average loss: 0.634674
+
+Correct instances:  2
+Train Epoch: 15 	Average Loss: 0.004771
+
+Test set: Average loss: 0.606971
+
+Correct instances:  2
+Train Epoch: 16 	Average Loss: 0.004778
+
+Test set: Average loss: 0.631765
+
+Correct instances:  2
+Train Epoch: 17 	Average Loss: 0.002937
+
+Test set: Average loss: 0.664271
+
+Correct instances:  2
+Train Epoch: 18 	Average Loss: 0.003881
+
+Test set: Average loss: 0.643150
+
+Correct instances:  2
+Train Epoch: 19 	Average Loss: 0.007688
+
+Test set: Average loss: 0.617104
+
+Correct instances:  2
+Train Epoch: 20 	Average Loss: 0.005757
+
+Test set: Average loss: 0.633619
+
+Correct instances:  2
+Train Epoch: 21 	Average Loss: 0.015793
+
+Test set: Average loss: 0.681090
+
+Correct instances:  2
+Train Epoch: 22 	Average Loss: 0.003357
+
+Test set: Average loss: 0.692424
+
+Correct instances:  2
+Train Epoch: 23 	Average Loss: 0.005601
+
+Test set: Average loss: 0.665051
+
+Correct instances:  1
+Train Epoch: 24 	Average Loss: 0.003790
+
+Test set: Average loss: 0.641891
+
+Correct instances:  1
+Train Epoch: 25 	Average Loss: 0.007528
+
+Test set: Average loss: 0.612437
+
+Correct instances:  2
+Train Epoch: 26 	Average Loss: 0.005414
+
+Test set: Average loss: 0.645838
+
+Correct instances:  2
+Train Epoch: 27 	Average Loss: 0.003797
+
+Test set: Average loss: 0.601632
+
+Correct instances:  2
+Train Epoch: 28 	Average Loss: 0.005915
+
+Test set: Average loss: 0.615190
+
+Correct instances:  2
+Train Epoch: 29 	Average Loss: 0.003222
+
+Test set: Average loss: 0.570066
+
+Correct instances:  2
+Train Epoch: 30 	Average Loss: 0.001533
+
+Test set: Average loss: 0.613759
+
+Correct instances:  2
+Train Epoch: 31 	Average Loss: 0.015217
+
+Test set: Average loss: 0.584069
+
+Correct instances:  2
+Train Epoch: 32 	Average Loss: 0.000168
+
+Test set: Average loss: 0.557169
+
+Correct instances:  2
+Train Epoch: 33 	Average Loss: 0.001872
+
+Test set: Average loss: 0.542030
+
+Correct instances:  2
+Train Epoch: 34 	Average Loss: 0.008786
+
+Test set: Average loss: 0.524839
+
+Correct instances:  2
+Train Epoch: 35 	Average Loss: 0.000252
+
+Test set: Average loss: 0.520838
+
+Correct instances:  3
+Train Epoch: 36 	Average Loss: 0.001736
+
+Test set: Average loss: 0.596899
+
+Correct instances:  2
+Train Epoch: 37 	Average Loss: 0.000852
+
+Test set: Average loss: 0.593462
+
+Correct instances:  2
+Train Epoch: 38 	Average Loss: 0.005792
+
+Test set: Average loss: 0.638390
+
+Correct instances:  2
+Train Epoch: 39 	Average Loss: 0.000451
+
+Test set: Average loss: 0.617994
+
+Correct instances:  2
+Train Epoch: 40 	Average Loss: 0.007509
+
+Test set: Average loss: 0.585042
+
+Correct instances:  2
+Train Epoch: 41 	Average Loss: 0.000566
+
+Test set: Average loss: 0.620073
+
+Correct instances:  2
+Train Epoch: 42 	Average Loss: 0.000553
+
+Test set: Average loss: 0.621951
+
+Correct instances:  2
+Train Epoch: 43 	Average Loss: 0.010057
+
+Test set: Average loss: 0.641661
+
+Correct instances:  2
+Train Epoch: 44 	Average Loss: 0.003653
+
+Test set: Average loss: 0.593074
+
+Correct instances:  2
+Train Epoch: 45 	Average Loss: 0.006993
+
+Test set: Average loss: 0.538437
+
+Correct instances:  2
+Train Epoch: 46 	Average Loss: 0.002606
+
+Test set: Average loss: 0.635363
+
+Correct instances:  2
+Train Epoch: 47 	Average Loss: 0.000235
+
+Test set: Average loss: 0.659837
+
+Correct instances:  2
+Train Epoch: 48 	Average Loss: 0.013244
+
+Test set: Average loss: 0.589130
+
+Correct instances:  2
+Train Epoch: 49 	Average Loss: 0.002525
+
+Test set: Average loss: 0.609825
+
+Correct instances:  2
+Train Epoch: 50 	Average Loss: 0.005112
+
+Test set: Average loss: 0.568892
+
+Correct instances:  2
+##################################################
+Learning Rate:  0.0014794081249059937
+Gamma:  0.8442006210393336
+##################################################
+===========Training X Model================
+Train Epoch: 1 	Average Loss: 0.011749
+
+Test set: Average loss: 0.181712
+
+Correct instances:  5
+Train Epoch: 2 	Average Loss: 0.007065
+
+Test set: Average loss: 0.164420
+
+Correct instances:  7
+Train Epoch: 3 	Average Loss: 0.010618
+
+Test set: Average loss: 0.130018
+
+Correct instances:  7
+Train Epoch: 4 	Average Loss: 0.003796
+
+Test set: Average loss: 0.123219
+
+Correct instances:  6
+Train Epoch: 5 	Average Loss: 0.007239
+
+Test set: Average loss: 0.134738
+
+Correct instances:  6
+Train Epoch: 6 	Average Loss: 0.007069
+
+Test set: Average loss: 0.140768
+
+Correct instances:  7
+Train Epoch: 7 	Average Loss: 0.004302
+
+Test set: Average loss: 0.145713
+
+Correct instances:  6
+Train Epoch: 8 	Average Loss: 0.002131
+
+Test set: Average loss: 0.150286
+
+Correct instances:  6
+Train Epoch: 9 	Average Loss: 0.007240
+
+Test set: Average loss: 0.148979
+
+Correct instances:  6
+Train Epoch: 10 	Average Loss: 0.003323
+
+Test set: Average loss: 0.149113
+
+Correct instances:  6
+Train Epoch: 11 	Average Loss: 0.000298
+
+Test set: Average loss: 0.157007
+
+Correct instances:  6
+Train Epoch: 12 	Average Loss: 0.001586
+
+Test set: Average loss: 0.156085
+
+Correct instances:  6
+Train Epoch: 13 	Average Loss: 0.001068
+
+Test set: Average loss: 0.147286
+
+Correct instances:  6
+Train Epoch: 14 	Average Loss: 0.002129
+
+Test set: Average loss: 0.156257
+
+Correct instances:  6
+Train Epoch: 15 	Average Loss: 0.003471
+
+Test set: Average loss: 0.151879
+
+Correct instances:  6
+Train Epoch: 16 	Average Loss: 0.015173
+
+Test set: Average loss: 0.152753
+
+Correct instances:  6
+Train Epoch: 17 	Average Loss: 0.002959
+
+Test set: Average loss: 0.145516
+
+Correct instances:  6
+Train Epoch: 18 	Average Loss: 0.001703
+
+Test set: Average loss: 0.148779
+
+Correct instances:  6
+Train Epoch: 19 	Average Loss: 0.003599
+
+Test set: Average loss: 0.141380
+
+Correct instances:  6
+Train Epoch: 20 	Average Loss: 0.000791
+
+Test set: Average loss: 0.144339
+
+Correct instances:  6
+Train Epoch: 21 	Average Loss: 0.005419
+
+Test set: Average loss: 0.142461
+
+Correct instances:  6
+Train Epoch: 22 	Average Loss: 0.000504
+
+Test set: Average loss: 0.142711
+
+Correct instances:  6
+Train Epoch: 23 	Average Loss: 0.003839
+
+Test set: Average loss: 0.141444
+
+Correct instances:  6
+Train Epoch: 24 	Average Loss: 0.007879
+
+Test set: Average loss: 0.147607
+
+Correct instances:  6
+Train Epoch: 25 	Average Loss: 0.008159
+
+Test set: Average loss: 0.145311
+
+Correct instances:  6
+Train Epoch: 26 	Average Loss: 0.001773
+
+Test set: Average loss: 0.142982
+
+Correct instances:  6
+Train Epoch: 27 	Average Loss: 0.003294
+
+Test set: Average loss: 0.144738
+
+Correct instances:  6
+Train Epoch: 28 	Average Loss: 0.008908
+
+Test set: Average loss: 0.150511
+
+Correct instances:  6
+Train Epoch: 29 	Average Loss: 0.000825
+
+Test set: Average loss: 0.147075
+
+Correct instances:  6
+Train Epoch: 30 	Average Loss: 0.002697
+
+Test set: Average loss: 0.141438
+
+Correct instances:  6
+Train Epoch: 31 	Average Loss: 0.000574
+
+Test set: Average loss: 0.144343
+
+Correct instances:  5
+Train Epoch: 32 	Average Loss: 0.001599
+
+Test set: Average loss: 0.144939
+
+Correct instances:  6
+Train Epoch: 33 	Average Loss: 0.004893
+
+Test set: Average loss: 0.148572
+
+Correct instances:  6
+Train Epoch: 34 	Average Loss: 0.005417
+
+Test set: Average loss: 0.147195
+
+Correct instances:  6
+Train Epoch: 35 	Average Loss: 0.003617
+
+Test set: Average loss: 0.144813
+
+Correct instances:  6
+Train Epoch: 36 	Average Loss: 0.003913
+
+Test set: Average loss: 0.134475
+
+Correct instances:  6
+Train Epoch: 37 	Average Loss: 0.003445
+
+Test set: Average loss: 0.148499
+
+Correct instances:  6
+Train Epoch: 38 	Average Loss: 0.003537
+
+Test set: Average loss: 0.145007
+
+Correct instances:  6
+Train Epoch: 39 	Average Loss: 0.004462
+
+Test set: Average loss: 0.144277
+
+Correct instances:  6
+Train Epoch: 40 	Average Loss: 0.000773
+
+Test set: Average loss: 0.151300
+
+Correct instances:  6
+Train Epoch: 41 	Average Loss: 0.001560
+
+Test set: Average loss: 0.151696
+
+Correct instances:  6
+Train Epoch: 42 	Average Loss: 0.004677
+
+Test set: Average loss: 0.144640
+
+Correct instances:  6
+Train Epoch: 43 	Average Loss: 0.001616
+
+Test set: Average loss: 0.135762
+
+Correct instances:  6
+Train Epoch: 44 	Average Loss: 0.010026
+
+Test set: Average loss: 0.143001
+
+Correct instances:  6
+Train Epoch: 45 	Average Loss: 0.001980
+
+Test set: Average loss: 0.146032
+
+Correct instances:  6
+Train Epoch: 46 	Average Loss: 0.001468
+
+Test set: Average loss: 0.144084
+
+Correct instances:  6
+Train Epoch: 47 	Average Loss: 0.001294
+
+Test set: Average loss: 0.152688
+
+Correct instances:  6
+Train Epoch: 48 	Average Loss: 0.001643
+
+Test set: Average loss: 0.149184
+
+Correct instances:  6
+Train Epoch: 49 	Average Loss: 0.001987
+
+Test set: Average loss: 0.144083
+
+Correct instances:  6
+Train Epoch: 50 	Average Loss: 0.001478
+
+Test set: Average loss: 0.144944
+
+Correct instances:  6
+===========Training Y Model================
+Train Epoch: 1 	Average Loss: 0.016218
+
+Test set: Average loss: 0.585578
+
+Correct instances:  2
+Train Epoch: 2 	Average Loss: 0.000950
+
+Test set: Average loss: 0.572104
+
+Correct instances:  2
+Train Epoch: 3 	Average Loss: 0.005974
+
+Test set: Average loss: 0.575552
+
+Correct instances:  2
+Train Epoch: 4 	Average Loss: 0.006295
+
+Test set: Average loss: 0.598190
+
+Correct instances:  2
+Train Epoch: 5 	Average Loss: 0.003027
+
+Test set: Average loss: 0.574060
+
+Correct instances:  2
+Train Epoch: 6 	Average Loss: 0.005924
+
+Test set: Average loss: 0.574236
+
+Correct instances:  2
+Train Epoch: 7 	Average Loss: 0.009045
+
+Test set: Average loss: 0.567363
+
+Correct instances:  2
+Train Epoch: 8 	Average Loss: 0.000031
+
+Test set: Average loss: 0.600435
+
+Correct instances:  2
+Train Epoch: 9 	Average Loss: 0.001473
+
+Test set: Average loss: 0.584273
+
+Correct instances:  2
+Train Epoch: 10 	Average Loss: 0.005948
+
+Test set: Average loss: 0.603019
+
+Correct instances:  2
+Train Epoch: 11 	Average Loss: 0.003974
+
+Test set: Average loss: 0.592076
+
+Correct instances:  2
+Train Epoch: 12 	Average Loss: 0.000545
+
+Test set: Average loss: 0.572756
+
+Correct instances:  2
+Train Epoch: 13 	Average Loss: 0.010917
+
+Test set: Average loss: 0.609770
+
+Correct instances:  3
+Train Epoch: 14 	Average Loss: 0.000670
+
+Test set: Average loss: 0.579302
+
+Correct instances:  3
+Train Epoch: 15 	Average Loss: 0.006022
+
+Test set: Average loss: 0.521566
+
+Correct instances:  3
+Train Epoch: 16 	Average Loss: 0.000367
+
+Test set: Average loss: 0.528668
+
+Correct instances:  3
+Train Epoch: 17 	Average Loss: 0.000922
+
+Test set: Average loss: 0.529978
+
+Correct instances:  3
+Train Epoch: 18 	Average Loss: 0.007159
+
+Test set: Average loss: 0.528378
+
+Correct instances:  3
+Train Epoch: 19 	Average Loss: 0.000640
+
+Test set: Average loss: 0.486880
+
+Correct instances:  2
+Train Epoch: 20 	Average Loss: 0.004644
+
+Test set: Average loss: 0.478200
+
+Correct instances:  3
+Train Epoch: 21 	Average Loss: 0.000491
+
+Test set: Average loss: 0.497003
+
+Correct instances:  3
+Train Epoch: 22 	Average Loss: 0.004784
+
+Test set: Average loss: 0.545495
+
+Correct instances:  1
+Train Epoch: 23 	Average Loss: 0.000664
+
+Test set: Average loss: 0.543127
+
+Correct instances:  2
+Train Epoch: 24 	Average Loss: 0.007462
+
+Test set: Average loss: 0.476844
+
+Correct instances:  3
+Train Epoch: 25 	Average Loss: 0.001361
+
+Test set: Average loss: 0.457622
+
+Correct instances:  4
+Train Epoch: 26 	Average Loss: 0.004845
+
+Test set: Average loss: 0.439428
+
+Correct instances:  3
+Train Epoch: 27 	Average Loss: 0.005422
+
+Test set: Average loss: 0.466807
+
+Correct instances:  3
+Train Epoch: 28 	Average Loss: 0.001817
+
+Test set: Average loss: 0.499719
+
+Correct instances:  2
+Train Epoch: 29 	Average Loss: 0.007925
+
+Test set: Average loss: 0.561547
+
+Correct instances:  3
+Train Epoch: 30 	Average Loss: 0.003619
+
+Test set: Average loss: 0.573289
+
+Correct instances:  2
+Train Epoch: 31 	Average Loss: 0.002165
+
+Test set: Average loss: 0.591434
+
+Correct instances:  2
+Train Epoch: 32 	Average Loss: 0.000080
+
+Test set: Average loss: 0.565184
+
+Correct instances:  2
+Train Epoch: 33 	Average Loss: 0.000297
+
+Test set: Average loss: 0.581593
+
+Correct instances:  2
+Train Epoch: 34 	Average Loss: 0.005750
+
+Test set: Average loss: 0.614192
+
+Correct instances:  2
+Train Epoch: 35 	Average Loss: 0.004694
+
+Test set: Average loss: 0.615910
+
+Correct instances:  2
+Train Epoch: 36 	Average Loss: 0.001409
+
+Test set: Average loss: 0.642102
+
+Correct instances:  2
+Train Epoch: 37 	Average Loss: 0.004065
+
+Test set: Average loss: 0.659787
+
+Correct instances:  2
+Train Epoch: 38 	Average Loss: 0.000672
+
+Test set: Average loss: 0.668496
+
+Correct instances:  2
+Train Epoch: 39 	Average Loss: 0.004550
+
+Test set: Average loss: 0.657645
+
+Correct instances:  2
+Train Epoch: 40 	Average Loss: 0.003822
+
+Test set: Average loss: 0.650319
+
+Correct instances:  2
+Train Epoch: 41 	Average Loss: 0.003428
+
+Test set: Average loss: 0.670424
+
+Correct instances:  2
+Train Epoch: 42 	Average Loss: 0.001487
+
+Test set: Average loss: 0.631496
+
+Correct instances:  3
+Train Epoch: 43 	Average Loss: 0.001127
+
+Test set: Average loss: 0.666910
+
+Correct instances:  2
+Train Epoch: 44 	Average Loss: 0.000456
+
+Test set: Average loss: 0.639195
+
+Correct instances:  2
+Train Epoch: 45 	Average Loss: 0.000944
+
+Test set: Average loss: 0.652379
+
+Correct instances:  2
+Train Epoch: 46 	Average Loss: 0.005540
+
+Test set: Average loss: 0.658798
+
+Correct instances:  2
+Train Epoch: 47 	Average Loss: 0.001797
+
+Test set: Average loss: 0.629928
+
+Correct instances:  2
+Train Epoch: 48 	Average Loss: 0.000064
+
+Test set: Average loss: 0.655887
+
+Correct instances:  2
+Train Epoch: 49 	Average Loss: 0.004555
+
+Test set: Average loss: 0.612868
+
+Correct instances:  3
+Train Epoch: 50 	Average Loss: 0.005142
+
+Test set: Average loss: 0.661673
+
+Correct instances:  2
+##################################################
+Learning Rate:  0.0014906546705181706
+Gamma:  0.900498367113343
+##################################################
+===========Training X Model================
+Train Epoch: 1 	Average Loss: 0.001543
+
+Test set: Average loss: 0.183075
+
+Correct instances:  6
+Train Epoch: 2 	Average Loss: 0.010805
+
+Test set: Average loss: 0.209999
+
+Correct instances:  5
+Train Epoch: 3 	Average Loss: 0.013180
+
+Test set: Average loss: 0.183785
+
+Correct instances:  6
+Train Epoch: 4 	Average Loss: 0.010822
+
+Test set: Average loss: 0.173076
+
+Correct instances:  5
+Train Epoch: 5 	Average Loss: 0.010709
+
+Test set: Average loss: 0.200985
+
+Correct instances:  3
+Train Epoch: 6 	Average Loss: 0.009143
+
+Test set: Average loss: 0.211791
+
+Correct instances:  3
+Train Epoch: 7 	Average Loss: 0.007034
+
+Test set: Average loss: 0.193932
+
+Correct instances:  3
+Train Epoch: 8 	Average Loss: 0.002570
+
+Test set: Average loss: 0.186262
+
+Correct instances:  5
+Train Epoch: 9 	Average Loss: 0.013424
+
+Test set: Average loss: 0.200219
+
+Correct instances:  5
+Train Epoch: 10 	Average Loss: 0.003594
+
+Test set: Average loss: 0.202241
+
+Correct instances:  3
+Train Epoch: 11 	Average Loss: 0.001806
+
+Test set: Average loss: 0.190709
+
+Correct instances:  5
+Train Epoch: 12 	Average Loss: 0.006014
+
+Test set: Average loss: 0.173254
+
+Correct instances:  5
+Train Epoch: 13 	Average Loss: 0.006281
+
+Test set: Average loss: 0.173729
+
+Correct instances:  4
+Train Epoch: 14 	Average Loss: 0.002551
+
+Test set: Average loss: 0.179581
+
+Correct instances:  5
+Train Epoch: 15 	Average Loss: 0.001075
+
+Test set: Average loss: 0.179571
+
+Correct instances:  5
+Train Epoch: 16 	Average Loss: 0.004284
+
+Test set: Average loss: 0.179666
+
+Correct instances:  5
+Train Epoch: 17 	Average Loss: 0.006163
+
+Test set: Average loss: 0.190282
+
+Correct instances:  5
+Train Epoch: 18 	Average Loss: 0.006296
+
+Test set: Average loss: 0.196764
+
+Correct instances:  5
+Train Epoch: 19 	Average Loss: 0.005892
+
+Test set: Average loss: 0.186131
+
+Correct instances:  4
+Train Epoch: 20 	Average Loss: 0.000800
+
+Test set: Average loss: 0.180704
+
+Correct instances:  4
+Train Epoch: 21 	Average Loss: 0.001456
+
+Test set: Average loss: 0.180679
+
+Correct instances:  4
+Train Epoch: 22 	Average Loss: 0.004494
+
+Test set: Average loss: 0.185684
+
+Correct instances:  4
+Train Epoch: 23 	Average Loss: 0.001131
+
+Test set: Average loss: 0.180467
+
+Correct instances:  4
+Train Epoch: 24 	Average Loss: 0.002532
+
+Test set: Average loss: 0.176132
+
+Correct instances:  5
+Train Epoch: 25 	Average Loss: 0.000933
+
+Test set: Average loss: 0.175362
+
+Correct instances:  4
+Train Epoch: 26 	Average Loss: 0.004890
+
+Test set: Average loss: 0.181900
+
+Correct instances:  4
+Train Epoch: 27 	Average Loss: 0.002634
+
+Test set: Average loss: 0.173906
+
+Correct instances:  4
+Train Epoch: 28 	Average Loss: 0.004634
+
+Test set: Average loss: 0.184344
+
+Correct instances:  4
+Train Epoch: 29 	Average Loss: 0.001630
+
+Test set: Average loss: 0.172527
+
+Correct instances:  5
+Train Epoch: 30 	Average Loss: 0.001650
+
+Test set: Average loss: 0.168414
+
+Correct instances:  4
+Train Epoch: 31 	Average Loss: 0.008773
+
+Test set: Average loss: 0.173562
+
+Correct instances:  4
+Train Epoch: 32 	Average Loss: 0.003894
+
+Test set: Average loss: 0.175662
+
+Correct instances:  4
+Train Epoch: 33 	Average Loss: 0.000989
+
+Test set: Average loss: 0.169918
+
+Correct instances:  4
+Train Epoch: 34 	Average Loss: 0.001774
+
+Test set: Average loss: 0.162920
+
+Correct instances:  4
+Train Epoch: 35 	Average Loss: 0.001681
+
+Test set: Average loss: 0.166312
+
+Correct instances:  4
+Train Epoch: 36 	Average Loss: 0.001337
+
+Test set: Average loss: 0.177510
+
+Correct instances:  4
+Train Epoch: 37 	Average Loss: 0.000565
+
+Test set: Average loss: 0.175535
+
+Correct instances:  4
+Train Epoch: 38 	Average Loss: 0.011007
+
+Test set: Average loss: 0.178797
+
+Correct instances:  4
+Train Epoch: 39 	Average Loss: 0.002988
+
+Test set: Average loss: 0.174750
+
+Correct instances:  4
+Train Epoch: 40 	Average Loss: 0.002235
+
+Test set: Average loss: 0.180002
+
+Correct instances:  4
+Train Epoch: 41 	Average Loss: 0.002073
+
+Test set: Average loss: 0.172558
+
+Correct instances:  4
+Train Epoch: 42 	Average Loss: 0.006100
+
+Test set: Average loss: 0.178188
+
+Correct instances:  4
+Train Epoch: 43 	Average Loss: 0.000373
+
+Test set: Average loss: 0.168892
+
+Correct instances:  4
+Train Epoch: 44 	Average Loss: 0.002933
+
+Test set: Average loss: 0.176844
+
+Correct instances:  5
+Train Epoch: 45 	Average Loss: 0.000660
+
+Test set: Average loss: 0.177135
+
+Correct instances:  4
+Train Epoch: 46 	Average Loss: 0.005795
+
+Test set: Average loss: 0.172845
+
+Correct instances:  4
+Train Epoch: 47 	Average Loss: 0.001132
+
+Test set: Average loss: 0.176562
+
+Correct instances:  5
+Train Epoch: 48 	Average Loss: 0.001073
+
+Test set: Average loss: 0.174692
+
+Correct instances:  4
+Train Epoch: 49 	Average Loss: 0.001346
+
+Test set: Average loss: 0.173223
+
+Correct instances:  5
+Train Epoch: 50 	Average Loss: 0.000829
+
+Test set: Average loss: 0.168458
+
+Correct instances:  4
+===========Training Y Model================
+Train Epoch: 1 	Average Loss: 0.000338
+
+Test set: Average loss: 0.640721
+
+Correct instances:  2
+Train Epoch: 2 	Average Loss: 0.000071
+
+Test set: Average loss: 0.692013
+
+Correct instances:  2
+Train Epoch: 3 	Average Loss: 0.000083
+
+Test set: Average loss: 0.695731
+
+Correct instances:  2
+Train Epoch: 4 	Average Loss: 0.000957
+
+Test set: Average loss: 0.667886
+
+Correct instances:  2
+Train Epoch: 5 	Average Loss: 0.000161
+
+Test set: Average loss: 0.680539
+
+Correct instances:  2
+Train Epoch: 6 	Average Loss: 0.000060
+
+Test set: Average loss: 0.713262
+
+Correct instances:  2
+Train Epoch: 7 	Average Loss: 0.003420
+
+Test set: Average loss: 0.719330
+
+Correct instances:  2
+Train Epoch: 8 	Average Loss: 0.001063
+
+Test set: Average loss: 0.686539
+
+Correct instances:  2
+Train Epoch: 9 	Average Loss: 0.001032
+
+Test set: Average loss: 0.694539
+
+Correct instances:  2
+Train Epoch: 10 	Average Loss: 0.007758
+
+Test set: Average loss: 0.701169
+
+Correct instances:  2
+Train Epoch: 11 	Average Loss: 0.003568
+
+Test set: Average loss: 0.703214
+
+Correct instances:  2
+Train Epoch: 12 	Average Loss: 0.004698
+
+Test set: Average loss: 0.732491
+
+Correct instances:  2
+Train Epoch: 13 	Average Loss: 0.002962
+
+Test set: Average loss: 0.741102
+
+Correct instances:  2
+Train Epoch: 14 	Average Loss: 0.002107
+
+Test set: Average loss: 0.696442
+
+Correct instances:  2
+Train Epoch: 15 	Average Loss: 0.023519
+
+Test set: Average loss: 0.670332
+
+Correct instances:  3
+Train Epoch: 16 	Average Loss: 0.003971
+
+Test set: Average loss: 0.673550
+
+Correct instances:  3
+Train Epoch: 17 	Average Loss: 0.003876
+
+Test set: Average loss: 0.691336
+
+Correct instances:  2
+Train Epoch: 18 	Average Loss: 0.000126
+
+Test set: Average loss: 0.725882
+
+Correct instances:  2
+Train Epoch: 19 	Average Loss: 0.004310
+
+Test set: Average loss: 0.743998
+
+Correct instances:  2
+Train Epoch: 20 	Average Loss: 0.000258
+
+Test set: Average loss: 0.750002
+
+Correct instances:  2
+Train Epoch: 21 	Average Loss: 0.004110
+
+Test set: Average loss: 0.734962
+
+Correct instances:  2
+Train Epoch: 22 	Average Loss: 0.001000
+
+Test set: Average loss: 0.723254
+
+Correct instances:  2
+Train Epoch: 23 	Average Loss: 0.005616
+
+Test set: Average loss: 0.674785
+
+Correct instances:  2
+Train Epoch: 24 	Average Loss: 0.002100
+
+Test set: Average loss: 0.651625
+
+Correct instances:  2
+Train Epoch: 25 	Average Loss: 0.012484
+
+Test set: Average loss: 0.586818
+
+Correct instances:  2
+Train Epoch: 26 	Average Loss: 0.006653
+
+Test set: Average loss: 0.531786
+
+Correct instances:  2
+Train Epoch: 27 	Average Loss: 0.001042
+
+Test set: Average loss: 0.480403
+
+Correct instances:  2
+Train Epoch: 28 	Average Loss: 0.000038
+
+Test set: Average loss: 0.449121
+
+Correct instances:  1
+Train Epoch: 29 	Average Loss: 0.000866
+
+Test set: Average loss: 0.448145
+
+Correct instances:  1
+Train Epoch: 30 	Average Loss: 0.004409
+
+Test set: Average loss: 0.464560
+
+Correct instances:  2
+Train Epoch: 31 	Average Loss: 0.001940
+
+Test set: Average loss: 0.508486
+
+Correct instances:  2
+Train Epoch: 32 	Average Loss: 0.000121
+
+Test set: Average loss: 0.540640
+
+Correct instances:  3
+Train Epoch: 33 	Average Loss: 0.004804
+
+Test set: Average loss: 0.543561
+
+Correct instances:  3
+Train Epoch: 34 	Average Loss: 0.000092
+
+Test set: Average loss: 0.539970
+
+Correct instances:  2
+Train Epoch: 35 	Average Loss: 0.001424
+
+Test set: Average loss: 0.570091
+
+Correct instances:  2
+Train Epoch: 36 	Average Loss: 0.000311
+
+Test set: Average loss: 0.578161
+
+Correct instances:  2
+Train Epoch: 37 	Average Loss: 0.010920
+
+Test set: Average loss: 0.552593
+
+Correct instances:  2
+Train Epoch: 38 	Average Loss: 0.003891
+
+Test set: Average loss: 0.546619
+
+Correct instances:  2
+Train Epoch: 39 	Average Loss: 0.005068
+
+Test set: Average loss: 0.532104
+
+Correct instances:  2
+Train Epoch: 40 	Average Loss: 0.000177
+
+Test set: Average loss: 0.530708
+
+Correct instances:  3
+Train Epoch: 41 	Average Loss: 0.009847
+
+Test set: Average loss: 0.546469
+
+Correct instances:  3
+Train Epoch: 42 	Average Loss: 0.000158
+
+Test set: Average loss: 0.541918
+
+Correct instances:  3
+Train Epoch: 43 	Average Loss: 0.001883
+
+Test set: Average loss: 0.512766
+
+Correct instances:  3
+Train Epoch: 44 	Average Loss: 0.001472
+
+Test set: Average loss: 0.494462
+
+Correct instances:  3
+Train Epoch: 45 	Average Loss: 0.006140
+
+Test set: Average loss: 0.527393
+
+Correct instances:  2
+Train Epoch: 46 	Average Loss: 0.001633
+
+Test set: Average loss: 0.535890
+
+Correct instances:  2
+Train Epoch: 47 	Average Loss: 0.001059
+
+Test set: Average loss: 0.521263
+
+Correct instances:  2
+Train Epoch: 48 	Average Loss: 0.002088
+
+Test set: Average loss: 0.513103
+
+Correct instances:  2
+Train Epoch: 49 	Average Loss: 0.007307
+
+Test set: Average loss: 0.526384
+
+Correct instances:  3
+Train Epoch: 50 	Average Loss: 0.003242
+
+Test set: Average loss: 0.520787
+
+Correct instances:  4
+##################################################
+Learning Rate:  0.0008667798130902254
+Gamma:  0.7388459940289032
+##################################################
+===========Training X Model================
+Train Epoch: 1 	Average Loss: 0.000938
+
+Test set: Average loss: 0.179036
+
+Correct instances:  4
+Train Epoch: 2 	Average Loss: 0.003708
+
+Test set: Average loss: 0.202617
+
+Correct instances:  4
+Train Epoch: 3 	Average Loss: 0.000492
+
+Test set: Average loss: 0.221731
+
+Correct instances:  4
+Train Epoch: 4 	Average Loss: 0.002532
+
+Test set: Average loss: 0.235349
+
+Correct instances:  4
+Train Epoch: 5 	Average Loss: 0.001745
+
+Test set: Average loss: 0.248617
+
+Correct instances:  3
+Train Epoch: 6 	Average Loss: 0.003177
+
+Test set: Average loss: 0.229049
+
+Correct instances:  3
+Train Epoch: 7 	Average Loss: 0.001149
+
+Test set: Average loss: 0.233018
+
+Correct instances:  3
+Train Epoch: 8 	Average Loss: 0.000904
+
+Test set: Average loss: 0.223706
+
+Correct instances:  3
+Train Epoch: 9 	Average Loss: 0.000778
+
+Test set: Average loss: 0.223152
+
+Correct instances:  3
+Train Epoch: 10 	Average Loss: 0.001170
+
+Test set: Average loss: 0.214449
+
+Correct instances:  3
+Train Epoch: 11 	Average Loss: 0.004781
+
+Test set: Average loss: 0.224709
+
+Correct instances:  4
+Train Epoch: 12 	Average Loss: 0.003397
+
+Test set: Average loss: 0.223530
+
+Correct instances:  3
+Train Epoch: 13 	Average Loss: 0.002048
+
+Test set: Average loss: 0.234879
+
+Correct instances:  4
+Train Epoch: 14 	Average Loss: 0.003465
+
+Test set: Average loss: 0.219635
+
+Correct instances:  4
+Train Epoch: 15 	Average Loss: 0.003129
+
+Test set: Average loss: 0.213646
+
+Correct instances:  3
+Train Epoch: 16 	Average Loss: 0.014010
+
+Test set: Average loss: 0.220432
+
+Correct instances:  3
+Train Epoch: 17 	Average Loss: 0.008748
+
+Test set: Average loss: 0.204771
+
+Correct instances:  4
+Train Epoch: 18 	Average Loss: 0.001148
+
+Test set: Average loss: 0.210598
+
+Correct instances:  3
+Train Epoch: 19 	Average Loss: 0.005603
+
+Test set: Average loss: 0.204185
+
+Correct instances:  4
+Train Epoch: 20 	Average Loss: 0.002564
+
+Test set: Average loss: 0.207291
+
+Correct instances:  3
+Train Epoch: 21 	Average Loss: 0.003892
+
+Test set: Average loss: 0.219412
+
+Correct instances:  3
+Train Epoch: 22 	Average Loss: 0.003405
+
+Test set: Average loss: 0.216814
+
+Correct instances:  3
+Train Epoch: 23 	Average Loss: 0.008711
+
+Test set: Average loss: 0.223664
+
+Correct instances:  3
+Train Epoch: 24 	Average Loss: 0.001105
+
+Test set: Average loss: 0.215727
+
+Correct instances:  3
+Train Epoch: 25 	Average Loss: 0.001046
+
+Test set: Average loss: 0.217431
+
+Correct instances:  3
+Train Epoch: 26 	Average Loss: 0.004989
+
+Test set: Average loss: 0.209111
+
+Correct instances:  4
+Train Epoch: 27 	Average Loss: 0.006227
+
+Test set: Average loss: 0.211805
+
+Correct instances:  3
+Train Epoch: 28 	Average Loss: 0.009225
+
+Test set: Average loss: 0.217813
+
+Correct instances:  4
+Train Epoch: 29 	Average Loss: 0.003415
+
+Test set: Average loss: 0.211483
+
+Correct instances:  4
+Train Epoch: 30 	Average Loss: 0.004263
+
+Test set: Average loss: 0.213024
+
+Correct instances:  5
+Train Epoch: 31 	Average Loss: 0.002216
+
+Test set: Average loss: 0.222852
+
+Correct instances:  3
+Train Epoch: 32 	Average Loss: 0.004590
+
+Test set: Average loss: 0.238586
+
+Correct instances:  4
+Train Epoch: 33 	Average Loss: 0.000955
+
+Test set: Average loss: 0.231155
+
+Correct instances:  4
+Train Epoch: 34 	Average Loss: 0.001606
+
+Test set: Average loss: 0.218862
+
+Correct instances:  5
+Train Epoch: 35 	Average Loss: 0.003368
+
+Test set: Average loss: 0.221013
+
+Correct instances:  3
+Train Epoch: 36 	Average Loss: 0.000196
+
+Test set: Average loss: 0.219294
+
+Correct instances:  3
+Train Epoch: 37 	Average Loss: 0.008399
+
+Test set: Average loss: 0.225444
+
+Correct instances:  3
+Train Epoch: 38 	Average Loss: 0.002393
+
+Test set: Average loss: 0.223882
+
+Correct instances:  3
+Train Epoch: 39 	Average Loss: 0.004176
+
+Test set: Average loss: 0.211405
+
+Correct instances:  3
+Train Epoch: 40 	Average Loss: 0.000464
+
+Test set: Average loss: 0.221026
+
+Correct instances:  3
+Train Epoch: 41 	Average Loss: 0.001560
+
+Test set: Average loss: 0.218498
+
+Correct instances:  4
+Train Epoch: 42 	Average Loss: 0.001769
+
+Test set: Average loss: 0.230487
+
+Correct instances:  3
+Train Epoch: 43 	Average Loss: 0.001773
+
+Test set: Average loss: 0.221742
+
+Correct instances:  3
+Train Epoch: 44 	Average Loss: 0.000148
+
+Test set: Average loss: 0.214263
+
+Correct instances:  4
+Train Epoch: 45 	Average Loss: 0.008442
+
+Test set: Average loss: 0.223759
+
+Correct instances:  4
+Train Epoch: 46 	Average Loss: 0.007049
+
+Test set: Average loss: 0.222099
+
+Correct instances:  4
+Train Epoch: 47 	Average Loss: 0.001011
+
+Test set: Average loss: 0.212311
+
+Correct instances:  3
+Train Epoch: 48 	Average Loss: 0.001064
+
+Test set: Average loss: 0.208224
+
+Correct instances:  4
+Train Epoch: 49 	Average Loss: 0.008284
+
+Test set: Average loss: 0.215305
+
+Correct instances:  4
+Train Epoch: 50 	Average Loss: 0.002169
+
+Test set: Average loss: 0.218305
+
+Correct instances:  3
+===========Training Y Model================
+Train Epoch: 1 	Average Loss: 0.000330
+
+Test set: Average loss: 0.496895
+
+Correct instances:  4
+Train Epoch: 2 	Average Loss: 0.000013
+
+Test set: Average loss: 0.518710
+
+Correct instances:  3
+Train Epoch: 3 	Average Loss: 0.003932
+
+Test set: Average loss: 0.469560
+
+Correct instances:  3
+Train Epoch: 4 	Average Loss: 0.000060
+
+Test set: Average loss: 0.480394
+
+Correct instances:  3
+Train Epoch: 5 	Average Loss: 0.002994
+
+Test set: Average loss: 0.493974
+
+Correct instances:  3
+Train Epoch: 6 	Average Loss: 0.000537
+
+Test set: Average loss: 0.510721
+
+Correct instances:  3
+Train Epoch: 7 	Average Loss: 0.000068
+
+Test set: Average loss: 0.493205
+
+Correct instances:  3
+Train Epoch: 8 	Average Loss: 0.010478
+
+Test set: Average loss: 0.504035
+
+Correct instances:  3
+Train Epoch: 9 	Average Loss: 0.002492
+
+Test set: Average loss: 0.526087
+
+Correct instances:  3
+Train Epoch: 10 	Average Loss: 0.000119
+
+Test set: Average loss: 0.535630
+
+Correct instances:  3
+Train Epoch: 11 	Average Loss: 0.000419
+
+Test set: Average loss: 0.514819
+
+Correct instances:  3
+Train Epoch: 12 	Average Loss: 0.000492
+
+Test set: Average loss: 0.530550
+
+Correct instances:  3
+Train Epoch: 13 	Average Loss: 0.000629
+
+Test set: Average loss: 0.499732
+
+Correct instances:  3
+Train Epoch: 14 	Average Loss: 0.000133
+
+Test set: Average loss: 0.541535
+
+Correct instances:  3
+Train Epoch: 15 	Average Loss: 0.002314
+
+Test set: Average loss: 0.551645
+
+Correct instances:  3
+Train Epoch: 16 	Average Loss: 0.000038
+
+Test set: Average loss: 0.586246
+
+Correct instances:  3
+Train Epoch: 17 	Average Loss: 0.001920
+
+Test set: Average loss: 0.559477
+
+Correct instances:  3
+Train Epoch: 18 	Average Loss: 0.000761
+
+Test set: Average loss: 0.587198
+
+Correct instances:  3
+Train Epoch: 19 	Average Loss: 0.000420
+
+Test set: Average loss: 0.587618
+
+Correct instances:  3
+Train Epoch: 20 	Average Loss: 0.000744
+
+Test set: Average loss: 0.598879
+
+Correct instances:  3
+Train Epoch: 21 	Average Loss: 0.000379
+
+Test set: Average loss: 0.575810
+
+Correct instances:  3
+Train Epoch: 22 	Average Loss: 0.000377
+
+Test set: Average loss: 0.578445
+
+Correct instances:  4
+Train Epoch: 23 	Average Loss: 0.003388
+
+Test set: Average loss: 0.557781
+
+Correct instances:  4
+Train Epoch: 24 	Average Loss: 0.000775
+
+Test set: Average loss: 0.590211
+
+Correct instances:  4
+Train Epoch: 25 	Average Loss: 0.000169
+
+Test set: Average loss: 0.576253
+
+Correct instances:  3
+Train Epoch: 26 	Average Loss: 0.000425
+
+Test set: Average loss: 0.587146
+
+Correct instances:  3
+Train Epoch: 27 	Average Loss: 0.001126
+
+Test set: Average loss: 0.601509
+
+Correct instances:  3
+Train Epoch: 28 	Average Loss: 0.021278
+
+Test set: Average loss: 0.626441
+
+Correct instances:  3
+Train Epoch: 29 	Average Loss: 0.001794
+
+Test set: Average loss: 0.568816
+
+Correct instances:  4
+Train Epoch: 30 	Average Loss: 0.003995
+
+Test set: Average loss: 0.582649
+
+Correct instances:  3
+Train Epoch: 31 	Average Loss: 0.000165
+
+Test set: Average loss: 0.567497
+
+Correct instances:  4
+Train Epoch: 32 	Average Loss: 0.000242
+
+Test set: Average loss: 0.561588
+
+Correct instances:  3
+Train Epoch: 33 	Average Loss: 0.005771
+
+Test set: Average loss: 0.522187
+
+Correct instances:  4
+Train Epoch: 34 	Average Loss: 0.003783
+
+Test set: Average loss: 0.535774
+
+Correct instances:  4
+Train Epoch: 35 	Average Loss: 0.000447
+
+Test set: Average loss: 0.535768
+
+Correct instances:  4
+Train Epoch: 36 	Average Loss: 0.000411
+
+Test set: Average loss: 0.540162
+
+Correct instances:  4
+Train Epoch: 37 	Average Loss: 0.000630
+
+Test set: Average loss: 0.531921
+
+Correct instances:  4
+Train Epoch: 38 	Average Loss: 0.000146
+
+Test set: Average loss: 0.553851
+
+Correct instances:  4
+Train Epoch: 39 	Average Loss: 0.004659
+
+Test set: Average loss: 0.536148
+
+Correct instances:  4
+Train Epoch: 40 	Average Loss: 0.003418
+
+Test set: Average loss: 0.566946
+
+Correct instances:  4
+Train Epoch: 41 	Average Loss: 0.000097
+
+Test set: Average loss: 0.563077
+
+Correct instances:  4
+Train Epoch: 42 	Average Loss: 0.001186
+
+Test set: Average loss: 0.554061
+
+Correct instances:  4
+Train Epoch: 43 	Average Loss: 0.001986
+
+Test set: Average loss: 0.570031
+
+Correct instances:  4
+Train Epoch: 44 	Average Loss: 0.008011
+
+Test set: Average loss: 0.599059
+
+Correct instances:  4
+Train Epoch: 45 	Average Loss: 0.001418
+
+Test set: Average loss: 0.571142
+
+Correct instances:  4
+Train Epoch: 46 	Average Loss: 0.001342
+
+Test set: Average loss: 0.609670
+
+Correct instances:  4
+Train Epoch: 47 	Average Loss: 0.000077
+
+Test set: Average loss: 0.629914
+
+Correct instances:  4
+Train Epoch: 48 	Average Loss: 0.001484
+
+Test set: Average loss: 0.616100
+
+Correct instances:  4
+Train Epoch: 49 	Average Loss: 0.001536
+
+Test set: Average loss: 0.621634
+
+Correct instances:  4
+Train Epoch: 50 	Average Loss: 0.000757
+
+Test set: Average loss: 0.616318
+
+Correct instances:  3
+##################################################
+Learning Rate:  0.0009481045361873455
+Gamma:  0.9175647426672291
+##################################################
+===========Training X Model================
+Train Epoch: 1 	Average Loss: 0.003056
+
+Test set: Average loss: 0.228835
+
+Correct instances:  3
+Train Epoch: 2 	Average Loss: 0.003230
+
+Test set: Average loss: 0.204736
+
+Correct instances:  4
+Train Epoch: 3 	Average Loss: 0.009548
+
+Test set: Average loss: 0.195966
+
+Correct instances:  5
+Train Epoch: 4 	Average Loss: 0.003084
+
+Test set: Average loss: 0.216406
+
+Correct instances:  5
+Train Epoch: 5 	Average Loss: 0.002396
+
+Test set: Average loss: 0.223832
+
+Correct instances:  6
+Train Epoch: 6 	Average Loss: 0.000859
+
+Test set: Average loss: 0.241198
+
+Correct instances:  6
+Train Epoch: 7 	Average Loss: 0.006465
+
+Test set: Average loss: 0.243396
+
+Correct instances:  5
+Train Epoch: 8 	Average Loss: 0.003340
+
+Test set: Average loss: 0.226405
+
+Correct instances:  6
+Train Epoch: 9 	Average Loss: 0.001560
+
+Test set: Average loss: 0.240246
+
+Correct instances:  5
+Train Epoch: 10 	Average Loss: 0.003713
+
+Test set: Average loss: 0.236352
+
+Correct instances:  5
+Train Epoch: 11 	Average Loss: 0.006015
+
+Test set: Average loss: 0.219727
+
+Correct instances:  4
+Train Epoch: 12 	Average Loss: 0.001536
+
+Test set: Average loss: 0.220984
+
+Correct instances:  4
+Train Epoch: 13 	Average Loss: 0.003343
+
+Test set: Average loss: 0.222152
+
+Correct instances:  4
+Train Epoch: 14 	Average Loss: 0.006228
+
+Test set: Average loss: 0.222638
+
+Correct instances:  4
+Train Epoch: 15 	Average Loss: 0.002222
+
+Test set: Average loss: 0.216932
+
+Correct instances:  4
+Train Epoch: 16 	Average Loss: 0.004900
+
+Test set: Average loss: 0.197563
+
+Correct instances:  4
+Train Epoch: 17 	Average Loss: 0.007203
+
+Test set: Average loss: 0.193820
+
+Correct instances:  4
+Train Epoch: 18 	Average Loss: 0.006296
+
+Test set: Average loss: 0.194528
+
+Correct instances:  5
+Train Epoch: 19 	Average Loss: 0.000924
+
+Test set: Average loss: 0.176354
+
+Correct instances:  5
+Train Epoch: 20 	Average Loss: 0.001144
+
+Test set: Average loss: 0.170338
+
+Correct instances:  5
+Train Epoch: 21 	Average Loss: 0.000898
+
+Test set: Average loss: 0.169347
+
+Correct instances:  5
+Train Epoch: 22 	Average Loss: 0.003612
+
+Test set: Average loss: 0.167036
+
+Correct instances:  5
+Train Epoch: 23 	Average Loss: 0.000496
+
+Test set: Average loss: 0.155766
+
+Correct instances:  5
+Train Epoch: 24 	Average Loss: 0.000887
+
+Test set: Average loss: 0.172712
+
+Correct instances:  4
+Train Epoch: 25 	Average Loss: 0.002958
+
+Test set: Average loss: 0.164694
+
+Correct instances:  5
+Train Epoch: 26 	Average Loss: 0.000540
+
+Test set: Average loss: 0.161664
+
+Correct instances:  5
+Train Epoch: 27 	Average Loss: 0.001315
+
+Test set: Average loss: 0.159914
+
+Correct instances:  5
+Train Epoch: 28 	Average Loss: 0.006276
+
+Test set: Average loss: 0.164696
+
+Correct instances:  5
+Train Epoch: 29 	Average Loss: 0.001146
+
+Test set: Average loss: 0.165313
+
+Correct instances:  5
+Train Epoch: 30 	Average Loss: 0.000824
+
+Test set: Average loss: 0.164889
+
+Correct instances:  5
+Train Epoch: 31 	Average Loss: 0.000327
+
+Test set: Average loss: 0.159083
+
+Correct instances:  5
+Train Epoch: 32 	Average Loss: 0.000713
+
+Test set: Average loss: 0.166191
+
+Correct instances:  5
+Train Epoch: 33 	Average Loss: 0.002067
+
+Test set: Average loss: 0.168955
+
+Correct instances:  5
+Train Epoch: 34 	Average Loss: 0.003549
+
+Test set: Average loss: 0.159224
+
+Correct instances:  5
+Train Epoch: 35 	Average Loss: 0.006515
+
+Test set: Average loss: 0.160517
+
+Correct instances:  5
+Train Epoch: 36 	Average Loss: 0.000984
+
+Test set: Average loss: 0.166007
+
+Correct instances:  5
+Train Epoch: 37 	Average Loss: 0.002458
+
+Test set: Average loss: 0.164383
+
+Correct instances:  5
+Train Epoch: 38 	Average Loss: 0.000316
+
+Test set: Average loss: 0.158073
+
+Correct instances:  5
+Train Epoch: 39 	Average Loss: 0.004290
+
+Test set: Average loss: 0.154709
+
+Correct instances:  6
+Train Epoch: 40 	Average Loss: 0.002082
+
+Test set: Average loss: 0.163625
+
+Correct instances:  5
+Train Epoch: 41 	Average Loss: 0.002182
+
+Test set: Average loss: 0.166960
+
+Correct instances:  5
+Train Epoch: 42 	Average Loss: 0.002936
+
+Test set: Average loss: 0.172118
+
+Correct instances:  5
+Train Epoch: 43 	Average Loss: 0.000681
+
+Test set: Average loss: 0.170671
+
+Correct instances:  5
+Train Epoch: 44 	Average Loss: 0.000219
+
+Test set: Average loss: 0.178992
+
+Correct instances:  5
+Train Epoch: 45 	Average Loss: 0.000511
+
+Test set: Average loss: 0.173940
+
+Correct instances:  5
+Train Epoch: 46 	Average Loss: 0.000724
+
+Test set: Average loss: 0.173842
+
+Correct instances:  5
+Train Epoch: 47 	Average Loss: 0.000423
+
+Test set: Average loss: 0.158513
+
+Correct instances:  6
+Train Epoch: 48 	Average Loss: 0.003758
+
+Test set: Average loss: 0.156051
+
+Correct instances:  5
+Train Epoch: 49 	Average Loss: 0.007532
+
+Test set: Average loss: 0.153734
+
+Correct instances:  6
+Train Epoch: 50 	Average Loss: 0.000106
+
+Test set: Average loss: 0.166005
+
+Correct instances:  5
+===========Training Y Model================
+Train Epoch: 1 	Average Loss: 0.000059
+
+Test set: Average loss: 0.588574
+
+Correct instances:  4
+Train Epoch: 2 	Average Loss: 0.003142
+
+Test set: Average loss: 0.629084
+
+Correct instances:  3
+Train Epoch: 3 	Average Loss: 0.001424
+
+Test set: Average loss: 0.626999
+
+Correct instances:  3
+Train Epoch: 4 	Average Loss: 0.001189
+
+Test set: Average loss: 0.644539
+
+Correct instances:  3
+Train Epoch: 5 	Average Loss: 0.000026
+
+Test set: Average loss: 0.659262
+
+Correct instances:  2
+Train Epoch: 6 	Average Loss: 0.003262
+
+Test set: Average loss: 0.673069
+
+Correct instances:  2
+Train Epoch: 7 	Average Loss: 0.000662
+
+Test set: Average loss: 0.659767
+
+Correct instances:  3
+Train Epoch: 8 	Average Loss: 0.001120
+
+Test set: Average loss: 0.668089
+
+Correct instances:  2
+Train Epoch: 9 	Average Loss: 0.000588
+
+Test set: Average loss: 0.695960
+
+Correct instances:  2
+Train Epoch: 10 	Average Loss: 0.000533
+
+Test set: Average loss: 0.687890
+
+Correct instances:  2
+Train Epoch: 11 	Average Loss: 0.000052
+
+Test set: Average loss: 0.691672
+
+Correct instances:  2
+Train Epoch: 12 	Average Loss: 0.002230
+
+Test set: Average loss: 0.674777
+
+Correct instances:  3
+Train Epoch: 13 	Average Loss: 0.003513
+
+Test set: Average loss: 0.680723
+
+Correct instances:  3
+Train Epoch: 14 	Average Loss: 0.000225
+
+Test set: Average loss: 0.692787
+
+Correct instances:  2
+Train Epoch: 15 	Average Loss: 0.000017
+
+Test set: Average loss: 0.712395
+
+Correct instances:  2
+Train Epoch: 16 	Average Loss: 0.003586
+
+Test set: Average loss: 0.707929
+
+Correct instances:  2
+Train Epoch: 17 	Average Loss: 0.000499
+
+Test set: Average loss: 0.696118
+
+Correct instances:  2
+Train Epoch: 18 	Average Loss: 0.000299
+
+Test set: Average loss: 0.711521
+
+Correct instances:  2
+Train Epoch: 19 	Average Loss: 0.000190
+
+Test set: Average loss: 0.722968
+
+Correct instances:  2
+Train Epoch: 20 	Average Loss: 0.000851
+
+Test set: Average loss: 0.735943
+
+Correct instances:  2
+Train Epoch: 21 	Average Loss: 0.000008
+
+Test set: Average loss: 0.728733
+
+Correct instances:  2
+Train Epoch: 22 	Average Loss: 0.000107
+
+Test set: Average loss: 0.736363
+
+Correct instances:  3
+Train Epoch: 23 	Average Loss: 0.018548
+
+Test set: Average loss: 0.742252
+
+Correct instances:  3
+Train Epoch: 24 	Average Loss: 0.002568
+
+Test set: Average loss: 0.709007
+
+Correct instances:  2
+Train Epoch: 25 	Average Loss: 0.004141
+
+Test set: Average loss: 0.803445
+
+Correct instances:  2
+Train Epoch: 26 	Average Loss: 0.000054
+
+Test set: Average loss: 0.803619
+
+Correct instances:  3
+Train Epoch: 27 	Average Loss: 0.006889
+
+Test set: Average loss: 0.770881
+
+Correct instances:  2
+Train Epoch: 28 	Average Loss: 0.000385
+
+Test set: Average loss: 0.808241
+
+Correct instances:  2
+Train Epoch: 29 	Average Loss: 0.000224
+
+Test set: Average loss: 0.799510
+
+Correct instances:  2
+Train Epoch: 30 	Average Loss: 0.002046
+
+Test set: Average loss: 0.781939
+
+Correct instances:  2
+Train Epoch: 31 	Average Loss: 0.000104
+
+Test set: Average loss: 0.753145
+
+Correct instances:  3
+Train Epoch: 32 	Average Loss: 0.005678
+
+Test set: Average loss: 0.743439
+
+Correct instances:  2
+Train Epoch: 33 	Average Loss: 0.000032
+
+Test set: Average loss: 0.728347
+
+Correct instances:  2
+Train Epoch: 34 	Average Loss: 0.001717
+
+Test set: Average loss: 0.752834
+
+Correct instances:  2
+Train Epoch: 35 	Average Loss: 0.000452
+
+Test set: Average loss: 0.713064
+
+Correct instances:  2
+Train Epoch: 36 	Average Loss: 0.000697
+
+Test set: Average loss: 0.711386
+
+Correct instances:  2
+Train Epoch: 37 	Average Loss: 0.008036
+
+Test set: Average loss: 0.686847
+
+Correct instances:  3
+Train Epoch: 38 	Average Loss: 0.000120
+
+Test set: Average loss: 0.664115
+
+Correct instances:  3
+Train Epoch: 39 	Average Loss: 0.000112
+
+Test set: Average loss: 0.673586
+
+Correct instances:  3
+Train Epoch: 40 	Average Loss: 0.000016
+
+Test set: Average loss: 0.665376
+
+Correct instances:  2
+Train Epoch: 41 	Average Loss: 0.000532
+
+Test set: Average loss: 0.684762
+
+Correct instances:  3
+Train Epoch: 42 	Average Loss: 0.004784
+
+Test set: Average loss: 0.761858
+
+Correct instances:  3
+Train Epoch: 43 	Average Loss: 0.001013
+
+Test set: Average loss: 0.766362
+
+Correct instances:  3
+Train Epoch: 44 	Average Loss: 0.006225
+
+Test set: Average loss: 0.732032
+
+Correct instances:  2
+Train Epoch: 45 	Average Loss: 0.001178
+
+Test set: Average loss: 0.715435
+
+Correct instances:  2
+Train Epoch: 46 	Average Loss: 0.000180
+
+Test set: Average loss: 0.759432
+
+Correct instances:  2
+Train Epoch: 47 	Average Loss: 0.000104
+
+Test set: Average loss: 0.737777
+
+Correct instances:  2
+Train Epoch: 48 	Average Loss: 0.000028
+
+Test set: Average loss: 0.705027
+
+Correct instances:  2
+Train Epoch: 49 	Average Loss: 0.001053
+
+Test set: Average loss: 0.716236
+
+Correct instances:  2
+Train Epoch: 50 	Average Loss: 0.002867
+
+Test set: Average loss: 0.693483
+
+Correct instances:  2

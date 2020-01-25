@@ -2,26 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d111871f-b4ca-41b0-857b-829cd037bf7d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/classification_x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/classification_y.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/curve2_x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/curve2_y.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/curve_x.png" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/best_model/curve_x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/best_model/curve_y.png" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/best_model/curve_y.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/curve_buggy_x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/curve_buggy_y.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/curve_sigmoid_x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/curve_sigmoid_y.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/test2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/test_sigmoid.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/train2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/train2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/train_buggy.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/train_buggy.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/train_sigmoid.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/train_sigmoid.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/curve_x.png" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/curve_x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/train.txt" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/train.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,10 +14,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
+            <state relative-caret-position="227">
               <caret line="440" column="48" selection-start-line="440" selection-start-column="48" selection-end-line="440" selection-end-column="48" />
               <folding>
                 <element signature="e#22#59#0" expanded="true" />
@@ -46,8 +29,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train_softmax_simple.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3689">
-              <caret line="136" column="39" selection-start-line="136" selection-start-column="39" selection-end-line="136" selection-end-column="39" />
+            <state relative-caret-position="408">
+              <caret line="69" selection-start-line="69" selection-end-line="137" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/test_softmax_simple.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1595">
+              <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train_4layer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="278" column="20" selection-start-line="278" selection-start-column="20" selection-end-line="278" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -131,6 +132,8 @@
         <option value="$PROJECT_DIR$/homework/assignment1/bin/train_sigmoid_simple.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/train_softmax_simple.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/train.py" />
+        <option value="$PROJECT_DIR$/homework/assignment1/bin/test_softmax_simple.py" />
+        <option value="$PROJECT_DIR$/homework/assignment1/bin/train_4layer.py" />
       </list>
     </option>
   </component>
@@ -451,20 +454,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train_softmax_simple.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3689">
-          <caret line="136" column="39" selection-start-line="136" selection-start-column="39" selection-end-line="136" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
+        <state relative-caret-position="227">
           <caret line="440" column="48" selection-start-line="440" selection-start-column="48" selection-end-line="440" selection-end-column="48" />
           <folding>
             <element signature="e#22#59#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train_softmax_simple.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="69" selection-start-line="69" selection-end-line="137" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/test_softmax_simple.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1595">
+          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train_4layer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="278" column="20" selection-start-line="278" selection-start-column="20" selection-end-line="278" selection-end-column="20" />
         </state>
       </provider>
     </entry>
