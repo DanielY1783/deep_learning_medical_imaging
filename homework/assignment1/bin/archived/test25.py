@@ -8,7 +8,7 @@ import torch.nn.functional as F
 from torchvision import datasets, transforms
 
 # Constants
-MODEL_NAME = "network.pt"
+MODEL_NAME = "network25.pt"
 
 # Define the neural network
 class Net(nn.Module):
@@ -52,8 +52,8 @@ class Net(nn.Module):
         self.fc1y_bn = nn.BatchNorm1d(256)
         # 20 different output nodes for each of the classes, because we divide both
         # the x and y space into 20 spaces. We need two for x and y labels
-        self.fc2x = nn.Linear(256, 20)
-        self.fc2y = nn.Linear(256, 20)
+        self.fc2x = nn.Linear(256, 25)
+        self.fc2y = nn.Linear(256, 25)
 
     # Define the structure for forward propagation.
     def forward(self, x):
@@ -197,8 +197,8 @@ def main():
         label_y = output_y.argmax(dim=1, keepdim=True)
 
         # Convert to x and y values for center of that label
-        pred_x = (label_x / 20.0 + (label_x + 1) / 20.0) / 2
-        pred_y = (label_y / 20.0 + (label_y + 1) / 20.0) / 2
+        pred_x = (label_x / 25.0 + (label_x + 1) / 25.0) / 2
+        pred_y = (label_y / 25.0 + (label_y + 1) / 25.0) / 2
         # Calculate the center of the box for that label and print output
         print(round(pred_x.item(), 4), round(pred_y.item(), 4))
 

@@ -16,13 +16,13 @@ from torch.optim.lr_scheduler import StepLR
 from skimage import io, transform
 
 # Constants for the name of the model to save to
-MODEL_NAME = "network25.pt"
+MODEL_NAME = "network18.pt"
 # Constant for names of validation files
 VALIDATION_NAMES = ["111.jpg", "112.jpg", "113.jpg", "114.jpg", "115.jpg",
                     "116.jpg", "117.jpg", "118.jpg", "119.jpg", "125.jpg"]
 # Constant for number of x and y classes, which is the number of rectangular windows
 # we are dividing x and y coordinates into
-WINDOWS = 25
+WINDOWS = 18
 
 def generate_labels():
     """
@@ -48,8 +48,8 @@ def generate_labels():
     val_labels_df = labels_df[labels_df["file_name"].isin(VALIDATION_NAMES)]
     train_labels_df = labels_df[~labels_df["file_name"].isin(VALIDATION_NAMES)]
     # Store the label names separately
-    val_labels_df.to_csv("../data/labels/validation_labels25.txt", sep=" ", index=False, header=False)
-    train_labels_df.to_csv("../data/labels/train_labels25.txt", sep=" ", index=False, header=False)
+    val_labels_df.to_csv("../data/labels/validation_labels15.txt", sep=" ", index=False, header=False)
+    train_labels_df.to_csv("../data/labels/train_labels15.txt", sep=" ", index=False, header=False)
 
 def print_euclidean_distance(pred_x, pred_y):
     """
@@ -189,10 +189,10 @@ class Net(nn.Module):
         self.fc1x_bn = nn.BatchNorm1d(256)
         self.fc1y = nn.Linear(55080, 256)
         self.fc1y_bn = nn.BatchNorm1d(256)
-        # 20 different output nodes for each of the classes, because we divide both
-        # the x and y space into 20 spaces. We need two for x and y labels
-        self.fc2x = nn.Linear(256, 20)
-        self.fc2y = nn.Linear(256, 20)
+        # 15 different output nodes for each of the classes, because we divide both
+        # the x and y space into 15 spaces. We need two for x and y labels
+        self.fc2x = nn.Linear(256, 18)
+        self.fc2y = nn.Linear(256, 18)
 
     # Define the structure for forward propagation.
     def forward(self, x):
@@ -375,12 +375,12 @@ def test(args, model, device, test_loader, test_losses):
 def main():
     # Command line arguments for hyperparameters of model/training.
     parser = argparse.ArgumentParser(description='PyTorch Object Detection')
-    parser.add_argument('--batch-size', type=int, default=12, metavar='N',
-                        help='input batch size for training (default: 12)')
+    parser.add_argument('--batch-size', type=int, default=8, metavar='N',
+                        help='input batch size for training (default: 8)')
     parser.add_argument('--test-batch-size', type=int, default=1000, metavar='N',
                         help='input batch size for testing (default: 1000)')
-    parser.add_argument('--epochs', type=int, default=100, metavar='N',
-                        help='number of epochs to train (default: 100)')
+    parser.add_argument('--epochs', type=int, default=50, metavar='N',
+                        help='number of epochs to train (default: 50)')
     parser.add_argument('--no-cuda', action='store_true', default=False,
                         help='disables CUDA training')
     parser.add_argument('--seed', type=int, default=1, metavar='S',
@@ -403,7 +403,7 @@ def main():
 
     # Load in the training and testing datasets for the x values. Convert to pytorch tensor.
     train_data = DetectionImages(csv_file="../data/labels/train_labels.txt", root_dir="../data/train", transform=ToTensor())
-    train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=0)
+    train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=0, drop_last=True)
     test_data = DetectionImages(csv_file="../data/labels/validation_labels.txt", root_dir="../data/validation", transform=ToTensor())
     test_loader = DataLoader(test_data, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
 
@@ -481,7 +481,7 @@ def main():
             axes.plot(np.array(lowest_test_list), label="validation_loss", c="r")
             plt.legend()
             # Save the figure
-            plt.savefig('curve25.png')
+            plt.savefig('curve18.png')
             plt.close()
 
 

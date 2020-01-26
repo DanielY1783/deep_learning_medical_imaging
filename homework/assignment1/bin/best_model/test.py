@@ -197,8 +197,8 @@ def main():
         label_y = output_y.argmax(dim=1, keepdim=True)
 
         # Convert to x and y values for center of that label
-        pred_x = (label_x * 0.05 + (label_x + 1) * 0.05) / 2
-        pred_y = (label_y * 0.05 + (label_y + 1) * 0.05) / 2
+        pred_x = (label_x / 20.0 + (label_x + 1) / 20.0) / 2
+        pred_y = (label_y / 20.0 + (label_y + 1) / 20.0) / 2
         # Calculate the center of the box for that label and print output
         print(round(pred_x.item(), 4), round(pred_y.item(), 4))
 
