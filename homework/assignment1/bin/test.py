@@ -1,3 +1,9 @@
+# Name: Daniel Yan
+# Email: daniel.yan@vanderbilt.edu
+# Description: Predict object location for new image by used network from train.py to predict a label,
+# and then converting that label into a floating point value for the center of the label. Takes
+# in one command line argument for the path to the image.
+
 # Imports
 import argparse
 import numpy as np

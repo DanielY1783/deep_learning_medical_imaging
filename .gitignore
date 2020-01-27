@@ -134,5 +134,6 @@ dmypy.json
 # Pytorch models
 *.pt
 
-# Large data file
+# Large zip files
 assignment2.zip
+Yan_yand1.zip

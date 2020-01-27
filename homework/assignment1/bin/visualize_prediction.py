@@ -1,3 +1,8 @@
+# Name: Daniel Yan
+# Email: daniel.yan@vanderbilt.edu
+# Description: Used to visualize the prediction for a single image. Takes in three command line
+# arguments for the name of the image, the x coordinate, and the y coordinate.
+
 # Imports
 import argparse
 from PIL import Image

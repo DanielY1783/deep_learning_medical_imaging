@@ -1,3 +1,11 @@
+# Name: Daniel Yan
+# Email: daniel.yan@vanderbilt.edu
+# Description: Train convolutional neural networks for object detection and use the one with
+# the best validation error. A classification approach is adopted by dividing the x and y space
+# into equally sized windows and assigning each image to the label where the training x and y
+# floating point labels fall into. The predicted labels can then be used by test.py to be
+# converted back into floating point values corresponding to the center of that window.
+
 # Imports for Pytorch
 from __future__ import print_function
 import argparse
