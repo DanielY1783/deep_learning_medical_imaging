@@ -24,7 +24,7 @@ class DetectionImages(Dataset):
             transform (callable, optional): Optional transform to be applied
                 on a sample.
         """
-        self.labels_df = pd.read_csv(csv_file, sep=" ", header=None)
+        self.labels_df = pd.read_csv(csv_file, sep="\t", header=None)
         self.root_dir = root_dir
         self.transform = transform
 
@@ -40,7 +40,6 @@ class DetectionImages(Dataset):
         image = io.imread(img_name)
         label = self.labels_df.iloc[idx, 1:]
         label = np.array([label])
-        label = label.astype('float').reshape(-1, 2)
         sample = {'image': image, 'label': label}
 
         if self.transform:
@@ -50,8 +49,8 @@ class DetectionImages(Dataset):
 
 
 # Load in the training and testing datasets. Convert to pytorch tensor.
-train_data = DetectionImages(csv_file="../data/labels/train_labels.txt", root_dir="../data/train")
-train_loader = DataLoader(train_data, batch_size=1000, shuffle=True, num_workers=0)
+train_data = DetectionImages(csv_file="../data/labels/formatted_train_labels.csv", root_dir="../data/resized224/train/")
+train_loader = DataLoader(train_data, batch_size=1000000, shuffle=True, num_workers=0)
 
 # Get just the images
 image_array = None

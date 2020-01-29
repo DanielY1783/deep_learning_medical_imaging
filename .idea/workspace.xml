@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d111871f-b4ca-41b0-857b-829cd037bf7d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/calc_metrics.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/bin/visualize_prediction.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/bin/visualize_prediction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment1/presentation/Yan_yand1.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment1/presentation/Yan_yand1.pptx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment2/bin/calc_metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment2/bin/calc_metrics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment2/bin/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment2/bin/train.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,24 +15,57 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train.py">
+        <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/calc_metrics.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="54" selection-end-line="6" selection-end-column="87" />
+            <state relative-caret-position="244">
+              <caret line="63" column="30" lean-forward="true" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="30" />
               <folding>
-                <element signature="e#22#59#0" expanded="true" />
+                <element signature="e#232#250#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/visualize_prediction.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="78" selection-end-line="32" selection-end-column="10" />
+            <state relative-caret-position="391">
+              <caret line="145" column="81" selection-start-line="145" selection-start-column="81" selection-end-line="145" selection-end-column="81" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/generate_labels.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="48" column="89" selection-start-line="48" selection-start-column="89" selection-end-line="48" selection-end-column="89" />
               <folding>
-                <element signature="e#10#25#0" expanded="true" />
+                <element signature="e#10#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/archived/create_labels.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="46" />
+              <folding>
+                <element signature="e#10#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/image_resize.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -71,10 +102,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/homework/assignment1/bin/arch2.py" />
-        <option value="$PROJECT_DIR$/homework/assignment1/bin/arch5.py" />
-        <option value="$PROJECT_DIR$/homework/assignment1/bin/arch6.py" />
-        <option value="$PROJECT_DIR$/homework/assignment1/bin/arch7.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/test7.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/arch1.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/box_test.py" />
@@ -122,6 +149,10 @@
         <option value="$PROJECT_DIR$/homework/assignment1/bin/test.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/calc_metrics.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/visualize_prediction.py" />
+        <option value="$PROJECT_DIR$/homework/assignment2/bin/image_resize.py" />
+        <option value="$PROJECT_DIR$/homework/assignment2/bin/calc_metrics.py" />
+        <option value="$PROJECT_DIR$/homework/assignment2/bin/train.py" />
+        <option value="$PROJECT_DIR$/homework/assignment2/bin/generate_labels.py" />
       </list>
     </option>
   </component>
@@ -137,7 +168,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -175,12 +205,49 @@
               <item name="homework" type="462c0819:PsiDirectoryNode" />
               <item name="assignment1" type="462c0819:PsiDirectoryNode" />
               <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="best_model" type="462c0819:PsiDirectoryNode" />
+              <item name="archived" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
+              <item name="homework" type="462c0819:PsiDirectoryNode" />
+              <item name="assignment2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
+              <item name="homework" type="462c0819:PsiDirectoryNode" />
+              <item name="assignment2" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
+              <item name="homework" type="462c0819:PsiDirectoryNode" />
+              <item name="assignment2" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
+              <item name="homework" type="462c0819:PsiDirectoryNode" />
+              <item name="assignment2" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="labels" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
+              <item name="homework" type="462c0819:PsiDirectoryNode" />
+              <item name="assignment2" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="original" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -305,13 +372,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/multi_search.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_test.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/new.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box1_test.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_search_test.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_search2_test.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box1.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_search_l1_test.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_search2.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/search.py" />
@@ -368,9 +428,7 @@
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train15.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/test25.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train25.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train.txt" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train18.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/best_model/test.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -403,9 +461,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="54" selection-end-line="6" selection-end-column="87" />
-          <folding>
-            <element signature="e#22#59#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -413,8 +468,58 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="78" selection-end-line="32" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/image_resize.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
           <folding>
-            <element signature="e#10#25#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment2/data/labels/Train_labels.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment2/data/labels/Test_labels.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/calc_metrics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="63" column="30" lean-forward="true" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="30" />
+          <folding>
+            <element signature="e#232#250#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="145" column="81" selection-start-line="145" selection-start-column="81" selection-end-line="145" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/archived/create_labels.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="46" />
+          <folding>
+            <element signature="e#10#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/generate_labels.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="48" column="89" selection-start-line="48" selection-start-column="89" selection-end-line="48" selection-end-column="89" />
+          <folding>
+            <element signature="e#10#28#0" expanded="true" />
           </folding>
         </state>
       </provider>

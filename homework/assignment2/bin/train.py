@@ -143,9 +143,10 @@ class ToTensor(object):
 
     def __call__(self, sample):
         image, label = sample['image'], sample['label']
-        # Normalize images with mean and standard deviation from each channel found using some
-        # simple array calculations
-        in_transform = transforms.Compose([transforms.Normalize([146.5899, 142.5595, 139.0785], [34.5019, 34.8481, 37.1137])])
+        # Normalize images with mean and standard deviation for pretrained models
+        normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                                         std=[0.229, 0.224, 0.225])
+        in_transform = transforms.Compose([normalize])
         # swap color axis because
         # numpy image: H x W x C
         # torch image: C X H X W
