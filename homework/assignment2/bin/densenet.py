@@ -12,19 +12,18 @@ import argparse
 from matplotlib import pyplot as plt
 import numpy as np
 import pandas as pd
-import random
 import os
 import torch
 from torch.utils.data import Dataset, DataLoader
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
-from torchvision import datasets, transforms, models
+from torchvision import transforms, models
 from torch.optim.lr_scheduler import StepLR
-from skimage import io, transform
+from skimage import io
 
 # Constants for the name of the model to save to
-MODEL_NAME = "densenet.pt"
+MODEL_NAME = "densenet"
 
 # Class for the dataset
 class ImagesDataset(Dataset):
@@ -141,14 +140,16 @@ def test(args, model, device, test_loader, test_losses):
             correct += pred.eq(target.view_as(pred)).sum().item()
 
     # Append test loss to total losses
-    test_losses.append(test_loss)
+    test_losses.append(test_loss / len(test_loader))
 
     # Print out the statistics for the testing set.
-    print('\nTest set: Average loss: {:.6f}\n'.format(
+    print('\nTest set: Average loss: {:.6f}'.format(
         test_loss / len(test_loader)))
     # Print out the number of correct predictions
-    print('\nTest set: Correct Predictions: {}/{}\n'.format(
+    print('\nTest set: Correct Predictions: {}/{}'.format(
         correct, len(test_loader.dataset)))
+    # Print out testing accuracy
+    print("\nTest set: Accuracy: {}".format(float(correct/len(test_loader.dataset))))
 
 
 
@@ -159,8 +160,8 @@ def main():
                         help='input batch size for training (default: 8)')
     parser.add_argument('--test-batch-size', type=int, default=64, metavar='N',
                         help='input batch size for testing (default: 64)')
-    parser.add_argument('--epochs', type=int, default=10, metavar='N',
-                        help='number of epochs to train (default: 10)')
+    parser.add_argument('--epochs', type=int, default=25, metavar='N',
+                        help='number of epochs to train (default: 25)')
     parser.add_argument('--gamma', type=float, default=1, metavar='N',
                         help='gamma value for learning rate decay (default: 1)')
     parser.add_argument('--no-cuda', action='store_true', default=False,
@@ -182,7 +183,7 @@ def main():
 
     # Load in the dataset and split into training and validation
     data = ImagesDataset(csv_file="../data/labels/formatted_train_labels.csv", root_dir="../data/resized224/train/", transform=ToTensor())
-    train_size = int(0.1 * len(data))
+    train_size = int(0.9 * len(data))
     test_size = len(data) - train_size
     train_data, val_data = torch.utils.data.random_split(data, [train_size, test_size])
     # Create data loader for training and validation
@@ -207,6 +208,8 @@ def main():
     # Create scheduler.
     scheduler = StepLR(optimizer, step_size=1, gamma=args.gamma)
 
+    # Store the lowest loss found so far for early stopping
+    lowest_loss = 1000
 
     # Train the model for the set number of epochs
     for epoch in range(1, args.epochs + 1):
@@ -215,18 +218,22 @@ def main():
         test(args, model, device, val_loader, val_losses)
         scheduler.step()
 
-    # Create learning curve
-    figure, axes = plt.subplots()
-    # Set axes labels and title
-    axes.set(xlabel="Epoch", ylabel="Loss", title="Learning Curve")
-    # Plot the learning curves for training and validation loss
-    axes.plot(np.array(train_losses), label="train_loss", c="b")
-    axes.plot(np.array(val_losses), label="validation_loss", c="r")
-    plt.legend()
-    # Save the figure
-    plt.savefig('densenet.png')
-    plt.close()
+        # If we find the lowest loss so far, store the model and learning curve
+        if lowest_loss > val_losses[epoch - 1]:
+            # Create learning curve
+            figure, axes = plt.subplots()
+            # Set axes labels and title
+            axes.set(xlabel="Epoch", ylabel="Loss", title="Learning Curve")
+            # Plot the learning curves for training and validation loss
+            axes.plot(np.array(train_losses), label="train_loss", c="b")
+            axes.plot(np.array(val_losses), label="validation_loss", c="r")
+            plt.legend()
+            # Save the figure
+            plt.savefig(MODEL_NAME + ".png")
+            plt.close()
 
+            # Save the model
+            torch.save(model.state_dict(), MODEL_NAME + ".pt")
 
 if __name__ == '__main__':
     main()
