@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d111871f-b4ca-41b0-857b-829cd037bf7d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment2/bin/best_model/densenet.png" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment2/bin/best_model/densenet.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment2/bin/densenet.png" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment2/bin/densenet.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/homework/assignment2/bin/densenet.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment2/bin/densenet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment2/bin/densenet.txt" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment2/bin/densenet.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/densenet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="833">
-              <caret line="142" column="51" selection-start-line="142" selection-start-column="51" selection-end-line="142" selection-end-column="51" />
+            <state relative-caret-position="289">
+              <caret line="155" column="68" selection-start-line="155" selection-start-column="68" selection-end-line="155" selection-end-column="68" />
               <folding>
                 <element signature="e#538#575#0" expanded="true" />
               </folding>
@@ -26,14 +28,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/assignment0/main.py">
+        <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/resnet50.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="193" column="8" selection-start-line="193" selection-start-column="8" selection-end-line="193" selection-end-column="54" />
-              <folding>
-                <element signature="e#22#59#0" expanded="true" />
-              </folding>
-            </state>
+            <state relative-caret-position="-2142" />
           </provider>
         </entry>
       </file>
@@ -68,8 +65,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/homework/assignment1/bin/arch1.py" />
-        <option value="$PROJECT_DIR$/homework/assignment1/bin/box_test.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/multi_test.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/multi_search.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/box1_test.py" />
@@ -118,6 +113,8 @@
         <option value="$PROJECT_DIR$/homework/assignment2/bin/generate_labels.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/train.py" />
         <option value="$PROJECT_DIR$/homework/assignment2/bin/train.py" />
+        <option value="$PROJECT_DIR$/homework/assignment2/bin/resnet.py" />
+        <option value="$PROJECT_DIR$/homework/assignment2/bin/resnet50.py" />
         <option value="$PROJECT_DIR$/homework/assignment2/bin/densenet.py" />
       </list>
     </option>
@@ -151,19 +148,6 @@
               <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
               <item name="homework" type="462c0819:PsiDirectoryNode" />
               <item name="assignment0" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
-              <item name="homework" type="462c0819:PsiDirectoryNode" />
-              <item name="assignment1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
-              <item name="homework" type="462c0819:PsiDirectoryNode" />
-              <item name="assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
@@ -330,8 +314,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/search.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_search_l1.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/box_search.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/classification.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/classification_x.py" />
@@ -486,10 +468,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/resnet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="197" column="36" selection-start-line="197" selection-start-column="36" selection-end-line="197" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/resnet50.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2142" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/densenet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="142" column="51" selection-start-line="142" selection-start-column="51" selection-end-line="142" selection-end-column="51" />
+        <state relative-caret-position="289">
+          <caret line="155" column="68" selection-start-line="155" selection-start-column="68" selection-end-line="155" selection-end-column="68" />
           <folding>
             <element signature="e#538#575#0" expanded="true" />
           </folding>

@@ -1,0 +1,183 @@
+Train Epoch: 1 	Average Loss: 1.063841
+
+Test set: Average loss: 0.868835
+
+Test set: Correct Predictions: 635/902
+
+Test set: Accuracy: 0.7039911308203991
+New lowest validation loss:  0.8688351412614187
+Train Epoch: 2 	Average Loss: 0.907509
+
+Test set: Average loss: 1.006246
+
+Test set: Correct Predictions: 618/902
+
+Test set: Accuracy: 0.6851441241685144
+Train Epoch: 3 	Average Loss: 0.877452
+
+Test set: Average loss: 0.830568
+
+Test set: Correct Predictions: 631/902
+
+Test set: Accuracy: 0.6995565410199557
+New lowest validation loss:  0.830567733446757
+Train Epoch: 4 	Average Loss: 0.853717
+
+Test set: Average loss: 0.738703
+
+Test set: Correct Predictions: 644/902
+
+Test set: Accuracy: 0.7139689578713969
+New lowest validation loss:  0.7387031316757202
+Train Epoch: 5 	Average Loss: 0.838455
+
+Test set: Average loss: 0.974917
+
+Test set: Correct Predictions: 595/902
+
+Test set: Accuracy: 0.6596452328159645
+Train Epoch: 6 	Average Loss: 0.810669
+
+Test set: Average loss: 0.712832
+
+Test set: Correct Predictions: 655/902
+
+Test set: Accuracy: 0.7261640798226164
+New lowest validation loss:  0.7128322064876557
+Train Epoch: 7 	Average Loss: 0.781383
+
+Test set: Average loss: 4.690175
+
+Test set: Correct Predictions: 258/902
+
+Test set: Accuracy: 0.2860310421286031
+Train Epoch: 8 	Average Loss: 0.805917
+
+Test set: Average loss: 0.920819
+
+Test set: Correct Predictions: 636/902
+
+Test set: Accuracy: 0.70509977827051
+Train Epoch: 9 	Average Loss: 0.756420
+
+Test set: Average loss: 0.868532
+
+Test set: Correct Predictions: 629/902
+
+Test set: Accuracy: 0.697339246119734
+Train Epoch: 10 	Average Loss: 0.739844
+
+Test set: Average loss: 0.825741
+
+Test set: Correct Predictions: 648/902
+
+Test set: Accuracy: 0.7184035476718403
+Train Epoch: 11 	Average Loss: 0.723785
+
+Test set: Average loss: 0.752344
+
+Test set: Correct Predictions: 668/902
+
+Test set: Accuracy: 0.7405764966740577
+Train Epoch: 12 	Average Loss: 0.701943
+
+Test set: Average loss: 0.765459
+
+Test set: Correct Predictions: 652/902
+
+Test set: Accuracy: 0.7228381374722838
+Train Epoch: 13 	Average Loss: 0.692933
+
+Test set: Average loss: 0.689276
+
+Test set: Correct Predictions: 678/902
+
+Test set: Accuracy: 0.7516629711751663
+New lowest validation loss:  0.6892762184143066
+Train Epoch: 14 	Average Loss: 0.679140
+
+Test set: Average loss: 0.733661
+
+Test set: Correct Predictions: 669/902
+
+Test set: Accuracy: 0.7416851441241685
+Train Epoch: 15 	Average Loss: 0.667347
+
+Test set: Average loss: 0.673882
+
+Test set: Correct Predictions: 672/902
+
+Test set: Accuracy: 0.7450110864745011
+New lowest validation loss:  0.6738816599051157
+Train Epoch: 16 	Average Loss: 0.650527
+
+Test set: Average loss: 0.635175
+
+Test set: Correct Predictions: 690/902
+
+Test set: Accuracy: 0.7649667405764967
+New lowest validation loss:  0.6351753056049347
+Train Epoch: 17 	Average Loss: 0.634473
+
+Test set: Average loss: 0.671218
+
+Test set: Correct Predictions: 663/902
+
+Test set: Accuracy: 0.7350332594235033
+Train Epoch: 18 	Average Loss: 0.623334
+
+Test set: Average loss: 0.638855
+
+Test set: Correct Predictions: 680/902
+
+Test set: Accuracy: 0.753880266075388
+Train Epoch: 19 	Average Loss: 0.613038
+
+Test set: Average loss: 0.624094
+
+Test set: Correct Predictions: 695/902
+
+Test set: Accuracy: 0.770509977827051
+New lowest validation loss:  0.6240935583909353
+Train Epoch: 20 	Average Loss: 0.594593
+
+Test set: Average loss: 0.660936
+
+Test set: Correct Predictions: 684/902
+
+Test set: Accuracy: 0.7583148558758315
+Train Epoch: 21 	Average Loss: 0.572924
+
+Test set: Average loss: 0.710813
+
+Test set: Correct Predictions: 674/902
+
+Test set: Accuracy: 0.7472283813747228
+Train Epoch: 22 	Average Loss: 0.559455
+
+Test set: Average loss: 0.641621
+
+Test set: Correct Predictions: 691/902
+
+Test set: Accuracy: 0.7660753880266076
+Train Epoch: 23 	Average Loss: 0.529160
+
+Test set: Average loss: 0.655225
+
+Test set: Correct Predictions: 672/902
+
+Test set: Accuracy: 0.7450110864745011
+Train Epoch: 24 	Average Loss: 0.514138
+
+Test set: Average loss: 0.634378
+
+Test set: Correct Predictions: 690/902
+
+Test set: Accuracy: 0.7649667405764967
+Train Epoch: 25 	Average Loss: 0.478898
+
+Test set: Average loss: 0.714212
+
+Test set: Correct Predictions: 692/902
+
+Test set: Accuracy: 0.7671840354767184

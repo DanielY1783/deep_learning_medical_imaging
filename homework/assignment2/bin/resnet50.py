@@ -15,7 +15,7 @@ from torch.optim.lr_scheduler import StepLR
 from skimage import io
 
 # Constants for the name of the model to save to
-MODEL_NAME = "densenet"
+MODEL_NAME = "resnet50"
 
 # Class for the dataset
 class ImagesDataset(Dataset):
@@ -152,8 +152,8 @@ def main():
                         help='input batch size for training (default: 8)')
     parser.add_argument('--test-batch-size', type=int, default=64, metavar='N',
                         help='input batch size for testing (default: 64)')
-    parser.add_argument('--epochs', type=int, default=50, metavar='N',
-                        help='number of epochs to train (default: 50)')
+    parser.add_argument('--epochs', type=int, default=25, metavar='N',
+                        help='number of epochs to train (default: 25)')
     parser.add_argument('--gamma', type=float, default=1, metavar='N',
                         help='gamma value for learning rate decay (default: 1)')
     parser.add_argument('--no-cuda', action='store_true', default=False,
@@ -183,11 +183,11 @@ def main():
     val_loader = DataLoader(val_data, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
 
     # Use densenet
-    model = models.densenet121()
+    model = models.resnet50()
     # Number of classes is 7
     num_classes = 7
     # Reshape the output for densenet for this problem
-    model.classifier = nn.Linear(1024, num_classes)
+    model.classifier = nn.Linear(512, num_classes)
     # Send model to gpu
     model = model.to(device)
     # Specify Adam optimizer
