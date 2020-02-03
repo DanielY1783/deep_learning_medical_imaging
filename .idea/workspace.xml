@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d111871f-b4ca-41b0-857b-829cd037bf7d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/homework/assignment2/bin/best_model/densenet.png" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment2/bin/best_model/densenet.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment2/bin/densenet.png" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment2/bin/densenet.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment2/bin/densenet.txt" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment2/bin/densenet.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment2/bin/densenet50.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment2/bin/densenet.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment2/bin/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment2/bin/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment2/bin/vgg19_bn.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment2/bin/vgg19_bn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment2/bin/vgg19_bn.txt" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment2/bin/vgg19_bn.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,10 +17,25 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/vgg19_bn.py">
+        <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="189" column="33" lean-forward="true" selection-start-line="189" selection-start-column="33" selection-end-line="189" selection-end-column="33" />
+            <state relative-caret-position="935">
+              <caret line="55" column="16" lean-forward="true" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="16" />
+              <folding>
+                <element signature="e#322#337#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/train.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-45">
+              <caret line="172" selection-start-line="172" selection-end-line="174" />
+              <folding>
+                <element signature="e#22#59#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -55,7 +71,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/homework/assignment1/bin/box1_test.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/box_search2_test.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/new.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/box1.py" />
@@ -106,6 +121,7 @@
         <option value="$PROJECT_DIR$/homework/assignment2/bin/densenet.py" />
         <option value="$PROJECT_DIR$/homework/assignment2/bin/vgg.py" />
         <option value="$PROJECT_DIR$/homework/assignment2/bin/vgg19_bn.py" />
+        <option value="$PROJECT_DIR$/homework/assignment2/bin/test.py" />
       </list>
     </option>
   </component>
@@ -304,7 +320,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/classification_test.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/classification_y.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train_rotate_y.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train_2.py" />
@@ -428,16 +443,6 @@
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/archived/train.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1230">
-          <caret line="166" column="71" lean-forward="true" selection-start-line="166" selection-start-column="71" selection-end-line="166" selection-end-column="71" />
-          <folding>
-            <element signature="e#538#575#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="227">
@@ -455,33 +460,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/resnet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="197" column="36" selection-start-line="197" selection-start-column="36" selection-end-line="197" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/vgg.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/resnet.py" />
+    <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/vgg.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/resnet50.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2703" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/densenet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="155" column="68" selection-start-line="155" selection-start-column="68" selection-end-line="155" selection-end-column="68" />
-          <folding>
-            <element signature="e#538#575#0" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/vgg19_bn.txt">
@@ -489,8 +472,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/vgg19_bn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="189" column="33" lean-forward="true" selection-start-line="189" selection-start-column="33" selection-end-line="189" selection-end-column="33" />
+        <state relative-caret-position="-980">
+          <caret line="153" column="71" selection-start-line="153" selection-start-column="71" selection-end-line="153" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/densenet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="e#22#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="172" selection-start-line="172" selection-end-line="174" />
+          <folding>
+            <element signature="e#22#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="935">
+          <caret line="55" column="16" lean-forward="true" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="16" />
+          <folding>
+            <element signature="e#322#337#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

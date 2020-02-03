@@ -150,8 +150,8 @@ def main():
     parser = argparse.ArgumentParser(description='PyTorch Object Detection')
     parser.add_argument('--batch-size', type=int, default=8, metavar='N',
                         help='input batch size for training (default: 8)')
-    parser.add_argument('--test-batch-size', type=int, default=64, metavar='N',
-                        help='input batch size for testing (default: 64)')
+    parser.add_argument('--test-batch-size', type=int, default=16, metavar='N',
+                        help='input batch size for testing (default: 16)')
     parser.add_argument('--epochs', type=int, default=50, metavar='N',
                         help='number of epochs to train (default: 50)')
     parser.add_argument('--gamma', type=float, default=1, metavar='N',
