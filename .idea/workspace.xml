@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d111871f-b4ca-41b0-857b-829cd037bf7d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment2/bin/densenet.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment2/bin/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment2/bin/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment2/bin/resnet50.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment2/bin/resnet50.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment2/bin/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment2/bin/train.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/homework/assignment2/bin/vgg19_bn.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment2/bin/vgg19_bn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment2/bin/vgg19_bn.txt" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment2/bin/vgg19_bn.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,10 +15,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/test.py">
+        <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/test_set_metrics.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="935">
-              <caret line="55" column="16" lean-forward="true" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="16" />
+            <state relative-caret-position="-334">
+              <caret line="85" column="31" selection-start-line="85" selection-start-column="31" selection-end-line="85" selection-end-column="31" />
               <folding>
                 <element signature="e#322#337#0" expanded="true" />
               </folding>
@@ -31,8 +29,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-45">
-              <caret line="172" selection-start-line="172" selection-end-line="174" />
+            <state relative-caret-position="-929">
+              <caret line="120" selection-start-line="120" selection-end-line="121" selection-end-column="33" />
               <folding>
                 <element signature="e#22#59#0" expanded="true" />
               </folding>
@@ -71,7 +69,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/homework/assignment1/bin/box_search2_test.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/new.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/box1.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/search.py" />
@@ -115,13 +112,14 @@
         <option value="$PROJECT_DIR$/homework/assignment2/bin/calc_metrics.py" />
         <option value="$PROJECT_DIR$/homework/assignment2/bin/generate_labels.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/train.py" />
-        <option value="$PROJECT_DIR$/homework/assignment2/bin/train.py" />
         <option value="$PROJECT_DIR$/homework/assignment2/bin/resnet.py" />
-        <option value="$PROJECT_DIR$/homework/assignment2/bin/resnet50.py" />
         <option value="$PROJECT_DIR$/homework/assignment2/bin/densenet.py" />
         <option value="$PROJECT_DIR$/homework/assignment2/bin/vgg.py" />
-        <option value="$PROJECT_DIR$/homework/assignment2/bin/vgg19_bn.py" />
         <option value="$PROJECT_DIR$/homework/assignment2/bin/test.py" />
+        <option value="$PROJECT_DIR$/homework/assignment2/bin/train.py" />
+        <option value="$PROJECT_DIR$/homework/assignment2/bin/resnet50.py" />
+        <option value="$PROJECT_DIR$/homework/assignment2/bin/vgg19_bn.py" />
+        <option value="$PROJECT_DIR$/homework/assignment2/bin/test_set_metrics.py" />
       </list>
     </option>
   </component>
@@ -320,7 +318,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/classification_y.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train_rotate_y.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train_2.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train_sigmoid.py" />
@@ -462,20 +459,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/resnet.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/vgg.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/resnet50.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2703" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/vgg19_bn.txt">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/vgg19_bn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-980">
-          <caret line="153" column="71" selection-start-line="153" selection-start-column="71" selection-end-line="153" selection-end-column="71" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/densenet.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -487,20 +472,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="61" column="48" selection-start-line="61" selection-start-column="14" selection-end-line="61" selection-end-column="48" />
+          <folding>
+            <element signature="e#322#337#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/vgg19_bn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-334">
+          <caret line="119" column="26" selection-start-line="119" selection-start-column="26" selection-end-line="119" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/resnet50.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-847">
+          <caret line="124" column="53" selection-start-line="124" selection-start-column="53" selection-end-line="124" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-45">
-          <caret line="172" selection-start-line="172" selection-end-line="174" />
+        <state relative-caret-position="-929">
+          <caret line="120" selection-start-line="120" selection-end-line="121" selection-end-column="33" />
           <folding>
             <element signature="e#22#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/test.py">
+    <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/test_set_metrics.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="55" column="16" lean-forward="true" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="16" />
+        <state relative-caret-position="-334">
+          <caret line="85" column="31" selection-start-line="85" selection-start-column="31" selection-end-line="85" selection-end-column="31" />
           <folding>
             <element signature="e#322#337#0" expanded="true" />
           </folding>

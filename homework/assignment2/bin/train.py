@@ -115,14 +115,14 @@ def test(args, model, device, test_loader, test_losses):
         # and the number of correct predictions
         # with the counters from above.
         for batch_idx, batch_sample in enumerate(test_loader):
-            # Send training data and the training labels to GPU/CPU
+            # Send data and the labels to GPU/CPU
             data, target = batch_sample["image"].to(device, dtype=torch.float32), batch_sample["label"].to(device,
                                                                                           dtype=torch.long)
-            # Get the x and y labels separately
+            # Get the label with one less dimension
             target = target[:, 0]
             # Obtain the output from the model
             output = model(data)
-            # Calculate the loss using cross entropy. Total loss is sum of x and y loss
+            # Calculate the loss using cross entropy.
             loss = F.cross_entropy(output, target)
             # Increment the total test loss
             test_loss += loss.item()
