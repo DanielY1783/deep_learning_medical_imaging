@@ -5,7 +5,7 @@
 # in one command line argument for the path to the image.
 
 # Imports
-import argparse
+import matplotlib.pyplot as plt
 import os
 import numpy as np
 import pandas as pd
@@ -15,6 +15,7 @@ from torch.utils.data import Dataset, DataLoader
 from torchvision import transforms, models
 from sklearn import metrics
 from skimage import io
+import seaborn
 
 # Constants
 MODEL_NAME = "densenet.pt"
@@ -119,11 +120,19 @@ def main():
         predictions = predictions.cpu().numpy()
         actual = actual.cpu().numpy()
 
-        # Use scikit-learn to print out accuracy score
-        print(len(actual))
+        # Use scikit-learn to print out accuracy, precision, and recall
         print("Test set accuracy: ", metrics.accuracy_score(actual, predictions))
         print("Test set precision: ", metrics.precision_score(actual, predictions, average="weighted"))
         print("Test set recall: ", metrics.recall_score(actual, predictions, average="weighted"))
+
+        # Use scikit-learn to calculate confusion matrix
+        confusion_matrix = metrics.confusion_matrix(actual, predictions, normalize="true")
+        # Use seaborn to plot heatmap
+        axes = seaborn.heatmap(confusion_matrix, annot=True)
+        axes.set(xlabel="Predicted Label", ylabel="Actual Label", title="Confusion Matrix")
+        # Save as image and show plot.
+        plt.savefig("confusion_matrix.png")
+        plt.show()
 
 if __name__ == '__main__':
     main()
