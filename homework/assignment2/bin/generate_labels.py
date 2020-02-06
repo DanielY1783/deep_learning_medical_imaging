@@ -1,5 +1,4 @@
 # Imports
-import numpy as np
 import pandas as pd
 
 # Function to generate numerical label from one-hot
@@ -18,6 +17,20 @@ def generate_numerical_label(row):
         return 5
     else:
         return 6
+
+# Function to subtract 1 from labels 2-6 for the set without class 1
+def relabel_no_class_1(row):
+    if row["label"] == 0:
+        return 0
+    else:
+        return row["label"] - 1
+
+# Function to subtract 1 from labels 2-6 for the set without class 1
+def binary_1(row):
+    if row["label"] == 1:
+        return 1
+    else:
+        return 0
 
 # Load in labels files.
 train_labels_df = pd.read_csv("../data/labels/Train_labels.csv", sep=",")
@@ -47,7 +60,6 @@ for label in ["MEL","NV","BCC","AKIEC","BKL","DF","VASC"]:
 # Drop original one-hot label columns
 train_labels_df = train_labels_df.drop(columns=["MEL","NV","BCC","AKIEC","BKL","DF","VASC"])
 test_labels_df = test_labels_df.drop(columns=["MEL","NV","BCC","AKIEC","BKL","DF","VASC"])
-
 # Store the label names
 train_labels_df.to_csv("../data/labels/formatted_train_labels.csv", sep="\t", index=False, header=False)
 test_labels_df.to_csv("../data/labels/formatted_test_labels.csv", sep="\t", index=False, header=False)

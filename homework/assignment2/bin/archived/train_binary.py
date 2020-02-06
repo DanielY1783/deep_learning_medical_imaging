@@ -15,7 +15,7 @@ from torch.optim.lr_scheduler import StepLR
 from skimage import io
 
 # Constants for the name of the model to save to
-MODEL_NAME = "densenet161"
+MODEL_NAME = "densenet_binary"
 
 # Class for the dataset
 class ImagesDataset(Dataset):
@@ -152,8 +152,8 @@ def main():
                         help='input batch size for training (default: 8)')
     parser.add_argument('--test-batch-size', type=int, default=64, metavar='N',
                         help='input batch size for testing (default: 64)')
-    parser.add_argument('--epochs', type=int, default=50, metavar='N',
-                        help='number of epochs to train (default: 50)')
+    parser.add_argument('--epochs', type=int, default=25, metavar='N',
+                        help='number of epochs to train (default: 25)')
     parser.add_argument('--gamma', type=float, default=1, metavar='N',
                         help='gamma value for learning rate decay (default: 1)')
     parser.add_argument('--no-cuda', action='store_true', default=False,
@@ -174,7 +174,7 @@ def main():
     kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
 
     # Load in the dataset and split into training and validation
-    data = ImagesDataset(csv_file="../data/labels/formatted_train_labels.csv", root_dir="../data/resized224/train/", transform=ToTensor())
+    data = ImagesDataset(csv_file="../data/labels/binary_train_labels.csv", root_dir="../data/resized224/train/", transform=ToTensor())
     train_size = int(0.9 * len(data))
     test_size = len(data) - train_size
     train_data, val_data = torch.utils.data.random_split(data, [train_size, test_size])
@@ -183,11 +183,11 @@ def main():
     val_loader = DataLoader(val_data, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
 
     # Use densenet
-    model = models.densenet161()
-    # Number of classes is 7
-    num_classes = 7
+    model = models.densenet121()
+    # Number of classes is 2 for binary classification if image is class 1
+    num_classes = 2
     # Reshape the output for densenet for this problem
-    model.classifier = nn.Linear(2208, num_classes)
+    model.classifier = nn.Linear(1024, num_classes)
     # Send model to gpu
     model = model.to(device)
     # Specify Adam optimizer
