@@ -18,8 +18,8 @@ from skimage import io
 import seaborn
 
 # Constants
-MODEL_NAME_1 = "densenet_binary.pt"
-MODEL_NAME_2 = "densenet_no_class_1.pt"
+MODEL_NAME_1 = "densenet_pretrained.pt"
+MODEL_NAME_2 = "resnet_pretrained.pt"
 
 # Class for the dataset
 class ImagesDataset(Dataset):
@@ -76,7 +76,7 @@ class ToTensor(object):
 
 def main():
     # Load in the test dataset
-    data = ImagesDataset(csv_file="../data/labels/formatted_train_labels.csv", root_dir="../data/resized224/train/",
+    data = ImagesDataset(csv_file="../data/labels/formatted_test_labels.csv", root_dir="../data/resized224/test/",
                          transform=ToTensor())
     # Create data loader for batch testing
     test_loader = DataLoader(data, batch_size=64, shuffle=False, num_workers=0)
@@ -84,31 +84,29 @@ def main():
     # Specify cuda device
     device = torch.device("cuda")
 
-    # Create first densenet model that predicts if image is class 1 or not
-    model_binary = models.densenet121()
-    # Reshape the output for densenet for this problem
-    model_binary.classifier = nn.Linear(1024, 2)
+    # Create first densenet model
+    model_densenet = models.densenet121()
+    model_densenet.classifier = nn.Linear(1024, 7)
     # Send model to gpu and load in saved parameters for prediction
-    model_binary = model_binary.to(device)
-    model_binary.load_state_dict(torch.load(MODEL_NAME_1))
+    model_densenet = model_densenet.to(device)
+    model_densenet.load_state_dict(torch.load(MODEL_NAME_1))
     # Specify that we are in evaluation phase
-    model_binary.eval()
+    model_densenet.eval()
 
-    # Create second densenet model that predicts class for all classes except class 1
-    model_no_class_1 = models.densenet121()
-    # Reshape the output for densenet for this problem
-    model_no_class_1.classifier = nn.Linear(1024, 6)
+    # Create second resnet model
+    model_resnet = models.resnet50()
+    model_resnet.fc = nn.Linear(512, 7)
     # Send model to gpu and load in saved parameters for prediction
-    model_no_class_1 = model_no_class_1.to(device)
-    model_no_class_1.load_state_dict(torch.load(MODEL_NAME_2))
+    model_resnet = model_resnet.to(device)
+    model_resnet.load_state_dict(torch.load(MODEL_NAME_2))
     # Specify that we are in evaluation phase
-    model_no_class_1.eval()
+    model_resnet.eval()
 
     # No gradient calculation because we are in testing phase.
     with torch.no_grad():
         # Accumulate the predictions for each model and actual labels
-        predictions_binary = torch.tensor((), dtype=torch.long).to(device)
-        predictions_no_class_1 = torch.tensor((), dtype=torch.long).to(device)
+        predictions_densenet = torch.tensor((), dtype=torch.long).to(device)
+        predictions_resnet = torch.tensor((), dtype=torch.long).to(device)
         actual = torch.tensor((), dtype=torch.long).to(device)
 
         # Iterate through all batches.
@@ -119,56 +117,52 @@ def main():
             # Get the label with one less dimension
             target = target[:, 0]
             # Predict the current batch for both models
-            output_binary = model_binary(data)
-            output_no_class_1 = model_no_class_1(data)
-            # Get the maximum probability from softmax, and slice to get rid of unneeded dimension.
-            output_binary = output_binary.argmax(dim=1, keepdim=True)[:, 0]
-            output_no_class_1 = output_no_class_1.argmax(dim=1, keepdim=True)[:, 0]
+            output_densenet = model_densenet(data)
+            output_resnet = model_resnet(data)
+
             # Append prediction and actual values to cumulative predictions.
-            predictions_binary = torch.cat((predictions_binary, output_binary), 0)
-            predictions_no_class_1 = torch.cat((predictions_no_class_1, output_no_class_1), 0)
+            predictions_densenet = torch.cat((predictions_densenet, output_densenet), 0)
+            predictions_resnet = torch.cat((predictions_resnet, output_resnet), 0)
             actual = torch.cat((actual, target), 0)
 
         # Convert to numpy array
-        predictions_binary = predictions_binary.cpu().numpy()
-        predictions_no_class_1 = predictions_no_class_1.cpu().numpy()
+        predictions_densenet = predictions_densenet.cpu().numpy()
+        predictions_resnet = predictions_resnet.cpu().numpy()
         actual = actual.cpu().numpy()
 
-        # Change classes for the predictions without class 1 back to original classes by adding
-        # 1 to all values except for class 0
-        predictions_no_class_1 = np.where(predictions_no_class_1 > 0, predictions_no_class_1 + 1, 0)
+        # Add up probabilities from both predictions
+        predictions = predictions_densenet + predictions_resnet
 
-        # Generate prediction by using class 1 if the binary model predicts class 1, and the class
-        # predicted by the model without class 1 if the binary model predicts that the image
-        # is not class 1.
-        predictions = np.where(predictions_binary == 1, 1, predictions_no_class_1)
+        # Get up maxiumum class prediction
+        predictions = np.argmax(predictions, axis=0)
 
-        # Use scikit-learn to print out accuracy, precision, and recall
-        print("Test set accuracy: ", metrics.accuracy_score(actual, predictions))
-        print("Test set precision: ", metrics.precision_score(actual, predictions, average="weighted"))
-        print("Test set recall: ", metrics.recall_score(actual, predictions, average="weighted"))
-
-
-        # Use scikit-learn to calculate confusion matrix
-        confusion_matrix = metrics.confusion_matrix(actual, predictions, normalize="true")
-        # Use seaborn to plot heatmap
-        axes = seaborn.heatmap(confusion_matrix, annot=True)
-        axes.set(xlabel="Predicted Label", ylabel="Actual Label", title="Confusion Matrix")
-        # Save as image and show plot.
-        plt.savefig("confusion_matrix.png")
-        plt.show()
-
-
-        labels_binary = np.where(actual == 1, 1, 0)
-        print(metrics.accuracy_score(labels_binary, predictions_binary))
-        # Use scikit-learn to calculate confusion matrix
-        confusion_matrix = metrics.confusion_matrix(labels_binary, predictions_binary, normalize="true")
-        # Use seaborn to plot heatmap
-        axes = seaborn.heatmap(confusion_matrix, annot=True)
-        axes.set(xlabel="Predicted Label", ylabel="Actual Label", title="Confusion Matrix")
-        # Save as image and show plot.
-        plt.savefig("confusion_matrix_binary.png")
-        plt.show()
+        print(predictions)
+        # # Use scikit-learn to print out accuracy, precision, and recall
+        # print("Test set accuracy: ", metrics.accuracy_score(actual, predictions))
+        # print("Test set precision: ", metrics.precision_score(actual, predictions, average="weighted"))
+        # print("Test set recall: ", metrics.recall_score(actual, predictions, average="weighted"))
+        #
+        #
+        # # Use scikit-learn to calculate confusion matrix
+        # confusion_matrix = metrics.confusion_matrix(actual, predictions, normalize="true")
+        # # Use seaborn to plot heatmap
+        # axes = seaborn.heatmap(confusion_matrix, annot=True)
+        # axes.set(xlabel="Predicted Label", ylabel="Actual Label", title="Confusion Matrix")
+        # # Save as image and show plot.
+        # plt.savefig("confusion_matrix_new.png")
+        # plt.show()
+        #
+        #
+        # labels_binary = np.where(actual == 1, 1, 0)
+        # print(metrics.accuracy_score(labels_binary, predictions_densenet))
+        # # Use scikit-learn to calculate confusion matrix
+        # confusion_matrix = metrics.confusion_matrix(labels_binary, predictions_densenet, normalize="true")
+        # # Use seaborn to plot heatmap
+        # axes = seaborn.heatmap(confusion_matrix, annot=True)
+        # axes.set(xlabel="Predicted Label", ylabel="Actual Label", title="Confusion Matrix")
+        # # Save as image and show plot.
+        # plt.savefig("confusion_matrix_binary.png")
+        # plt.show()
 
 if __name__ == '__main__':
     main()

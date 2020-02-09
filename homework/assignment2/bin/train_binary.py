@@ -15,7 +15,7 @@ from torch.optim.lr_scheduler import StepLR
 from skimage import io
 
 # Constants for the name of the model to save to
-MODEL_NAME = "densenet_binary"
+MODEL_NAME = "densenet_binary_pretrained"
 
 # Class for the dataset
 class ImagesDataset(Dataset):
@@ -183,7 +183,7 @@ def main():
     val_loader = DataLoader(val_data, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
 
     # Use densenet
-    model = models.densenet121()
+    model = models.densenet121(pretrained=True)
     # Number of classes is 2 for binary classification if image is class 1
     num_classes = 2
     # Reshape the output for densenet for this problem

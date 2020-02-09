@@ -18,7 +18,8 @@ from skimage import io
 import seaborn
 
 # Constants
-MODEL_NAME = "densenet_pretrained.pt"
+MODEL_NAME_1 = "densenet_binary_pretrained.pt"
+MODEL_NAME_2 = "densenet_no_class_1_pretrained.pt"
 
 # Class for the dataset
 class ImagesDataset(Dataset):
@@ -83,22 +84,31 @@ def main():
     # Specify cuda device
     device = torch.device("cuda")
 
-    # Use densenet
-    model = models.densenet121()
-    # Number of classes is 7
-    num_classes = 7
+    # Create first densenet model that predicts if image is class 1 or not
+    model_binary = models.densenet121()
     # Reshape the output for densenet for this problem
-    model.classifier = nn.Linear(1024, num_classes)
+    model_binary.classifier = nn.Linear(1024, 2)
     # Send model to gpu and load in saved parameters for prediction
-    model = model.to(device)
-    model.load_state_dict(torch.load(MODEL_NAME))
+    model_binary = model_binary.to(device)
+    model_binary.load_state_dict(torch.load(MODEL_NAME_1))
     # Specify that we are in evaluation phase
-    model.eval()
+    model_binary.eval()
+
+    # Create second densenet model that predicts class for all classes except class 1
+    model_no_class_1 = models.densenet121()
+    # Reshape the output for densenet for this problem
+    model_no_class_1.classifier = nn.Linear(1024, 6)
+    # Send model to gpu and load in saved parameters for prediction
+    model_no_class_1 = model_no_class_1.to(device)
+    model_no_class_1.load_state_dict(torch.load(MODEL_NAME_2))
+    # Specify that we are in evaluation phase
+    model_no_class_1.eval()
 
     # No gradient calculation because we are in testing phase.
     with torch.no_grad():
-        # Accumulate the predictions and actual labels
-        predictions = torch.tensor((), dtype=torch.long).to(device)
+        # Accumulate the predictions for each model and actual labels
+        predictions_binary = torch.tensor((), dtype=torch.long).to(device)
+        predictions_no_class_1 = torch.tensor((), dtype=torch.long).to(device)
         actual = torch.tensor((), dtype=torch.long).to(device)
 
         # Iterate through all batches.
@@ -108,22 +118,36 @@ def main():
                                                                                                            dtype=torch.long)
             # Get the label with one less dimension
             target = target[:, 0]
-            # Predict the current batch
-            output = model(data)
+            # Predict the current batch for both models
+            output_binary = model_binary(data)
+            output_no_class_1 = model_no_class_1(data)
             # Get the maximum probability from softmax, and slice to get rid of unneeded dimension.
-            output = output.argmax(dim=1, keepdim=True)[:, 0]
+            output_binary = output_binary.argmax(dim=1, keepdim=True)[:, 0]
+            output_no_class_1 = output_no_class_1.argmax(dim=1, keepdim=True)[:, 0]
             # Append prediction and actual values to cumulative predictions.
-            predictions = torch.cat((predictions, output), 0)
+            predictions_binary = torch.cat((predictions_binary, output_binary), 0)
+            predictions_no_class_1 = torch.cat((predictions_no_class_1, output_no_class_1), 0)
             actual = torch.cat((actual, target), 0)
 
         # Convert to numpy array
-        predictions = predictions.cpu().numpy()
+        predictions_binary = predictions_binary.cpu().numpy()
+        predictions_no_class_1 = predictions_no_class_1.cpu().numpy()
         actual = actual.cpu().numpy()
+
+        # Change classes for the predictions without class 1 back to original classes by adding
+        # 1 to all values except for class 0
+        predictions_no_class_1 = np.where(predictions_no_class_1 > 0, predictions_no_class_1 + 1, 0)
+
+        # Generate prediction by using class 1 if the binary model predicts class 1, and the class
+        # predicted by the model without class 1 if the binary model predicts that the image
+        # is not class 1.
+        predictions = np.where(predictions_binary == 1, 1, predictions_no_class_1)
 
         # Use scikit-learn to print out accuracy, precision, and recall
         print("Test set accuracy: ", metrics.accuracy_score(actual, predictions))
         print("Test set precision: ", metrics.precision_score(actual, predictions, average="weighted"))
         print("Test set recall: ", metrics.recall_score(actual, predictions, average="weighted"))
+
 
         # Use scikit-learn to calculate confusion matrix
         confusion_matrix = metrics.confusion_matrix(actual, predictions, normalize="true")
@@ -131,7 +155,19 @@ def main():
         axes = seaborn.heatmap(confusion_matrix, annot=True)
         axes.set(xlabel="Predicted Label", ylabel="Actual Label", title="Confusion Matrix")
         # Save as image and show plot.
-        plt.savefig("confusion_matrix.png")
+        plt.savefig("confusion_matrix_new.png")
+        plt.show()
+
+
+        labels_binary = np.where(actual == 1, 1, 0)
+        print(metrics.accuracy_score(labels_binary, predictions_binary))
+        # Use scikit-learn to calculate confusion matrix
+        confusion_matrix = metrics.confusion_matrix(labels_binary, predictions_binary, normalize="true")
+        # Use seaborn to plot heatmap
+        axes = seaborn.heatmap(confusion_matrix, annot=True)
+        axes.set(xlabel="Predicted Label", ylabel="Actual Label", title="Confusion Matrix")
+        # Save as image and show plot.
+        plt.savefig("confusion_matrix_binary.png")
         plt.show()
 
 if __name__ == '__main__':

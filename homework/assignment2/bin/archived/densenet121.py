@@ -15,7 +15,7 @@ from torch.optim.lr_scheduler import StepLR
 from skimage import io
 
 # Constants for the name of the model to save to
-MODEL_NAME = "densenet_pretrained"
+MODEL_NAME = "densenet"
 
 # Class for the dataset
 class ImagesDataset(Dataset):
@@ -183,7 +183,7 @@ def main():
     val_loader = DataLoader(val_data, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
 
     # Use densenet
-    model = models.densenet121(pretrained=True)
+    model = models.densenet121()
     # Number of classes is 7
     num_classes = 7
     # Reshape the output for densenet for this problem
