@@ -1,7 +1,3 @@
-# Author: Daniel Yan
-# Email: daniel.yan@vanderbilt.edu
-# Description: Train densenet for image classification.
-
 # Imports for Pytorch
 from __future__ import print_function
 import argparse
@@ -17,9 +13,10 @@ import torch.optim as optim
 from torchvision import transforms, models
 from torch.optim.lr_scheduler import StepLR
 from skimage import io
+from sklearn.model_selection import train_test_split
 
 # Constants for the name of the model to save to
-MODEL_NAME = "densenet_pretrained"
+MODEL_NAME = "densenet_augmentation"
 
 # Class for the dataset
 class ImagesDataset(Dataset):
@@ -72,6 +69,18 @@ class ToTensor(object):
         label = torch.from_numpy(np.array(label).astype(int))
         return {'image': image,
                 'label': label}
+
+class RandomHorizontalFlip(object):
+    def __call__(self, sample):
+        image, label = sample['image'], sample['label']
+        image = transforms.RandomHorizontalFlip(image)
+        return {'image': image, 'label': label}
+
+class RandomVerticalFlip(object):
+    def __call__(self, sample):
+        image, label = sample['image'], sample['label']
+        image = transforms.RandomVerticalFlip(image)
+        return {'image': image, 'label': label}
 
 
 def train(args, model, device, train_loader, optimizer, epoch, train_losses):
@@ -177,11 +186,19 @@ def main():
     # GPU keywords.
     kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
 
-    # Load in the dataset and split into training and validation
-    data = ImagesDataset(csv_file="../data/labels/formatted_train_labels.csv", root_dir="../data/resized224/train/", transform=ToTensor())
-    train_size = int(0.9 * len(data))
-    test_size = len(data) - train_size
-    train_data, val_data = torch.utils.data.random_split(data, [train_size, test_size])
+    # Train-val split for training and validation labels
+    train_labels_df = pd.read_csv("../data/labels/formatted_train_labels.csv", sep="\t", header=None)
+    train_df, val_df = train_test_split(train_labels_df, test_size=0.1)
+
+    # Save the training and validation labels
+    train_df.to_csv("../data/labels/train_split.csv", sep="\t", index=False, header=False)
+    val_df.to_csv("../data/labels/val_split.csv", sep="\t", index=False, header=False)
+    # Load in the training and validation data and perform data augmentation
+    # only on the training set and split into training and validation
+    train_data = ImagesDataset(csv_file="../data/labels/train_split.csv", root_dir="../data/resized224/train/",
+                               transform=transforms.Compose([RandomHorizontalFlip(), RandomVerticalFlip(), ToTensor()]))
+    val_data = ImagesDataset(csv_file="../data/labels/val_split.csv", root_dir="../data/resized224/train/",
+                               transform=transforms.Compose([ToTensor()]))
     # Create data loader for training and validation
     train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=0)
     val_loader = DataLoader(val_data, batch_size=args.test_batch_size, shuffle=False, num_workers=0)

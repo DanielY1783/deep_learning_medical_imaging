@@ -1,3 +1,7 @@
+# Author: Daniel Yan
+# Email: daniel.yan@vanderbilt.edu
+# Description: Quick script to reformat the labels for training.
+
 # Imports
 import pandas as pd
 

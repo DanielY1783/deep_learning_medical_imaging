@@ -1,8 +1,6 @@
 # Name: Daniel Yan
 # Email: daniel.yan@vanderbilt.edu
-# Description: Predict object location for new image by used network from train.py to predict a label,
-# and then converting that label into a floating point value for the center of the label. Takes
-# in one command line argument for the path to the image.
+# Description: Predict label for a single image.
 
 # Imports
 import argparse
@@ -13,7 +11,7 @@ import torch.nn as nn
 from torchvision import transforms, models
 
 # Constants
-MODEL_NAME = "densenet.pt"
+MODEL_NAME = "densenet_pretrained.pt"
 
 
 def main():

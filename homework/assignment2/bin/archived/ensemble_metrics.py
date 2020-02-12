@@ -1,6 +1,8 @@
 # Name: Daniel Yan
 # Email: daniel.yan@vanderbilt.edu
-# Description: Calculate accuracy, precision, and recall for the testing set.
+# Description: Predict object location for new image by used network from train.py to predict a label,
+# and then converting that label into a floating point value for the center of the label. Takes
+# in one command line argument for the path to the image.
 
 # Imports
 import matplotlib.pyplot as plt
@@ -16,7 +18,8 @@ from skimage import io
 import seaborn
 
 # Constants
-MODEL_NAME = "densenet_pretrained.pt"
+MODEL_NAME_1 = "densenet_pretrained.pt"
+MODEL_NAME_2 = "resnet_pretrained.pt"
 
 # Class for the dataset
 class ImagesDataset(Dataset):
@@ -81,22 +84,29 @@ def main():
     # Specify cuda device
     device = torch.device("cuda")
 
-    # Use densenet
-    model = models.densenet121()
-    # Number of classes is 7
-    num_classes = 7
-    # Reshape the output for densenet for this problem
-    model.classifier = nn.Linear(1024, num_classes)
+    # Create first densenet model
+    model_densenet = models.densenet121()
+    model_densenet.classifier = nn.Linear(1024, 7)
     # Send model to gpu and load in saved parameters for prediction
-    model = model.to(device)
-    model.load_state_dict(torch.load(MODEL_NAME))
+    model_densenet = model_densenet.to(device)
+    model_densenet.load_state_dict(torch.load(MODEL_NAME_1))
     # Specify that we are in evaluation phase
-    model.eval()
+    model_densenet.eval()
+
+    # Create second resnet model
+    model_resnet = models.resnet50()
+    model_resnet.fc = nn.Linear(2048, 7)
+    # Send model to gpu and load in saved parameters for prediction
+    model_resnet = model_resnet.to(device)
+    model_resnet.load_state_dict(torch.load(MODEL_NAME_2))
+    # Specify that we are in evaluation phase
+    model_resnet.eval()
 
     # No gradient calculation because we are in testing phase.
     with torch.no_grad():
-        # Accumulate the predictions and actual labels
-        predictions = torch.tensor((), dtype=torch.long).to(device)
+        # Accumulate the predictions for each model and actual labels
+        predictions_densenet = torch.tensor((), dtype=torch.float32).to(device)
+        predictions_resnet = torch.tensor((), dtype=torch.float32).to(device)
         actual = torch.tensor((), dtype=torch.long).to(device)
 
         # Iterate through all batches.
@@ -106,22 +116,31 @@ def main():
                                                                                                            dtype=torch.long)
             # Get the label with one less dimension
             target = target[:, 0]
-            # Predict the current batch
-            output = model(data)
-            # Get the maximum probability from softmax, and slice to get rid of unneeded dimension.
-            output = output.argmax(dim=1, keepdim=True)[:, 0]
+            # Predict the current batch for both models
+            output_densenet = model_densenet(data)
+            output_resnet = model_resnet(data)
+
             # Append prediction and actual values to cumulative predictions.
-            predictions = torch.cat((predictions, output), 0)
+            predictions_densenet = torch.cat((predictions_densenet, output_densenet), 0)
+            predictions_resnet = torch.cat((predictions_resnet, output_resnet), 0)
             actual = torch.cat((actual, target), 0)
 
         # Convert to numpy array
-        predictions = predictions.cpu().numpy()
+        predictions_densenet = predictions_densenet.cpu().numpy()
+        predictions_resnet = predictions_resnet.cpu().numpy()
         actual = actual.cpu().numpy()
+
+        # Add up probabilities from both predictions
+        predictions = predictions_densenet + predictions_resnet
+
+        # Get up maxiumum class prediction
+        predictions = np.argmax(predictions, axis=1)
 
         # Use scikit-learn to print out accuracy, precision, and recall
         print("Test set accuracy: ", metrics.accuracy_score(actual, predictions))
-        print("Test set precision: ", metrics.precision_score(actual, predictions, average="macro"))
-        print("Test set recall: ", metrics.recall_score(actual, predictions, average="macro"))
+        print("Test set precision: ", metrics.precision_score(actual, predictions, average="weighted"))
+        print("Test set recall: ", metrics.recall_score(actual, predictions, average="weighted"))
+
 
         # Use scikit-learn to calculate confusion matrix
         confusion_matrix = metrics.confusion_matrix(actual, predictions, normalize="true")
@@ -129,7 +148,20 @@ def main():
         axes = seaborn.heatmap(confusion_matrix, annot=True)
         axes.set(xlabel="Predicted Label", ylabel="Actual Label", title="Confusion Matrix")
         # Save as image and show plot.
-        plt.savefig("confusion_matrix.png")
+        plt.savefig("confusion_matrix_ensemble.png")
+        plt.show()
+
+
+        labels_binary = np.where(actual == 1, 1, 0)
+        predictions_binary = np.where(predictions == 1, 1, 0)
+        print(metrics.accuracy_score(labels_binary, predictions_binary))
+        # Use scikit-learn to calculate confusion matrix
+        confusion_matrix = metrics.confusion_matrix(labels_binary, predictions_binary, normalize="true")
+        # Use seaborn to plot heatmap
+        axes = seaborn.heatmap(confusion_matrix, annot=True)
+        axes.set(xlabel="Predicted Label", ylabel="Actual Label", title="Confusion Matrix")
+        # Save as image and show plot.
+        plt.savefig("confusion_matrix_binary.png")
         plt.show()
 
 if __name__ == '__main__':

@@ -187,7 +187,7 @@ def main():
     # Number of classes is 7
     num_classes = 7
     # Reshape the output for densenet for this problem
-    model.fc = nn.Linear(512, num_classes)
+    model.fc = nn.Linear(2048, num_classes)
     # Send model to gpu
     model = model.to(device)
     # Specify Adam optimizer

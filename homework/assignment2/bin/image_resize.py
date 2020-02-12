@@ -1,3 +1,7 @@
+# Author: Daniel Yan
+# Email: daniel.yan@vanderbilt.edu
+# Description: Quick script to resize images to 224x224 to use torchvision models.
+
 from PIL import Image
 import os, sys
 
