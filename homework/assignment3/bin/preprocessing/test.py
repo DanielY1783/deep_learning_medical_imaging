@@ -6,10 +6,9 @@ y = np.zeros((512, 512, 147))
 z = np.zeros((512, 512, 147))
 for i in range(147):
     x = np.load("../../data/Training_2d/img/0001_" + str(i) + ".npy")
-    x2 = Image.open("../../data/Training_2d/label/0001_" + str(i) + ".jpg")
-    x2_arr = np.array(x2)
+    x2 = np.load("../../data/Training_2d/label/0001_" + str(i) + ".npy")
     y[:, :, i] = x
-    z[:, :, i] = x2_arr
+    z[:, :, i] = x2
 
 image_original = nib.load("../../data/Training/img/img0001.nii.gz")
 array_img = nib.Nifti1Image(y, image_original.affine)
