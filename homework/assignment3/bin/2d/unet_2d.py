@@ -19,30 +19,33 @@ from skimage import io, transform
 # Define dataset for image and segmentation mask
 class MyDataset(Dataset):
     def __init__(self, image_path, target_path):
-        # Create list of paths to each image
+        # Create list of images
         images_list = []
         for file_name in os.listdir(image_path):
-            images_list.append(image_path + file_name)
+            # Load in image using numpy
+            image = np.load(image_path + file_name)
+            # Convert to torch tensor
+            image_tensor = torch.from_numpy(image).float()
+            # Insert first dimension for number of channels
+            image_tensor = torch.unsqueeze(image_tensor, 0)
+            # Add to list of images.
+            images_list.append(image_tensor)
         self.images_list = images_list
-        # Create list of paths to each target segmentation
+        # Create list of target segmentations
         targets_list = []
         for file_name in os.listdir(target_path):
-            targets_list.append(target_path + file_name)
+            mask = np.load(target_path + file_name)
+            # Convert to torch tensor
+            mask_tensor = torch.from_numpy(mask).float()
+            # Insert first dimension for number of channels
+            mask_tensor = torch.unsqueeze(mask_tensor, 0)
+            # Add to list of masks.
+            targets_list.append(mask_tensor)
         self.targets_list = targets_list
 
+
     def __getitem__(self, index):
-        # Load in image using numpy
-        image = np.load(self.images_list[index])
-        mask = np.load(self.targets_list[index])
-        # Convert to torch tensor
-        image_tensor = torch.from_numpy(image).float()
-        # Add first dimension for image having one channel
-        image_tensor = torch.unsqueeze(image_tensor, 0)
-        # Convert to torch tensor
-        mask_tensor = torch.from_numpy(mask).float()
-        # Add first dimension for image having one channel
-        mask_tensor = torch.unsqueeze(mask_tensor, 0)
-        return image_tensor, mask_tensor
+        return self.images_list[index], self.targets_list[index]
 
 
     def __len__(self):
@@ -69,15 +72,18 @@ def main():
 
     args = parser.parse_args()
     # Load in the dataset
-    data = MyDataset(image_path = "../../data/Training_2d/img/", target_path = "../../data/Training_2d/label/")
-    # Split into training and validation
-    train_size = int(0.9 * len(data))
-    test_size = len(data) - train_size
-    train_data, val_data = torch.utils.data.random_split(data, [train_size, test_size])
+    train_data = MyDataset(image_path = "../../data/Train/img_2d/", target_path = "../../data/Train/label_2d/")
+    val_data = MyDataset(image_path = "../../data/Val/img_2d/", target_path = "../../data/Val/label_2d/")
     # Create data loader for training and validation
     train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=0)
     val_loader = DataLoader(val_data, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
 
+    # for i in range(len(train_data.targets_list)):
+    #     if i % 100 == 0:
+    #         print(train_data.targets_list[i].shape)
+    #         print(train_data.images_list[i].shape)
+    #         print(train_data.targets_list[i])
+    #         print(train_data.images_list[i])
 
 
 
