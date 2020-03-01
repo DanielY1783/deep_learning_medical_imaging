@@ -60,5 +60,7 @@ def main():
         print(output.argmax(dim=1, keepdim=True)[0].item())
 
 
+
+
 if __name__ == '__main__':
     main()
