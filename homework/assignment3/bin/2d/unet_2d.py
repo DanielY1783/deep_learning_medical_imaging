@@ -19,6 +19,7 @@ TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/dat
 VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Sample_Val/img_2d/"
 VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Sample_Val/label/"
 
+
 # Define dataset for image and segmentation mask
 class MyDataset(Dataset):
     def __init__(self, image_path, target_path):
@@ -44,10 +45,8 @@ class MyDataset(Dataset):
             targets_list.append(mask_tensor)
         self.targets_list = targets_list
 
-
     def __getitem__(self, index):
         return self.images_list[index], self.targets_list[index]
-
 
     def __len__(self):
         return len(self.images_list)
@@ -58,30 +57,30 @@ class UNet(nn.Module):
     # Define a single block for the encoder
     def encoder_block(self, in_channels, out_channels, kernel_size=3, padding=1):
         block = torch.nn.Sequential(
-                    torch.nn.Conv2d(kernel_size=kernel_size, in_channels=in_channels,
-                                    out_channels=out_channels, padding=padding),
-                    torch.nn.ReLU(),
-                    torch.nn.BatchNorm2d(out_channels),
-                    torch.nn.Conv2d(kernel_size=kernel_size, in_channels=out_channels,
-                                    out_channels=out_channels, padding=padding),
-                    torch.nn.ReLU(),
-                    torch.nn.BatchNorm2d(out_channels),
-                )
+            torch.nn.Conv2d(kernel_size=kernel_size, in_channels=in_channels,
+                            out_channels=out_channels, padding=padding),
+            torch.nn.ReLU(),
+            torch.nn.BatchNorm2d(out_channels),
+            torch.nn.Conv2d(kernel_size=kernel_size, in_channels=out_channels,
+                            out_channels=out_channels, padding=padding),
+            torch.nn.ReLU(),
+            torch.nn.BatchNorm2d(out_channels),
+        )
         return block
 
     # Define a single block for the decoder
     def decoder_block(self, in_channels, out_channels, kernel_size=3, padding=1):
-            block = torch.nn.Sequential(
-                    torch.nn.Conv2d(kernel_size=kernel_size, in_channels=in_channels,
-                                    out_channels=out_channels, padding=padding),
-                    torch.nn.ReLU(),
-                    torch.nn.BatchNorm2d(out_channels),
-                    torch.nn.Conv2d(kernel_size=kernel_size, in_channels=out_channels,
-                                    out_channels=out_channels, padding=padding),
-                    torch.nn.ReLU(),
-                    torch.nn.BatchNorm2d(out_channels)
-                    )
-            return  block
+        block = torch.nn.Sequential(
+            torch.nn.Conv2d(kernel_size=kernel_size, in_channels=in_channels,
+                            out_channels=out_channels, padding=padding),
+            torch.nn.ReLU(),
+            torch.nn.BatchNorm2d(out_channels),
+            torch.nn.Conv2d(kernel_size=kernel_size, in_channels=out_channels,
+                            out_channels=out_channels, padding=padding),
+            torch.nn.ReLU(),
+            torch.nn.BatchNorm2d(out_channels)
+        )
+        return block
 
     # Define the dimensions for each layer.
     def __init__(self, in_channels, out_channels):
@@ -103,9 +102,9 @@ class UNet(nn.Module):
         # Middle structure that involves both a maxpool and then a deconv
         self.maxpool3 = torch.nn.MaxPool2d(kernel_size=2)
         self.conv1 = torch.nn.Conv2d(kernel_size=3, in_channels=128,
-                                    out_channels=256, padding=1)
+                                     out_channels=256, padding=1)
         self.conv2 = torch.nn.Conv2d(kernel_size=3, in_channels=256,
-                                    out_channels=256, padding=1)
+                                     out_channels=256, padding=1)
         self.deconv1 = torch.nn.ConvTranspose2d(256, 128, kernel_size=2, padding=0, stride=2)
 
         # First decoder block
@@ -204,13 +203,18 @@ class UNet(nn.Module):
         # Output: out_channels x 512x512
         y = self.output(decoder3)
 
-        return y
+        return torch.nn.Softmax(dim=0)(y)
+
 
 def train(model, device, train_loader, optimizer, epoch, train_losses):
     # Specify that we are in training phase
     model.train()
     # Total Train Loss
     total_loss = 0
+    # Sum for precision, recall, f1
+    total_precision = 0
+    total_recall = 0
+    total_f1 = 0
     # Iterate through all minibatches.
     for index, (data, target) in enumerate(train_loader):
         # Send training data and the training labels to GPU/CPU
@@ -220,8 +224,6 @@ def train(model, device, train_loader, optimizer, epoch, train_losses):
         # Obtain the predictions from forward propagation and reshape outputs and labels to calculate
         # cross entropy loss
         output = model(data)
-        output = output.permute(0, 2, 3, 1)
-        output_reshaped = output.re
 
         # Compute the cross entropy for the loss and update total loss.
         loss = F.cross_entropy(output, target)
@@ -230,37 +232,39 @@ def train(model, device, train_loader, optimizer, epoch, train_losses):
         # update the gradients with optimizer.step()
         loss.backward()
         optimizer.step()
-    #
-    #     # Get the prediction by getting the index with the maximum probability
-    #     pred = output.argmax(dim=1, keepdim=True)
-    #     # Filter both the prediction and the target by only class 1 for spleen
-    #     pred_filtered = torch.where(pred == 1, torch.ones(pred.shape), torch.zeros(pred.shape))
-    #     target_filtered = torch.where(target == 1, torch.ones(pred.shape), torch.zeros(pred.shape))
-    #
-    #     # Calculate the precision and recall
-    #     true_positives = torch.where(pred_filtered == 1 and target_filtered == 1,
-    #                                  torch.ones(pred.shape), torch.zeros(pred.shape)).sum().item()
-    #     false_positives = torch.where(pred_filtered == 1 and target_filtered == 0,
-    #                                  torch.ones(pred.shape), torch.zeros(pred.shape)).sum().item()
-    #     true_negatives = torch.where(pred_filtered == 0 and target_filtered == 0,
-    #                                  torch.ones(pred.shape), torch.zeros(pred.shape)).sum().item()
-    #     false_negatives = torch.where(pred_filtered == 0 and target_filtered == 1,
-    #                                  torch.ones(pred.shape), torch.zeros(pred.shape)).sum().item()
-    #     precision = true_positives / (true_positives + false_positives)
-    #     recall = true_positives / (true_positives + false_negatives)
-    #     f1 = 2 * precision * recall / (precision + recall)
-    #
-    #     print("Precision: ", precision)
-    #     print("Recall: ", recall)
-    #     print("F1: ", f1)
+
+        # Get the prediction by getting the index with the maximum probability
+        pred = output.argmax(dim=1, keepdim=True).cpu().numpy()
+        # Filter both the prediction and the target by only class 1 for spleen
+        pred_filtered = np.where(pred == 1, 1, 0)
+        target_filtered = np.where(target.cpu().numpy() == 1, 1, 0)
+
+        # Calculate the precision and recall
+        true_positives = np.sum(np.where(pred_filtered == 1 and target_filtered == 1, 1, 0))
+        false_positives = np.sum(np.where(pred_filtered == 1 and target_filtered == 0, 1, 0))
+        true_negatives = np.sum(np.where(pred_filtered == 0 and target_filtered == 0, 1, 0))
+        false_negatives = np.sum(np.where(pred_filtered == 0 and target_filtered == 1, 1, 0))
+        precision = true_positives / (true_positives + false_positives)
+        recall = true_positives / (true_positives + false_negatives)
+        f1 = 2 * precision * recall / (precision + recall)
+
+        # Update precision, recall, f1 for label 1
+        total_precision += precision
+        total_recall += recall
+        total_f1 += f1
 
     # Update training error and add to accumulation of training loss over time.
     train_error = total_loss / len(train_loader)
     train_losses.append(train_error)
     # Print output if epoch is finished
-    print('Train Epoch: {} \tAverage Loss: {:.6f}'.format(epoch, train_error))
+    print("Train Epoch: ", epoch)
+    print("Average Loss: ", train_error)
+    print("Average Precision: ", total_precision / len(train_loader))
+    print("Average Recall: ", total_recall / len(train_loader))
+    print("Average F1: ", total_f1 / len(train_loader))
     # Return accumulated losses
     return train_losses
+
 
 def test(model, device, test_loader, test_losses):
     # Specify that we are in evaluation phase
@@ -312,11 +316,10 @@ def test(model, device, test_loader, test_losses):
             f1_sum += f1
 
         # Print output if epoch is finished
-        print('Validation Loss: ', test_loss/len(test_loader))
-        print("Validation Precision: ", precision_sum/len(test_loader))
-        print("Validation Recall: ", recall_sum/len(test_loader))
-        print("Validation F1: ", f1_sum/len(test_loader))
-
+        print('Validation Loss: ', test_loss / len(test_loader))
+        print("Validation Precision: ", precision_sum / len(test_loader))
+        print("Validation Recall: ", recall_sum / len(test_loader))
+        print("Validation F1: ", f1_sum / len(test_loader))
 
     # Append test loss to total losses
     test_losses.append(test_loss / len(test_loader))
@@ -331,8 +334,8 @@ def main():
                         help='input batch size for training (default: 8)')
     parser.add_argument('--test-batch-size', type=int, default=8, metavar='N',
                         help='input batch size for testing (default: 8)')
-    parser.add_argument('--epochs', type=int, default=5, metavar='N',
-                        help='number of epochs to train (default: 5)')
+    parser.add_argument('--epochs', type=int, default=10, metavar='N',
+                        help='number of epochs to train (default: 10)')
     parser.add_argument('--gamma', type=float, default=1, metavar='N',
                         help='gamma value for learning rate decay (default: 1)')
     parser.add_argument('--no-cuda', action='store_true', default=False,
@@ -353,14 +356,15 @@ def main():
     kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
 
     # Load in the dataset
-    train_data = MyDataset(image_path = TRAIN_IMG_PATH, target_path = TRAIN_LABEL_PATH)
-    val_data = MyDataset(image_path = VAL_IMG_PATH, target_path = VAL_LABEL_PATH)
+    train_data = MyDataset(image_path=TRAIN_IMG_PATH, target_path=TRAIN_LABEL_PATH)
+    val_data = MyDataset(image_path=VAL_IMG_PATH, target_path=VAL_LABEL_PATH)
     # Create data loader for training and validation
     train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=0)
     val_loader = DataLoader(val_data, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
+    print("Finished Loading Data")
 
     # Send model to gpu
-    model = UNet(1, 11).to(device)
+    model = UNet(1, 14).to(device)
     # Specify Adam optimizer
     optimizer = optim.Adam(model.parameters())
 
@@ -376,11 +380,9 @@ def main():
 
     # Train the model for the set number of epochs
     for epoch in range(1, args.epochs + 1):
-        print("Beginning Epoch ", str(epoch))
         # Train and validate for this epoch
         train(model, device, train_loader, optimizer, epoch, train_losses)
         scheduler.step()
-
 
 
 if __name__ == '__main__':

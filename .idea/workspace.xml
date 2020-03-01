@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d111871f-b4ca-41b0-857b-829cd037bf7d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment2/bin/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment2/bin/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/2d/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment3/bin/2d/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/2d/unet_2d.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment3/bin/2d/unet_2d.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/2d_slice.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/2d_slice.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reading_assignments/template.docx" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d/unet_2d.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="222" column="35" selection-start-line="222" selection-start-column="35" selection-end-line="222" selection-end-column="35" />
+            <state relative-caret-position="156">
+              <caret line="239" column="54" selection-start-line="239" selection-start-column="54" selection-end-line="239" selection-end-column="54" />
               <folding>
                 <element signature="e#22#59#0" expanded="true" />
               </folding>
@@ -545,8 +540,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d/unet_2d.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="222" column="35" selection-start-line="222" selection-start-column="35" selection-end-line="222" selection-end-column="35" />
+        <state relative-caret-position="156">
+          <caret line="239" column="54" selection-start-line="239" selection-start-column="54" selection-end-line="239" selection-end-column="54" />
           <folding>
             <element signature="e#22#59#0" expanded="true" />
           </folding>
