@@ -10,14 +10,13 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 from torch.optim.lr_scheduler import StepLR
-from skimage.transform import resize
 
 # Constants
-MODEL_NAME = "unet2d"
-TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Sample_Train/img_2d/"
-TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Sample_Train/label/"
-VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Sample_Val/img_2d/"
-VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Sample_Val/label/"
+MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d/unet2d"
+TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/img_2d/"
+TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/label_2d/"
+VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/img_2d/"
+VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/label_2d/"
 
 
 # Define dataset for image and segmentation mask
@@ -86,8 +85,6 @@ class UNet(nn.Module):
     def __init__(self, in_channels, out_channels):
         super(UNet, self).__init__()
 
-        # Batch normalize input
-        self.bn1 = torch.nn.BatchNorm2d(in_channels)
         # First encoding block.
         self.encode1 = self.encoder_block(in_channels, 32)
         # First maxpool layer
@@ -122,11 +119,6 @@ class UNet(nn.Module):
 
     # Define forward propagation
     def forward(self, x):
-        # Batch normalize the input.
-        # Input: in_channels x 512x512
-        # Output: in_channels x 512x512
-        x = self.bn1(x)
-
         # First encoder block and maxpool
         # Input: in_channels x 512x512
         # Output: 32x512x512
@@ -211,14 +203,6 @@ def train(model, device, train_loader, optimizer, epoch, train_losses):
     model.train()
     # Total Train Loss
     total_loss = 0
-    # Sum for precision, recall, f1
-    total_precision = 0
-    total_recall = 0
-    total_f1 = 0
-    total_tp = 0
-    total_fp = 0
-    total_tn = 0
-    total_fn = 0
     # Iterate through all minibatches.
     for index, (data, target) in enumerate(train_loader):
         # Send training data and the training labels to GPU/CPU
@@ -237,44 +221,14 @@ def train(model, device, train_loader, optimizer, epoch, train_losses):
         loss.backward()
         optimizer.step()
 
-        # Get the prediction by getting the index with the maximum probability
-        pred = output.argmax(dim=1, keepdim=True).cpu().numpy()
-        # Filter both the prediction and the target by only class 1 for spleen
-        pred_filtered = np.where(pred == 1, 1, 0)
-        target_filtered = np.where(target.cpu().numpy() == 1, 1, 0)
-
-        # Calculate the true positives, false positives, true negatives, and false negatives
-        # and increment total sum
-        true_positives = float(np.sum(np.where(np.logical_and(pred_filtered == 1, target_filtered == 1), 1, 0)))
-        false_positives = float(np.sum(np.where(np.logical_and(pred_filtered == 1, target_filtered == 0), 1, 0)))
-        true_negatives = float(np.sum(np.where(np.logical_and(pred_filtered == 0, target_filtered == 0), 1, 0)))
-        false_negatives = float(np.sum(np.where(np.logical_and(pred_filtered == 0, target_filtered == 1), 1, 0)))
-        # precision = true_positives / (true_positives + false_positives)
-        # recall = true_positives / (true_positives + false_negatives)
-        # f1 = 2 * precision * recall / (precision + recall)
-
-        # Total true positives, false positives, true negatives, and false negatives
-        # total_precision += precision
-        # total_recall += recall
-        # total_f1 += f1
-        total_tp += true_positives
-        total_tn += true_negatives
-        total_fp += false_positives
-        total_fn += false_negatives
-
     # Update training error and add to accumulation of training loss over time.
     train_error = total_loss / len(train_loader)
     train_losses.append(train_error)
-    # Print output if epoch is finished
+    # Print out the epoch and train loss
+    print("############################################################################")
     print("Train Epoch: ", epoch)
-    print("Average Loss: ", train_error)
-    precision = total_tp / (total_tp + total_fp)
-    recall = total_tp / (total_tp + total_fn)
-    f1 = precision * recall * 2 / (precision + recall)
-    print("Average Precision: ", precision)
-    print("Average Recall: ", recall)
-    print("Average F1: ", f1)
-    # Return accumulated losses
+    print("############################################################################")
+    print("Average Training Loss: ", train_error)
     return train_losses
 
 
@@ -283,10 +237,11 @@ def test(model, device, test_loader, test_losses):
     model.eval()
     # Set the loss and number of correct instances initially to 0.
     test_loss = 0
-    # Store the sum of the f1 score, precision, and recall
-    recall_sum = 0
-    precision_sum = 0
-    f1_sum = 0
+    # Sum of true positives, false positives, true negatives, and false negatives
+    total_tp = 0
+    total_fp = 0
+    total_tn = 0
+    total_fn = 0
     # No gradient calculation because we are in testing phase.
     with torch.no_grad():
         # For each testing example, we run forward
@@ -304,38 +259,38 @@ def test(model, device, test_loader, test_losses):
             test_loss += loss.item()
 
             # Get the prediction by getting the index with the maximum probability
-            pred = output.argmax(dim=1, keepdim=True)
+            pred = output.argmax(dim=1, keepdim=True).cpu().numpy()
             # Filter both the prediction and the target by only class 1 for spleen
-            pred_filtered = torch.where(pred == 1, torch.ones(pred.shape), torch.zeros(pred.shape))
-            target_filtered = torch.where(target == 1, torch.ones(pred.shape), torch.zeros(pred.shape))
+            pred_filtered = np.where(pred == 1, 1, 0)
+            target_filtered = np.where(target.cpu().numpy() == 1, 1, 0)
 
-            # Calculate the precision and recall and F1
-            true_positives = torch.where(pred_filtered == 1 and target_filtered == 1,
-                                         torch.ones(pred.shape), torch.zeros(pred.shape)).sum().item()
-            false_positives = torch.where(pred_filtered == 1 and target_filtered == 0,
-                                          torch.ones(pred.shape), torch.zeros(pred.shape)).sum().item()
-            true_negatives = torch.where(pred_filtered == 0 and target_filtered == 0,
-                                         torch.ones(pred.shape), torch.zeros(pred.shape)).sum().item()
-            false_negatives = torch.where(pred_filtered == 0 and target_filtered == 1,
-                                          torch.ones(pred.shape), torch.zeros(pred.shape)).sum().item()
-            precision = true_positives / (true_positives + false_positives)
-            recall = true_positives / (true_positives + false_negatives)
-            f1 = 2 * precision * recall / (precision + recall)
+            # Calculate the true positives, false positives, true negatives, and false negatives
+            # and increment total sums
+            true_positives = float(np.sum(np.where(np.logical_and(pred_filtered == 1, target_filtered == 1), 1, 0)))
+            false_positives = float(np.sum(np.where(np.logical_and(pred_filtered == 1, target_filtered == 0), 1, 0)))
+            true_negatives = float(np.sum(np.where(np.logical_and(pred_filtered == 0, target_filtered == 0), 1, 0)))
+            false_negatives = float(np.sum(np.where(np.logical_and(pred_filtered == 0, target_filtered == 1), 1, 0)))
+            total_tp += true_positives
+            total_tn += true_negatives
+            total_fp += false_positives
+            total_fn += false_negatives
 
-            # Increment running sums
-            precision_sum += precision
-            recall_sum += recall
-            f1_sum += f1
-
-        # Print output if epoch is finished
-        print('Validation Loss: ', test_loss / len(test_loader))
-        print("Validation Precision: ", precision_sum / len(test_loader))
-        print("Validation Recall: ", recall_sum / len(test_loader))
-        print("Validation F1: ", f1_sum / len(test_loader))
+        # Calculate precision, recall, and f1 and print out statistics for validation set
+        print("Average Validation Loss: ", test_loss / len(test_loader))
+        precision = total_tp / (total_tp + total_fp)
+        recall = total_tp / (total_tp + total_fn)
+        f1 = precision * recall * 2 / (precision + recall)
+        print("Average Validation Precision: ", precision)
+        print("Average Validation Recall: ", recall)
+        print("Average Validation F1: ", f1)
+        print("Total Validation True Positives: ", total_tp)
+        print("Total Validation True Negatives: ", total_tn)
+        print("Total Validation False Positives: ", total_fp)
+        print("Total Validation False Negatives: ", total_fn)
 
     # Append test loss to total losses
     test_losses.append(test_loss / len(test_loader))
-
+    return test_losses
 
 # Main structure
 def main():
@@ -343,13 +298,13 @@ def main():
     # Command line arguments for hyperparameters of model/training.
     parser = argparse.ArgumentParser(description='PyTorch Object Detection')
     parser.add_argument('--batch-size', type=int, default=4, metavar='N',
-                        help='input batch size for training (default: 8)')
-    parser.add_argument('--test-batch-size', type=int, default=8, metavar='N',
-                        help='input batch size for testing (default: 8)')
+                        help='input batch size for training (default: 4)')
+    parser.add_argument('--test-batch-size', type=int, default=4, metavar='N',
+                        help='input batch size for testing (default: 4)')
     parser.add_argument('--epochs', type=int, default=10, metavar='N',
                         help='number of epochs to train (default: 10)')
-    parser.add_argument('--gamma', type=float, default=1, metavar='N',
-                        help='gamma value for learning rate decay (default: 1)')
+    parser.add_argument('--lr', type=float, default=0.001, metavar='LR',
+                        help='learning rate (default: 0.001)')
     parser.add_argument('--no-cuda', action='store_true', default=False,
                         help='disables CUDA training')
     parser.add_argument('--seed', type=int, default=1, metavar='S',
@@ -378,14 +333,14 @@ def main():
     # Send model to gpu
     model = UNet(1, 14).to(device)
     # Specify Adam optimizer
-    optimizer = optim.Adam(model.parameters())
+    optimizer = optim.Adam(model.parameters(), lr=args.lr)
 
     # Store training and validation losses over time
     train_losses = []
     val_losses = []
 
     # Create scheduler.
-    scheduler = StepLR(optimizer, step_size=1, gamma=args.gamma)
+    scheduler = StepLR(optimizer, step_size=1)
 
     # Store the lowest loss found so far for early stopping
     lowest_loss = 1000
@@ -393,8 +348,29 @@ def main():
     # Train the model for the set number of epochs
     for epoch in range(1, args.epochs + 1):
         # Train and validate for this epoch
-        train(model, device, train_loader, optimizer, epoch, train_losses)
+        train_losses = train(model, device, train_loader, optimizer, epoch, train_losses)
+        val_losses = test(model, device, val_loader, val_losses)
         scheduler.step()
+        # If we find the lowest loss so far, store the model and learning curve
+        if lowest_loss > val_losses[epoch - 1]:
+            # Update the lowest loss
+            lowest_loss = val_losses[epoch - 1]
+            print("New lowest validation loss: ", lowest_loss)
+
+            # Create learning curve
+            figure, axes = plt.subplots()
+            # Set axes labels and title
+            axes.set(xlabel="Epoch", ylabel="Loss", title="Learning Curve")
+            # Plot the learning curves for training and validation loss
+            axes.plot(np.array(train_losses), label="train_loss", c="b")
+            axes.plot(np.array(val_losses), label="validation_loss", c="r")
+            plt.legend()
+            # Save the figure
+            plt.savefig(MODEL_NAME + ".png")
+            plt.close()
+
+            # Save the model
+            torch.save(model.state_dict(), MODEL_NAME + ".pt")
 
 
 if __name__ == '__main__':
