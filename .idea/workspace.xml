@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d111871f-b4ca-41b0-857b-829cd037bf7d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/2d/unet_2d.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment3/bin/2d/unet_2d.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/2d_slice.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/2d_slice.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/test.py" afterDir="false" />
-    </list>
+    <list default="true" id="d111871f-b4ca-41b0-857b-829cd037bf7d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +13,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d/unet_2d.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2448">
+            <state relative-caret-position="4692">
               <caret line="291" column="14" selection-start-line="291" selection-start-column="14" selection-end-line="291" selection-end-column="14" />
               <folding>
                 <element signature="e#22#59#0" expanded="true" />
@@ -26,10 +22,34 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d/test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
+              <folding>
+                <element signature="e#22#59#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d/unet_2d_binary.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1340">
+              <caret line="273" column="39" lean-forward="true" selection-start-line="273" selection-start-column="39" selection-end-line="273" selection-end-column="39" />
+              <folding>
+                <element signature="e#22#59#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/2d_resize224.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
+            <state relative-caret-position="391">
               <caret line="23" selection-start-line="23" selection-end-line="45" selection-end-column="73" />
               <folding>
                 <element signature="e#265#286#0" expanded="true" />
@@ -120,7 +140,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/homework/assignment1/bin/train_softmax_simple.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/test_softmax_simple.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/train_4layer.py" />
         <option value="$PROJECT_DIR$/homework/assignment1/bin/train_multilabel.py" />
@@ -171,6 +190,7 @@
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/3d_resize_224.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/2d_slice.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/2d_resize224.py" />
+        <option value="$PROJECT_DIR$/homework/assignment3/bin/2d/unet_2d_binary.py" />
       </list>
     </option>
   </component>
@@ -396,7 +416,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train_simple.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/label_test.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/archived/distance.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -548,16 +567,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="e#22#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/train.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
@@ -595,16 +604,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d/unet_2d.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2448">
-          <caret line="291" column="14" selection-start-line="291" selection-start-column="14" selection-end-line="291" selection-end-column="14" />
-          <folding>
-            <element signature="e#22#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/2d_slice.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1805">
@@ -617,10 +616,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/2d_resize224.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
+        <state relative-caret-position="391">
           <caret line="23" selection-start-line="23" selection-end-line="45" selection-end-column="73" />
           <folding>
             <element signature="e#265#286#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d/unet_2d.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4692">
+          <caret line="291" column="14" selection-start-line="291" selection-start-column="14" selection-end-line="291" selection-end-column="14" />
+          <folding>
+            <element signature="e#22#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="e#22#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d/unet_2d_binary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1340">
+          <caret line="273" column="39" lean-forward="true" selection-start-line="273" selection-start-column="39" selection-end-line="273" selection-end-column="39" />
+          <folding>
+            <element signature="e#22#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
