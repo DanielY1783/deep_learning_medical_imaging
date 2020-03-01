@@ -215,6 +215,10 @@ def train(model, device, train_loader, optimizer, epoch, train_losses):
     total_precision = 0
     total_recall = 0
     total_f1 = 0
+    total_tp = 0
+    total_fp = 0
+    total_tn = 0
+    total_fn = 0
     # Iterate through all minibatches.
     for index, (data, target) in enumerate(train_loader):
         # Send training data and the training labels to GPU/CPU
@@ -239,19 +243,24 @@ def train(model, device, train_loader, optimizer, epoch, train_losses):
         pred_filtered = np.where(pred == 1, 1, 0)
         target_filtered = np.where(target.cpu().numpy() == 1, 1, 0)
 
-        # Calculate the precision and recall
-        true_positives = np.sum(np.where(pred_filtered == 1 and target_filtered == 1, 1, 0))
-        false_positives = np.sum(np.where(pred_filtered == 1 and target_filtered == 0, 1, 0))
-        true_negatives = np.sum(np.where(pred_filtered == 0 and target_filtered == 0, 1, 0))
-        false_negatives = np.sum(np.where(pred_filtered == 0 and target_filtered == 1, 1, 0))
-        precision = true_positives / (true_positives + false_positives)
-        recall = true_positives / (true_positives + false_negatives)
-        f1 = 2 * precision * recall / (precision + recall)
+        # Calculate the true positives, false positives, true negatives, and false negatives
+        # and increment total sum
+        true_positives = float(np.sum(np.where(np.logical_and(pred_filtered == 1, target_filtered == 1), 1, 0)))
+        false_positives = float(np.sum(np.where(np.logical_and(pred_filtered == 1, target_filtered == 0), 1, 0)))
+        true_negatives = float(np.sum(np.where(np.logical_and(pred_filtered == 0, target_filtered == 0), 1, 0)))
+        false_negatives = float(np.sum(np.where(np.logical_and(pred_filtered == 0, target_filtered == 1), 1, 0)))
+        # precision = true_positives / (true_positives + false_positives)
+        # recall = true_positives / (true_positives + false_negatives)
+        # f1 = 2 * precision * recall / (precision + recall)
 
-        # Update precision, recall, f1 for label 1
-        total_precision += precision
-        total_recall += recall
-        total_f1 += f1
+        # Total true positives, false positives, true negatives, and false negatives
+        # total_precision += precision
+        # total_recall += recall
+        # total_f1 += f1
+        total_tp += true_positives
+        total_tn += true_negatives
+        total_fp += false_positives
+        total_fn += false_negatives
 
     # Update training error and add to accumulation of training loss over time.
     train_error = total_loss / len(train_loader)
@@ -259,9 +268,12 @@ def train(model, device, train_loader, optimizer, epoch, train_losses):
     # Print output if epoch is finished
     print("Train Epoch: ", epoch)
     print("Average Loss: ", train_error)
-    print("Average Precision: ", total_precision / len(train_loader))
-    print("Average Recall: ", total_recall / len(train_loader))
-    print("Average F1: ", total_f1 / len(train_loader))
+    precision = total_tp / (total_tp + total_fp)
+    recall = total_tp / (total_tp + total_fn)
+    f1 = precision * recall * 2 / (precision + recall)
+    print("Average Precision: ", precision)
+    print("Average Recall: ", recall)
+    print("Average F1: ", f1)
     # Return accumulated losses
     return train_losses
 
