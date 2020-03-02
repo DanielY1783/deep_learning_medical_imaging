@@ -41,5 +41,9 @@ for file_name in os.listdir(OLD_TRAIN_IMG):
     # Calculate the new maximum value and divide by maximum value to get in 0-1 range
     max = np.amax(image_data)
     image_data = image_data / max
+    # Subtract 0.45 as mean for imagenet normalization
+    image_data = image_data - 0.45
+    # Divide by 0.225 as standard deviation for imagenet normalization
+    image_data = image_data / 0.225
     image = nib.Nifti1Image(image_data, image.affine)
     nib.save(image, NEW_TRAIN_IMG + file_name)

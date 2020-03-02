@@ -72,10 +72,6 @@ for file_name in os.listdir(OLD_TRAIN_LABELS_FILTERED):
     image = nib.load(OLD_TRAIN_LABELS_FILTERED + file_name)
     # Get the array of values
     image_data = image.get_fdata()
-    # Subtract 0.45 as mean for imagenet normalization
-    image_data = image_data - 0.45
-    # Divide by 0.225 as standard deviation for imagenet normalization
-    image_data = image_data / 0.225
     # Iterate through the third dimension to create 2d slices of size 512x512
     for index in range(image_data.shape[2]):
         # Get the current slice
@@ -100,6 +96,10 @@ for file_name in os.listdir(OLD_VAL_IMG):
     # Calculate the new maximum value and divide by maximum value to get in 0-1 range
     max = np.amax(image_data)
     image_data = image_data / max
+    # Subtract 0.45 as mean for imagenet normalization
+    image_data = image_data - 0.45
+    # Divide by 0.225 as standard deviation for imagenet normalization
+    image_data = image_data / 0.225
     # Iterate through the third dimension to create 2d slices of size 512x512
     for index in range(image_data.shape[2]):
         # Get the current slice
