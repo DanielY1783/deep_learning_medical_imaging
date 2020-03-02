@@ -42,10 +42,10 @@ for file_name in os.listdir(OLD_TRAIN_IMG):
     for index in range(image_data.shape[2]):
         # Get the current slice
         slice = image_data[:, :, index]
-        # Convert to float16
-        slice = slice.astype(np.float16)
         # Resize to 224x224
         slice = resize(slice, (224, 224) ,preserve_range=True, anti_aliasing=False)
+        # Convert to float16
+        slice = slice.astype(np.float16)
         # Save as numpy array. Exclude extension prefix from file name.
         np.save(NEW_TRAIN_IMG + file_name[:-7] + "_" + str(index), slice)
 
@@ -59,10 +59,10 @@ for file_name in os.listdir(OLD_TRAIN_LABELS):
     for index in range(image_data.shape[2]):
         # Get the current slice
         slice = image_data[:, :, index]
-        # Convert to uint8
-        slice = slice.astype(np.uint8)
         # Resize to 224x224
         slice = resize(slice, (224, 224) ,preserve_range=True, anti_aliasing=False)
+        # Convert to uint8
+        slice = slice.astype(np.uint8)
         # Save as numpy array. Exclude extension prefix from file name.
         np.save(NEW_TRAIN_LABELS + file_name[:-7] + "_" + str(index), slice)
 
@@ -76,10 +76,10 @@ for file_name in os.listdir(OLD_TRAIN_LABELS_FILTERED):
     for index in range(image_data.shape[2]):
         # Get the current slice
         slice = image_data[:, :, index]
-        # Convert to uint8
-        slice = slice.astype(np.uint8)
         # Resize to 224x224
         slice = resize(slice, (224, 224) ,preserve_range=True, anti_aliasing=False)
+        # Convert to uint8
+        slice = slice.astype(np.uint8)
         # Save as numpy array. Exclude extension prefix from file name.
         np.save(NEW_TRAIN_LABELS_FILTERED + file_name[:-7] + "_" + str(index), slice)
 
@@ -104,10 +104,10 @@ for file_name in os.listdir(OLD_VAL_IMG):
     for index in range(image_data.shape[2]):
         # Get the current slice
         slice = image_data[:, :, index]
-        # Convert to float16
-        slice = slice.astype(np.float16)
         # Resize to 224x224
         slice = resize(slice, (224, 224) ,preserve_range=True, anti_aliasing=False)
+        # Convert to float16
+        slice = slice.astype(np.float16)
         # Save as numpy array. Exclude extension prefix from file name.
         np.save(NEW_VAL_IMG + file_name[:-7] + "_" + str(index), slice)
 
@@ -121,10 +121,10 @@ for file_name in os.listdir(OLD_VAL_LABELS):
     for index in range(image_data.shape[2]):
         # Get the current slice
         slice = image_data[:, :, index]
-        # Convert to uint8
-        slice = slice.astype(np.uint8)
         # Resize to 224x224
         slice = resize(slice, (224, 224) ,preserve_range=True, anti_aliasing=False)
+        # Convert to uint8
+        slice = slice.astype(np.uint8)
         # Save as numpy array. Exclude extension prefix from file name.
         np.save(NEW_VAL_LABELS + file_name[:-7] + "_" + str(index), slice)
 
@@ -138,9 +138,9 @@ for file_name in os.listdir(OLD_VAL_LABELS_FILTERED):
     for index in range(image_data.shape[2]):
         # Get the current slice
         slice = image_data[:, :, index]
+        # Resize to 224x224
+        slice = resize(slice, (224, 224), preserve_range=True, anti_aliasing=False)
         # Convert to uint8
         slice = slice.astype(np.uint8)
-        # Resize to 224x224
-        slice = resize(slice, (224, 224) ,preserve_range=True, anti_aliasing=False)
         # Save as numpy array. Exclude extension prefix from file name.
         np.save(NEW_VAL_LABELS_FILTERED + file_name[:-7] + "_" + str(index), slice)

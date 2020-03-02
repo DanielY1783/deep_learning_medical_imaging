@@ -188,7 +188,7 @@ def main():
     print("Finished Loading Data")
 
     # Send model to gpu
-    model = models.segmentation.deeplabv3_resnet101(pretrained=True).to(device)
+    model = models.segmentation.deeplabv3_resnet50(num_classes=14).to(device)
     # Specify Adam optimizer
     optimizer = optim.Adam(model.parameters(), lr=args.lr)
 
