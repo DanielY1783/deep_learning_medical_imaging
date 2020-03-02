@@ -1,6 +1,10 @@
 from PIL import Image
 import numpy as np
 import nibabel as nib
+import os
+from sklearn.preprocessing import StandardScaler
+OLD_TRAIN_IMG = "../../data/Train/img/"
+NEW_TRAIN_IMG = "../../data/Train/img_rescale/"
 
 # y = np.zeros((512, 512, 147))
 # z = np.zeros((512, 512, 147))
@@ -18,6 +22,24 @@ import nibabel as nib
 # array_img2 = nib.Nifti1Image(z, image_original2.affine)
 # nib.save(array_img2, '../../data/Training_2d/img/my_seg.nii')
 
-x = np.load("../../data/Train/img_2d/0001_20.npy")
-
-print(x)
+# First for training set
+# Iterate through all the actual images
+for file_name in os.listdir(OLD_TRAIN_IMG):
+    # Create standard scaler
+    scaler = StandardScaler(copy=False)
+    # Load the image
+    image = nib.load(OLD_TRAIN_IMG + file_name)
+    # Get the array of values
+    image_data = image.get_fdata()
+    # # Calculate mean and standard deviation to perform standard scaling
+    # mean = np.mean(image_data)
+    # std = np.std(image_data)
+    # image_data = (image_data - mean) / std
+    # Calculate the minimum value of the data and subtract all values by that value to get min value to 0
+    min = np.amin(image_data)
+    image_data = image_data - min
+    # Calculate the new maximum value and divide by maximum value to get in 0-1 range
+    max = np.amax(image_data)
+    image_data = image_data / max
+    image = nib.Nifti1Image(image_data, image.affine)
+    nib.save(image, NEW_TRAIN_IMG + file_name)
