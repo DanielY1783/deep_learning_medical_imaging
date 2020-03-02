@@ -67,8 +67,7 @@ def train(model, device, train_loader, optimizer, epoch, train_losses):
         data, target = data.to(device, dtype=torch.float32), target.to(device, dtype=torch.long)
         # Zero the gradients carried over from previous step
         optimizer.zero_grad()
-        # Obtain the predictions from forward propagation and reshape outputs and labels to calculate
-        # cross entropy loss
+        # Obtain the predictions from forward propagation
         output = model(data)["out"]
 
         # Compute the cross entropy for the loss and update total loss.
@@ -110,7 +109,7 @@ def test(model, device, test_loader, test_losses):
             # Send training data and the training labels to GPU/CPU
             data, target = data.to(device, dtype=torch.float32), target.to(device, dtype=torch.long)
             # Obtain the output from the model
-            output = model(data)
+            output = model(data)["out"]
             # Calculate the loss using cross entropy.
             loss = F.cross_entropy(output, target)
             # Increment the total test loss
@@ -155,10 +154,10 @@ def main():
     print("Entering Main")
     # Command line arguments for hyperparameters of model/training.
     parser = argparse.ArgumentParser(description='PyTorch Object Detection')
-    parser.add_argument('--batch-size', type=int, default=16, metavar='N',
-                        help='input batch size for training (default: 16)')
-    parser.add_argument('--test-batch-size', type=int, default=16, metavar='N',
-                        help='input batch size for testing (default: 16)')
+    parser.add_argument('--batch-size', type=int, default=8, metavar='N',
+                        help='input batch size for training (default: 8)')
+    parser.add_argument('--test-batch-size', type=int, default=8, metavar='N',
+                        help='input batch size for testing (default: 8)')
     parser.add_argument('--epochs', type=int, default=10, metavar='N',
                         help='number of epochs to train (default: 10)')
     parser.add_argument('--lr', type=float, default=0.001, metavar='LR',
