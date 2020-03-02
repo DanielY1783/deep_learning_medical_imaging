@@ -134,12 +134,12 @@ def test(model, device, test_loader, test_losses):
 
         # Calculate precision, recall, and f1 and print out statistics for validation set
         print("Average Validation Loss: ", test_loss / len(test_loader))
-        precision = total_tp / (total_tp + total_fp)
-        recall = total_tp / (total_tp + total_fn)
-        f1 = precision * recall * 2 / (precision + recall)
-        print("Average Validation Precision: ", precision)
-        print("Average Validation Recall: ", recall)
-        print("Average Validation F1: ", f1)
+        # precision = total_tp / (total_tp + total_fp)
+        # recall = total_tp / (total_tp + total_fn)
+        # f1 = precision * recall * 2 / (precision + recall)
+        # print("Average Validation Precision: ", precision)
+        # print("Average Validation Recall: ", recall)
+        # print("Average Validation F1: ", f1)
         print("Total Validation True Positives: ", total_tp)
         print("Total Validation True Negatives: ", total_tn)
         print("Total Validation False Positives: ", total_fp)

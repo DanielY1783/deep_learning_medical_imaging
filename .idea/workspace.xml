@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d111871f-b4ca-41b0-857b-829cd037bf7d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/2d/deeplabv3.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment3/bin/2d/deeplabv3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d/deeplabv3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="111" column="39" selection-start-line="111" selection-start-column="39" selection-end-line="111" selection-end-column="39" />
+            <state relative-caret-position="231">
+              <caret line="136" selection-start-line="136" selection-end-line="141" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -627,8 +626,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d/deeplabv3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="111" column="39" selection-start-line="111" selection-start-column="39" selection-end-line="111" selection-end-column="39" />
+        <state relative-caret-position="231">
+          <caret line="136" selection-start-line="136" selection-end-line="141" selection-end-column="46" />
         </state>
       </provider>
     </entry>
