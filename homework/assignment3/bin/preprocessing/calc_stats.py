@@ -3,12 +3,11 @@ import numpy as np
 import os
 import matplotlib.pyplot as plt
 
-ORIGINAL_LABELS = "../../data/Train/label/"
-LABELS = "../../data/Train/label_resize/"
+LABELS = "../../data/Train/label/"
 
 # Print out statistics for original data
 print("######################################################")
-print("Original Statistics")
+print("Statistics For Images at: ", LABELS)
 print("######################################################")
 # Lists for start and end indices of spleen for each image
 min_list = []

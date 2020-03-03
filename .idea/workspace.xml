@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/calc_stats.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/calc_stats.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/register.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/rescale.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/rescale.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/resize.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,34 +15,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d/unet_2d.py">
+        <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/calc_stats.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="333" column="23" selection-start-line="333" selection-start-column="23" selection-end-line="333" selection-end-column="34" />
+            <state relative-caret-position="85">
+              <caret line="5" column="32" lean-forward="true" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
               <folding>
-                <element signature="e#22#59#0" expanded="true" />
+                <element signature="e#0#21#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d/deeplabv3.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="70" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="85">
-                <caret line="5" column="54" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
-              </first_editor>
-              <second_editor />
             </state>
           </provider>
         </entry>
@@ -51,31 +29,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/register.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-95">
-              <caret line="5" column="89" selection-start-line="5" selection-start-column="89" selection-end-line="5" selection-end-column="89" />
+            <state relative-caret-position="204">
+              <caret line="12" column="89" selection-start-line="12" selection-start-column="89" selection-end-line="12" selection-end-column="89" />
               <folding>
                 <element signature="e#38#49#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/resize_and_rescale.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="19" selection-start-line="19" selection-end-line="45" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/calc_stats.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="54" column="10" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="10" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -163,12 +120,12 @@
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/2d_resize224.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/2d/deeplabv3.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/2d_slice.py" />
-        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/rescale.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/README.md" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/resize.py" />
-        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/calc_stats.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/resize_and_rescale.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/register.py" />
+        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/rescale.py" />
+        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/calc_stats.py" />
       </list>
     </option>
   </component>
@@ -627,16 +584,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/rescale.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="14" selection-start-line="14" selection-end-line="38" selection-end-column="44" />
-          <folding>
-            <element signature="e#262#283#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -647,27 +594,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/calc_stats.py">
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/rescale.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="54" column="10" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="10" />
+        <state relative-caret-position="296">
+          <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#262#283#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/resize_and_rescale.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="19" selection-start-line="19" selection-end-line="45" selection-end-column="45" />
+        <state relative-caret-position="177">
+          <caret line="40" selection-start-line="40" selection-end-line="41" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/calc_stats.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="32" lean-forward="true" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/register.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-95">
-          <caret line="5" column="89" selection-start-line="5" selection-start-column="89" selection-end-line="5" selection-end-column="89" />
+        <state relative-caret-position="204">
+          <caret line="12" column="89" selection-start-line="12" selection-start-column="89" selection-end-line="12" selection-end-column="89" />
           <folding>
             <element signature="e#38#49#0" expanded="true" />
           </folding>
