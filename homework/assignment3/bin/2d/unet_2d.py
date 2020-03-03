@@ -13,18 +13,21 @@ from torch.optim.lr_scheduler import StepLR
 
 # Constants
 MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d/unet2d"
-TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/img_2d/"
-TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/label_2d/"
-VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/img_2d/"
-VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/label_2d/"
+TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train2d/img/"
+TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train2d/label/"
+VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val2d/img/"
+VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val2d/label/"
 
 
 # Define dataset for image and segmentation mask
 class MyDataset(Dataset):
     def __init__(self, image_path, target_path):
+        # Create a list of all the names of the files to load
+        self.file_names = list(os.listdir(image_path))
         # Create list of images
-        images_list = []
-        for file_name in os.listdir(image_path):
+        self.images_list = []
+        self.image_names_list = []
+        for file_name in self.file_names:
             # Load in image using numpy
             image = np.load(image_path + file_name)
             # Convert to torch tensor
@@ -32,17 +35,18 @@ class MyDataset(Dataset):
             # Insert first dimension for number of channels
             image_tensor = torch.unsqueeze(image_tensor, 0)
             # Add to list of images.
-            images_list.append(image_tensor)
-        self.images_list = images_list
+            self.images_list.append(image_tensor)
+            self.image_names_list.append(image_path + file_name)
         # Create list of target segmentations
-        targets_list = []
-        for file_name in os.listdir(target_path):
+        self.targets_list = []
+        self.target_names_list = []
+        for file_name in list(os.listdir(image_path)):
             mask = np.load(target_path + file_name)
             # Convert to torch tensor
             mask_tensor = torch.from_numpy(mask)
             # Add to list of masks.
-            targets_list.append(mask_tensor)
-        self.targets_list = targets_list
+            self.targets_list.append(mask_tensor)
+            self.target_names_list.append(image_path + file_name)
 
     def __getitem__(self, index):
         return self.images_list[index], self.targets_list[index]
