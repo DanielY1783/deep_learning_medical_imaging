@@ -1,16 +1,21 @@
 import nibabel as nib
 import numpy as np
 import os
+import matplotlib.pyplot as plt
 
-ORIGINAL_LABELS = "../../data/Original_Training/label/"
+ORIGINAL_LABELS = "../../data/Train/label/"
+LABELS = "../../data/Train/label_resize/"
 
 # Print out statistics for original data
 print("######################################################")
 print("Original Statistics")
 print("######################################################")
-for file_name in os.listdir(ORIGINAL_LABELS):
+# Lists for start and end indices of spleen for each image
+min_list = []
+max_list = []
+for file_name in os.listdir(LABELS):
     # Load the image
-    image = nib.load(ORIGINAL_LABELS + file_name)
+    image = nib.load(LABELS + file_name)
     # Get the array of values
     image_data = image.get_fdata()
     print(file_name + " shape of Data: ", image_data.shape)
@@ -23,12 +28,28 @@ for file_name in os.listdir(ORIGINAL_LABELS):
     spleen_z_sum = np.sum(spleen_z)
     print("Percentage of slices on z axis with spleen: ", spleen_z_sum / spleen_labels.shape[2])
 
-    # Calculate the smallest and largest index with spleen label and normalize to
-    # 0-1 range since we have variable number of z slices
+    # Calculate the smallest and largest index with spleen label
     spleen_indices = np.nonzero(spleen_z)
     min_spleen = np.min(spleen_indices[0])
     max_spleen = np.max(spleen_indices[0])
-    print("Normalized spleen start: ", min_spleen / spleen_labels.shape[2])
-    print("Normalized spleen end: ", max_spleen / spleen_labels.shape[2])
-    print("Slices before spleen: ", min_spleen )
-    print("Slices after spleen: ", spleen_labels.shape[2] - max_spleen)
+    print("Spleen start: ", min_spleen)
+    print("Spleen end: ", max_spleen)
+    min_list.append(min_spleen)
+    max_list.append(max_spleen)
+
+# Print out mean and standard deviation values for start and end of spleen in slices.
+print("Mean start slice for spleen: ", np.mean(np.array(min_list)))
+print("Std start slice for spleen: ", np.std(np.array(min_list)))
+print("Smallest start slice for spleen", np.min(np.array(min_list)))
+print("Largest start slice for spleen", np.max(np.array(min_list)))
+print("Mean end slice for spleen: ", np.mean(np.array(max_list)))
+print("Std end slice for spleen: ", np.std(np.array(max_list)))
+print("Smallest end slice for spleen", np.min(np.array(max_list)))
+print("Largest end slice for spleen", np.max(np.array(max_list)))
+# Plot the start and end slice distributions
+plt.hist(np.array(min_list), bins=70)
+plt.show()
+plt.close()
+plt.hist(np.array(max_list), bins=70)
+plt.show()
+plt.close()
