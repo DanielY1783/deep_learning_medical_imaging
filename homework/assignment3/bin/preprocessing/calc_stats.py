@@ -3,7 +3,7 @@ import numpy as np
 import os
 import matplotlib.pyplot as plt
 
-LABELS = "../../data/Train/label/"
+LABELS = "../../data/Val/label_registered/"
 
 # Print out statistics for original data
 print("######################################################")
@@ -25,16 +25,15 @@ for file_name in os.listdir(LABELS):
     spleen_z = np.sum(spleen_labels, axis=(0, 1))
     spleen_z = np.where(spleen_z > 0, 1, 0)
     spleen_z_sum = np.sum(spleen_z)
-    print("Percentage of slices on z axis with spleen: ", spleen_z_sum / spleen_labels.shape[2])
-
     # Calculate the smallest and largest index with spleen label
     spleen_indices = np.nonzero(spleen_z)
-    min_spleen = np.min(spleen_indices[0])
-    max_spleen = np.max(spleen_indices[0])
-    print("Spleen start: ", min_spleen)
-    print("Spleen end: ", max_spleen)
-    min_list.append(min_spleen)
-    max_list.append(max_spleen)
+    if spleen_z_sum > 0:
+        min_spleen = np.min(spleen_indices[0])
+        max_spleen = np.max(spleen_indices[0])
+        print("Spleen start: ", min_spleen)
+        print("Spleen end: ", max_spleen)
+        min_list.append(min_spleen)
+        max_list.append(max_spleen)
 
 # Print out mean and standard deviation values for start and end of spleen in slices.
 print("Mean start slice for spleen: ", np.mean(np.array(min_list)))
