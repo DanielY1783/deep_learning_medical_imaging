@@ -1,4 +1,4 @@
-# Register all volumes to 0007.nii.gz. No resizing in this version
+# Register all training volumes to 0007.nii.gz. No resizing in this version
 
 import ants
 import os
