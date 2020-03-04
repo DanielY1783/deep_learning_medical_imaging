@@ -1,8 +1,9 @@
 # Author: Daniel Yan
 # Email: daniel.yan@vanderbilt.edu
-# Description: Train deeplabv3 for segmentation
+# Description: Train Unet with diceloss
 
 import argparse
+from catalyst.contrib.nn import DiceLoss, IoULoss
 from matplotlib import pyplot as plt
 import numpy as np
 import pandas as pd
@@ -15,14 +16,21 @@ import torch.optim as optim
 from torchvision import transforms, models
 from torch.optim.lr_scheduler import StepLR
 from skimage import io
-import segmentation_models_pytorch as smp # For dice loss function
+import segmentation_models_pytorch as smp
+
+# # Constants
+# MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d/deeplabv3_binary_diceloss"
+# TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train2d/img/"
+# TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train2d/label_filtered/"
+# VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val2d/img/"
+# VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val2d/label_filtered/"
 
 # Constants
-MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d/deeplabv3_binary"
-TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train2d/img/"
-TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train2d/label_filtered/"
-VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val2d/img/"
-VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val2d/label_filtered/"
+MODEL_NAME = "deeplabv3_binary_diceloss"
+TRAIN_IMG_PATH = "../../data/Train2d/img_sample/"
+TRAIN_LABEL_PATH = "../../data/Train2d/label_sample/"
+VAL_IMG_PATH = "../../data/Val2d/img_sample/"
+VAL_LABEL_PATH = "../../data/Val2d/label_sample/"
 
 # Define dataset for image and segmentation mask
 class MyDataset(Dataset):
@@ -72,10 +80,10 @@ def train(model, device, train_loader, optimizer, epoch, train_losses):
         # Zero the gradients carried over from previous step
         optimizer.zero_grad()
         # Obtain the predictions from forward propagation
-        output = model(data)["out"]
+        output = model(data)
 
         # Compute the cross entropy for the loss and update total loss.
-        loss = smp.utils.losses.DiceLoss()(output, target)
+        loss = IoULoss()(output, target)
         total_loss += loss.item()
         # Perform backward propagation to compute the negative gradient, and
         # update the gradients with optimizer.step()
@@ -113,9 +121,9 @@ def test(model, device, test_loader, test_losses):
             # Send training data and the training labels to GPU/CPU
             data, target = data.to(device, dtype=torch.float32), target.to(device, dtype=torch.long)
             # Obtain the output from the model
-            output = model(data)["out"]
+            output = model(data)
             # Calculate the loss using cross entropy.
-            loss = smp.utils.losses.DiceLoss()(output, target)
+            loss = IoULoss()(output, target)
             # Increment the total test loss
             test_loss += loss.item()
 
@@ -186,7 +194,7 @@ def main():
     print("Finished Loading Data")
 
     # Send model to gpu
-    model = models.segmentation.deeplabv3_resnet50(num_classes=2).to(device)
+    model = smp.Unet('resnet34', encoder_weights='imagenet', classes=1, activation='sigmoid').to(device)
     # Specify Adam optimizer
     optimizer = optim.Adam(model.parameters(), lr=args.lr)
 

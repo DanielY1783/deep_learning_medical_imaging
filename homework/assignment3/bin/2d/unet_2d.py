@@ -12,12 +12,15 @@ import torch.optim as optim
 from torch.optim.lr_scheduler import StepLR
 
 # Constants
-MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d/unet2d"
-TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train2d/img/"
-TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train2d/label/"
-VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val2d/img/"
-VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val2d/label/"
-
+MODEL_NAME = "unet2d"
+# TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train2d/img/"
+# TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train2d/label/"
+# VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val2d/img/"
+# VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val2d/label/"
+TRAIN_IMG_PATH = "../../data/Train2d/img_sample/"
+TRAIN_LABEL_PATH = "../../data/Train2d/label_sample/"
+VAL_IMG_PATH = "../../data/Val2d/img_sample/"
+VAL_LABEL_PATH = "../../data/Val2d/label_sample/"
 
 # Define dataset for image and segmentation mask
 class MyDataset(Dataset):

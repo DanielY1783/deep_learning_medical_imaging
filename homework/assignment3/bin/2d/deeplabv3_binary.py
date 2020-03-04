@@ -15,7 +15,6 @@ import torch.optim as optim
 from torchvision import transforms, models
 from torch.optim.lr_scheduler import StepLR
 from skimage import io
-import segmentation_models_pytorch as smp
 
 # Constants
 MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d/deeplabv3_binary"

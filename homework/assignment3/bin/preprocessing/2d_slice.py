@@ -18,8 +18,14 @@ NEW_VAL_LABELS = "../../data/Val2d/label/"
 OLD_VAL_IMG = "../../data/Val/img_rescaled/"
 NEW_VAL_IMG = "../../data/Val2d/img/"
 # Start and end indices on z axis to reslice, since most slices do not have spleen
-Z_START = 38
-Z_END = 60
+Z_START = 37
+Z_END = 63
+
+# Start and end indices on x axis to reslice, since most slices do not have spleen
+X_START = 137
+X_END = 210
+Y_START = 50
+Y_END = 150
 
 # First for training set
 # Iterate through all the actual images
