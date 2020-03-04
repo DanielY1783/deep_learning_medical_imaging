@@ -5,9 +5,9 @@ import numpy as np
 import os
 
 # Constants for path names
-OLD_TRAIN_IMG = "../../data/Train/img_registered/"
+OLD_TRAIN_IMG = "../../data/Train/img_registered_no_resize/"
 NEW_TRAIN_IMG = "../../data/Train/img_rescaled/"
-OLD_VAL_IMG = "../../data/Val/img_registered/"
+OLD_VAL_IMG = "../../data/Val/img_registered_no_resize/"
 NEW_VAL_IMG = "../../data/Val/img_rescaled/"
 
 # First for training set

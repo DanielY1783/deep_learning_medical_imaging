@@ -3,7 +3,7 @@ import numpy as np
 import os
 import matplotlib.pyplot as plt
 
-LABELS = "../../data/Train/label_registeredv2/"
+LABELS = "../../data/Val/label_registered_no_resize/"
 
 # Print out statistics for original data
 print("######################################################")
@@ -24,6 +24,10 @@ for file_name in os.listdir(LABELS):
 
     # Filter by 1 values for spleen
     spleen_labels = np.where(image_data == 1, 1, 0)
+
+    # Print out the number of spleen labels
+    print(file_name, ": ", np.sum(spleen_labels), " total spleen labels")
+
     # Find where spleen starts and ends on z axis
     spleen_z = np.sum(spleen_labels, axis=(0, 1))
     spleen_z = np.where(spleen_z > 0, 1, 0)

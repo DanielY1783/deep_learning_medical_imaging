@@ -7,25 +7,25 @@ import os
 from skimage.transform import resize
 
 # Constants for path names
-NEW_TRAIN_LABELS_FILTERED = "../../data/train_heavy_crop/label_filtered/"
-OLD_TRAIN_LABELS = "../../data/Train/label_registered/"
-NEW_TRAIN_LABELS = "../../data/train_heavy_crop/label/"
+NEW_TRAIN_LABELS_FILTERED = "../../data/Train/label_cropped_filtered/"
+OLD_TRAIN_LABELS = "../../data/Train/label_registered_no_resize/"
+NEW_TRAIN_LABELS = "../../data/Train/label_cropped/"
 OLD_TRAIN_IMG = "../../data/Train/img_rescaled/"
-NEW_TRAIN_IMG = "../../data/train_heavy_crop/img/"
-NEW_VAL_LABELS_FILTERED = "../../data/val_heavy_crop/label_filtered/"
-OLD_VAL_LABELS = "../../data/Val/label_registered/"
-NEW_VAL_LABELS = "../../data/val_heavy_crop/label/"
+NEW_TRAIN_IMG = "../../data/Train/img_cropped/"
+NEW_VAL_LABELS_FILTERED = "../../data/Val/label_cropped_filtered/"
+OLD_VAL_LABELS = "../../data/Val/label_registered_no_resize/"
+NEW_VAL_LABELS = "../../data/Val/label_cropped/"
 OLD_VAL_IMG = "../../data/Val/img_rescaled/"
-NEW_VAL_IMG = "../../data/val_heavy_crop/img/"
+NEW_VAL_IMG = "../../data/Val/img_cropped/"
 # Start and end indices on z axis to reslice, since most slices do not have spleen
-Z_START = 37
-Z_END = 63
+Z_START = 85
+Z_END = 145
 
 # Start and end indices on x axis to reslice, since most slices do not have spleen
-X_START = 137
-X_END = 210
-Y_START = 50
-Y_END = 150
+X_START = 280
+X_END = 504
+Y_START = 110
+Y_END = 334
 
 # First for training set
 # Iterate through all the actual images
@@ -77,10 +77,10 @@ for file_name in os.listdir(OLD_TRAIN_LABELS):
     new_train_sum += new_spleen_labels
 print("Original Training Number of spleen labels: ", old_train_sum)
 print("New Training Number of spleen labels: ", new_train_sum)
-print("Percentage of Spleen Labels Retained: ", new_train_sum / old_train_sum)
+print("Percentage of Training Spleen Labels Retained: ", new_train_sum / old_train_sum)
 
-print("Percentage of image that is spleen: ", new_train_sum / (83*100*26*23))
-print("Original percentage of image that is spleen: ", new_train_sum / (224*224*26*23))
+print("Percentage of Training Labels that is spleen: ", new_train_sum / (224*224*60*22))
+print("Original percentage of Training Labels that is spleen: ", new_train_sum / (512*512*163*22))
 
 # Repeat for Validation Set
 # Iterate through all the actual images
@@ -133,3 +133,5 @@ for file_name in os.listdir(OLD_VAL_LABELS):
 print("Original Validation Number of spleen labels: ", old_val_sum)
 print("New Validation Number of spleen labels: ", new_val_sum)
 print("Percentage of Spleen Labels Retained: ", new_val_sum / old_val_sum)
+print("Percentage of Val Labels that is spleen: ", new_val_sum / (224*224*60*5))
+print("Original percentage of Val Labels that is spleen: ", new_val_sum / (512*512*163*5))

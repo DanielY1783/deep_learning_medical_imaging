@@ -15,6 +15,7 @@ fixed = ants.image_read(FIXED_IMG)
 for file_name in os.listdir(OLD_TEST_IMG):
     # Load in moving image
     moving_image = ants.image_read(OLD_TEST_IMG + file_name)
+    print("Registering ", file_name)
     # Perform registration
     transform = ants.registration(fixed=fixed , moving=moving_image,
                                  type_of_transform='AffineFast' )
@@ -22,4 +23,5 @@ for file_name in os.listdir(OLD_TEST_IMG):
                                                transformlist=transform['fwdtransforms'],
                                                interpolator='nearestNeighbor')
     # Save transformed image
+    print("Saving ", file_name)
     transformed_image.to_file(NEW_TEST_IMG + file_name)
