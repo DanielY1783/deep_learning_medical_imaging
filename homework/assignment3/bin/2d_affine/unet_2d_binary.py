@@ -13,10 +13,10 @@ from torch.optim.lr_scheduler import StepLR
 
 # Constants
 MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d/unet2d_binary"
-TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train2d/img/"
-TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train2d/label_filtered/"
-VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val2d/img/"
-VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val2d/label_filtered/"
+TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/img_cropped/"
+TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/label_cropped_filtered/"
+VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/img_cropped/"
+VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/label_cropped_filtered/"
 
 
 # Define dataset for image and segmentation mask

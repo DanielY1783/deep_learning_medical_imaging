@@ -17,11 +17,11 @@ from torch.optim.lr_scheduler import StepLR
 from skimage import io
 
 # Constants
-MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d/deeplabv3_resnet50"
-TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train224_2d/img_2d/"
-TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train224_2d/label_2d/"
-VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val224_2d/img_2d/"
-VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val224_2d/label_2d/"
+MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d/deeplabv3_binary"
+TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/affine/img_cropped/"
+TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/affine/label_cropped_filtered/"
+VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/affine/img_cropped/"
+VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/affine/label_cropped_filtered/"
 
 # Define dataset for image and segmentation mask
 class MyDataset(Dataset):
@@ -58,7 +58,6 @@ class MyDataset(Dataset):
 
     def __len__(self):
         return len(self.images_list)
-
 
 def train(model, device, train_loader, optimizer, epoch, train_losses):
     # Specify that we are in training phase
@@ -138,16 +137,18 @@ def test(model, device, test_loader, test_losses):
 
         # Calculate precision, recall, and f1 and print out statistics for validation set
         print("Average Validation Loss: ", test_loss / len(test_loader))
-        # precision = total_tp / (total_tp + total_fp)
-        # recall = total_tp / (total_tp + total_fn)
-        # f1 = precision * recall * 2 / (precision + recall)
-        # print("Average Validation Precision: ", precision)
-        # print("Average Validation Recall: ", recall)
-        # print("Average Validation F1: ", f1)
         print("Total Validation True Positives: ", total_tp)
         print("Total Validation True Negatives: ", total_tn)
         print("Total Validation False Positives: ", total_fp)
         print("Total Validation False Negatives: ", total_fn)
+
+        if ( total_tp > 0 and total_fn > 0 and total_fp > 0):
+            precision = total_tp / (total_tp + total_fp)
+            recall = total_tp / (total_tp + total_fn)
+            f1 = 2 * precision * recall / (precision + recall)
+            print("Precision: ", precision)
+            print("Recall: ", recall)
+            print("F1: ", f1)
 
     # Append test loss to total losses
     test_losses.append(test_loss / len(test_loader))
@@ -162,8 +163,8 @@ def main():
                         help='input batch size for training (default: 8)')
     parser.add_argument('--test-batch-size', type=int, default=8, metavar='N',
                         help='input batch size for testing (default: 8)')
-    parser.add_argument('--epochs', type=int, default=10, metavar='N',
-                        help='number of epochs to train (default: 10)')
+    parser.add_argument('--epochs', type=int, default=50, metavar='N',
+                        help='number of epochs to train (default: 50)')
     parser.add_argument('--lr', type=float, default=0.001, metavar='LR',
                         help='learning rate (default: 0.001)')
     parser.add_argument('--no-cuda', action='store_true', default=False,
@@ -187,12 +188,12 @@ def main():
     train_data = MyDataset(image_path=TRAIN_IMG_PATH, target_path=TRAIN_LABEL_PATH)
     val_data = MyDataset(image_path=VAL_IMG_PATH, target_path=VAL_LABEL_PATH)
     # Create data loader for training and validation
-    train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=0)
+    train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=0, drop_last=True)
     val_loader = DataLoader(val_data, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
     print("Finished Loading Data")
 
     # Send model to gpu
-    model = models.segmentation.deeplabv3_resnet50(num_classes=14).to(device)
+    model = models.segmentation.deeplabv3_resnet50(num_classes=2).to(device)
     # Specify Adam optimizer
     optimizer = optim.Adam(model.parameters(), lr=args.lr)
 

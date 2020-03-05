@@ -1,9 +1,8 @@
 # Author: Daniel Yan
 # Email: daniel.yan@vanderbilt.edu
-# Description: Train Unet with diceloss
+# Description: Train deeplabv3 for segmentation
 
 import argparse
-from catalyst.contrib.nn import DiceLoss, IoULoss
 from matplotlib import pyplot as plt
 import numpy as np
 import pandas as pd
@@ -16,21 +15,13 @@ import torch.optim as optim
 from torchvision import transforms, models
 from torch.optim.lr_scheduler import StepLR
 from skimage import io
-import segmentation_models_pytorch as smp
-
-# # Constants
-# MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d/deeplabv3_binary_diceloss"
-# TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train2d/img/"
-# TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train2d/label_filtered/"
-# VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val2d/img/"
-# VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val2d/label_filtered/"
 
 # Constants
-MODEL_NAME = "deeplabv3_binary_diceloss"
-TRAIN_IMG_PATH = "../../data/Train2d/img_sample/"
-TRAIN_LABEL_PATH = "../../data/Train2d/label_sample/"
-VAL_IMG_PATH = "../../data/Val2d/img_sample/"
-VAL_LABEL_PATH = "../../data/Val2d/label_sample/"
+MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d/deeplabv3"
+TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/affine/img_cropped/"
+TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/affine/label_cropped/"
+VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/affine/img_cropped/"
+VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/affine/label_cropped/"
 
 # Define dataset for image and segmentation mask
 class MyDataset(Dataset):
@@ -68,6 +59,7 @@ class MyDataset(Dataset):
     def __len__(self):
         return len(self.images_list)
 
+
 def train(model, device, train_loader, optimizer, epoch, train_losses):
     # Specify that we are in training phase
     model.train()
@@ -80,10 +72,10 @@ def train(model, device, train_loader, optimizer, epoch, train_losses):
         # Zero the gradients carried over from previous step
         optimizer.zero_grad()
         # Obtain the predictions from forward propagation
-        output = model(data)
+        output = model(data)["out"]
 
         # Compute the cross entropy for the loss and update total loss.
-        loss = IoULoss()(output, target)
+        loss = F.cross_entropy(output, target)
         total_loss += loss.item()
         # Perform backward propagation to compute the negative gradient, and
         # update the gradients with optimizer.step()
@@ -121,9 +113,9 @@ def test(model, device, test_loader, test_losses):
             # Send training data and the training labels to GPU/CPU
             data, target = data.to(device, dtype=torch.float32), target.to(device, dtype=torch.long)
             # Obtain the output from the model
-            output = model(data)
+            output = model(data)["out"]
             # Calculate the loss using cross entropy.
-            loss = IoULoss()(output, target)
+            loss = F.cross_entropy(output, target)
             # Increment the total test loss
             test_loss += loss.item()
 
@@ -151,6 +143,14 @@ def test(model, device, test_loader, test_losses):
         print("Total Validation False Positives: ", total_fp)
         print("Total Validation False Negatives: ", total_fn)
 
+        if ( total_tp > 0 and total_fn > 0 and total_fp > 0):
+            precision = total_tp / (total_tp + total_fp)
+            recall = total_tp / (total_tp + total_fn)
+            f1 = 2 * precision * recall / (precision + recall)
+            print("Precision: ", precision)
+            print("Recall: ", recall)
+            print("F1: ", f1)
+
     # Append test loss to total losses
     test_losses.append(test_loss / len(test_loader))
     return test_losses
@@ -164,8 +164,8 @@ def main():
                         help='input batch size for training (default: 8)')
     parser.add_argument('--test-batch-size', type=int, default=8, metavar='N',
                         help='input batch size for testing (default: 8)')
-    parser.add_argument('--epochs', type=int, default=50, metavar='N',
-                        help='number of epochs to train (default: 50)')
+    parser.add_argument('--epochs', type=int, default=10, metavar='N',
+                        help='number of epochs to train (default: 10)')
     parser.add_argument('--lr', type=float, default=0.001, metavar='LR',
                         help='learning rate (default: 0.001)')
     parser.add_argument('--no-cuda', action='store_true', default=False,
@@ -189,12 +189,12 @@ def main():
     train_data = MyDataset(image_path=TRAIN_IMG_PATH, target_path=TRAIN_LABEL_PATH)
     val_data = MyDataset(image_path=VAL_IMG_PATH, target_path=VAL_LABEL_PATH)
     # Create data loader for training and validation
-    train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=0, drop_last=True)
+    train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=0)
     val_loader = DataLoader(val_data, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
     print("Finished Loading Data")
 
     # Send model to gpu
-    model = smp.Unet('resnet34', encoder_weights='imagenet', classes=1, activation='sigmoid').to(device)
+    model = models.segmentation.deeplabv3_resnet50(num_classes=14).to(device)
     # Specify Adam optimizer
     optimizer = optim.Adam(model.parameters(), lr=args.lr)
 

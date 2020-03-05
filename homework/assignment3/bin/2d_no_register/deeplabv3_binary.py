@@ -18,10 +18,10 @@ from skimage import io
 
 # Constants
 MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d/deeplabv3_binary"
-TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/img_cropped/"
-TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/label_cropped_filtered/"
-VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/img_cropped/"
-VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/label_cropped_filtered/"
+TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/no_register/img_cropped_nr/"
+TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/no_register/label_cropped_filtered_nr/"
+VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/no_register/img_cropped_nr/"
+VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/no_register/label_cropped_filtered_nr/"
 
 # Define dataset for image and segmentation mask
 class MyDataset(Dataset):
@@ -141,6 +141,14 @@ def test(model, device, test_loader, test_losses):
         print("Total Validation True Negatives: ", total_tn)
         print("Total Validation False Positives: ", total_fp)
         print("Total Validation False Negatives: ", total_fn)
+
+        if ( total_tp > 0 and total_fn > 0 and total_fp > 0):
+            precision = total_tp / (total_tp + total_fp)
+            recall = total_tp / (total_tp + total_fn)
+            f1 = 2 * precision * recall / (precision + recall)
+            print("Precision: ", precision)
+            print("Recall: ", recall)
+            print("F1: ", f1)
 
     # Append test loss to total losses
     test_losses.append(test_loss / len(test_loader))

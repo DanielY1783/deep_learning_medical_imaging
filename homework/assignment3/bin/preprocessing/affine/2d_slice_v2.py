@@ -7,16 +7,16 @@ import os
 from skimage.transform import resize
 
 # Constants for path names
-NEW_TRAIN_LABELS_FILTERED = "../../data/Train/label_cropped_filtered/"
-OLD_TRAIN_LABELS = "../../data/Train/label_registered_no_resize/"
-NEW_TRAIN_LABELS = "../../data/Train/label_cropped/"
-OLD_TRAIN_IMG = "../../data/Train/img_rescaled/"
-NEW_TRAIN_IMG = "../../data/Train/img_cropped/"
-NEW_VAL_LABELS_FILTERED = "../../data/Val/label_cropped_filtered/"
-OLD_VAL_LABELS = "../../data/Val/label_registered_no_resize/"
-NEW_VAL_LABELS = "../../data/Val/label_cropped/"
-OLD_VAL_IMG = "../../data/Val/img_rescaled/"
-NEW_VAL_IMG = "../../data/Val/img_cropped/"
+NEW_TRAIN_LABELS_FILTERED = "../../../data/Train/affine/label_cropped_filtered/"
+OLD_TRAIN_LABELS = "../../../data/Train/affine/label_registered_no_resize/"
+NEW_TRAIN_LABELS = "../../../data/Train/affine/label_cropped/"
+OLD_TRAIN_IMG = "../../../data/Train/affine/img_rescaled/"
+NEW_TRAIN_IMG = "../../../data/Train/affine/img_cropped/"
+NEW_VAL_LABELS_FILTERED = "../../../data/Val/affine/label_cropped_filtered/"
+OLD_VAL_LABELS = "../../../data/Val/affine/label_registered_no_resize/"
+NEW_VAL_LABELS = "../../../data/Val/affine/label_cropped/"
+OLD_VAL_IMG = "../../../data/Val/affine/img_rescaled/"
+NEW_VAL_IMG = "../../../data/Val/affine/img_cropped/"
 # Start and end indices on z axis to reslice, since most slices do not have spleen
 Z_START = 85
 Z_END = 145
