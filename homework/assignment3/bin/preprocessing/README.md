@@ -9,6 +9,6 @@ Preprocessing Pipeline
 
 TO TRY
 SYN registration
-Binary Cross Entropy
+Binary Cross Entropy with thresholding
 Pretrained 2D Unet
 3D Unet
