@@ -17,11 +17,12 @@ from torch.optim.lr_scheduler import StepLR
 from skimage import io
 
 # Constants
-MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d/deeplabv3"
-TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/affine/img_cropped/"
-TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/affine/label_cropped/"
-VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/affine/img_cropped/"
-VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/affine/label_cropped/"
+MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d_no_register/deeplabv3"
+TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/no_register/img_cropped_nr/"
+TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/no_register/label_cropped_nr/"
+VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/no_register/img_cropped_nr/"
+VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/no_register/label_cropped_nr/"
+
 
 # Define dataset for image and segmentation mask
 class MyDataset(Dataset):
@@ -235,6 +236,7 @@ def main():
             # Save the model
             torch.save(model.state_dict(), MODEL_NAME + ".pt")
 
+
     # Create final learning curve
     figure, axes = plt.subplots()
     # Set axes labels and title
@@ -246,7 +248,6 @@ def main():
     # Save the figure
     plt.savefig(MODEL_NAME + "_final.png")
     plt.close()
-
 
 if __name__ == '__main__':
     main()

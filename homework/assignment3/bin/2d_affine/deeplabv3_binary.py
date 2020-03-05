@@ -234,6 +234,18 @@ def main():
             # Save the model
             torch.save(model.state_dict(), MODEL_NAME + ".pt")
 
+    # Create final learning curve
+    figure, axes = plt.subplots()
+    # Set axes labels and title
+    axes.set(xlabel="Epoch", ylabel="Loss", title="Learning Curve")
+    # Plot the learning curves for training and validation loss
+    axes.plot(np.array(train_losses), label="train_loss", c="b")
+    axes.plot(np.array(val_losses), label="validation_loss", c="r")
+    plt.legend()
+    # Save the figure
+    plt.savefig(MODEL_NAME + "_final.png")
+    plt.close()
+
 
 if __name__ == '__main__':
     main()
