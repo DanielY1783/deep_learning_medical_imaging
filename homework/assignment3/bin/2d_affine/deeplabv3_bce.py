@@ -17,11 +17,17 @@ from torch.optim.lr_scheduler import StepLR
 from skimage import io
 
 # Constants
-MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d_affine/deeplabv3"
-TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/affine/img_cropped/"
-TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/affine/label_cropped/"
-VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/affine/img_cropped/"
-VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/affine/label_cropped/"
+# MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d_affine/deeplabv3_bce"
+# TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/affine/img_cropped/"
+# TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/affine/label_cropped_filtered/"
+# VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/affine/img_cropped/"
+# VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/affine/label_cropped_filtered/"
+MODEL_NAME = "deeplabv3_bce_sample"
+TRAIN_IMG_PATH = "../../data/Sample/affine_img/"
+TRAIN_LABEL_PATH = "../../data/Sample/affine_label/"
+VAL_IMG_PATH = "../../data/Sample/affine_img/"
+VAL_LABEL_PATH = "../../data/Sample/affine_label/"
+
 
 # Define dataset for image and segmentation mask
 class MyDataset(Dataset):
@@ -59,7 +65,6 @@ class MyDataset(Dataset):
     def __len__(self):
         return len(self.images_list)
 
-
 def train(model, device, train_loader, optimizer, epoch, train_losses):
     # Specify that we are in training phase
     model.train()
@@ -68,14 +73,14 @@ def train(model, device, train_loader, optimizer, epoch, train_losses):
     # Iterate through all minibatches.
     for index, (data, target) in enumerate(train_loader):
         # Send training data and the training labels to GPU/CPU
-        data, target = data.to(device, dtype=torch.float32), target.to(device, dtype=torch.long)
+        data, target = data.to(device, dtype=torch.float32), target.to(device, dtype=torch.float32)
         # Zero the gradients carried over from previous step
         optimizer.zero_grad()
         # Obtain the predictions from forward propagation
         output = model(data)["out"]
-
+        output = torch.squeeze(output, 1)
         # Compute the cross entropy for the loss and update total loss.
-        loss = F.cross_entropy(output, target)
+        loss = torch.nn.BCEWithLogitsLoss()(output, target)
         total_loss += loss.item()
         # Perform backward propagation to compute the negative gradient, and
         # update the gradients with optimizer.step()
@@ -94,15 +99,19 @@ def train(model, device, train_loader, optimizer, epoch, train_losses):
 
 
 def test(model, device, test_loader, test_losses):
+    # Create dictionary of predictions for different thresholds.
+    # Initialize sums of true positives, true negatives, false positives, and false negatives to 0
+    threshold_dict = {}
+    for threshold in [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]:
+        threshold_dict[str(threshold)] = {}
+        threshold_dict[str(threshold)]["total_tp"] = 0
+        threshold_dict[str(threshold)]["total_tn"] = 0
+        threshold_dict[str(threshold)]["total_fp"] = 0
+        threshold_dict[str(threshold)]["total_fn"] = 0
     # Specify that we are in evaluation phase
     model.eval()
     # Set the loss and number of correct instances initially to 0.
     test_loss = 0
-    # Sum of true positives, false positives, true negatives, and false negatives
-    total_tp = 0
-    total_fp = 0
-    total_tn = 0
-    total_fn = 0
     # No gradient calculation because we are in testing phase.
     with torch.no_grad():
         # For each testing example, we run forward
@@ -111,45 +120,54 @@ def test(model, device, test_loader, test_losses):
         # and f1 score with counters from above
         for index, (data, target) in enumerate(test_loader):
             # Send training data and the training labels to GPU/CPU
-            data, target = data.to(device, dtype=torch.float32), target.to(device, dtype=torch.long)
+            data, target = data.to(device, dtype=torch.float32), target.to(device, dtype=torch.float32)
             # Obtain the output from the model
             output = model(data)["out"]
+            output = torch.squeeze(output, 1)
             # Calculate the loss using cross entropy.
-            loss = F.cross_entropy(output, target)
+            loss = torch.nn.BCEWithLogitsLoss()(output, target)
             # Increment the total test loss
             test_loss += loss.item()
 
-            # Get the prediction by getting the index with the maximum probability
-            pred = output.argmax(dim=1, keepdim=True).cpu().numpy()
-            # Filter both the prediction and the target by only class 1 for spleen
-            pred_filtered = np.where(pred == 1, 1, 0)
-            target_filtered = np.where(target.cpu().numpy() == 1, 1, 0)
+            # Convert output to numpy array
+            output = output.cpu().numpy()
+            # Calculate stats for each threshold
+            for threshold in [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]:
+                # Filter both the prediction and the target by only class 1 for spleen
+                pred_filtered = np.where(output > threshold, 1, 0)
+                target_filtered = np.where(target.cpu().numpy() == 1, 1, 0)
 
-            # Calculate the true positives, false positives, true negatives, and false negatives
-            # and increment total sums
-            true_positives = float(np.sum(np.where(np.logical_and(pred_filtered == 1, target_filtered == 1), 1, 0)))
-            false_positives = float(np.sum(np.where(np.logical_and(pred_filtered == 1, target_filtered == 0), 1, 0)))
-            true_negatives = float(np.sum(np.where(np.logical_and(pred_filtered == 0, target_filtered == 0), 1, 0)))
-            false_negatives = float(np.sum(np.where(np.logical_and(pred_filtered == 0, target_filtered == 1), 1, 0)))
-            total_tp += true_positives
-            total_tn += true_negatives
-            total_fp += false_positives
-            total_fn += false_negatives
+                # Calculate the true positives, false positives, true negatives, and false negatives
+                # and increment total sums
+                true_positives = float(np.sum(np.where(np.logical_and(pred_filtered == 1, target_filtered == 1), 1, 0)))
+                false_positives = float(np.sum(np.where(np.logical_and(pred_filtered == 1, target_filtered == 0), 1, 0)))
+                true_negatives = float(np.sum(np.where(np.logical_and(pred_filtered == 0, target_filtered == 0), 1, 0)))
+                false_negatives = float(np.sum(np.where(np.logical_and(pred_filtered == 0, target_filtered == 1), 1, 0)))
+                threshold_dict[str(threshold)]["total_tp"] += true_positives
+                threshold_dict[str(threshold)]["total_tn"] += true_negatives
+                threshold_dict[str(threshold)]["total_fp"] += false_positives
+                threshold_dict[str(threshold)]["total_fn"] += false_negatives
 
         # Calculate precision, recall, and f1 and print out statistics for validation set
         print("Average Validation Loss: ", test_loss / len(test_loader))
-        print("Total Validation True Positives: ", total_tp)
-        print("Total Validation True Negatives: ", total_tn)
-        print("Total Validation False Positives: ", total_fp)
-        print("Total Validation False Negatives: ", total_fn)
+        # Find results for each threshold.
+        for threshold in [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]:
+            print("At threshold ", str(threshold))
+            print("Total Validation True Positives: ", threshold_dict[str(threshold)]["total_tp"])
+            print("Total Validation True Negatives: ", threshold_dict[str(threshold)]["total_tn"])
+            print("Total Validation False Positives: ", threshold_dict[str(threshold)]["total_fp"])
+            print("Total Validation False Negatives: ", threshold_dict[str(threshold)]["total_fn"])
 
-        if ( total_tp > 0 and total_fn > 0 and total_fp > 0):
-            precision = total_tp / (total_tp + total_fp)
-            recall = total_tp / (total_tp + total_fn)
-            f1 = 2 * precision * recall / (precision + recall)
-            print("Precision: ", precision)
-            print("Recall: ", recall)
-            print("F1: ", f1)
+            if (threshold_dict[str(threshold)]["total_tp"] > 0 and threshold_dict[str(threshold)]["total_fp"]> 0
+                    and threshold_dict[str(threshold)]["total_fn"] > 0):
+                precision = threshold_dict[str(threshold)]["total_tp"] / (threshold_dict[str(threshold)]["total_tp"]
+                                                                     + threshold_dict[str(threshold)]["total_fp"])
+                recall = threshold_dict[str(threshold)]["total_tp"] / (threshold_dict[str(threshold)]["total_tp"] +
+                                                                  threshold_dict[str(threshold)]["total_fn"])
+                f1 = 2 * precision * recall / (precision + recall)
+                print("Precision: ", precision)
+                print("Recall: ", recall)
+                print("F1: ", f1)
 
     # Append test loss to total losses
     test_losses.append(test_loss / len(test_loader))
@@ -164,8 +182,8 @@ def main():
                         help='input batch size for training (default: 8)')
     parser.add_argument('--test-batch-size', type=int, default=8, metavar='N',
                         help='input batch size for testing (default: 8)')
-    parser.add_argument('--epochs', type=int, default=10, metavar='N',
-                        help='number of epochs to train (default: 10)')
+    parser.add_argument('--epochs', type=int, default=50, metavar='N',
+                        help='number of epochs to train (default: 50)')
     parser.add_argument('--lr', type=float, default=0.001, metavar='LR',
                         help='learning rate (default: 0.001)')
     parser.add_argument('--no-cuda', action='store_true', default=False,
@@ -189,12 +207,12 @@ def main():
     train_data = MyDataset(image_path=TRAIN_IMG_PATH, target_path=TRAIN_LABEL_PATH)
     val_data = MyDataset(image_path=VAL_IMG_PATH, target_path=VAL_LABEL_PATH)
     # Create data loader for training and validation
-    train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=0)
+    train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=0, drop_last=True)
     val_loader = DataLoader(val_data, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
     print("Finished Loading Data")
 
     # Send model to gpu
-    model = models.segmentation.deeplabv3_resnet50(num_classes=14).to(device)
+    model = models.segmentation.deeplabv3_resnet50(num_classes=1).to(device)
     # Specify Adam optimizer
     optimizer = optim.Adam(model.parameters(), lr=args.lr)
 
@@ -225,6 +243,7 @@ def main():
         # Save the figure
         plt.savefig(MODEL_NAME + ".png")
         plt.close()
+
         # If we find the lowest loss so far, store the model and learning curve
         if lowest_loss > val_losses[epoch - 1]:
             # Update the lowest loss
@@ -233,6 +252,7 @@ def main():
 
             # Save the model
             torch.save(model.state_dict(), MODEL_NAME + ".pt")
+
 
 if __name__ == '__main__':
     main()

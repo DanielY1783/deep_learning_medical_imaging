@@ -20,9 +20,10 @@ fixed = ants.resample_image(fixed, [256, 256, 80], True, 1)
 # Register all the training images
 for file_name in os.listdir(OLD_TRAIN_IMG):
     moving_image = ants.image_read(OLD_TRAIN_IMG + file_name)
+    label = ants.image_read(OLD_TRAIN_LABELS + file_name)
     # Downsample for faster registration
     moving_image = ants.resample_image(moving_image, [256, 256, 80], True, 1)
-    label = ants.image_read(OLD_TRAIN_LABELS + file_name)
+    label = ants.resample_image(label, [256, 256, 80], True, 1)
     print("Registering ", file_name)
     transform = ants.registration(fixed=fixed , moving=moving_image,
                                  type_of_transform='SyN' )
@@ -36,15 +37,17 @@ for file_name in os.listdir(OLD_TRAIN_IMG):
     transformed_label = ants.apply_transforms( fixed=fixed, moving=label,
                                                transformlist=transform['fwdtransforms'],
                                                interpolator='nearestNeighbor')
+    transformed_label = ants.resample_image(transformed_label, [512, 512, 160], True, 1)
     transformed_label.to_file(NEW_TRAIN_LABELS + file_name)
     print("Saving ", file_name)
 
 # Repeat for the validation images
 for file_name in os.listdir(OLD_VAL_IMG):
     moving_image = ants.image_read(OLD_VAL_IMG + file_name)
+    label = ants.image_read(OLD_TRAIN_LABELS + file_name)
     # Downsample for faster registration
     moving_image = ants.resample_image(moving_image, [256, 256, 80], True, 1)
-    label = ants.image_read(OLD_TRAIN_LABELS + file_name)
+    label = ants.resample_image(label, [256, 256, 80], True, 1)
     print("Registering ", file_name)
     transform = ants.registration(fixed=fixed , moving=moving_image,
                                  type_of_transform='SyN' )
@@ -58,5 +61,6 @@ for file_name in os.listdir(OLD_VAL_IMG):
     transformed_label = ants.apply_transforms( fixed=fixed, moving=label,
                                                transformlist=transform['fwdtransforms'],
                                                interpolator  = 'nearestNeighbor')
+    transformed_label = ants.resample_image(transformed_label, [512, 512, 160], True, 1)
     transformed_label.to_file(NEW_VAL_LABELS + file_name)
     print("Saving ", file_name)

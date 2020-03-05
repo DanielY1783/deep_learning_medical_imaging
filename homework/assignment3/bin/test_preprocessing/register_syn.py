@@ -6,7 +6,7 @@ import os
 # Constants for path names
 FIXED_IMG = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/img/0007.nii.gz"
 OLD_TEST_IMG = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Testing/img/"
-NEW_TEST_IMG = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Testing/img_registered_rigid/"
+NEW_TEST_IMG = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Testing/img_registered_syn/"
 fixed = ants.image_read(FIXED_IMG)
 fixed = ants.resample_image(fixed, [256, 256, 80], True, 1)
 

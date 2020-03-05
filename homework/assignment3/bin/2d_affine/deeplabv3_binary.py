@@ -17,7 +17,7 @@ from torch.optim.lr_scheduler import StepLR
 from skimage import io
 
 # Constants
-MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d/deeplabv3_binary"
+MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d_affine/deeplabv3_binary"
 TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/affine/img_cropped/"
 TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/affine/label_cropped_filtered/"
 VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/affine/img_cropped/"

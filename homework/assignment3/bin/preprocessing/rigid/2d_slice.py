@@ -34,6 +34,8 @@ for file_name in os.listdir(OLD_TRAIN_IMG):
     image = nib.load(OLD_TRAIN_IMG + file_name)
     # Get the array of values
     image_data = image.get_fdata()
+    # Fix zero values added by registration
+    image_data = np.where(image_data == 0.0, -1000, image_data)
     # Divide by 1000 to normalize
     image_data = image_data / 1000.0
     # Iterate through the third dimension to create 2d slices
@@ -95,6 +97,8 @@ for file_name in os.listdir(OLD_VAL_IMG):
     image = nib.load(OLD_VAL_IMG + file_name)
     # Get the array of values
     image_data = image.get_fdata()
+    # Fix zero values added by registration
+    image_data = np.where(image_data == 0.0, -1000, image_data)
     # Divide by 1000 to normalize
     image_data = image_data / 1000.0
     # Iterate through the third dimension to create 2d slices

@@ -17,11 +17,11 @@ from torch.optim.lr_scheduler import StepLR
 from skimage import io
 
 # Constants
-MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d/deeplabv3_binary"
-TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/affine/img_cropped/"
-TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/affine/label_cropped_filtered/"
-VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/affine/img_cropped/"
-VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/affine/label_cropped_filtered/"
+MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d_affine/unet_binary_pretrained"
+TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/affine256/img_cropped/"
+TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/affine256/label_cropped_filtered/"
+VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/affine256/img_cropped/"
+VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/affine256/label_cropped_filtered/"
 
 # Define dataset for image and segmentation mask
 class MyDataset(Dataset):
@@ -38,7 +38,7 @@ class MyDataset(Dataset):
             image_tensor = torch.from_numpy(image)
             # Insert first dimension for number of channels
             image_tensor = torch.unsqueeze(image_tensor, 0)
-            image_tensor_expanded = image_tensor.expand((3, 224, 224))
+            image_tensor_expanded = image_tensor.expand((3, 256, 256))
             # Add to list of images.
             self.images_list.append(image_tensor_expanded)
             self.image_names_list.append(image_path + file_name)
@@ -67,12 +67,12 @@ def train(model, device, train_loader, optimizer, epoch, train_losses):
     # Iterate through all minibatches.
     for index, (data, target) in enumerate(train_loader):
         # Send training data and the training labels to GPU/CPU
-        data, target = data.to(device, dtype=torch.float32), target.to(device, dtype=torch.long)
+        data, target = data.to(device, dtype=torch.float32), target.to(device, dtype=torch.float32)
         # Zero the gradients carried over from previous step
         optimizer.zero_grad()
         # Obtain the predictions from forward propagation
-        output = model(data)["out"]
-
+        output = model(data)
+        output = torch.squeeze(output, 1)
         # Compute the cross entropy for the loss and update total loss.
         loss = F.binary_cross_entropy(output, target)
         total_loss += loss.item()
@@ -93,15 +93,19 @@ def train(model, device, train_loader, optimizer, epoch, train_losses):
 
 
 def test(model, device, test_loader, test_losses):
+    # Create dictionary of predictions for different thresholds.
+    # Initialize sums of true positives, true negatives, false positives, and false negatives to 0
+    threshold_dict = {}
+    for threshold in [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]:
+        threshold_dict[str(threshold)] = {}
+        threshold_dict[str(threshold)]["total_tp"] = 0
+        threshold_dict[str(threshold)]["total_tn"] = 0
+        threshold_dict[str(threshold)]["total_fp"] = 0
+        threshold_dict[str(threshold)]["total_fn"] = 0
     # Specify that we are in evaluation phase
     model.eval()
     # Set the loss and number of correct instances initially to 0.
     test_loss = 0
-    # Sum of true positives, false positives, true negatives, and false negatives
-    total_tp = 0
-    total_fp = 0
-    total_tn = 0
-    total_fn = 0
     # No gradient calculation because we are in testing phase.
     with torch.no_grad():
         # For each testing example, we run forward
@@ -110,45 +114,56 @@ def test(model, device, test_loader, test_losses):
         # and f1 score with counters from above
         for index, (data, target) in enumerate(test_loader):
             # Send training data and the training labels to GPU/CPU
-            data, target = data.to(device, dtype=torch.float32), target.to(device, dtype=torch.long)
+            data, target = data.to(device, dtype=torch.float32), target.to(device, dtype=torch.float32)
             # Obtain the output from the model
-            output = model(data)["out"]
+            output = model(data)
+            output = torch.squeeze(output, 1)
             # Calculate the loss using cross entropy.
             loss = F.binary_cross_entropy(output, target)
             # Increment the total test loss
             test_loss += loss.item()
 
-            # Get the prediction by getting the index with the maximum probability
-            pred = output.argmax(dim=1, keepdim=True).cpu().numpy()
-            # Filter both the prediction and the target by only class 1 for spleen
-            pred_filtered = np.where(pred == 1, 1, 0)
-            target_filtered = np.where(target.cpu().numpy() == 1, 1, 0)
+            # Convert output to numpy array
+            output = output.cpu().numpy()
+            # Calculate stats for each threshold
+            for threshold in [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]:
+                # Filter both the prediction and the target by only class 1 for spleen
+                pred_filtered = np.where(output > threshold, 1, 0)
+                target_filtered = np.where(target.cpu().numpy() == 1, 1, 0)
 
-            # Calculate the true positives, false positives, true negatives, and false negatives
-            # and increment total sums
-            true_positives = float(np.sum(np.where(np.logical_and(pred_filtered == 1, target_filtered == 1), 1, 0)))
-            false_positives = float(np.sum(np.where(np.logical_and(pred_filtered == 1, target_filtered == 0), 1, 0)))
-            true_negatives = float(np.sum(np.where(np.logical_and(pred_filtered == 0, target_filtered == 0), 1, 0)))
-            false_negatives = float(np.sum(np.where(np.logical_and(pred_filtered == 0, target_filtered == 1), 1, 0)))
-            total_tp += true_positives
-            total_tn += true_negatives
-            total_fp += false_positives
-            total_fn += false_negatives
+                # Calculate the true positives, false positives, true negatives, and false negatives
+                # and increment total sums
+                true_positives = float(np.sum(np.where(np.logical_and(pred_filtered == 1, target_filtered == 1), 1, 0)))
+                false_positives = float(
+                    np.sum(np.where(np.logical_and(pred_filtered == 1, target_filtered == 0), 1, 0)))
+                true_negatives = float(np.sum(np.where(np.logical_and(pred_filtered == 0, target_filtered == 0), 1, 0)))
+                false_negatives = float(
+                    np.sum(np.where(np.logical_and(pred_filtered == 0, target_filtered == 1), 1, 0)))
+                threshold_dict[str(threshold)]["total_tp"] += true_positives
+                threshold_dict[str(threshold)]["total_tn"] += true_negatives
+                threshold_dict[str(threshold)]["total_fp"] += false_positives
+                threshold_dict[str(threshold)]["total_fn"] += false_negatives
 
         # Calculate precision, recall, and f1 and print out statistics for validation set
         print("Average Validation Loss: ", test_loss / len(test_loader))
-        print("Total Validation True Positives: ", total_tp)
-        print("Total Validation True Negatives: ", total_tn)
-        print("Total Validation False Positives: ", total_fp)
-        print("Total Validation False Negatives: ", total_fn)
+        # Find results for each threshold.
+        for threshold in [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]:
+            print("At threshold ", str(threshold))
+            print("Total Validation True Positives: ", threshold_dict[str(threshold)]["total_tp"])
+            print("Total Validation True Negatives: ", threshold_dict[str(threshold)]["total_tn"])
+            print("Total Validation False Positives: ", threshold_dict[str(threshold)]["total_fp"])
+            print("Total Validation False Negatives: ", threshold_dict[str(threshold)]["total_fn"])
 
-        if ( total_tp > 0 and total_fn > 0 and total_fp > 0):
-            precision = total_tp / (total_tp + total_fp)
-            recall = total_tp / (total_tp + total_fn)
-            f1 = 2 * precision * recall / (precision + recall)
-            print("Precision: ", precision)
-            print("Recall: ", recall)
-            print("F1: ", f1)
+            if (threshold_dict[threshold]["total_tp"] > 0 and threshold_dict[threshold]["total_fp"] > 0
+                    and threshold_dict[threshold]["total_fn"] > 0):
+                precision = threshold_dict[str(threshold)]["total_tp"] / (threshold_dict[str(threshold)]["total_tp"]
+                                                                     + threshold_dict[str(threshold)]["total_fp"])
+                recall = threshold_dict[str(threshold)]["total_tp"] / (threshold_dict[str(threshold)]["total_tp"] +
+                                                                  threshold_dict[str(threshold)]["total_fn"])
+                f1 = 2 * precision * recall / (precision + recall)
+                print("Precision: ", precision)
+                print("Recall: ", recall)
+                print("F1: ", f1)
 
     # Append test loss to total losses
     test_losses.append(test_loss / len(test_loader))
