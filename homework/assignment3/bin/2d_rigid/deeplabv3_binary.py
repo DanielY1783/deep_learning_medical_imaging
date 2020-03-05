@@ -17,12 +17,11 @@ from torch.optim.lr_scheduler import StepLR
 from skimage import io
 
 # Constants
-MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d_no_register/deeplabv3"
-TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/no_register/img_cropped_nr/"
-TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/no_register/label_cropped_nr/"
-VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/no_register/img_cropped_nr/"
-VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/no_register/label_cropped_nr/"
-
+MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d_rigid/deeplabv3_binary"
+TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/rigid/img_cropped/"
+TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/rigid/label_cropped_filtered/"
+VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/rigid/img_cropped/"
+VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/rigid/label_cropped_filtered/"
 
 # Define dataset for image and segmentation mask
 class MyDataset(Dataset):
@@ -59,7 +58,6 @@ class MyDataset(Dataset):
 
     def __len__(self):
         return len(self.images_list)
-
 
 def train(model, device, train_loader, optimizer, epoch, train_losses):
     # Specify that we are in training phase
@@ -165,8 +163,8 @@ def main():
                         help='input batch size for training (default: 8)')
     parser.add_argument('--test-batch-size', type=int, default=8, metavar='N',
                         help='input batch size for testing (default: 8)')
-    parser.add_argument('--epochs', type=int, default=10, metavar='N',
-                        help='number of epochs to train (default: 10)')
+    parser.add_argument('--epochs', type=int, default=50, metavar='N',
+                        help='number of epochs to train (default: 50)')
     parser.add_argument('--lr', type=float, default=0.001, metavar='LR',
                         help='learning rate (default: 0.001)')
     parser.add_argument('--no-cuda', action='store_true', default=False,
@@ -190,12 +188,12 @@ def main():
     train_data = MyDataset(image_path=TRAIN_IMG_PATH, target_path=TRAIN_LABEL_PATH)
     val_data = MyDataset(image_path=VAL_IMG_PATH, target_path=VAL_LABEL_PATH)
     # Create data loader for training and validation
-    train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=0)
+    train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=0, drop_last=True)
     val_loader = DataLoader(val_data, batch_size=args.test_batch_size, shuffle=False, num_workers=0)
     print("Finished Loading Data")
 
     # Send model to gpu
-    model = models.segmentation.deeplabv3_resnet50(num_classes=14).to(device)
+    model = models.segmentation.deeplabv3_resnet50(num_classes=2).to(device)
     # Specify Adam optimizer
     optimizer = optim.Adam(model.parameters(), lr=args.lr)
 
@@ -215,7 +213,7 @@ def main():
         train_losses = train(model, device, train_loader, optimizer, epoch, train_losses)
         val_losses = test(model, device, val_loader, val_losses)
         scheduler.step()
-        # Create learning curve
+        # Create final learning curve
         figure, axes = plt.subplots()
         # Set axes labels and title
         axes.set(xlabel="Epoch", ylabel="Loss", title="Learning Curve")
@@ -224,7 +222,7 @@ def main():
         axes.plot(np.array(val_losses), label="validation_loss", c="r")
         plt.legend()
         # Save the figure
-        plt.savefig(MODEL_NAME + ".png")
+        plt.savefig(MODEL_NAME + "_final.png")
         plt.close()
 
         # If we find the lowest loss so far, store the model and learning curve
@@ -235,6 +233,7 @@ def main():
 
             # Save the model
             torch.save(model.state_dict(), MODEL_NAME + ".pt")
+
 
 if __name__ == '__main__':
     main()

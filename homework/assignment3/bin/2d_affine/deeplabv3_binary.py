@@ -213,38 +213,26 @@ def main():
         train_losses = train(model, device, train_loader, optimizer, epoch, train_losses)
         val_losses = test(model, device, val_loader, val_losses)
         scheduler.step()
+        # Create learning curve
+        figure, axes = plt.subplots()
+        # Set axes labels and title
+        axes.set(xlabel="Epoch", ylabel="Loss", title="Learning Curve")
+        # Plot the learning curves for training and validation loss
+        axes.plot(np.array(train_losses), label="train_loss", c="b")
+        axes.plot(np.array(val_losses), label="validation_loss", c="r")
+        plt.legend()
+        # Save the figure
+        plt.savefig(MODEL_NAME + ".png")
+        plt.close()
+
         # If we find the lowest loss so far, store the model and learning curve
         if lowest_loss > val_losses[epoch - 1]:
             # Update the lowest loss
             lowest_loss = val_losses[epoch - 1]
             print("New lowest validation loss: ", lowest_loss)
 
-            # Create learning curve
-            figure, axes = plt.subplots()
-            # Set axes labels and title
-            axes.set(xlabel="Epoch", ylabel="Loss", title="Learning Curve")
-            # Plot the learning curves for training and validation loss
-            axes.plot(np.array(train_losses), label="train_loss", c="b")
-            axes.plot(np.array(val_losses), label="validation_loss", c="r")
-            plt.legend()
-            # Save the figure
-            plt.savefig(MODEL_NAME + ".png")
-            plt.close()
-
             # Save the model
             torch.save(model.state_dict(), MODEL_NAME + ".pt")
-
-    # Create final learning curve
-    figure, axes = plt.subplots()
-    # Set axes labels and title
-    axes.set(xlabel="Epoch", ylabel="Loss", title="Learning Curve")
-    # Plot the learning curves for training and validation loss
-    axes.plot(np.array(train_losses), label="train_loss", c="b")
-    axes.plot(np.array(val_losses), label="validation_loss", c="r")
-    plt.legend()
-    # Save the figure
-    plt.savefig(MODEL_NAME + "_final.png")
-    plt.close()
 
 
 if __name__ == '__main__':
