@@ -61,9 +61,9 @@ for file_name in os.listdir(OLD_TRAIN_LABELS):
     # Iterate through the third dimension to create 2d slices
     for index in range(Z_START, Z_END + 1):
         # Check that we have not reached the end of the image
-        if index < image_data.shape[2] - 2:
+        if index < image_data.shape[2]:
             # Get the current slice
-            slice = image_data[X_START:X_END, Y_START:Y_END, index-1: index+2]
+            slice = image_data[X_START:X_END, Y_START:Y_END, index]
             # Convert to uint8
             slice = slice.astype(np.uint8)
             # Save as numpy array. Exclude extension prefix from file name.
@@ -107,9 +107,9 @@ for file_name in os.listdir(OLD_VAL_LABELS):
     # Iterate through the third dimension to create 2d slices
     for index in range(Z_START, Z_END + 1):
         # Check that we have not reached the end of the image
-        if index < image_data.shape[2] - 2:
+        if index < image_data.shape[2]:
             # Get the current slice
-            slice = image_data[X_START:X_END, Y_START:Y_END, index-1: index+2]
+            slice = image_data[X_START:X_END, Y_START:Y_END, index]
             # Convert to uint8
             slice = slice.astype(np.uint8)
             # Save as numpy array. Exclude extension prefix from file name.

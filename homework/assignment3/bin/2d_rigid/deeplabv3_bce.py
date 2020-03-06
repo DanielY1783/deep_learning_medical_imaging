@@ -5,23 +5,19 @@
 import argparse
 from matplotlib import pyplot as plt
 import numpy as np
-import pandas as pd
 import os
 import torch
 from torch.utils.data import Dataset, DataLoader
-import torch.nn as nn
-import torch.nn.functional as F
 import torch.optim as optim
 from torchvision import transforms, models
 from torch.optim.lr_scheduler import StepLR
-from skimage import io
 
 # Constants
-MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/25d_affine/deeplabv3_bce"
-TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/25d_affine/img/"
-TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/25d_affine/label_filtered/"
-VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/25d_affine/img/"
-VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/25d_affine/label_filtered/"
+MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d_rigid/deeplabv3_bce"
+TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/rigid/img_cropped/"
+TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/rigid/label_cropped_filtered/"
+VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/rigid/img_cropped/"
+VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/rigid/label_cropped_filtered/"
 
 # Define dataset for image and segmentation mask
 class MyDataset(Dataset):
@@ -32,19 +28,20 @@ class MyDataset(Dataset):
         self.images_list = []
         self.image_names_list = []
         for file_name in self.file_names:
-            # Load in image using numpy and put number of channels as first dimension
+            # Load in image using numpy
             image = np.load(image_path + file_name)
-            image = image.transpose((2, 0, 1))
             # Convert to torch tensor
             image_tensor = torch.from_numpy(image)
+            # Insert first dimension for number of channels
+            image_tensor = torch.unsqueeze(image_tensor, 0)
+            image_tensor_expanded = image_tensor.expand((3, 224, 224))
             # Add to list of images.
-            self.images_list.append(image_tensor)
+            self.images_list.append(image_tensor_expanded)
             self.image_names_list.append(image_path + file_name)
         # Create list of target segmentations
         self.targets_list = []
         self.target_names_list = []
         for file_name in list(os.listdir(image_path)):
-            # Load in image using numpy
             mask = np.load(target_path + file_name)
             # Convert to torch tensor
             mask_tensor = torch.from_numpy(mask)
@@ -71,7 +68,7 @@ def train(model, device, train_loader, optimizer, epoch, train_losses):
         optimizer.zero_grad()
         # Obtain the predictions from forward propagation
         output = model(data)["out"]
-        output = output[:, 0, :, :]
+        output = torch.squeeze(output, 1)
         # Compute the cross entropy for the loss and update total loss.
         loss = torch.nn.BCEWithLogitsLoss()(output, target)
         total_loss += loss.item()
@@ -116,7 +113,7 @@ def test(model, device, test_loader, test_losses):
             data, target = data.to(device, dtype=torch.float32), target.to(device, dtype=torch.float32)
             # Obtain the output from the model
             output = model(data)["out"]
-            output = output[:, 0, :, :]
+            output = torch.squeeze(output, 1)
             # Calculate the loss using cross entropy.
             loss = torch.nn.BCEWithLogitsLoss()(output, target)
             # Increment the total test loss
@@ -175,8 +172,8 @@ def main():
                         help='input batch size for training (default: 8)')
     parser.add_argument('--test-batch-size', type=int, default=8, metavar='N',
                         help='input batch size for testing (default: 8)')
-    parser.add_argument('--epochs', type=int, default=50, metavar='N',
-                        help='number of epochs to train (default: 50)')
+    parser.add_argument('--epochs', type=int, default=15, metavar='N',
+                        help='number of epochs to train (default: 15)')
     parser.add_argument('--lr', type=float, default=0.001, metavar='LR',
                         help='learning rate (default: 0.001)')
     parser.add_argument('--no-cuda', action='store_true', default=False,
@@ -205,7 +202,7 @@ def main():
     print("Finished Loading Data")
 
     # Send model to gpu
-    model = models.segmentation.deeplabv3_resnet101(pretrained=True).to(device)
+    model = models.segmentation.deeplabv3_resnet50(num_classes=1).to(device)
     # Specify Adam optimizer
     optimizer = optim.Adam(model.parameters(), lr=args.lr)
 
