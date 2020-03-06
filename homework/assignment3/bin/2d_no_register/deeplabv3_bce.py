@@ -1,27 +1,23 @@
 # Author: Daniel Yan
 # Email: daniel.yan@vanderbilt.edu
-# Description: Use pretrained UNet from torchhub to try transfer learning
+# Description: Train deeplabv3 for segmentation
 
 import argparse
 from matplotlib import pyplot as plt
 import numpy as np
-import pandas as pd
 import os
 import torch
 from torch.utils.data import Dataset, DataLoader
-import torch.nn as nn
-import torch.nn.functional as F
 import torch.optim as optim
-from torchvision import transforms, models
+from torchvision import models
 from torch.optim.lr_scheduler import StepLR
-from skimage import io
 
 # Constants
-MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d_affine/unet_binary_pretrained"
-TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/affine256/img_cropped/"
-TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/affine256/label_cropped_filtered/"
-VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/affine256/img_cropped/"
-VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/affine256/label_cropped_filtered/"
+MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d_no_register/deeplabv3_bce"
+TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/no_register/img_cropped_nr/"
+TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/no_register/label_cropped_filtered_nr/"
+VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/no_register/img_cropped_nr/"
+VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/no_register/label_cropped_filtered_nr/"
 
 # Define dataset for image and segmentation mask
 class MyDataset(Dataset):
@@ -38,7 +34,7 @@ class MyDataset(Dataset):
             image_tensor = torch.from_numpy(image)
             # Insert first dimension for number of channels
             image_tensor = torch.unsqueeze(image_tensor, 0)
-            image_tensor_expanded = image_tensor.expand((3, 256, 256))
+            image_tensor_expanded = image_tensor.expand((3, 224, 224))
             # Add to list of images.
             self.images_list.append(image_tensor_expanded)
             self.image_names_list.append(image_path + file_name)
@@ -71,10 +67,10 @@ def train(model, device, train_loader, optimizer, epoch, train_losses):
         # Zero the gradients carried over from previous step
         optimizer.zero_grad()
         # Obtain the predictions from forward propagation
-        output = model(data)
+        output = model(data)["out"]
         output = torch.squeeze(output, 1)
         # Compute the cross entropy for the loss and update total loss.
-        loss = F.binary_cross_entropy(output, target)
+        loss = torch.nn.BCEWithLogitsLoss()(output, target)
         total_loss += loss.item()
         # Perform backward propagation to compute the negative gradient, and
         # update the gradients with optimizer.step()
@@ -96,7 +92,7 @@ def test(model, device, test_loader, test_losses):
     # Create dictionary of predictions for different thresholds.
     # Initialize sums of true positives, true negatives, false positives, and false negatives to 0
     threshold_dict = {}
-    for threshold in [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]:
+    for threshold in [0.01, 0.05, 0.1, 0.25, 0.5]:
         threshold_dict[str(threshold)] = {}
         threshold_dict[str(threshold)]["total_tp"] = 0
         threshold_dict[str(threshold)]["total_tn"] = 0
@@ -116,17 +112,17 @@ def test(model, device, test_loader, test_losses):
             # Send training data and the training labels to GPU/CPU
             data, target = data.to(device, dtype=torch.float32), target.to(device, dtype=torch.float32)
             # Obtain the output from the model
-            output = model(data)
+            output = model(data)["out"]
             output = torch.squeeze(output, 1)
             # Calculate the loss using cross entropy.
-            loss = F.binary_cross_entropy(output, target)
+            loss = torch.nn.BCEWithLogitsLoss()(output, target)
             # Increment the total test loss
             test_loss += loss.item()
 
             # Convert output to numpy array
             output = output.cpu().numpy()
             # Calculate stats for each threshold
-            for threshold in [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]:
+            for threshold in [0.01, 0.05, 0.1, 0.25, 0.5]:
                 # Filter both the prediction and the target by only class 1 for spleen
                 pred_filtered = np.where(output > threshold, 1, 0)
                 target_filtered = np.where(target.cpu().numpy() == 1, 1, 0)
@@ -134,11 +130,9 @@ def test(model, device, test_loader, test_losses):
                 # Calculate the true positives, false positives, true negatives, and false negatives
                 # and increment total sums
                 true_positives = float(np.sum(np.where(np.logical_and(pred_filtered == 1, target_filtered == 1), 1, 0)))
-                false_positives = float(
-                    np.sum(np.where(np.logical_and(pred_filtered == 1, target_filtered == 0), 1, 0)))
+                false_positives = float(np.sum(np.where(np.logical_and(pred_filtered == 1, target_filtered == 0), 1, 0)))
                 true_negatives = float(np.sum(np.where(np.logical_and(pred_filtered == 0, target_filtered == 0), 1, 0)))
-                false_negatives = float(
-                    np.sum(np.where(np.logical_and(pred_filtered == 0, target_filtered == 1), 1, 0)))
+                false_negatives = float(np.sum(np.where(np.logical_and(pred_filtered == 0, target_filtered == 1), 1, 0)))
                 threshold_dict[str(threshold)]["total_tp"] += true_positives
                 threshold_dict[str(threshold)]["total_tn"] += true_negatives
                 threshold_dict[str(threshold)]["total_fp"] += false_positives
@@ -147,14 +141,14 @@ def test(model, device, test_loader, test_losses):
         # Calculate precision, recall, and f1 and print out statistics for validation set
         print("Average Validation Loss: ", test_loss / len(test_loader))
         # Find results for each threshold.
-        for threshold in [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]:
+        for threshold in [0.01, 0.05, 0.1, 0.25, 0.5]:
             print("At threshold ", str(threshold))
             print("Total Validation True Positives: ", threshold_dict[str(threshold)]["total_tp"])
             print("Total Validation True Negatives: ", threshold_dict[str(threshold)]["total_tn"])
             print("Total Validation False Positives: ", threshold_dict[str(threshold)]["total_fp"])
             print("Total Validation False Negatives: ", threshold_dict[str(threshold)]["total_fn"])
 
-            if (threshold_dict[str(threshold)]["total_tp"] > 0 and threshold_dict[str(threshold)]["total_fp"] > 0
+            if (threshold_dict[str(threshold)]["total_tp"] > 0 and threshold_dict[str(threshold)]["total_fp"]> 0
                     and threshold_dict[str(threshold)]["total_fn"] > 0):
                 precision = threshold_dict[str(threshold)]["total_tp"] / (threshold_dict[str(threshold)]["total_tp"]
                                                                      + threshold_dict[str(threshold)]["total_fp"])
@@ -208,8 +202,7 @@ def main():
     print("Finished Loading Data")
 
     # Send model to gpu
-    model = torch.hub.load('mateuszbuda/brain-segmentation-pytorch', 'unet',
-                           in_channels=3, out_channels=1, init_features=32, pretrained=True).to(device)
+    model = models.segmentation.deeplabv3_resnet50(num_classes=1).to(device)
     # Specify Adam optimizer
     optimizer = optim.Adam(model.parameters(), lr=args.lr)
 

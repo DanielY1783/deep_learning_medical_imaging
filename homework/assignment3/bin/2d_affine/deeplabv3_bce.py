@@ -17,17 +17,11 @@ from torch.optim.lr_scheduler import StepLR
 from skimage import io
 
 # Constants
-# MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d_affine/deeplabv3_bce"
-# TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/affine/img_cropped/"
-# TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/affine/label_cropped_filtered/"
-# VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/affine/img_cropped/"
-# VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/affine/label_cropped_filtered/"
-MODEL_NAME = "deeplabv3_bce_sample"
-TRAIN_IMG_PATH = "../../data/Sample/affine_img/"
-TRAIN_LABEL_PATH = "../../data/Sample/affine_label/"
-VAL_IMG_PATH = "../../data/Sample/affine_img/"
-VAL_LABEL_PATH = "../../data/Sample/affine_label/"
-
+MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d_affine/deeplabv3_bce"
+TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/affine/img_cropped/"
+TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/affine/label_cropped_filtered/"
+VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/affine/img_cropped/"
+VAL_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/affine/label_cropped_filtered/"
 
 # Define dataset for image and segmentation mask
 class MyDataset(Dataset):
@@ -102,7 +96,7 @@ def test(model, device, test_loader, test_losses):
     # Create dictionary of predictions for different thresholds.
     # Initialize sums of true positives, true negatives, false positives, and false negatives to 0
     threshold_dict = {}
-    for threshold in [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]:
+    for threshold in [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]:
         threshold_dict[str(threshold)] = {}
         threshold_dict[str(threshold)]["total_tp"] = 0
         threshold_dict[str(threshold)]["total_tn"] = 0
@@ -132,7 +126,7 @@ def test(model, device, test_loader, test_losses):
             # Convert output to numpy array
             output = output.cpu().numpy()
             # Calculate stats for each threshold
-            for threshold in [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]:
+            for threshold in [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]:
                 # Filter both the prediction and the target by only class 1 for spleen
                 pred_filtered = np.where(output > threshold, 1, 0)
                 target_filtered = np.where(target.cpu().numpy() == 1, 1, 0)
@@ -151,7 +145,7 @@ def test(model, device, test_loader, test_losses):
         # Calculate precision, recall, and f1 and print out statistics for validation set
         print("Average Validation Loss: ", test_loss / len(test_loader))
         # Find results for each threshold.
-        for threshold in [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]:
+        for threshold in [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]:
             print("At threshold ", str(threshold))
             print("Total Validation True Positives: ", threshold_dict[str(threshold)]["total_tp"])
             print("Total Validation True Negatives: ", threshold_dict[str(threshold)]["total_tn"])

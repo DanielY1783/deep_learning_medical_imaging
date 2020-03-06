@@ -44,7 +44,7 @@ for file_name in os.listdir(OLD_TRAIN_IMG):
 # Repeat for the validation images
 for file_name in os.listdir(OLD_VAL_IMG):
     moving_image = ants.image_read(OLD_VAL_IMG + file_name)
-    label = ants.image_read(OLD_TRAIN_LABELS + file_name)
+    label = ants.image_read(OLD_VAL_LABELS + file_name)
     # Downsample for faster registration
     moving_image = ants.resample_image(moving_image, [256, 256, 80], True, 1)
     label = ants.resample_image(label, [256, 256, 80], True, 1)

@@ -3,7 +3,7 @@ import numpy as np
 import os
 import matplotlib.pyplot as plt
 
-LABELS = "../../data/Train/label_register_rigid/"
+LABELS = "../../data/Train/affine/label_registered_no_resize/"
 
 # Print out statistics for original data
 print("######################################################")

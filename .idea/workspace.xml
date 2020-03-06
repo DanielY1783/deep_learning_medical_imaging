@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d111871f-b4ca-41b0-857b-829cd037bf7d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/2d_affine/deeplabv3.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment3/bin/2d_affine/deeplabv3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/2d_affine/deeplabv3_binary.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment3/bin/2d_affine/deeplabv3_binary.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/2d_affine/best_model/deeplabv3_binary.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/2d_affine/best_model/unet2d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/2d_affine/deeplabv3_bce.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment3/bin/2d_affine/deeplabv3_bce.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/2d_affine/deeplabv3_bce_sample.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/2d_affine/unet_binary_pretrained.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment3/bin/2d_affine/unet_binary_pretrained.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/rigid/2d_slice.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/rigid/2d_slice.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/calc_stats.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/calc_stats.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/syn/register_syn.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/syn/register_syn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/test_preprocessing/register_syn.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment3/bin/test_preprocessing/register_syn.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,28 +19,25 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/syn/register_syn.py">
+        <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/25d_affine/deeplabv3_bce.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="13" column="91" selection-start-line="13" selection-start-column="91" selection-end-line="13" selection-end-column="91" />
+            <state relative-caret-position="-1054">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+              <folding>
+                <element signature="e#105#120#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d_affine/unet_binary_pretrained.py">
+        <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d_no_register/deeplabv3_bce.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="149" column="36" selection-start-line="149" selection-start-column="36" selection-end-line="149" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d_affine/deeplabv3_bce.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="134" column="30" selection-start-line="134" selection-start-column="30" selection-end-line="134" selection-end-column="40" />
+            <state relative-caret-position="-986">
+              <caret line="2" column="47" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
+              <folding>
+                <element signature="e#105#120#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -81,9 +79,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/binary_labels.py" />
-        <option value="$PROJECT_DIR$/homework/assignment3/bin/2d/test.py" />
-        <option value="$PROJECT_DIR$/homework/assignment2/bin/test.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/3d_resize_224.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/2d/deeplabv3_resnet50.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/test.py" />
@@ -108,7 +103,6 @@
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/register_rigid.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/2d_slice_nr.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/test_preprocessing/register_rigid.py" />
-        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/calc_stats.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/affine/register_no_resize.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/affine/rescale.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/affine/2d_slice_v2.py" />
@@ -125,13 +119,17 @@
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/README.md" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/resize256/2d_slice.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/affine256/2d_slice.py" />
-        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/syn/register_syn.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/test_preprocessing/register_syn.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/2d_affine/deeplabv3_binary.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/2d_affine/deeplabv3.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/rigid/2d_slice.py" />
-        <option value="$PROJECT_DIR$/homework/assignment3/bin/2d_affine/deeplabv3_bce.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/2d_affine/unet_binary_pretrained.py" />
+        <option value="$PROJECT_DIR$/homework/assignment3/bin/2d_affine/deeplabv3_bce.py" />
+        <option value="$PROJECT_DIR$/homework/assignment3/bin/2d_no_register/deeplabv3_bce.py" />
+        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/syn/register_syn.py" />
+        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/calc_stats.py" />
+        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/25d_affine/2d_slice.py" />
+        <option value="$PROJECT_DIR$/homework/assignment3/bin/25d_affine/deeplabv3_bce.py" />
       </list>
     </option>
   </component>
@@ -163,46 +161,12 @@
               <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
               <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
               <item name="homework" type="462c0819:PsiDirectoryNode" />
-              <item name="assignment0" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
-              <item name="homework" type="462c0819:PsiDirectoryNode" />
-              <item name="assignment1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
-              <item name="homework" type="462c0819:PsiDirectoryNode" />
-              <item name="assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
-              <item name="homework" type="462c0819:PsiDirectoryNode" />
-              <item name="assignment1" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="best_model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
-              <item name="homework" type="462c0819:PsiDirectoryNode" />
               <item name="assignment2" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
               <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
               <item name="homework" type="462c0819:PsiDirectoryNode" />
-              <item name="assignment2" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
-              <item name="homework" type="462c0819:PsiDirectoryNode" />
               <item name="assignment3" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -218,7 +182,7 @@
               <item name="homework" type="462c0819:PsiDirectoryNode" />
               <item name="assignment3" type="462c0819:PsiDirectoryNode" />
               <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="2d_affine" type="462c0819:PsiDirectoryNode" />
+              <item name="2d_no_register" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
@@ -226,51 +190,7 @@
               <item name="homework" type="462c0819:PsiDirectoryNode" />
               <item name="assignment3" type="462c0819:PsiDirectoryNode" />
               <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="preprocessing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
-              <item name="homework" type="462c0819:PsiDirectoryNode" />
-              <item name="assignment3" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="preprocessing" type="462c0819:PsiDirectoryNode" />
-              <item name="affine" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
-              <item name="homework" type="462c0819:PsiDirectoryNode" />
-              <item name="assignment3" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="preprocessing" type="462c0819:PsiDirectoryNode" />
-              <item name="affine256" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
-              <item name="homework" type="462c0819:PsiDirectoryNode" />
-              <item name="assignment3" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="preprocessing" type="462c0819:PsiDirectoryNode" />
-              <item name="old" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
-              <item name="homework" type="462c0819:PsiDirectoryNode" />
-              <item name="assignment3" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="preprocessing" type="462c0819:PsiDirectoryNode" />
-              <item name="rigid" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
-              <item name="homework" type="462c0819:PsiDirectoryNode" />
-              <item name="assignment3" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="test_preprocessing" type="462c0819:PsiDirectoryNode" />
+              <item name="25d_affine" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -401,10 +321,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/2d_slic.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/register_v2.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/binary_labels.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d/deeplabv3_binary_diceloss.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/register.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/register_no_rescale.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/register_no_resiz.py" />
@@ -428,16 +344,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/2d_slice_nr.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/calc_stats.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="47" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/affine/register_no_resize.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -575,13 +481,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/test_preprocessing/register_syn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="104" selection-start-line="8" selection-start-column="104" selection-end-line="8" selection-end-column="104" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d_affine/deeplabv3_binary.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -603,24 +502,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/syn/register_syn.py">
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/test_preprocessing/register_syn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="13" column="91" selection-start-line="13" selection-start-column="91" selection-end-line="13" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d_affine/deeplabv3_bce.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="134" column="30" selection-start-line="134" selection-start-column="30" selection-end-line="134" selection-end-column="40" />
+        <state relative-caret-position="228">
+          <caret line="19" column="56" lean-forward="true" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
+          <folding>
+            <element signature="e#77#88#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d_affine/unet_binary_pretrained.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="149" column="36" selection-start-line="149" selection-start-column="36" selection-end-line="149" selection-end-column="36" />
+        <state relative-caret-position="2329">
+          <caret line="149" column="32" selection-start-line="149" selection-start-column="32" selection-end-line="149" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/syn/register_syn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="738">
+          <caret line="59" column="41" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/calc_stats.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-425">
+          <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/25d_affine/2d_slice.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="12" column="68" selection-start-line="12" selection-start-column="68" selection-end-line="12" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="151" column="8" lean-forward="true" selection-start-line="151" selection-start-column="8" selection-end-line="151" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d_affine/deeplabv3_bce.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1088">
+          <caret line="128" column="36" selection-start-line="128" selection-start-column="36" selection-end-line="128" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/25d_affine/deeplabv3_bce.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1054">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#105#120#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d_no_register/deeplabv3_bce.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-986">
+          <caret line="2" column="47" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
+          <folding>
+            <element signature="e#105#120#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
