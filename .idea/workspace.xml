@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d111871f-b4ca-41b0-857b-829cd037bf7d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/25d_affine/deeplabv3_bce.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment3/bin/25d_affine/deeplabv3_bce.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/25d_affine/2d_slice.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/25d_affine/2d_slice.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,35 +12,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d_rigid/deeplabv3_bce.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="83" selection-start-line="15" selection-start-column="83" selection-end-line="15" selection-end-column="83" />
-              <folding>
-                <element signature="e#105#120#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/25d_affine/deeplabv3_bce.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3519">
-              <caret line="207" column="52" selection-start-line="207" selection-start-column="52" selection-end-line="207" selection-end-column="52" />
+            <state relative-caret-position="299">
+              <caret line="73" column="16" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="16" />
               <folding>
                 <element signature="e#105#120#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/25d_affine/2d_slice.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="111" column="66" selection-start-line="111" selection-start-column="66" selection-end-line="111" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -132,9 +109,9 @@
         <option value="$PROJECT_DIR$/homework/assignment3/bin/2d_no_register/deeplabv3_bce.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/syn/register_syn.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/calc_stats.py" />
-        <option value="$PROJECT_DIR$/homework/assignment3/bin/25d_affine/deeplabv3_bce.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/25d_affine/2d_slice.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/2d_rigid/deeplabv3_bce.py" />
+        <option value="$PROJECT_DIR$/homework/assignment3/bin/25d_affine/deeplabv3_bce.py" />
       </list>
     </option>
   </component>
@@ -351,7 +328,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/register_no_rescale.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/register_no_resiz.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/2d_slice.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/postprocessing/register_no_resize.py" />
@@ -583,6 +559,9 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/25d_affine/deeplabv3_bce_pretrained.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/25d_affine/2d_slice.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="245">
@@ -592,7 +571,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d_rigid/deeplabv3_bce.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state relative-caret-position="-1411">
           <caret line="15" column="83" selection-start-line="15" selection-start-column="83" selection-end-line="15" selection-end-column="83" />
           <folding>
             <element signature="e#105#120#0" expanded="true" />
@@ -602,8 +581,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/25d_affine/deeplabv3_bce.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3519">
-          <caret line="207" column="52" selection-start-line="207" selection-start-column="52" selection-end-line="207" selection-end-column="52" />
+        <state relative-caret-position="299">
+          <caret line="73" column="16" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="16" />
           <folding>
             <element signature="e#105#120#0" expanded="true" />
           </folding>

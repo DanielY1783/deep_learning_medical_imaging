@@ -17,7 +17,7 @@ from torch.optim.lr_scheduler import StepLR
 from skimage import io
 
 # Constants
-MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/25d_affine/deeplabv3_bce"
+MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/25d_affine/deeplabv3_bce_pretrained"
 TRAIN_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/25d_affine/img/"
 TRAIN_LABEL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/25d_affine/label_filtered/"
 VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/25d_affine/img/"
@@ -71,7 +71,7 @@ def train(model, device, train_loader, optimizer, epoch, train_losses):
         optimizer.zero_grad()
         # Obtain the predictions from forward propagation
         output = model(data)["out"]
-        output = torch.squeeze(output, 1)
+        output = output[:, 0, :, :]
         # Compute the cross entropy for the loss and update total loss.
         loss = torch.nn.BCEWithLogitsLoss()(output, target)
         total_loss += loss.item()
@@ -116,7 +116,7 @@ def test(model, device, test_loader, test_losses):
             data, target = data.to(device, dtype=torch.float32), target.to(device, dtype=torch.float32)
             # Obtain the output from the model
             output = model(data)["out"]
-            output = torch.squeeze(output, 1)
+            output = output[:, 0, :, :]
             # Calculate the loss using cross entropy.
             loss = torch.nn.BCEWithLogitsLoss()(output, target)
             # Increment the total test loss
@@ -205,7 +205,7 @@ def main():
     print("Finished Loading Data")
 
     # Send model to gpu
-    model = models.segmentation.deeplabv3_resnet101(pretrained=True, num_classes=1).to(device)
+    model = models.segmentation.deeplabv3_resnet101(pretrained=True).to(device)
     # Specify Adam optimizer
     optimizer = optim.Adam(model.parameters(), lr=args.lr)
 
