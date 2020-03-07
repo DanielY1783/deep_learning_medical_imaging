@@ -45,4 +45,6 @@ for file_name in os.listdir(PREDICTED_LABEL):
 print("Precision: ", precision_list)
 print("Recall: ", recall_list)
 print("F1: ", f1_list)
+print("Mean Precision: ", np.mean(np.array(precision_list)))
+print("Mean Recall: ", np.mean(np.array(recall_list)))
 print("Mean F1: ", np.mean(np.array(f1_list)))

@@ -5,7 +5,7 @@ import os
 # Constants for path names
 VAL_IMG = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/img/"
 VAL_IMG_REGISTER = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/affine_fixed/img_registered/"
-VAL_PREDICTIONS = "/content/drive/My Drive/cs8395_deep_learning/assignment3/results/Val/affine_fixed/thresholded/"
+VAL_PREDICTIONS = "/content/drive/My Drive/cs8395_deep_learning/assignment3/results/Val/affine_fixed/prediction_thresholded/"
 NEW_VAL_PREDICTIONS = "/content/drive/My Drive/cs8395_deep_learning/assignment3/results/Val/affine_fixed/deregistered/"
 
 # Transform all validation predictions back to original space
