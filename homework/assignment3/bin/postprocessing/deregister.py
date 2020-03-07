@@ -2,36 +2,10 @@
 
 import ants
 import os
-
-# # Constants for path names
-# VAL_IMG = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/img/"
-# VAL_PREDICTIONS = "/content/drive/My Drive/cs8395_deep_learning/assignment3/results/Val/affine_fixed/thresholded/"
-# MOVING_IMG = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/img/0007.nii.gz"
-# NEW_VAL_PREDICTIONS = "/content/drive/My Drive/cs8395_deep_learning/assignment3/results/Val/affine_fixed/deregistered/"
-#
-# fixed = ants.image_read(MOVING_IMG)
-#
-# # Transform all validation predictions back to original space
-# for file_name in os.listdir(VAL_IMG):
-#     moving_image = ants.image_read(VAL_IMG + file_name)
-#     label = ants.image_read(VAL_PREDICTIONS + file_name)
-#     # Affine register, except for 0004.nii.gz, which was registered with rigid
-#     if file_name != "0004.nii.gz":
-#         transform = ants.registration(fixed=fixed, moving=moving_image,
-#                                      type_of_transform = 'AffineFast', random_seed=0)
-#     else:
-#         transform = ants.registration(fixed=fixed, moving=moving_image,
-#                                       type_of_transform = 'Rigid', random_seed=0)
-#     # Apply inverse transform back to original space
-#     deregistered_label = ants.apply_transforms(fixed=moving_image, moving=label,
-#                                                transformlist=transform['invtransforms'],
-#                                                interpolator='nearestNeighbor')
-#     deregistered_label.to_file(NEW_VAL_PREDICTIONS + file_name)
 # Constants for path names
 VAL_IMG = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/img/"
 VAL_IMG_REGISTER = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/affine_fixed/img_registered/"
 VAL_PREDICTIONS = "/content/drive/My Drive/cs8395_deep_learning/assignment3/results/Val/affine_fixed/thresholded/"
-MOVING_IMG = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Train/img/0007.nii.gz"
 NEW_VAL_PREDICTIONS = "/content/drive/My Drive/cs8395_deep_learning/assignment3/results/Val/affine_fixed/deregistered/"
 
 # Transform all validation predictions back to original space
