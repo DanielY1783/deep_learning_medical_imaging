@@ -67,8 +67,9 @@ def main():
             segmentation_np = segmentation.cpu().numpy()
             segmentation_np = np.transpose(segmentation_np, (1, 2, 0))
 
-            # Create new numpy array of zeros for the numpy output
-            prediction = np.zeros(image_data.shape)
+            # Create new numpy array of -10 values for the numpy output,
+            # and insert the predicted area.
+            prediction = np.ones(image_data.shape) * -10
             prediction[X_START:X_END, Y_START:Y_END, Z_START:Z_END] = segmentation_np
 
             # Save the prediction to file.

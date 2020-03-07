@@ -5,11 +5,11 @@ import numpy as np
 import os
 
 # Path for the predicted volumes
-PREDICTION_PATH = "../../results/Val/affine_fixed/prediction/"
+PREDICTION_PATH = "../../results/Val/affine_fixed/prediction_float/"
 # Path for the actual labels
 LABELS_PATH = "../../data/Val/affine_fixed/label_registered/"
 # Path to save the thresholded volumes
-THRESHOLD_PATH = "../../results/Val/affine_fixed/thresholded/"
+THRESHOLD_PATH = "../../results/Val/affine_fixed/prediction_thresholded/"
 
 def main():
     # Step 1: Find the best threshold for counting a prediction as class 1
@@ -18,7 +18,7 @@ def main():
     best_threshold = 0
     best_f1 = 0
     # Iterate through different thresholds to calculate f1 at each threshold
-    for threshold in [0.001, 0.01, 0.1, 0.25, 0.5, 0.75, 1]:
+    for threshold in [-0.5, -0.25, -0.1, 0, 0.1, 0.25, 0.5]:
         # List of precision, recall, and f1 scores
         precision_list = []
         recall_list = []

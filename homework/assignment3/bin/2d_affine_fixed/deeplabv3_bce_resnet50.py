@@ -5,16 +5,12 @@
 import argparse
 from matplotlib import pyplot as plt
 import numpy as np
-import pandas as pd
 import os
 import torch
 from torch.utils.data import Dataset, DataLoader
-import torch.nn as nn
-import torch.nn.functional as F
 import torch.optim as optim
-from torchvision import transforms, models
+from torchvision import models
 from torch.optim.lr_scheduler import StepLR
-from skimage import io
 
 # Constants
 MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d_affine_fixed/deeplabv3_bce_resnet50"
@@ -96,7 +92,7 @@ def test(model, device, test_loader, test_losses):
     # Create dictionary of predictions for different thresholds.
     # Initialize sums of true positives, true negatives, false positives, and false negatives to 0
     threshold_dict = {}
-    for threshold in [0.001, 0.01, 0.1, 0.25, 0.5]:
+    for threshold in [-0.5, -0.25, -0.1, 0, 0.1, 0.25, 0.5]:
         threshold_dict[str(threshold)] = {}
         threshold_dict[str(threshold)]["total_tp"] = 0
         threshold_dict[str(threshold)]["total_tn"] = 0
@@ -126,7 +122,7 @@ def test(model, device, test_loader, test_losses):
             # Convert output to numpy array
             output = output.cpu().numpy()
             # Calculate stats for each threshold
-            for threshold in [0.001, 0.01, 0.1, 0.25, 0.5]:
+            for threshold in [-0.5, -0.25, -0.1, 0, 0.1, 0.25, 0.5]:
                 # Filter both the prediction and the target by only class 1 for spleen
                 pred_filtered = np.where(output > threshold, 1, 0)
                 target_filtered = np.where(target.cpu().numpy() == 1, 1, 0)
@@ -145,7 +141,7 @@ def test(model, device, test_loader, test_losses):
         # Calculate precision, recall, and f1 and print out statistics for validation set
         print("Average Validation Loss: ", test_loss / len(test_loader))
         # Find results for each threshold.
-        for threshold in [0.001, 0.01, 0.1, 0.25, 0.5]:
+        for threshold in [-0.5, -0.25, -0.1, 0, 0.1, 0.25, 0.5]:
             print("At threshold ", str(threshold))
             print("Total Validation True Positives: ", threshold_dict[str(threshold)]["total_tp"])
             print("Total Validation True Negatives: ", threshold_dict[str(threshold)]["total_tn"])

@@ -8,7 +8,7 @@ from torchvision import transforms, models
 
 
 VAL_IMG_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/data/Val/affine_fixed/img_registered/"
-SAVE_VOL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/results/Val/affine_fixed/prediction/"
+SAVE_VOL_PATH = "/content/drive/My Drive/cs8395_deep_learning/assignment3/results/Val/affine_fixed/prediction_float/"
 MODEL_NAME = "/content/drive/My Drive/cs8395_deep_learning/assignment3/bin/2d_affine_fixed/deeplabv3_bce_resnet50.pt"
 
 # Start and end indices for where to slice on each axis
@@ -67,8 +67,8 @@ def main():
             segmentation_np = segmentation.cpu().numpy()
             segmentation_np = np.transpose(segmentation_np, (1, 2, 0))
 
-            # Create new numpy array of zeros for the numpy output
-            prediction = np.zeros(image_data.shape)
+            # Create new numpy array of -10 values and insert in area of predictions
+            prediction = np.ones(image_data.shape) * -10
             prediction[X_START:X_END, Y_START:Y_END, Z_START:Z_END] = segmentation_np
 
             # Save the prediction to file.

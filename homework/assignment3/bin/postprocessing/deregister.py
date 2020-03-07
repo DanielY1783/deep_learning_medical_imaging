@@ -10,6 +10,7 @@ NEW_VAL_PREDICTIONS = "/content/drive/My Drive/cs8395_deep_learning/assignment3/
 
 # Transform all validation predictions back to original space
 for file_name in os.listdir(VAL_IMG):
+    print("Deregistering: ", file_name)
     fixed = ants.image_read(VAL_IMG + file_name)
     moving_image = ants.image_read(VAL_IMG_REGISTER + file_name)
     label = ants.image_read(VAL_PREDICTIONS + file_name)
