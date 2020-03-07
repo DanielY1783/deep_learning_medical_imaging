@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d111871f-b4ca-41b0-857b-829cd037bf7d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/25d_affine/deeplabv3_bce.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment3/bin/25d_affine/deeplabv3_bce.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/affine/register_no_resize.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/calc_stats.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/calc_stats.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/rigid/register_rigid.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/rigid/register_rigid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/test_preprocessing/register_no_resize.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/test_preprocessing/register_rigid.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/assignment3/bin/test_preprocessing/register_syn.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,13 +19,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/25d_affine/deeplabv3_bce.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/postprocessing/calc_stats.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="73" column="16" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="16" />
+            <state relative-caret-position="404">
+              <caret line="47" column="43" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/test/register_affine.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
               <folding>
-                <element signature="e#105#120#0" expanded="true" />
+                <element signature="e#76#87#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d_affine_fixed/calc_val_volumes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1258">
+              <caret line="74" column="21" selection-start-line="74" selection-start-column="21" selection-end-line="74" selection-end-column="37" />
+              <folding>
+                <element signature="e#57#78#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d_affine_fixed/calc_test_volumes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="106" selection-start-line="10" selection-start-column="106" selection-end-line="10" selection-end-column="106" />
+              <folding>
+                <element signature="e#57#78#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -61,30 +101,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/homework/assignment3/bin/2d/deeplabv3_resnet50.py" />
-        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/test.py" />
-        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/resize.py" />
-        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/register.py" />
-        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/resize_and_rescale.py" />
-        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/2d_resize224.py" />
-        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/register_v2.py" />
-        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/2d_slic.py" />
-        <option value="$PROJECT_DIR$/homework/assignment3/bin/2d/deeplabv3_binary_diceloss.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/2d/unet_2d.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/register_no_rescale.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/2d_slice.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/register_no_resize.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/postprocessing/register_no_resize.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/rescale.py" />
-        <option value="$PROJECT_DIR$/homework/assignment3/bin/test_preprocessing/register_no_resize.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/2d_slice_v2.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/register_similarity.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/2d/unet_binary_diceloss.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/2d/unet_2d_binary.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/register_rigid.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/2d_slice_nr.py" />
-        <option value="$PROJECT_DIR$/homework/assignment3/bin/test_preprocessing/register_rigid.py" />
-        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/affine/register_no_resize.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/affine/rescale.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/affine/2d_slice_v2.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/2d/deeplabv3_binary_nr.py" />
@@ -96,7 +124,6 @@
         <option value="$PROJECT_DIR$/homework/assignment3/bin/2d_no_register/deeplabv3_binary.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/2d_rigid/deeplabv3.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/2d_rigid/deeplabv3_binary.py" />
-        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/rigid/register_rigid.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/README.md" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/resize256/2d_slice.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/affine256/2d_slice.py" />
@@ -108,10 +135,23 @@
         <option value="$PROJECT_DIR$/homework/assignment3/bin/2d_affine/deeplabv3_bce.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/2d_no_register/deeplabv3_bce.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/syn/register_syn.py" />
-        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/calc_stats.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/25d_affine/2d_slice.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/2d_rigid/deeplabv3_bce.py" />
         <option value="$PROJECT_DIR$/homework/assignment3/bin/25d_affine/deeplabv3_bce.py" />
+        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/calc_stats.py" />
+        <option value="$PROJECT_DIR$/homework/assignment3/bin/2d_affine_fixed/deeplabv3_bce.py" />
+        <option value="$PROJECT_DIR$/homework/assignment3/bin/2d_affine_fixed/deeplabv3_bce_resnet50.py" />
+        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/affine_fixed/2d_slice.py" />
+        <option value="$PROJECT_DIR$/homework/assignment3/bin/2d_affine_fixed/calc_val_volumes.py" />
+        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/affine/register_no_resize.py" />
+        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/affine/register_affine.py" />
+        <option value="$PROJECT_DIR$/homework/assignment3/bin/postprocessing/calc_thresholds.py" />
+        <option value="$PROJECT_DIR$/homework/assignment3/bin/preprocessing/rigid/register_rigid.py" />
+        <option value="$PROJECT_DIR$/homework/assignment3/bin/test_preprocessing/register_no_resize.py" />
+        <option value="$PROJECT_DIR$/homework/assignment3/bin/test_preprocessing/register_rigid.py" />
+        <option value="$PROJECT_DIR$/homework/assignment3/bin/postprocessing/deregister.py" />
+        <option value="$PROJECT_DIR$/homework/assignment3/bin/postprocessing/calc_stats.py" />
+        <option value="$PROJECT_DIR$/homework/assignment3/bin/2d_affine_fixed/calc_test_volumes.py" />
       </list>
     </option>
   </component>
@@ -127,7 +167,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -144,12 +183,6 @@
               <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
               <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
               <item name="homework" type="462c0819:PsiDirectoryNode" />
-              <item name="assignment2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
-              <item name="homework" type="462c0819:PsiDirectoryNode" />
               <item name="assignment3" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -165,7 +198,7 @@
               <item name="homework" type="462c0819:PsiDirectoryNode" />
               <item name="assignment3" type="462c0819:PsiDirectoryNode" />
               <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="2d_no_register" type="462c0819:PsiDirectoryNode" />
+              <item name="2d_affine_fixed" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
@@ -173,7 +206,7 @@
               <item name="homework" type="462c0819:PsiDirectoryNode" />
               <item name="assignment3" type="462c0819:PsiDirectoryNode" />
               <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="2d_rigid" type="462c0819:PsiDirectoryNode" />
+              <item name="postprocessing" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
@@ -181,29 +214,20 @@
               <item name="homework" type="462c0819:PsiDirectoryNode" />
               <item name="assignment3" type="462c0819:PsiDirectoryNode" />
               <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="25d_affine" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
               <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
               <item name="homework" type="462c0819:PsiDirectoryNode" />
               <item name="assignment3" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="preprocessing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cs8395_deep_learning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cs8395_deep_learning" type="462c0819:PsiDirectoryNode" />
-              <item name="homework" type="462c0819:PsiDirectoryNode" />
-              <item name="assignment3" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-              <item name="preprocessing" type="462c0819:PsiDirectoryNode" />
-              <item name="25d_affine" type="462c0819:PsiDirectoryNode" />
+              <item name="results" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -328,41 +352,8 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/register_no_resiz.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/2d_slice.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/postprocessing/register_no_resize.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/test.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/register_no_resize_2.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d/unet_binary_diceloss.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/register_similarity.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/register_rigid.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d/unet_2d_binary.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d/unet_2d.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/2d_slice_v2.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/register_no_resize.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/rescale.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/test_preprocessing/register_no_resize.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="16" column="50" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/2d_slice_nr.py" />
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/affine/register_no_resize.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="14" column="91" selection-start-line="14" selection-start-column="91" selection-end-line="14" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/affine/rescale.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d/deeplabv3_binary_nr.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d/deeplabv3.py" />
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d_no_register/deeplabv3_binary_nr.py" />
@@ -429,16 +420,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/test_preprocessing/register_rigid.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="39" selection-start-line="7" selection-end-line="8" selection-end-column="108" />
-          <folding>
-            <element signature="e#77#88#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/old/2d_slice.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -451,13 +432,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-408">
           <caret line="9" selection-start-line="9" selection-end-line="18" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/rigid/register_rigid.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -525,16 +499,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/calc_stats.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-425">
-          <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment1/bin/train.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -562,13 +526,6 @@
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/25d_affine/deeplabv3_bce_pretrained.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/25d_affine/2d_slice.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="111" column="66" selection-start-line="111" selection-start-column="66" selection-end-line="111" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d_rigid/deeplabv3_bce.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1411">
@@ -581,10 +538,166 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/25d_affine/deeplabv3_bce.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="73" column="16" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="16" />
+        <state relative-caret-position="231">
+          <caret line="207" column="52" selection-start-line="207" selection-start-column="52" selection-end-line="207" selection-end-column="52" />
           <folding>
             <element signature="e#105#120#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/calc_stats.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/25d_affine/2d_slice.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="111" column="66" selection-start-line="111" selection-start-column="66" selection-end-line="111" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/affine/rescale.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="25" column="4" lean-forward="true" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/affine_fixed/2d_slice.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1421">
+          <caret line="46" column="32" lean-forward="true" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment2/bin/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="40" column="10" lean-forward="true" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d_affine_fixed/deeplabv3_bce.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1615">
+          <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/affine/register_no_resize.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="38" column="80" selection-start-line="38" selection-start-column="80" selection-end-line="38" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/test_preprocessing/register_no_resize.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="8" column="107" selection-start-line="8" selection-start-column="107" selection-end-line="8" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/test_preprocessing/register_rigid.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="20" column="78" selection-start-line="20" selection-start-column="78" selection-end-line="20" selection-end-column="78" />
+          <folding>
+            <element signature="e#77#88#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/postprocessing/deregister.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="31" column="113" selection-start-line="31" selection-start-column="113" selection-end-line="31" selection-end-column="113" />
+          <folding>
+            <element signature="e#46#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/rigid/register_rigid.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="23" column="78" selection-start-line="23" selection-start-column="78" selection-end-line="23" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/test_preprocessing/register_affine.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/postprocessing/calc_thresholds.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-367">
+          <caret line="53" selection-start-line="53" selection-end-line="56" selection-end-column="30" />
+          <folding>
+            <element signature="e#47#68#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/preprocessing/affine/register_affine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#77#88#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d_affine_fixed/deeplabv3_bce_resnet50.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="40" column="12" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="70" />
+          <folding>
+            <element signature="e#105#120#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/postprocessing/calc_stats.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="47" column="43" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/test/register_affine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#76#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d_affine_fixed/calc_val_volumes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1258">
+          <caret line="74" column="21" selection-start-line="74" selection-start-column="21" selection-end-line="74" selection-end-column="37" />
+          <folding>
+            <element signature="e#57#78#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/assignment3/bin/2d_affine_fixed/calc_test_volumes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="106" selection-start-line="10" selection-start-column="106" selection-end-line="10" selection-end-column="106" />
+          <folding>
+            <element signature="e#57#78#0" expanded="true" />
           </folding>
         </state>
       </provider>

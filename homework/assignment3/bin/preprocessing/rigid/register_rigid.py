@@ -21,7 +21,7 @@ for file_name in os.listdir(OLD_TRAIN_IMG):
     moving_image = ants.image_read(OLD_TRAIN_IMG + file_name)
     label = ants.image_read(OLD_TRAIN_LABELS + file_name)
     transform = ants.registration(fixed=fixed , moving=moving_image,
-                                 type_of_transform='QuickRigid' )
+                                 type_of_transform='QuickRigid', random_seed=0)
     transformed_image = ants.apply_transforms( fixed=fixed, moving=moving_image,
                                                transformlist=transform['fwdtransforms'],
                                                interpolator='nearestNeighbor')
@@ -36,12 +36,12 @@ for file_name in os.listdir(OLD_VAL_IMG):
     moving_image = ants.image_read(OLD_VAL_IMG + file_name)
     label = ants.image_read(OLD_VAL_LABELS + file_name)
     transform = ants.registration(fixed=fixed , moving=moving_image,
-                                 type_of_transform = 'QuickRigid' )
+                                 type_of_transform = 'QuickRigid', random_seed=0)
     transformed_image = ants.apply_transforms( fixed=fixed, moving=moving_image,
                                                transformlist=transform['fwdtransforms'],
-                                               interpolator  = 'nearestNeighbor')
+                                               interpolator = 'nearestNeighbor')
     transformed_image.to_file(NEW_VAL_IMG + file_name)
     transformed_label = ants.apply_transforms( fixed=fixed, moving=label,
                                                transformlist=transform['fwdtransforms'],
-                                               interpolator  = 'nearestNeighbor')
+                                               interpolator = 'nearestNeighbor')
     transformed_label.to_file(NEW_VAL_LABELS + file_name)
